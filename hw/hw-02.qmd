@@ -1,0 +1,49 @@
+---
+title: "第2周课后作业"
+author: 曾永艺
+date: 2022-09-23
+# editor: visual
+---
+
+<hr>
+:::{.callout-note}
+必做部分，需在截止日期前上传完成的代码文档！
+:::
+
+- 🕐 **根据 L2 课程讲义的打印稿，在 📑 _R Script_ 中键入并完成全部代码的运行**
+
+  1. **打开新的 R script 文件**
+     - `Ctrl+Shift+N` 打开 -&gt; `Ctrl+S` 存盘为“_L02_coding_practice.R_”
+     - 注：文件保存路径和文件名最好为英文，中间不要有空格
+  
+  2. **输入与运行代码**
+     - 长代码手动断行，最好不要超过80个字符
+     - 灵活使用快捷键，如 `Tab`（代码提示与自动补全）、`Ctrl+A`（选中全部代码） -&gt; `Ctrl+Shift+A`（代码重新格式化）等
+     - `Ctrl+Enter` 运行光标所在行或选中代码（`Ctrl+Alt+R` 运行全部代码，`Ctrl+Shift+P` 重新运行代码，`Ctrl+Alt+P` 运行光标前的代码）
+
+  3. **注释**
+     - 以 # 作为注释开始标记，如说明性文字、区分不同代码块（Ctrl+Shift+R）
+     - 最后加入一段注释说明，简单说说使用ggplot2包的体会
+
+  4. **提交代码**
+     - 可结队编写代码，共同署名，分别提交，但不能完全雷同
+     - 2022年9月26日22:00前通过 [{{坚果云链接}}](https://workspace.jianguoyun.com/inbox/collect/a06f3a70ea64480691024f239e216976/submitv2) 直接提交代码文档
+
+<hr>
+:::{.callout-note}
+以下为同学们根据自己的时间安排选做部分——很多是非常棒的参考资料！😁
+:::
+
+- 🕑 请复习 📖 [**{{_R for Data Science_}}**](https://r4ds.had.co.nz/)  一书关于数据可视化的第3章和第28章（以及第4、6、8章关于工作流程）的内容
+
+- 🕒 从 📖 [**{{_R Graphics Cookbook_}}**](https://r-graphics.org/) 一书中挑选 **两章**，复制性代码练习
+
+- 🕓 下载（打印）📰 [**{{ggplot2-cheatsheet}}**](docs/ggplot2-cheatsheet.pdf) 并浏览之
+
+- 🕔 登录浏览 🖼 [**{{The R Graph Gallery}}**](https://www.r-graph-gallery.com/index.html)
+
+- 🕕 登录浏览 📦 [**{{ggplot2 extentions}}**](https://exts.ggplot2.tidyverse.org/gallery/)，进一步了解 `ggplot2` 包的“生态圈”
+
+- 🕖 **进阶内容**：R 对中文字体的支持不够理想，可参考 📝 [**{{ RJournal 的文章}}**](https://journal.r-project.org/archive/2015-1/qiu.pdf) 以及帖子 [**{{showtext}}**](https://cosx.org/2014/01/showtext-interesting-fonts-and-graphs) 中提到的解决方案和有趣示例
+
+<br>

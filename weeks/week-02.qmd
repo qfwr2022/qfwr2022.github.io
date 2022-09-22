@@ -1,0 +1,59 @@
+---
+title: "第 2 周"
+subtitle: "ggplot2数据可视化"
+author: 曾永艺
+date: 2022-09-23
+categories: [预习, 讲义, 随堂练习, 作业]
+image: /slides/lec-02/L02_Visualization_files/figure-html/datasaurus-1.png
+# editor: visual
+---
+
+<hr>
+
+“一图胜千言”。R 语言有着强大的数据可视化（制图）功能，很多人学习 R 语言编程主要就是冲着这一点来的。在本讲中我们将侧重介绍影响力巨大的 `ggplot2` 包，并涵盖以下几方面的内容：
+
+* R 的绘图系统
+
+* `ggplot2` 入门
+  - The Layered Grammar of Graphics
+  - 将数据映射为几何对象的图形属性
+  - 统计变换、位置调整、坐标、分面
+  - 标签、标注、标度、主题等
+
+* `ggplot2` extensions, 如 `patchwork` 包
+
+<hr>
+
+## 1. 课前准备
+
+::: {style="text-align:center"}
+<img src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" class="cover" width="300"/>
+:::
+
+📖 阅读 [*R for Data Science*](https://r4ds.had.co.nz/) 一书关于数据可视化的第3章和第28章的内容。
+
+::: callout-tip
+此书的中文翻译版 [《R数据科学》](https://www.ituring.com.cn/book/2113) 发行有官方pdf电子版，对应章节为“第1章 使用ggplot2进行数据可视化”和“第21章 使用ggplot2进行图形化沟通”。若觉得英文阅读有点吃力的同学，可找来参阅。
+:::
+
+## 2. 课堂讲义
+
+🖥️ [第2讲 ggplot2数据可视化](/slides/lec-02/L02_Visualization.html)
+
+:::{.callout-note}
+课堂**讲义 PDF 版**和**腾讯会议云录制链接**已经发布在 QQ 课程群内，请有需要的同学自行下载或观看。
+:::
+
+## 3. 随堂练习
+
+⌨️ 见课堂讲义
+
+## 4. 课后作业
+
+✍️ [课后作业](/hw/hw-02.qmd)
+
+<br>
+
+<!-- ::: {style="font-size:0.875em; text-align:right"} -->
+<!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
+<!-- ::: -->

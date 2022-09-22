@@ -1,0 +1,100 @@
+project:
+  type: website
+  resources: 
+    - "/slides/"
+
+execute:
+  freeze: auto
+
+website:
+  title: "_Quantitative Finance with R_"
+  description: |
+    "这是厦门大学管理学院2022-2023学年秋季学期“量化金融与金融编程”的课程网站。"
+  favicon: favicon.png
+  site-url: https://qfwr2022.netlify.app/
+  repo-url: https://github.com/qfwr2022/qfwr2022.github.io
+  # repo-branch: main
+  repo-actions: edit # [edit, issue]
+  reader-mode: false
+  search: 
+    location: navbar
+    type: textbox  # overlay
+  navbar:
+    # title: false
+    background: light
+    logo: favicon.png # zero2hero.png
+    # logo-href: https://qfwr2022.netlify.app/
+    logo-alt: "Quantitative Finance with R"
+    # search: true
+    pinned: true
+    collapse: true
+    left: 
+      - text: "**课程主页**"
+        href: index.qmd
+      - text: "**课程安排**"
+        icon: calendar-day-fill
+        href: schedule.qmd
+      - text: "**每周资料**"
+        icon: book
+        href: weeks.qmd
+        # menu: 
+        #   - href: weeks/week-01.qmd
+        #     text: "第 1 周"
+        #   - href: weeks/week-02.qmd
+        #     text: "第 2 周"
+        #   - href: weeks/week-03.qmd
+        #     text: "第 3 周"
+        #   - href: weeks/week-04.qmd
+        #     text: "第 4 周"
+        #   - text: "......"
+      - text: "**小组项目**"
+        icon: trophy
+        href: project/team-project.qmd
+    right:
+      - icon: globe
+        href: https://qfwr2022.netlify.app
+      - icon: github
+        href: https://github.com/qfwr2022
+      # - icon: rss
+      #   href: weeks.xml
+  sidebar:
+    - title: false
+      style: "floating"
+      background: light
+      contents:
+        - weeks.qmd
+        - text: "第1周 课程简介"
+          href: weeks/week-01.qmd
+        - text: "第2周 ggplot2数据可视化"
+          href: weeks/week-02.qmd
+        - text: "第3周 rmarkdown与Quarto"
+          href: weeks/week-03.qmd
+        - text: "......"
+  page-navigation: true
+  page-footer:
+    background: light
+    border: true
+    left:
+      - text: "© Copyright 2022, Yongyi Zeng"
+    right: |
+      用❤️发电，
+      用[![](https://quarto.org/quarto.png){fig-alt="Quarto" height=1.2em}](https://quarto.org/)搭建
+  comments:
+    giscus:
+      repo: qfwr2022/qfwr2022.github.io
+      loading: lazy
+      language: zh-CN
+  
+format:
+  html:
+    toc: true
+    theme: 
+      light: [cosmo, theme.scss]
+      dark: [cosmo, theme-dark.scss]
+    code-copy: true
+    code-overflow: wrap
+    lang: zh
+    language: 
+      title-block-author-single: 发布者
+      title-block-author-plural: 发布者
+    

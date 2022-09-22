@@ -1,0 +1,31 @@
+---
+title: ""
+comments: false
+sidebar: false
+page-layout: full
+about:
+  id: hero-contents
+  template: jolla
+  image: images/zero2hero.png
+  image-width: 500px
+  image-shape: rectangle
+  links:
+    - icon: globe
+      text: 网站
+      href: https://qfwr2022.netlify.app
+    - icon: github
+      text: Github
+      href: https://github.com/qfwr2022
+---
+
+<!-- more contents before -->
+
+:::{#hero-contents style="font-size:1.35rem; text-align:center"}
+这是[厦门大学管理学院](https://sm.xmu.edu.cn/) 2022-2023 学年秋季学期“量化金融与金融编程”课的课程主页，
+将主要展示课程 **准备 | 预习**、**课堂讲义 | 随堂练习**、**课后作业**、
+**小组研究项目** 等方面的信息和资源。
+
+希望同学们通过课程学习，能在 <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#000000;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"></path></svg> 语言金融编程领域实现 **from Zero to Hero** 的升级！
+:::
+
+<!-- more contents after -->

@@ -1,0 +1,37 @@
+/*-- scss:defaults --*/
+
+// Base document colors
+$body-bg: #181818;
+$body-color: white;
+$link-color: #75AADB;
+
+$light: #525252;
+
+// Navigation element colors
+$footer-bg: #181818;
+$navbar-bg: #303030;
+$sidebar-bg: #303030;
+
+// Code blocks
+$code-block-bg-alpha: -.8;
+
+// Bootstrap popovers
+$popover-bg: #242424;
+
+// Bootstrap inputs
+$input-bg: #242424;
+
+
+/*-- scss:rules --*/
+
+.layout-example {
+  background: $gray-700;
+}
+
+body {
+  font-family: Georgia,"Times New Roman","KaiTi","楷体",STKaiti,"华文楷体",serif;
+}
+
+h1, h2, h3 { 
+  font-family: Helvetica,"Helvetica Neue",Tahoma,Arial,"WenQuanYi Micro Hei","Microsoft YaHei UI","Microsoft YaHei","微软雅黑","Hiragino Sans GB",Heiti,"黑体",sans-serif;
+}

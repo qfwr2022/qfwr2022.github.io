@@ -1,0 +1,59 @@
+---
+title: "第 1 周"
+subtitle: "课程简介"
+author: 曾永艺
+date: 2022-09-16
+categories: [准备, 讲义, 作业]
+image: /slides/lec-01/imgs/ds4b_rating.png
+# editor: visual
+---
+
+<hr>
+
+作为“量化金融与金融编程”课程的开学第一课，本讲的主要目的在于向学生介绍为什么要开设本门课程、教学设计以及如何才能学好这门课程，方便同学们作出理性的选课决定。授课将主要涵盖以下三方面的内容：
+
+* 课程简介
+  - 量化金融与金融编程 📈
+  - 学好这门课的正确方式 🎯
+  - 谁该选这门课？🙋
+
+* RStudio 概览
+
+* 获取帮助与学习资源 😱 🆘 🤩
+
+<hr>
+
+:::{.callout-important}
+由于会给同学随堂演示如何在 RStudio 环境下进行 R 语言编程，
+同学们务必在课前完成 R、RStudio、R 包等相关软件的安装及配置工作
+（在此过程中，如碰到问题可在课程 QQ 群上求助）。
+:::
+
+## 1. 课前准备
+
+🖥️ 请同学们依照如下[幻灯片](/slides/lec-00/L00-Prepare.html)的步骤说明完成 R、RStudio、R 包等相关软件的安装及配置工作：
+
+```{=html}
+<iframe width="100%" height="460px" allow="fullscreen" style="border:2px solid gray" src="/slides/lec-00/L00-Prepare.html"></iframe>
+```
+## 2. 课堂讲义
+
+🖥️ [第1讲 课程简介](/slides/lec-01/L01_Introduction.html)
+
+:::{.callout-note}
+课堂**讲义 PDF 版**和**腾讯会议云录制链接**已经发布在 QQ 课程群内，请有需要的同学自行下载或观看。
+:::
+
+## 3. 随堂练习
+
+⌨️ 见课堂讲义
+
+## 4. 课后作业
+
+✍️ [课后作业](/hw/hw-01.qmd)
+
+<br>
+
+<!-- ::: {style="font-size:0.875em; text-align:right"} -->
+<!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
+<!-- ::: -->
