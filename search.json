@@ -112,6 +112,13 @@
     "text": "4. 课后作业\n✍️ 课后作业"
   },
   {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "课程安排",
+    "section": "",
+    "text": "周次\n日期\n主题\n准备\n讲义\n练习\n作业\n项目\n\n\n\n\n1\n2022-09-16\n课程简介\n📖\n🖥️\n\n✍️\n\n\n\n2\n2022-09-23\nggplot2 数据可视化\n📖\n🖥️\n⌨️\n✍️\n\n\n\n3\n2022-09-30\nrmarkdown 与 Quarto"
+  },
+  {
     "objectID": "hw/hw-01.html",
     "href": "hw/hw-01.html",
     "title": "第1周课后作业",
