@@ -1,0 +1,25 @@
+---
+title: "课程安排"
+sidebar: false
+# page-layout: full
+tbl-colwidths: [5,10,18,5,5,5,5,5]
+---
+
+:::{.callout-note}
+本页包含本课程周次安排、教学主题、课前准备、讲义、课后作业、小组项目等方面的
+概要信息以及相应的链接。
+目前课程网站仍处于草创阶段，但随着本学期教学进度的推进，本表格将逐步增补、充实并完善。
+:::
+
+<br>
+
+:::{.column-body}
+
+|  周次  |  日期  |主题    |  准备  |  讲义  |  练习  |  作业  |  项目  |
+|:------:|:------:|--------|:------:|:------:|:------:|:------:|:------:|
+| [1](/weeks/week-01.qmd)  | 2022-09-16  | 课程简介           | [📖](/weeks/week-01.qmd#课前准备) | [🖥️](/slides/lec-01/L01_Introduction.html "幻灯片讲义")  |   | [✍️](/hw/hw-01.qmd "课后作业") |  |
+| [2](/weeks/week-02.qmd)  | 2022-09-23  | ggplot2 数据可视化 | [📖](/weeks/week-02.qmd#课前准备) | [🖥️](/slides/lec-02/L01_Visualization.html "幻灯片讲义") | [⌨️](/weeks/week-02.qmd#随堂练习) | [✍️](/hw/hw-02.qmd "课后作业") |   |
+| [3](/weeks/week-03.qmd)  | 2022-09-30  | rmarkdown 与 Quarto |   |   |   |   |   |
+
+:::
+
