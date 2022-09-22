@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>课前准备</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=" 曾永艺" />
+    <meta name="date" content="2022-09-15" />
+    <script src="../libs/header-attrs/header-attrs.js"></script>
+    <link href="../libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="../libs/tile-view/tile-view.js"></script>
+    <link rel="stylesheet" href="../libs/zen-styles-v2.2.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# 量化金融与金融编程
+]
+.subtitle[
+## L01的课前准备
+]
+.author[
+### <br>曾永艺
+]
+.institute[
+### 厦门大学管理学院
+]
+.date[
+### <br>2022-09-15
+]
+
+---
+
+
+background-image: url(imgs/rstudio-desktop-screen.png)
+background-size: 25%
+background-position: 95% 95%
+
+
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 50px;
+height: 50px;
+z-index: 0;
+background-image: url(../libs/imgs/logo-sm.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:0.5em;right:0.5em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+## 工欲善其事必先利其器
+
+--
+### 考虑到
+
+.font120[
+- 本课程并未安排在机房上课，但 .font150[👨‍💻] 讲究熟能生巧，同学们需要适量的随堂练习（以及大量的课后练习）
+]
+
+&lt;br&gt;
+
+--
+### 因此
+
+.font120[
+-  同学们需要在自己的电脑上.red.large[**提前**]安装好相关软件和 R 📦
+
+-  同学们.red.large[**最好**]能随堂带上自己的笔记本电脑💻 —— 当然并&lt;br&gt;不要求每位同学都带上自己的电脑。两位同学结成相对&lt;br&gt;固定的 partner，共用 1 台电脑，彼此间相互讨论学习，&lt;br&gt;也是挺好的 😄
+]
+
+---
+class: middle
+
+.font300[⚠️]
+
+&lt;br&gt;
+.font200[可能部分同学由于各种“因缘际遇”在自己电脑上已经装有 R、RStudio 以及各色 R 包，为安装最新版本的软件并尽可能避免出现软件环境配置相关的问题，.bold.red[强烈建议同学们在进行下一阶段安装 / 设置之前先行卸载自己电脑上已安装的 R 和 RStudio。]]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+---
+class: inverse, center, middle, no-show
+background-image: url(../libs/imgs/bg.png), url(imgs/logo-R.svg)
+background-size: 100%, 10%
+background-position: 0% 100%, 75% 48%
+
+# 1. 安装 R 软件
+&lt;br&gt;
+
+???
+- [R-FAQ](https://cran.r-project.org/doc/FAQ/R-FAQ.html)
+- [R for Windows FAQ](https://cran.r-project.org/bin/windows/base/rw-FAQ.html)
+
+---
+class: hide_logo
+background-image: url(imgs/win10.jpg)
+background-size: 15%
+background-position: 95% 6%
+
+## 1.1 Windows 系统下的安装
+
+&gt; .font110[
+1. 登录[{{CRAN}}](https://cran.r-project.org/)或其[{{国内镜像}}](https://mirrors.tuna.tsinghua.edu.cn/CRAN/)，依次点击如下链接下载最新版的 <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#256BC1;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>  
+   .font90[Download R for Windows -&gt; base -&gt; Download R 4.2.1 for Windows] &lt;sup&gt;.red[1]&lt;/sup&gt;  
+
+2. 默认安装，.red.bold[但为避免可能错误以及后续学习中方便根据英文信息上网搜索解决方案，安装时注意如下两步的设置] &lt;sup&gt;.red[2]&lt;/sup&gt; 🙅
+]
+&lt;img src="imgs/fig01_installR.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+.footnote.left.font80.red[
+&lt;sup&gt;1&lt;/sup&gt; 若你的电脑相对老旧（比如是5年前的电脑），那你可能需要安装 R 的[{{早期版本}}](https://cran.r-project.org/bin/windows/base/old/)，但安装步骤类似。&lt;br&gt;
+&lt;sup&gt;2&lt;/sup&gt; [{{求教RStudio 如何切换为全英文的环境}}](https://d.cosx.org/d/421108-rstudio) —— 感觉挺麻烦的，我们还是能不折腾就尽量不折腾啦！😎
+]
+
+---
+class: hide_logo
+background-image: url(imgs/macOS.png)
+background-size: 10%
+background-position: 98% 4%
+
+## 1.2 macOS 系统下的安装
+
+&lt;br&gt;
+
+&gt; .font120[
+1. 登录[{{CRAN}}](https://cran.r-project.org/)或其[{{国内镜像}}](https://mirrors.tuna.tsinghua.edu.cn/CRAN/)，依次点击如下链接下载最新版的 <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:#256BC1;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>
+
+  Download R for macOS -&gt; R-4.2.1.pkg &lt;sup&gt;.red[1]&lt;/sup&gt;（.red[假如你苹果电脑的 CPU 类型为 Apple Silicon M1 及以上则选择 R-4.2.1-arm64.pkg]）
+
+2. 一路无脑默认选项安装即可 &lt;sup&gt;.red[2]&lt;/sup&gt;
+]
+
+.footnote.left.font80.red[
+&lt;sup&gt;1&lt;/sup&gt; 若你的电脑相对老旧（比如是5年前的电脑），那你可能需要根据网页说明安装 R 的早期版本，但安装步骤类似。&lt;br&gt;
+&lt;sup&gt;2&lt;/sup&gt; 在我一台4年前购置的 Mac 电脑上，默认安装一切正常，包括安装后打开R软件的提示信息为预期中的英文。
+]
+
+
+---
+class: inverse, center, middle, no-show
+background-image: url(../libs/imgs/bg.png), url(imgs/logo-RStudio.svg)
+background-size: 100%, 10%
+background-position: 0% 100%, 83% 48%
+
+# 2. 安装 **RStudio** 软件&lt;sup&gt;*&lt;sup&gt;
+&lt;br&gt;
+
+.footnote.left.red[\* RStudio 是非常棒的 R 语言集成开发环境（IDE），在本课程学习中我们将在 RStudio 环境中使用 R。&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;]
+
+---
+
+&gt; .font120[登录[{{RStudio官网的下载链接}}](https://www.rstudio.com/products/rstudio/download/#download)，下载适合自己操作系统的最新版本的 RStudio Desktop 2022.07.1+554 &lt;sup&gt;.red[1]&lt;/sup&gt;，然后按默认选项安装即可（.red[Windows系统下若默认安装的C盘空间比较紧张，也可选择安装在其他目录下，但.bold[切记不要安装在中文目录下]；Mac系统下在“Finder-&gt;下载”中点击 dmg 文件，然后将 app 拖入 application 中即可。]）]
+
+&lt;img src="imgs/fig02_RS-download.png" width="88%" style="display: block; margin: auto;" /&gt;
+
+.footnote.left.font80.red[&lt;sup&gt;1&lt;/sup&gt; 如果安装失败（如你所使用的是32位的操作系统或 macOS 版本较旧），那么你需要从.bold[[{{这里}}](https://www.rstudio.com/products/rstudio/older-versions/)]下载恰当的版本——当然你也就无法获得新版本提供的新功能。]
+
+???
+- RStudio 从版本1.2开始只支持64位的操作系统和R软件。
+
+
+---
+class: center, middle, inverse
+
+# 3. 设置 **RStudio** &lt;sup&gt;.red[*]&lt;sup&gt;
+
+.footnote.left.red[\* 以下示例来自 Windows系统，Mac系统的设置选项基本相同；RStudio的默认设置已比较合理，大多无需重设 😏。&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;]
+
+---
+
+### 3.1 打开 RStudio ，这是其默认界面
+
+![RS界面](imgs/fig03_RS-interface.png)
+---
+
+### 3.2 设置 RStudio：通用选项
+
+.pull-left[
+
+**Tools -&gt; Global Options... &lt;br&gt;-&gt; General -&gt; Basic**
+
+1. R 将默认工作目录设定为个人文档文件夹（在我电脑上为 "C:/Users/admin/Documents"，显示为 `Home`） ，你可以点击 [Browse...] 对其进行重新设置
+
+  - .red[**注意：默认工作目录名中不要含有中文、空格或奇怪字符**]（如可将其设置为 D:/Rwd）
+
+2. 取消 “□ Restore .RData into workspace at startup” 的默认勾选
+
+3. 将 “Save workspace to .RData on exit” 修改为 “Never”
+
+4. 点击 [Apply] 应用新设置（RStudio 可能需重新启动以完成新设置）
+]
+
+.pull-right[
+
+![设置RS通用选项](imgs/fig04_RS-settings01-General.png)
+]
+
+---
+
+### 3.3 设置 RStudio：代码选项
+
+.pull-left[
+
+**Tools -&gt; Global Options... &lt;br&gt;-&gt; Code -&gt; Saving**
+
+1. 点击 [Change...] 更改默认文本编码（Default text encoding）
+
+2. 选择 UTF-8 编码
+
+3. 点击 [OK] 关闭编码选择标签页
+
+4. 点击 [Apply] 应用新设置
+]
+
+.pull-right[
+![设置RS安装包选项](imgs/fig05_RS-settings02-Code.png)
+]
+
+---
+
+### 3.4 设置 RStudio：外观选项
+
+.pull-left[
+
+**Tools -&gt; Global Options... &lt;br&gt;-&gt; Appearance**
+
+1. 根据个人喜好设置 RStudio主题（RStudio theme）、缩放（Zoom）、编辑器字体（Editor font）和字号（Editor font size）、编辑器主题（Editor theme）等
+
+2. 点击 [Apply] 应用新设置
+]
+
+.pull-right[
+![设置RS安装包选项](imgs/fig06_RS-settings03-Appearance.png)
+]
+
+---
+
+### 3.5 设置 RStudio：安装包选项
+
+.pull-left[
+
+**Tools -&gt; Global Options... &lt;br&gt;-&gt; Packages**
+
+1. 点击 [Change...] 更改 Primary CRAN repository
+
+2. 下拉滚动条并将 CRAN 安装包的仓库镜像设置为国内镜像（如 “China (Beijing) ...”），下载安装包的速度更快
+
+3. 点击 [OK]，然后点击 [Apply]，应用新设置
+]
+
+.pull-right[
+
+![设置RS安装包选项](imgs/fig07_RS-settings04-Package.png)
+]
+
+
+---
+class: inverse, center, middle
+
+# 4. 安装 R 包 📦
+
+---
+layout: true
+class: hide_logo
+background-image: url(imgs/logo-tidyverse.svg)
+background-size: 5%
+background-position: 98% 4%
+
+---
+
+### 4.1 来，先安装个 **一包顶 _N_ 包**的 [{{`tidyverse`}}](https://www.tidyverse.org/)
+
+.pull-left[
+- 在 **RStudio** 的控制台（Console）中输入 
+
+  &gt; `install.packages("tidyverse")`  
+    
+  按回车键执行
+
+- 需要下载并安装的包有点多，可能需要几分钟的时间🕙，请耐心.red[等待ing...] ⏳ ☕
+
+- 若闲极无聊，认真看下安装 R 包过程中返回的信息也是挺好滴
+]
+
+.pull-right[
+
+![安装tidyverse包](imgs/fig08_RS-install-tidyverse.png)
+]
+
+---
+
+### 4.2 验证 `tidyverse` 包是否安装成功
+
+.pull-left[
+- 如果 `install.packages("tidyverse")` 最后返回一长串类似 “`Package ... sucessfully unpacked and MD5 sums checked`” 的信息，这基本上意味着 `tidyvese` 安装正常。
+
+- 你还可进一步在 **RStudio** 的控制台中输入 `library(tidyverse)` 并按回车执行，将 `tidyverse` 的核心包加载至 **R** 的搜索路径中——若显示结果如右说明 `tidyverse` 包安装成功。
+
+.font200.center[&amp;nbsp; ✌️ 🌈 🍺]
+
+]
+
+.pull-right[
+![验证tidyverse包](imgs/fig09_RS-library-tidyverse.png)
+]
+
+.red.bold[
+- 如果安装或加载 `tidyverse` 失败 😱，请稍等几分钟后再行尝试（可能是网络下载问题）；
+- 若还是失败，请将 Console 窗口返回的报错信息复制-粘贴至课程 QQ 群，我会在 QQ 群上或上课时统一回答。]
+
+---
+layout: true
+class: hide_logo
+background-image: url(imgs/logo-devtools.svg)
+background-size: 5%
+background-position: 98% 4%
+
+---
+
+### 4.3 安装 [{{`devtools`}}](https://devtools.r-lib.org/)
+
+&gt; 尝试 R 包安装的新“姿势” 🕺：利用 RStudio 的 Packages 标签页
+
+![安装devtools包](imgs/fig10_RS-install-devtools.png)
+
+---
+
+### 4.4 .red[（可选）]安装 R 包源码的编译工具
+
+.font130[
+- 官方仓库 [__CRAN__](https://cran.r-project.org/web/packages/index.html) 上有大量的 R 包，我们通过 `install.packages()` 可轻松安装其二进制版本；但目前有越来越多的新包以源码形式发布在非 CRAN 托管库中（如 github [<svg aria-hidden="true" role="img" viewBox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>](https://github.com/)）。前一步骤安装的 `devtools` 包使得我们可以很方便地从 github 或类似托管库获取 R 包源码并进行安装。
+
+- 但如果源码中包含 C / C++ / Fortran 代码，则我们还需要安装以下编译工具包（工具包有点大，安装过程有点复杂啦 😱，.red.bold[同学们选择先行跳过也无妨]）：
+
+  1. Windows <svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:black;overflow:visible;position:relative;"><path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg>：根据 .red.bold[[{{网页}}](https://mirrors.tuna.tsinghua.edu.cn/CRAN/bin/windows/Rtools/)] 说明安装 RTools 4.2 工具包（.red.bold[建议使用默认安装，包括安装目录 C:\rtools42]）。
+  
+  2. macOS <svg aria-hidden="true" role="img" viewBox="0 0 384 512" style="height:1em;width:0.75em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:black;overflow:visible;position:relative;"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>：查看 .red.bold[[{{网页1}}](https://cran.r-project.org/bin/macosx/)]、.red.bold[[{{网页2}}](https://cran.r-project.org/bin/macosx/tools/)] 和 .red.bold[[{{网页3}}](https://mac.r-project.org/tools/)] 的相关说明，根据需要安装 XQuartz、XCode 和 GNU Fortran 8.2。
+
+]
+
+---
+layout: false
+class: center, middle, hide_logo
+background-image: url(imgs/claps.gif)
+background-size: cover
+background-position: 50% 50%
+
+
+.left.bold.Large.red[
+至此
+
+我们完成课前准备工作
+
+强大的 <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:red;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg> 🌌已触手可及
+
+给自己鼓鼓掌吧！]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="../libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
