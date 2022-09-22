@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>第1讲 课程简介</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=" 曾永艺" />
+    <meta name="date" content="2022-09-16" />
+    <script src="../libs/header-attrs/header-attrs.js"></script>
+    <link href="../libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="../libs/tile-view/tile-view.js"></script>
+    <script src="../libs/freezeframe/freezeframe.min.js"></script>
+    <script src="../libs/xaringanExtra-freezeframe/freezeframe-init.js"></script>
+    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":false,"warnings":true}</script>
+    <link href="../libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script src="../libs/clipboard/clipboard.min.js"></script>
+    <link href="../libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="../libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-copy\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"<i class=\"fa fa-times-circle\" style=\"color: #F94144\"><\/i>"})</script>
+    <link href="../libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="../libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../libs/zen-styles-v2.2.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# 量化金融与金融编程
+]
+.subtitle[
+## L01 开课啦 📅
+]
+.author[
+### <br>曾永艺
+]
+.institute[
+### 厦门大学管理学院
+]
+.date[
+### 2022-09-16
+]
+
+---
+
+class: hide_logo
+
+
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 50px;
+height: 50px;
+z-index: 0;
+background-image: url(../libs/imgs/logo-sm.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:0.5em;right:0.5em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+.pull-left.center.font300[
+&lt;br&gt;
+.font300[📚]
+]
+
+--
+
+.pull-right[
+
+&lt;br&gt;
+- ## 课程简介
+
+  - ### 量化金融与金融编程 📈
+  - ### 学好这门课的正确方式 🎯
+  - ### 谁该选这门课？🙋
+
+&lt;br&gt;
+- ## **RStudio** 概览
+
+&lt;br&gt;
+- ## 😱 🆘 🤩
+
+]
+
+---
+class: inverse, center, middle
+
+# 1. 课程简介
+
+---
+background-image: url(imgs/zhihu.png)
+background-size: 15em
+background-position: 10% 50%
+
+### [{{知乎神回复}}](https://www.leiphone.com/news/201811/MQyVoVQS6ldoil0o.html)
+
+--
+
+.pull-right[
+## **Q：**考上好大学学 IT 是不是当今中国穷人家孩子晋级中产唯一的出路？
+]
+
+--
+
+.pull-right[
+## .red[**A：**对，就4条路：写代码；搞金融；在代码圈搞金融；在金融圈写代码]
+]
+
+---
+
+### 😍 [{{清华大学计算机与金融双学士学位}}](https://www.admissions.tsinghua.edu.cn/info/1005/107)
+
+.pull-left[
+
+&lt;img src="imgs/THU+.jpg" height="580" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.pull-right.font200[
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+[{{“状元收割神器”}}](https://www.zhihu.com/question/407565500) 😱
+]
+
+---
+background-image: url(imgs/QF.jpg)
+background-size: 15em
+background-position: 92% 92%
+
+## 1.1 .red.bold[量化金融 ].gray[与 金融编程]
+
+.Large[
+- Paul Wilmott著，郑振龙 等译，机械工业出版社，2015年
+]
+
+--
+
+.Large.red[
+
+- 83章，1200+页！
+
+  - .bold[第一部分] 数理与金融基础、衍生品基本理论、风险与收益
+    
+  - .bold[第二部分] 奇异合约及路径依赖
+  
+  - .bold[第三部分] 固定收益的建模和衍生品
+  
+  - .bold[第四部分] 信用风险
+  
+  - .bold[第五部分] 进阶主题
+  
+]
+
+--
+
+.font200[🚀  🚪]
+
+---
+
+## 1.1 .gray[量化金融 与 ].red.bold[~~金融编程~~ R 语言编程]
+
+--
+
+.pull-left.red.bold.large[
+
+&lt;a href="https://www.r-project.org/" target="_blank"&gt;
+&lt;img src="imgs/logo-R.svg" width=125 style="display:block; margin:auto; float:left"&gt;
+&lt;/a&gt; 
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+- _"free software environment for ..."_
+
+- _"... statistical computing and graphics"_
+
+]
+
+--
+
+
+
+.pull-right.bold.large[
+
+- 支持 Windows、MacOS、Unix 等众多主流操作系统
+
+- 功能强大，“几乎”应有尽有
+
+  - [{{CRAN}}](https://cran.r-project.org/web/packages/index.html) 上现有 18648 个扩展 R 包！
+  
+  - [{{github}}](https://www.github.com) 上也托管着大量的 R 包
+
+- 学习曲线适中
+
+- 良好的编程社区支持
+
+- 免费、开源！
+
+]
+
+---
+
+&lt;img src="imgs/ds4b_rating.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+.footnote.right.font80.bold[[{{_Six Reasons To Learn R For Business_}}](https://www.business-science.io/business/2020/12/17/six-reasons-to-use-R-for-business-2021.html)]
+
+---
+
+&lt;a href="https://tiobe.com/tiobe-index/" target="_blank"&gt;
+&lt;img src="imgs/logo-tiobe.svg" width="15%" style="display:block; margin:auto; float:left"&gt;
+&lt;/a&gt;
+
+&lt;img src="imgs/R_tiobe.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+layout: true
+
+## 1.2 学好这门课的正确方式
+
+---
+
+--
+
+.pull-left-70[
+&lt;img src="L01_Introduction_files/figure-html/unnamed-chunk-4-1.png" width="72%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right-30.left.font500[
+&lt;br&gt;
+🤔
+]
+
+---
+
+### .red[ ☑ 掌握科学的**workflow**，提升效率]
+
+&lt;br&gt;
+
+&lt;img src="imgs/workflow.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+.pull-right.center.font80.red[
+[{{Workflow from _" R for Data Science"_}}](http://r4ds.had.co.nz/introduction.html)
+]
+
+---
+
+--
+
+.pull-left[
+
+### .red[ ☑ Start with `tidyverse`]
+
+&lt;img src="imgs/logo-tidyverse.svg" width="50%" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="imgs/tidyverse.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+### .red[ ☑ [{{R Markdown}}](https://rmarkdown.rstudio.com/) | [{{Quarto}}](https://quarto.org/)]
+
+.font140[
+- 将（<svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg>、<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4 .1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8 .1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3 .1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg> ...）代码（及其动态计算结果，如图表等）和 <svg aria-hidden="true" role="img" viewBox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M593.8 59.1H46.2C20.7 59.1 0 79.8 0 105.2v301.5c0 25.5 20.7 46.2 46.2 46.2h547.7c25.5 0 46.2-20.7 46.1-46.1V105.2c0-25.4-20.7-46.1-46.2-46.1zM338.5 360.6H277v-120l-61.5 76.9-61.5-76.9v120H92.3V151.4h61.5l61.5 76.9 61.5-76.9h61.5v209.2zm135.3 3.1L381.5 256H443V151.4h61.5V256H566z"/></svg> 文字汇编成文档，并可转化为多种格式的输出 &lt;br&gt;
+-&gt; efficient and _reproducible research_
+]
+
+&lt;br&gt;
+
+### .red[ ☑ Stay in &amp;nbsp;&lt;img src="imgs/RStudio-Logo-flat.svg" width="50%" style="display:inline; vertical-align:middle;"&gt;]
+
+]
+
+---
+
+--
+
+### .red[ ☑ **task**导向，掌握核心 <svg aria-hidden="true" role="img" viewBox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/></svg> 📦]
+
+--
+
+.pull-left.Large[
+
+- .bold[专题任务]
+
+  - 数据搜集-整理-可视化
+  
+  - 投资组合优化
+  
+  - 资产定价模型
+  
+  - 衍生品定价
+  
+  - 量化交易策略
+  
+  - 实证研究文献复刻 ...
+  
+]
+
+--
+
+.pull-right.Large[
+
+- .bold[[{{CRAN Task views}}](https://cran.r-project.org/web/views/)]
+
+  - Econometrics
+  - Finance
+  - TimeSeries
+  - Optimization
+  - MachineLearning
+  - Graphics
+  - ReproducibleResearch ...
+]
+
+
+---
+
+### .red[ ☑ **practice** makes perfect!] &amp;emsp;🏋 ➡️ 💯!
+
+.font130[
+
+&gt; .font110[纸上得来终觉浅，绝知此事要躬行。]
+&gt; 
+&gt; &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;——陆游·冬夜读书示子律
+]
+
+--
+
+.pull-left.font120[
+
+- 课上 2 学时/周
+  
+  - 我：围绕工作流程讲解核心 R 包
+  
+  - 同学：听讲 + 练习 + 反馈
+  
+- .red.bold[课后 4 小时/周 .font60[起]]
+
+  - 同学：课前预习 + 课后作业
+  
+  - 我：（在线）答疑解惑
+  
+]
+
+--
+
+.pull-right.font120[
+
+.content-box-yellow.bold[
+
+- 课程的成绩构成：
+
+  - 考勤+课堂参与：10%
+  
+  - 个人作业/随堂小测：50%
+  
+  - 小组研究项目：40% &lt;sup&gt;.red[*]&lt;/sup&gt;
+
+.font80.right.red[\* 每个小组 ~ 4 名同学&amp;emsp;]
+]
+]
+
+---
+layout: false
+background-image: url(imgs/hands-up.jpg)
+background-size: cover
+
+## 1.3 谁该选这门课？
+
+--
+
+.content-box-yellow[
+.red.font140.bold[☑ 想继续读研深造的同学]
+]
+--
+
+.content-box-yellow[
+.red.font140.bold[☑ 毕业后想和金融（🤑）、数据打交道的同学]
+]
+--
+
+.content-box-yellow[
+.red.font140.bold[☑ 想更好理解金工、固收、金融数学、风险管理等专业课程的同学]
+]
+--
+
+.content-box-yellow[
+.red.font140.bold[☑ 希望能学习并掌握酷炫好玩新工具和新“姿势”的同学]
+]
+--
+
+.content-box-yellow[
+.red.font140.bold[☑ 其他 ……]
+]
+
+---
+class: inverse, center, middle
+
+# 2. **RStudio** 概览
+
+### .bold.red[&lt; R 语言的赋能工具！&gt;]
+
+---
+layout: false
+background-image: url(imgs/RGui-RS.png)
+background-size: 48em
+background-position: 50% 70%
+
+### &gt;&gt; RStudio 为 R 赋能 .tiny[[{{rstudio-IDE-cheatsheet}}](https://www.rstudio.com/resources/cheatsheets/) [{{本地pdf版本}}](docs/rstudio-IDE-cheatsheet.pdf)]
+
+
+---
+
+### &gt;&gt; RStudio 快捷键
+
+
+.code110.bold[
+```
+- Search command history          Ctrl+↑
+- Interrupt current command       Esc
+- Clear console                   Ctrl+L
+- Restart R Session               Ctrl+Shift+F10
+- Run current line/selection      Ctrl+Enter
+
+- Attempt completion              Tab or Ctrl+Space
+- Insert &lt;-                       Alt+-
+- Insert %&gt;%                      Ctrl+Shift+M
+- (Un)Comment lines               Ctrl+Shift+C
+
+- Knit document (knitr)           Ctrl+Shift+K
+- Insert chunk                    Ctrl+Alt+I
+- Run the current chunk           Ctrl+Alt+C
+
+- Search shortcuts                Ctrl+Shift+P
+- Keyboard shortcuts help         Alt+Shift+K
+
+```
+]
+
+---
+### &gt;&gt; RStudio's
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;img src="imgs/showtime.jpg" width="72%" style="display: block; margin: auto;" /&gt;
+
+---
+class: inverse, center, middle
+
+# 3. SOS
+
+.font150[(_getting help_)]
+
+---
+### &gt;&gt; `help()`
+
+.code100[
+
+```r
+help(topic, package = NULL, lib.loc = NULL,
+     verbose = getOption("verbose"),
+     try.all.packages = getOption("help.try.all.packages"),
+     help_type = getOption("help_type"))
+```
+]
+
+--
+
+.pull-left.code90[
+```r
+help(mean)   # ?mean
+help("for")  # ?"for"
+help(files)  # ?files
+help(package = "fs")  # package?fs
+#-----------------------------------
+
+example(topic, package = NULL, 
+        lib.loc = NULL, ...)
+vignette(topic, package = NULL, 
+         lib.loc = NULL, 
+         all = TRUE)
+browseVignettes(package = NULL, 
+                lib.loc = NULL, 
+                all = TRUE)
+```
+]
+
+--
+
+.pull-right[
+&lt;img src="imgs/help.png" width="85%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+### &gt;&gt; `help.search()` &amp; `RSiteSearch()`
+
+.code100[
+
+```r
+help.search(pattern, fields = c("alias", "concept", "title"),
+            apropos, keyword, whatis, ignore.case = TRUE,
+            package = NULL, lib.loc = NULL,
+            help.db = getOption("help.db"),
+            verbose = getOption("verbose"), rebuild = FALSE,
+            agrep = NULL, use_UTF8 = FALSE,
+            types = getOption("help.search.types"))
+```
+]
+
+--
+
+.code90[
+```r
+# Search for key words or phrases in help pages, vignettes or task views, 
+# using the search engine at http://search.r-project.org and view them 
+# in a web browser.
+RSiteSearch(string,
+            restrict = c("functions", "descriptions", "news", "Rfunctions",
+                         "Rmanuals", "READMEs", "views", "vignettes"),
+            format,
+            sortby = c("score", "date:late", "date:early", "subject",
+                       "subject:descending", "size", "size:descending"),
+            matchesPerPage = 20, 
+            words = c("all", "any"))
+```
+]
+
+---
+### &gt;&gt; `sos::findFn()` &amp; `packagefinder::fp()`
+
+.code90[
+```r
+# Search Contributed R Packages, Sort by Package
+# install.packages("sos")
+help(package = "sos")
+
+sos::findFn(string, maxPages = 100, sortby = NULL, verbose = 1, ...)
+## ???string(maxPages)
+# Returns a data.frame from RSiteSearch(string, "functions") which can be 
+# sorted and subsetted by user specifications and viewed in an HTML table.
+```
+]
+
+--
+
+.code90[
+```r
+# Comfortable Search for R Packages on CRAN
+# remotes::install_github("jsugarelli/packagefinder")
+help(package = "packagefinder")
+```
+
+
+```r
+findPackage(keywords = NULL, query = NULL, mode = "or",
+            case.sensitive = FALSE, always.sensitive = NULL,
+            weights = c(2, 2, 1, 2), display = "viewer",
+            results.longdesc = FALSE, limit.results = 15,
+            silent = FALSE, index = NULL,
+            advanced.ranking = TRUE, return.df = FALSE,
+            clipboard = FALSE)
+```
+]
+
+---
+### &gt;&gt; [{{CRAN Task views}}](https://cran.r-project.org/web/views/)
+
+.code100[
+
+```r
+# install.packages("ctv")
+ctv::available.views(repos = "https://cran.r-project.org")[[14]]
+```
+
+```
+#&gt; CRAN Task View
+#&gt; --------------
+#&gt; Name:       Finance
+#&gt; Topic:      Empirical Finance
+#&gt; Maintainer: Dirk Eddelbuettel
+#&gt; Contact:    Dirk.Eddelbuettel@R-project.org
+#&gt; Version:    2022-08-26
+#&gt; Repository: https://cran.r-project.org
+#&gt; Source:     https://github.com/cran-task-views/Finance/
+#&gt; Packages:   actuar, AmericanCallOpt, AssetCorr, backtest, bayesGARCH,
+#&gt;             BCC1997, BenfordTests, betategarch, bidask, bizdays,
+#&gt;             BLModel, bmgarch, bondAnalyst, BurStFin, BurStMisc,
+#&gt;             CADFtest, car, ChainLadder, copula, copulaData, credule,
+#&gt;             crseEventStudy, cvar, data.table, derivmkts, dlm,
+#&gt;             DOSPortfolio, Dowd, DriftBurstHypothesis, dse, DtD, dyn,
+#&gt;             dynlm, ESG, etrm, factorstochvol, fame, fAssets*,
+#&gt;             FatTailsR, fBasics*, fBonds*, fCopulae*, fExtremes*,
+#&gt;             FFdownload, fGarch*, fImport*, FinancialMath, FinAsym,
+#&gt;             finreportr, fixedincome, fmdates, fMultivar*,
+#&gt;             fNonlinear*, forecast, fPortfolio*, fracdiff, FRAPO,
+#&gt;             fRegression*, frenchdata, fTrading*, GARCHSK, garchx,
+#&gt;             GCPM, gets, GetTDData, ghyp, gmm, gogarch, greeks, GUIDE,
+#&gt;             HDShOP, highfrequency, IBrokers, ichimoku, InfoTrad,
+#&gt;             lgarch, lifecontingencies, lmForc, lmtest, longmemo,
+#&gt;             LSMonteCarlo, LSMRealOptions, markovchain, MarkowitzR,
+#&gt;             matchingMarkets, monobin, MSGARCH, mvtnorm,
+#&gt;             NetworkRiskMeasures, NFCP, nlme, NMOF, nvmix,
+#&gt;             obAnalytics, OptHedging, OptionPricing, pa, parma, pbo,
+#&gt;             PeerPerformance, PerformanceAnalytics*,
+#&gt;             PortfolioEffectHFT, PortfolioOptim, PortRisk, qrmdata,
+#&gt;             qrmtools, quantmod, ragtop, Rblpapi, Rcmdr,
+#&gt;             RcppQuantuccia, reinsureR, restimizeapi, Risk,
+#&gt;             riskParityPortfolio, RiskPortfolios, riskSimul, RM2006,
+#&gt;             rmgarch, RND, RQuantLib, RTL, rugarch*, sandwich, sde,
+#&gt;             SharpeR, Sim.DiffProc, simfinapi, stochvol, strand,
+#&gt;             strucchange, TAQMNGR, tidyquant, timeDate*, timeSeries*,
+#&gt;             timsac, tis, tsDyn, tseries*, tseriesChaos, TTR, tvm,
+#&gt;             ufRisk, urca*, vars, vrtest, wavelets, waveslim,
+#&gt;             wavethresh, XBRL, xts*, zoo*
+#&gt;             (* = core package)
+```
+]
+
+---
+### &gt;&gt; 网络社区
+
+--
+- .font130.bold[有问题就问 [![](imgs/bing.png)](https://cn.bing.com/) 或者直接上 [![](imgs/StackOverflow.svg)](https://stackoverflow.com/questions/tagged/r)]
+
+--
+
+- .font130.bold[登录 [![](imgs/RStudio-Logo.png)](https://www.rstudio.com/)，关注]
+
+  + Productions 栏目下的 [{{R Packages}}](https://rstudio.com/products/rpackages/)
+  
+  + Resources 栏目下的 [{{Webinas &amp; Video}}](https://rstudio.com/resources/webinars/)、[{{Cheatsheets}}](https://rstudio.com/resources/cheatsheets/) 和 [{{R Views Blog}}](https://rviews.rstudio.com/) 
+  
+  + 主页右上角链接 [{{Community}}](https://community.rstudio.com/)
+
+--
+
+- .font130.bold[订阅 [![](imgs/R-bloggers.svg)](https://www.r-bloggers.com/)，和 R 圈保持同步！.font120[👬]]
+
+--
+
+&lt;br&gt;
+- .font130.bold[登录 [![](imgs/cos.png)](https://cosx.org/categories/r语言)]
+
+---
+### &gt;&gt; QQ课程群
+
+&lt;br&gt;
+&lt;img src="imgs/TA.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+class: hide_logo
+background-image: url(imgs/logo-reprex.svg)
+background-size: 6%
+background-position: 95% 5%
+
+### &gt;&gt; [{{**reprex** 包：Help Me Help You}}](https://reprex.tidyverse.org/)
+
+&gt; .red[_Prepare Reproducible Example Code via the Clipboard_]
+
+&lt;img src="imgs/reprex.gif" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+### &gt;&gt; 领域 + R 书籍
+
+&lt;img src="imgs/r_books.png" width="98%" style="display: block; margin: auto;" /&gt;
+
+---
+class: inverse, center, middle
+
+# 课后作业 与 课前预习
+
+---
+
+&lt;br&gt;
+.font130[
+🕐 明确是否选修这门课程——若不选修，请于今天下午2点前在 .bold[[{{厦门大学教学服务平台}}](https://jw.xmu.edu.cn/new/index.html)] 上提出退课申请，我会在3点前完成审核
+]
+
+--
+
+&lt;hr&gt;
+.font130[
+🕑 初步了解 RStudio 的工作界面，并大致浏览下 .bold[[{{rstudio-IDE-cheatsheet}}](docs/rstudio-IDE-cheatsheet.pdf)]
+
+🕒 在 RStudio 命令窗口中键入 `help(mean)` 和 `help(files)`，了解 R 帮助文档的整体结构
+
+🕓 到前面课件中提到的那些 .bold[[{{网络社区}}](L01_Introduction.html#53)] 随意逛逛
+
+🕔 2022年9月18日22:00前通过 .bold[[{{坚果云链接}}](https://workspace.jianguoyun.com/inbox/collect/0d73b361ad7246849ea58ef2918c152b/submitv2)] 回答几道问题
+]
+
+--
+
+&lt;hr&gt;
+.font130[
+🕔 完成课前预习（具体任务下周三前我会在 QQ 课程群上通知）
+]
+
+---
+class: center, middle, hide_logo
+background-image: url(imgs/xaringan.png)
+background-size: 12%
+background-position: 50% 40%
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;hr color='#f00' size='2px' width='80%'&gt;
+[//]: # (红色横线制作参考自https://github.com/pat-s/xaringan-metropolis)
+&lt;!--- remark的两种注释方法参考自https://github.com/gnab/remark/wiki/Markdown#Comments --&gt;
+&lt;br&gt;
+.Large.red[_**本网页版讲义的制作由 R 包 [{{`xaringan`}}](https://github.com/yihui/xaringan) 赋能！**_]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="../libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
