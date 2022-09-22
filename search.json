@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "weeks.html",
+    "href": "weeks.html",
+    "title": "每周列表",
+    "section": "",
+    "text": "排序方式\n       缺省\n         \n          日期 - 日期升序\n        \n         \n          日期 - 日期降序\n        \n         \n          标题\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\n第 2 周\n\n\nggplot2数据可视化\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-23\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 1 周\n\n\n课程简介\n\n\n\n\n准备\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-16\n\n\n曾永艺\n\n\n\n\n\n\n无匹配项"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "_Quantitative Finance with R_",
+    "section": "",
+    "text": "这是厦门大学管理学院 2022-2023 学年秋季学期“量化金融与金融编程”课的课程主页， 将主要展示课程 准备 | 预习、课堂讲义 | 随堂练习、课后作业、 小组研究项目 等方面的信息和资源。\n希望同学们通过课程学习，能在  语言金融编程领域实现 from Zero to Hero 的升级！\n \n  \n   \n  \n    \n     网站\n  \n  \n    \n     Github"
+  },
+  {
+    "objectID": "project/team-project.html#时间安排",
+    "href": "project/team-project.html#时间安排",
+    "title": "小组研究项目说明",
+    "section": "2. 时间安排",
+    "text": "2. 时间安排"
+  },
+  {
+    "objectID": "project/team-project.html#任务说明",
+    "href": "project/team-project.html#任务说明",
+    "title": "小组研究项目说明",
+    "section": "3. 任务说明",
+    "text": "3. 任务说明"
+  },
+  {
+    "objectID": "project/team-project.html#报告展示",
+    "href": "project/team-project.html#报告展示",
+    "title": "小组研究项目说明",
+    "section": "4. 报告展示",
+    "text": "4. 报告展示"
+  },
+  {
+    "objectID": "project/team-project.html#小组互评",
+    "href": "project/team-project.html#小组互评",
+    "title": "小组研究项目说明",
+    "section": "5. 小组互评",
+    "text": "5. 小组互评"
+  },
+  {
+    "objectID": "weeks/week-01.html",
+    "href": "weeks/week-01.html",
+    "title": "第 1 周",
+    "section": "",
+    "text": "作为“量化金融与金融编程”课程的开学第一课，本讲的主要目的在于向学生介绍为什么要开设本门课程、教学设计以及如何才能学好这门课程，方便同学们作出理性的选课决定。授课将主要涵盖以下三方面的内容："
+  },
+  {
+    "objectID": "weeks/week-01.html#课前准备",
+    "href": "weeks/week-01.html#课前准备",
+    "title": "第 1 周",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n🖥️ 请同学们依照如下幻灯片的步骤说明完成 R、RStudio、R 包等相关软件的安装及配置工作："
+  },
+  {
+    "objectID": "weeks/week-01.html#课堂讲义",
+    "href": "weeks/week-01.html#课堂讲义",
+    "title": "第 1 周",
+    "section": "2. 课堂讲义",
+    "text": "2. 课堂讲义\n🖥️ 第1讲 课程简介\n\n\n\n\n\n\n注释\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接已经发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
+  },
+  {
+    "objectID": "weeks/week-01.html#随堂练习",
+    "href": "weeks/week-01.html#随堂练习",
+    "title": "第 1 周",
+    "section": "3. 随堂练习",
+    "text": "3. 随堂练习\n⌨️ 见课堂讲义"
+  },
+  {
+    "objectID": "weeks/week-01.html#课后作业",
+    "href": "weeks/week-01.html#课后作业",
+    "title": "第 1 周",
+    "section": "4. 课后作业",
+    "text": "4. 课后作业\n✍️ 课后作业"
+  },
+  {
+    "objectID": "weeks/week-02.html",
+    "href": "weeks/week-02.html",
+    "title": "第 2 周",
+    "section": "",
+    "text": "“一图胜千言”。R 语言有着强大的数据可视化（制图）功能，很多人学习 R 语言编程主要就是冲着这一点来的。在本讲中我们将侧重介绍影响力巨大的 ggplot2 包，并涵盖以下几方面的内容："
+  },
+  {
+    "objectID": "weeks/week-02.html#课前准备",
+    "href": "weeks/week-02.html#课前准备",
+    "title": "第 2 周",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n\n\n\n📖 阅读 R for Data Science 一书关于数据可视化的第3章和第28章的内容。\n\n\n\n\n\n\n提示\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第1章 使用ggplot2进行数据可视化”和“第21章 使用ggplot2进行图形化沟通”。若觉得英文阅读有点吃力的同学，可找来参阅。"
+  },
+  {
+    "objectID": "weeks/week-02.html#课堂讲义",
+    "href": "weeks/week-02.html#课堂讲义",
+    "title": "第 2 周",
+    "section": "2. 课堂讲义",
+    "text": "2. 课堂讲义\n🖥️ 第2讲 ggplot2数据可视化\n\n\n\n\n\n\n注释\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接已经发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
+  },
+  {
+    "objectID": "weeks/week-02.html#随堂练习",
+    "href": "weeks/week-02.html#随堂练习",
+    "title": "第 2 周",
+    "section": "3. 随堂练习",
+    "text": "3. 随堂练习\n⌨️ 见课堂讲义"
+  },
+  {
+    "objectID": "weeks/week-02.html#课后作业",
+    "href": "weeks/week-02.html#课后作业",
+    "title": "第 2 周",
+    "section": "4. 课后作业",
+    "text": "4. 课后作业\n✍️ 课后作业"
+  },
+  {
+    "objectID": "hw/hw-01.html",
+    "href": "hw/hw-01.html",
+    "title": "第1周课后作业",
+    "section": "",
+    "text": "🕐 明确是否选修这门课程——若不选修，请于今天下午2点前在 {{厦门大学教学服务平台}} 上提出退课申请，我会在3点前完成审核\n\n\n\n🕑 初步了解 RStudio 的工作界面，并大致浏览下 {{rstudio-IDE-cheatsheet}}\n🕒 在 RStudio 命令窗口中键入 help(mean) 和 help(files)，了解 R 帮助文档的整体结构\n🕓 到前面课件中提到的那些 {{网络社区}} 随意逛逛\n🕔 2022年9月18日22:00前通过 {{坚果云链接}} 回答几道问题\n\n\n\n🕔 完成课前预习（具体任务下周三前我会在 QQ 课程群上通知）"
+  },
+  {
+    "objectID": "hw/hw-02.html",
+    "href": "hw/hw-02.html",
+    "title": "第2周课后作业",
+    "section": "",
+    "text": "注释\n\n\n\n必做部分，需在截止日期前上传完成的代码文档！\n\n\n\n🕐 根据 L2 课程讲义的打印稿，在 📑 R Script 中键入并完成全部代码的运行\n\n打开新的 R script 文件\n\nCtrl+Shift+N 打开 -> Ctrl+S 存盘为“L02_coding_practice.R”\n注：文件保存路径和文件名最好为英文，中间不要有空格\n\n输入与运行代码\n\n长代码手动断行，最好不要超过80个字符\n灵活使用快捷键，如 Tab（代码提示与自动补全）、Ctrl+A（选中全部代码） -> Ctrl+Shift+A（代码重新格式化）等\nCtrl+Enter 运行光标所在行或选中代码（Ctrl+Alt+R 运行全部代码，Ctrl+Shift+P 重新运行代码，Ctrl+Alt+P 运行光标前的代码）\n\n注释\n\n以 # 作为注释开始标记，如说明性文字、区分不同代码块（Ctrl+Shift+R）\n最后加入一段注释说明，简单说说使用ggplot2包的体会\n\n提交代码\n\n可结队编写代码，共同署名，分别提交，但不能完全雷同\n2022年9月26日22:00前通过 {{坚果云链接}} 直接提交代码文档\n\n\n\n\n\n\n\n\n\n\n注释\n\n\n\n以下为同学们根据自己的时间安排选做部分——很多是非常棒的参考资料！😁\n\n\n\n🕑 请复习 📖 {{R for Data Science}} 一书关于数据可视化的第3章和第28章（以及第4、6、8章关于工作流程）的内容\n🕒 从 📖 {{R Graphics Cookbook}} 一书中挑选 两章，复制性代码练习\n🕓 下载（打印）📰 {{ggplot2-cheatsheet}} 并浏览之\n🕔 登录浏览 🖼 {{The R Graph Gallery}}\n🕕 登录浏览 📦 {{ggplot2 extentions}}，进一步了解 ggplot2 包的“生态圈”\n🕖 进阶内容：R 对中文字体的支持不够理想，可参考 📝 {{ RJournal 的文章}} 以及帖子 {{showtext}} 中提到的解决方案和有趣示例"
+  }
+]
