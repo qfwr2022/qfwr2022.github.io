@@ -26,7 +26,7 @@ website:
     # logo-href: https://qfwr2022.netlify.app/
     logo-alt: "Quantitative Finance with R"
     # search: true
-    pinned: true
+    # pinned: true
     collapse: true
     left: 
       - text: "**课程主页**"

@@ -38,7 +38,7 @@ date: 2022-09-23
 
 - 🕒 从 📖 [**{{_R Graphics Cookbook_}}**](https://r-graphics.org/) 一书中挑选 **两章**，复制性代码练习
 
-- 🕓 下载（打印）📰 [**{{ggplot2-cheatsheet}}**](docs/ggplot2-cheatsheet.pdf) 并浏览之
+- 🕓 下载（打印）📰 [**{{ggplot2-cheatsheet}}**](/slides/lec-02/docs/ggplot2-cheatsheet.pdf) 并浏览之
 
 - 🕔 登录浏览 🖼 [**{{The R Graph Gallery}}**](https://www.r-graph-gallery.com/index.html)
 
