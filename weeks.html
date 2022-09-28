@@ -156,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">类别</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">所有 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="作业">作业 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="准备">准备 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="讲义">讲义 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="随堂练习">随堂练习 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="预习">预习 <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">类别</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">所有 <span class="quarto-category-count">(3)</span></div><div class="category" data-category="作业">作业 <span class="quarto-category-count">(3)</span></div><div class="category" data-category="准备">准备 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="讲义">讲义 <span class="quarto-category-count">(3)</span></div><div class="category" data-category="随堂练习">随堂练习 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="预习">预习 <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -203,7 +203,51 @@ ul.task-list li input[type="checkbox"] {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="预习,讲义,随堂练习,作业" data-listing-date-sort="1663891200000" data-listing-file-modified-sort="1663914657107" data-listing-reading-time-sort="0.35">
+<div class="quarto-post image-right" data-index="0" data-categories="预习,讲义,随堂练习,作业" data-listing-date-sort="1664496000000" data-listing-file-modified-sort="1664355115115" data-listing-reading-time-sort="0.395">
+<div class="thumbnail">
+<p><a href="./weeks/week-03.html"> <img src="./images/logo.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./weeks/week-03.html">
+<h3 class="no-anchor listing-title">
+第 3 周
+</h3>
+<div class="listing-subtitle">
+rmarkdown与Quarto
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('预习'); return false;">
+预习
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('讲义'); return false;">
+讲义
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('随堂练习'); return false;">
+随堂练习
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('作业'); return false;">
+作业
+</div>
+</div>
+<a href="./weeks/week-03.html">
+<div class="listing-description">
+在上一讲课后作业中同学们通过代码脚本文档 <code>L02_coding_practice.R</code> 完成编程作业并直接提交，但如果不运行同学们的代码，我将很难得知代码能否正常运行及其运行结果；同时通过注释方式添加说明性文字或文档逻辑分节也显得笨拙和不够美观。那么，有没有更好的解决方案呢？答案就是本讲将要介绍的“动态文档”（dynamic documents）——它允许你将代码、代码输出、文字等有机地组合在一起，并可方便地转化为多种类型的输出格式（如网页、PDF、docx、幻灯片等）。
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./weeks/week-03.html">
+<div class="listing-date">
+2022-09-30
+</div>
+<div class="listing-author">
+曾永艺
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="预习,讲义,随堂练习,作业" data-listing-date-sort="1663891200000" data-listing-file-modified-sort="1664355115115" data-listing-reading-time-sort="0.35">
 <div class="thumbnail">
 <p><a href="./weeks/week-02.html"> <img src="./slides/lec-02/L02_Visualization_files/figure-html/datasaurus-1.png" class="thumnail-image"> </a></p>
 </div>
@@ -247,7 +291,7 @@ ggplot2数据可视化
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="准备,讲义,作业" data-listing-date-sort="1663286400000" data-listing-file-modified-sort="1663914657107" data-listing-reading-time-sort="0.305">
+<div class="quarto-post image-right" data-index="2" data-categories="准备,讲义,作业" data-listing-date-sort="1663286400000" data-listing-file-modified-sort="1664355115111" data-listing-reading-time-sort="0.305">
 <div class="thumbnail">
 <p><a href="./weeks/week-01.html"> <img src="./slides/lec-01/imgs/ds4b_rating.png" class="thumnail-image"> </a></p>
 </div>
@@ -508,6 +552,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return popup.innerHTML;
     });
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/qfwr2022\.netlify\.app\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
 });
 </script>
 <nav class="page-navigation">

@@ -4,77 +4,7 @@
     "href": "weeks.html",
     "title": "每周列表",
     "section": "",
-    "text": "排序方式\n       缺省\n         \n          日期 - 日期升序\n        \n         \n          日期 - 日期降序\n        \n         \n          标题\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\n第 2 周\n\n\nggplot2数据可视化\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-23\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 1 周\n\n\n课程简介\n\n\n\n\n准备\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-16\n\n\n曾永艺\n\n\n\n\n\n\n无匹配项"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "_Quantitative Finance with R_",
-    "section": "",
-    "text": "这是厦门大学管理学院 2022-2023 学年秋季学期“量化金融与金融编程”课的课程主页， 将主要展示课程 准备 | 预习、课堂讲义 | 随堂练习、课后作业、 小组研究项目 等方面的信息和资源。\n希望同学们通过课程学习，能在  语言金融编程领域实现 from Zero to Hero 的升级！\n \n  \n   \n  \n    \n     网站\n  \n  \n    \n     Github"
-  },
-  {
-    "objectID": "project/team-project.html#时间安排",
-    "href": "project/team-project.html#时间安排",
-    "title": "小组研究项目说明",
-    "section": "2. 时间安排",
-    "text": "2. 时间安排"
-  },
-  {
-    "objectID": "project/team-project.html#任务说明",
-    "href": "project/team-project.html#任务说明",
-    "title": "小组研究项目说明",
-    "section": "3. 任务说明",
-    "text": "3. 任务说明"
-  },
-  {
-    "objectID": "project/team-project.html#报告展示",
-    "href": "project/team-project.html#报告展示",
-    "title": "小组研究项目说明",
-    "section": "4. 报告展示",
-    "text": "4. 报告展示"
-  },
-  {
-    "objectID": "project/team-project.html#小组互评",
-    "href": "project/team-project.html#小组互评",
-    "title": "小组研究项目说明",
-    "section": "5. 小组互评",
-    "text": "5. 小组互评"
-  },
-  {
-    "objectID": "weeks/week-01.html",
-    "href": "weeks/week-01.html",
-    "title": "第 1 周",
-    "section": "",
-    "text": "作为“量化金融与金融编程”课程的开学第一课，本讲的主要目的在于向学生介绍为什么要开设本门课程、教学设计以及如何才能学好这门课程，方便同学们作出理性的选课决定。授课将主要涵盖以下三方面的内容："
-  },
-  {
-    "objectID": "weeks/week-01.html#课前准备",
-    "href": "weeks/week-01.html#课前准备",
-    "title": "第 1 周",
-    "section": "1. 课前准备",
-    "text": "1. 课前准备\n🖥️ 请同学们依照如下幻灯片的步骤说明完成 R、RStudio、R 包等相关软件的安装及配置工作："
-  },
-  {
-    "objectID": "weeks/week-01.html#课堂讲义",
-    "href": "weeks/week-01.html#课堂讲义",
-    "title": "第 1 周",
-    "section": "2. 课堂讲义",
-    "text": "2. 课堂讲义\n🖥️ 第1讲 课程简介\n\n\n\n\n\n\n注释\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接已经发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
-  },
-  {
-    "objectID": "weeks/week-01.html#随堂练习",
-    "href": "weeks/week-01.html#随堂练习",
-    "title": "第 1 周",
-    "section": "3. 随堂练习",
-    "text": "3. 随堂练习\n⌨️ 见课堂讲义"
-  },
-  {
-    "objectID": "weeks/week-01.html#课后作业",
-    "href": "weeks/week-01.html#课后作业",
-    "title": "第 1 周",
-    "section": "4. 课后作业",
-    "text": "4. 课后作业\n✍️ 课后作业"
+    "text": "排序方式\n       缺省\n         \n          日期 - 日期升序\n        \n         \n          日期 - 日期降序\n        \n         \n          标题\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\n第 3 周\n\n\nrmarkdown与Quarto\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-30\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 2 周\n\n\nggplot2数据可视化\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-23\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 1 周\n\n\n课程简介\n\n\n\n\n准备\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-16\n\n\n曾永艺\n\n\n\n\n\n\n无匹配项"
   },
   {
     "objectID": "weeks/week-02.html",
@@ -112,11 +42,221 @@
     "text": "4. 课后作业\n✍️ 课后作业"
   },
   {
+    "objectID": "weeks/week-03.html",
+    "href": "weeks/week-03.html",
+    "title": "第 3 周",
+    "section": "",
+    "text": "在上一讲课后作业中同学们通过代码脚本文档 L02_coding_practice.R 完成编程作业并直接提交，但如果不运行同学们的代码，我将很难得知代码能否正常运行及其运行结果；同时通过注释方式添加说明性文字或文档逻辑分节也显得笨拙和不够美观。那么，有没有更好的解决方案呢？答案就是本讲将要介绍的“动态文档”（dynamic documents）——它允许你将代码、代码输出、文字等有机地组合在一起，并可方便地转化为多种类型的输出格式（如网页、PDF、docx、幻灯片等）。\n本讲主要涵盖以下几方面的内容："
+  },
+  {
+    "objectID": "weeks/week-03.html#课前准备",
+    "href": "weeks/week-03.html#课前准备",
+    "title": "第 3 周",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n📖 阅读 Markdown基础 一文。\n\n\n\n\n\n\n此文主要翻译自 Quarto 官方文档 Markdown Basics 并经小幅改写。\n\n\n\n\n\n📖 阅读 R for Data Science 一书第27章和第30章关于如何使用 R Markdown 文档来记录数据科学研究过程并展示与沟通研究结果的内容。\n\n\n\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第21章 R Markdown”和“第23章 R Markdown工作流”。若觉得英文阅读有点吃力的同学，可找来参阅。"
+  },
+  {
+    "objectID": "weeks/week-03.html#课堂讲义",
+    "href": "weeks/week-03.html#课堂讲义",
+    "title": "第 3 周",
+    "section": "2. 课堂讲义",
+    "text": "2. 课堂讲义\n🖥️ 第3讲 rmarkdown与Quarto\n\n\n\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
+  },
+  {
+    "objectID": "weeks/week-03.html#随堂练习",
+    "href": "weeks/week-03.html#随堂练习",
+    "title": "第 3 周",
+    "section": "3. 随堂练习",
+    "text": "3. 随堂练习\n⌨️ 本讲将有比较长时间的随堂编程练习，请同学们带上自己的笔记本电脑 （也可找上编程小伙伴，坐在一起结队练习效果可能更佳，😁）。"
+  },
+  {
+    "objectID": "weeks/week-03.html#课后作业",
+    "href": "weeks/week-03.html#课后作业",
+    "title": "第 3 周",
+    "section": "4. 课后作业",
+    "text": "4. 课后作业\n✍️ 课后作业"
+  },
+  {
+    "objectID": "weeks/week-01.html",
+    "href": "weeks/week-01.html",
+    "title": "第 1 周",
+    "section": "",
+    "text": "作为“量化金融与金融编程”课程的开学第一课，本讲的主要目的在于向学生介绍为什么要开设本门课程、教学设计以及如何才能学好这门课程，方便同学们作出理性的选课决定。授课将主要涵盖以下三方面的内容："
+  },
+  {
+    "objectID": "weeks/week-01.html#课前准备",
+    "href": "weeks/week-01.html#课前准备",
+    "title": "第 1 周",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n🖥️ 请同学们依照如下幻灯片的步骤说明完成 R、RStudio、R 包等相关软件的安装及配置工作："
+  },
+  {
+    "objectID": "weeks/week-01.html#课堂讲义",
+    "href": "weeks/week-01.html#课堂讲义",
+    "title": "第 1 周",
+    "section": "2. 课堂讲义",
+    "text": "2. 课堂讲义\n🖥️ 第1讲 课程简介\n\n\n\n\n\n\n注释\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接已经发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
+  },
+  {
+    "objectID": "weeks/week-01.html#随堂练习",
+    "href": "weeks/week-01.html#随堂练习",
+    "title": "第 1 周",
+    "section": "3. 随堂练习",
+    "text": "3. 随堂练习\n⌨️ 见课堂讲义"
+  },
+  {
+    "objectID": "weeks/week-01.html#课后作业",
+    "href": "weeks/week-01.html#课后作业",
+    "title": "第 1 周",
+    "section": "4. 课后作业",
+    "text": "4. 课后作业\n✍️ 课后作业"
+  },
+  {
     "objectID": "schedule.html",
     "href": "schedule.html",
     "title": "课程安排",
     "section": "",
-    "text": "周次\n日期\n主题\n准备\n讲义\n练习\n作业\n项目\n\n\n\n\n1\n2022-09-16\n课程简介\n📖\n🖥️\n\n✍️\n\n\n\n2\n2022-09-23\nggplot2 数据可视化\n📖\n🖥️\n⌨️\n✍️\n\n\n\n3\n2022-09-30\nrmarkdown 与 Quarto"
+    "text": "周次\n日期\n主题\n准备\n讲义\n练习\n作业\n项目\n\n\n\n\n1\n2022-09-16\n课程简介\n📖\n🖥️\n\n✍️\n\n\n\n2\n2022-09-23\nggplot2 数据可视化\n📖\n🖥️\n⌨️\n✍️\n\n\n\n3\n2022-09-30\nrmarkdown 与 Quarto\n📖"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "_Quantitative Finance with R_",
+    "section": "",
+    "text": "这是厦门大学管理学院 2022-2023 学年秋季学期“量化金融与金融编程”课的课程主页， 将主要展示课程 准备 | 预习、课堂讲义 | 随堂练习、课后作业、 小组研究项目 等方面的信息和资源。\n希望同学们通过课程学习，能在  语言金融编程领域实现 from Zero to Hero 的升级！\n \n  \n   \n  \n    \n     网站\n  \n  \n    \n     Github"
+  },
+  {
+    "objectID": "readings/markdown-basics.html",
+    "href": "readings/markdown-basics.html",
+    "title": "Markdown 基础",
+    "section": "",
+    "text": "John Gruber 首创的 Markdown 让你用纯文本的方式来撰写带有简单格式标识的文档（当然这也使得文档更容易阅读）。Markdown 的设计哲学为：\n\nMarkdown 格式文档可按其自身样式以纯文本的方式直接发布，而不应看起来有着各式各样标签或格式化指令的标注（marked up）。— John Gruber\n\nMarkdown 存在很多种的方言（如 CommonMark、Github-Flavored Markdown 等），Quarto 主要基于 Pandoc 小幅修改并扩展的 Markdown 语法。以下将简要介绍常用的 Markdown 语法并展示其经过渲染（render）和格式化后的网页呈现结果，更多内容请参见 Pandoc 的官方文档 Markdown 。"
+  },
+  {
+    "objectID": "readings/markdown-basics.html#段落",
+    "href": "readings/markdown-basics.html#段落",
+    "title": "Markdown 基础",
+    "section": "段落",
+    "text": "段落\n\n呈现结果Markdown语法\n\n\n段落是指后面跟着一行或多行空白行作为分隔的文本块。\n每一行文本最后的换行符将被视作空格， 所以你可以按你的意愿在段内随意换行1。\n如果你不想换行符被视为空格，而想要在行末强制换行，则需要在该行文字的最后输入两个及以上的空格（你也可以用在行末换行符的前面输入 \\ 进行转义从而得到硬换行符——这里采用的就是这种处理方式，在“如果”前一行的最后有个 \\）。\n\n\n段落是指后面跟着一行或多行空白行作为分隔的文本块。\n\n每一行文本最后的换行符将被视作空格，\n所以你可以按你的意愿在段内随意换行^[对中文可能不太合适，这一行中“所以”的前面将出现一个多余的空格）]。\\\n如果你不想换行符被视为空格，而想要在行末强制换行，则需要在该行文字的最后输入两个及以上的空格（你也可以用在行末换行符的前面输入 `\\` 进行转义从而得到硬换行符——这里采用的就是这种处理方式，在“如果”前一行的最后有个 `\\`）。"
+  },
+  {
+    "objectID": "readings/markdown-basics.html#标题",
+    "href": "readings/markdown-basics.html#标题",
+    "title": "Markdown 基础",
+    "section": "标题",
+    "text": "标题\n\n\n\n\n\n\n\nMarkdown语法\n呈现结果\n\n\n\n\n# 一级标题\n一级标题\n\n\n## 二级标题\n二级标题\n\n\n### 三级标题\n三级标题\n\n\n#### 四级标题\n四级标题\n\n\n##### 五级标题\n五级标题\n\n\n###### 六级标题\n六级标题"
+  },
+  {
+    "objectID": "readings/markdown-basics.html#行内格式化",
+    "href": "readings/markdown-basics.html#行内格式化",
+    "title": "Markdown 基础",
+    "section": "行内格式化",
+    "text": "行内格式化\n\n\n\n\n\n\n\nMarkdown语法\n呈现结果\n\n\n\n\n*斜体* / **加粗**\n斜体 / 加粗\n\n\n上标^2^ / 下标~2~\n上标2 / 下标2\n\n\n~~删除线~~\n删除线\n\n\n[下划线]{.underline}\n下划线\n\n\n`行内代码 a + b`\n行内代码 a + b"
+  },
+  {
+    "objectID": "readings/markdown-basics.html#链接-图像",
+    "href": "readings/markdown-basics.html#链接-图像",
+    "title": "Markdown 基础",
+    "section": "链接 & 图像",
+    "text": "链接 & 图像\n\n\n\nMarkdown语法\n呈现结果\n\n\n\n\n<https://quarto.org>\nhttps://quarto.org\n\n\n[Quarto](https://quarto.org)\nQuarto\n\n\n[段落]\n段落\n\n\n[文档内链接至段落标题](#段落)\n文档内链接至段落标题\n\n\n![Logo](imgs/logo.png)\n\n\n\n[![Logo](imgs/logo.png)](https://quarto.org)\n\n\n\n[![Logo](imgs/logo.png)](https://quarto.org \"quarto-logo\")\n\n\n\n[![](imgs/logo.png){fig-alt=\"logo of Q\"}](https://quarto.org)"
+  },
+  {
+    "objectID": "readings/markdown-basics.html#列表",
+    "href": "readings/markdown-basics.html#列表",
+    "title": "Markdown 基础",
+    "section": "列表",
+    "text": "列表\n\n无序列表\n\n\nMarkdown语法\n* 项目 1\n  + 子项目 1\n  + 子项目 2\n    - 子子项目 1\n* 项目 2                \n  连续文字 (缩进)\n\n呈现结果\n\n项目 1\n\n子项目 1\n子项目 2\n\n子子项目 1\n\n\n项目 2\n连续文字 (缩进)\n\n\n\n\n\n有序列表 1\n\n\nMarkdown语法\n1. 项目 1\n\n   连续文字 (缩进)\n\n2. 项目 2\n   i) 子项目 1\n      A.  子子项目 1\n   i) 子项目 2\n\n呈现结果\n\n项目 1\n连续文字 (缩进)\n项目 2\n\n子项目 1\n\n子子项目 1\n\n子项目 2\n\n\n\n\n\n\n有序列表 2\n\n\nMarkdown语法\n(@) 项目 1\n\n可在其他文字后连续编号的\n\n(@) 项目 2\n    i) 子项目 1\n\n呈现结果\n\n项目 1\n\n可在其他文字后连续编号的\n\n项目 2\n\n子项目 1"
+  },
+  {
+    "objectID": "readings/markdown-basics.html#表格",
+    "href": "readings/markdown-basics.html#表格",
+    "title": "Markdown 基础",
+    "section": "表格",
+    "text": "表格\n\nMarkdown语法呈现结果\n\n\n| 右对齐 | 左对齐 | 默认    |  居中  |\n|-------:|:-------|---------|:------:|\n|   12   |   12   |    12   |    12  |\n|  123   |  123   |   123   |   123  |\n|    1   |    1   |     1   |     1  |\n\n\n\n\n\n右对齐\n左对齐\n默认\n居中\n\n\n\n\n12\n12\n12\n12\n\n\n123\n123\n123\n123\n\n\n1\n1\n1\n1\n\n\n\n\n\n\n关于更多表格制作的 Markdown 语法可参见 Quarto 的官方文档 Tables。"
+  },
+  {
+    "objectID": "readings/markdown-basics.html#代码块",
+    "href": "readings/markdown-basics.html#代码块",
+    "title": "Markdown 基础",
+    "section": "代码块",
+    "text": "代码块\n在 Markdown 文档中使用 ``` 来分隔代码块：\n```\n1 + 1\n```\n还可以通过加上语言标识（如 python）来给代码块增加语法高亮（syntax highlight）功能：\n```python\n1 + 1\n```\nPandoc 支持超过 140 种语言的语法高亮。如果你使用的语言未被支持，可设定为 default：\n```default\n1 + 1\n```\n如果文档的输出格式为 HTML，代码块输出还存在额外的设定选项（如代码折叠、样式主题、增加复制按钮、代码链接、代码工具等），进一步细节可参见 Quarto 官方文档 HTML Code。"
+  },
+  {
+    "objectID": "readings/markdown-basics.html#公式",
+    "href": "readings/markdown-basics.html#公式",
+    "title": "Markdown 基础",
+    "section": "公式",
+    "text": "公式\n你可以使用 $（$$）分隔符来创建行内的（独显的）数学公式，例如：\n\n\n\n\n\n\n\nMarkdown语法\n呈现结果\n\n\n\n\n行内数学公式：$E = mc^{2}$\n行内数学公式：\\(E=mc^{2}\\)\n\n\n独显数学公式：\n\n$$E = mc^{2}$$\n独显数学公式：\n\\[E = mc^{2}\\]\n\n\n\n如果你想要自定义 TeX 宏，可以用 $$ 分隔符包裹相应的宏定义，并将其设定为 .hidden 代码块，示例如下：\n::: {.hidden}\n$$\n \\def\\RR{{\\bf R}}\n \\def\\bold#1{{\\bf #1}}\n$$\n:::\nHTML 数学公式采用默认的 MathJax 引擎 ，此时你可以用 \\def、 \\newcommand、 \\renewcommand、 \\newenvironment、 \\renewenvironment 和 \\let 等命令来创建宏和环境。"
+  },
+  {
+    "objectID": "readings/markdown-basics.html#图示",
+    "href": "readings/markdown-basics.html#图示",
+    "title": "Markdown 基础",
+    "section": "图示",
+    "text": "图示\nQuarto 内生支持 Mermaid 和 Graphviz 图示（diagram），这使得你很容易使用类似 markdown 的纯文本语法创建流程图、序贯图、状态图、甘特图等。例如，这里我们插入一份由 Mermaid 创建的流程图：\n\n```{mermaid}\nflowchart LR\n  A[方角矩形] --> B(圆角矩形)\n  B --> C{决策}\n  C --> D[分支 1]\n  C --> E[分支 2]\n```\n\n\n\nflowchart LR\n  A[方角矩形] --> B(圆角矩形)\n  B --> C{决策}\n  C --> D[分支 1]\n  C --> E[分支 2]\n\n\n\n\n\n\n\n\n你可通过 Quarto 官方文档 Diagrams 了解更多关于图示的信息。"
+  },
+  {
+    "objectID": "readings/markdown-basics.html#分页符",
+    "href": "readings/markdown-basics.html#分页符",
+    "title": "Markdown 基础",
+    "section": "分页符",
+    "text": "分页符\npagebreak 短代码让你在文档中插入原生的分页符（LaTeX 为 \\newpage，MS Word为分页符，而 HTML 为 page-break-after: always CSS 指令）：\n第1页\n\n{{< pagebreak >}}\n\n第2页"
+  },
+  {
+    "objectID": "readings/markdown-basics.html#块级-行内元素",
+    "href": "readings/markdown-basics.html#块级-行内元素",
+    "title": "Markdown 基础",
+    "section": "块级 / 行内元素",
+    "text": "块级 / 行内元素\n\n块级元素\n块级元素以至少三个连续的冒号 : 的围栏行作为开始（可通过 {} 加上额外的属性）并以至少三个连续的冒号 : 行作为结束。块级元素允许套嵌，但前后必须有空行作为分隔。额外的属性包括由 # 指定的唯一标识、. 指定的类以及其它由 key=\"val\" 指定的属性。示例如下：\n::::: {#special style=\"text-align:center\"}\n一些内容。\n\n::: {.warning .border}\n这里为应用 border 和 warning 类样式的文本。\n:::\n\n更多内容。\n:::::\n\n\n行内元素\n[] 包围的文本在正常情况下用来定义 链接，但如果还附加有额外的属性，那么这些文本将被视作行内元素，例如：\n[这是具有指定类 class 和属性取值 key=\"val\" 的 **行内** 文本]{.class key=\"val\"}\n当然在自定义块级元素和行内元素之后，我们通常需要进一步使用 HTML 的 CSS（层叠样式表）和/或 过滤器 来给渲染后的块级元素和行内元素增加相应的样式和/或行为。\n关于块级元素和行内元素的更多信息可参见 Pandoc 官方文档 Divs and Spans。"
+  },
+  {
+    "objectID": "readings/markdown-basics.html#标注块",
+    "href": "readings/markdown-basics.html#标注块",
+    "title": "Markdown 基础",
+    "section": "标注块",
+    "text": "标注块\n标注块有助于吸引读者关注特定内容或者清楚标明某些内容仅适用于某些特定情形。Quarto 基于 块级元素 Markdown 语法内置支持五种类型的标注：\nMarkdown语法\n::: {.callout-note appearance=\"simple\"}\nQuarto 内置五种类型的标注，包括：`note`、`tip`、`warning`、`caution`和`important`。\n:::\n呈现结果\n\n\n\n\n\n\nQuarto 内置五种类型的标注，包括：note、tip、warning、caution和important。\n\n\n\n你可通过 Quarto 官方文档 Callout Blocks 了解更多关于标注块的信息。"
+  },
+  {
+    "objectID": "readings/markdown-basics.html#脚注",
+    "href": "readings/markdown-basics.html#脚注",
+    "title": "Markdown 基础",
+    "section": "脚注",
+    "text": "脚注\n在本文 段落 一节中你们已经看到脚注的出现。Quarto 支持两种方式的脚注（可自由混合使用）：\n\n普通脚注\n脚注标识和脚注内容分开列示，支持多段落的脚注文本内容（需空格缩进）。示例如下：\n\n呈现结果Markdown语法\n\n\n正文内容有点复杂，所以这里需要有个脚注2。希望借助长脚注我能把这个问题解释明白3。\n\n\n正文内容有点复杂，所以这里需要有个脚注[^1]。希望借助长脚注我能把这个问题解释明白[^more]。\n\n[^1]: 嗯\\~\\~ 要解释的东西确实有点复杂，在脚注内也一时半会儿说不清楚啦。\n\n[^more]: 恐怕得加上必要的公式和代码才说得明白：\n\n    $$E = mc^{2}$$\n    \n    这是用 R 代码实现的计算过程：\n\n    ```r\n    E <- m * c^2\n    ```\n\n\n\n\n\n行内脚注\n直接将脚注文本内容放在脚注 Markdown 语法标记 ^[] 的 [] 内，不支持多段落的脚注文本内容。示例如下：\n\n呈现结果Markdown语法\n\n\n正文内容有点复杂，所以这里需要有个行内注释4。我说明白了吗？\n\n\n正文内容有点复杂，所以这里需要有个行内注释^[嗯\\~\\~ 要解释的东西确实有点复杂，用行内脚注肯定说不清楚啦。]。我说明白了吗？"
+  },
+  {
+    "objectID": "readings/markdown-basics.html#其它",
+    "href": "readings/markdown-basics.html#其它",
+    "title": "Markdown 基础",
+    "section": "其它",
+    "text": "其它\n\n引用和线文本块\n\n\n\n\n\n\n\nMarkdown语法\n输出\n\n\n\n\n> 引用 \\\n> 子在川上曰 \\\n> 逝者如斯夫\n\n引用\n子在川上曰\n逝者如斯夫\n\n\n\n| 线文本块\n|   保留文本中的起始空格和\n|     换行符\n线文本块\n  保留文本中的起始空格和\n    换行符\n\n\n\n\n\n原始 HTML 和 TeX\nMarkdown 语法允许你在文档中绝大多数的地方插入原始的 HTML（如插入 <br> 来强制换行、<a href=\"https://bing.com\">Bing</a> 等）和 TeX 的内容，并在输出文档中得到渲染支持（或忽略）。\n\n\n特殊字符\n\n\n\n\n\n\n\nMarkdown语法\n输出\n\n\n\n\n连接号 (en-dash)：--\n连接号 (en-dash)：–\n\n\n破折号 (em-dash)：---\n破折号 (em-dash)：—"
+  },
+  {
+    "objectID": "project/team-project.html#时间安排",
+    "href": "project/team-project.html#时间安排",
+    "title": "小组研究项目说明",
+    "section": "2. 时间安排",
+    "text": "2. 时间安排"
+  },
+  {
+    "objectID": "project/team-project.html#任务说明",
+    "href": "project/team-project.html#任务说明",
+    "title": "小组研究项目说明",
+    "section": "3. 任务说明",
+    "text": "3. 任务说明"
+  },
+  {
+    "objectID": "project/team-project.html#报告展示",
+    "href": "project/team-project.html#报告展示",
+    "title": "小组研究项目说明",
+    "section": "4. 报告展示",
+    "text": "4. 报告展示"
+  },
+  {
+    "objectID": "project/team-project.html#小组互评",
+    "href": "project/team-project.html#小组互评",
+    "title": "小组研究项目说明",
+    "section": "5. 小组互评",
+    "text": "5. 小组互评"
   },
   {
     "objectID": "hw/hw-01.html",

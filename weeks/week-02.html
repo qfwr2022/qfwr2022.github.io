@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../weeks/week-03.qmd" rel="next">
+<link href="../weeks/week-03.html" rel="next">
 <link href="../weeks/week-01.html" rel="prev">
 <link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -151,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-03.qmd" class="sidebar-item-text sidebar-link">第3周 rmarkdown与Quarto</a>
+  <a href="../weeks/week-03.html" class="sidebar-item-text sidebar-link">第3周 rmarkdown与Quarto</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -230,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
 <div style="text-align:center">
 <p><img src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" class="cover" width="300"></p>
 </div>
-<p>📖 阅读 <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> 一书关于数据可视化的第3章和第28章的内容。</p>
+<p>📖 阅读 <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> 一书关于数据可视化的<strong>第3章</strong>和<strong>第28章</strong>的内容。</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -487,6 +487,22 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return popup.innerHTML;
     });
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/qfwr2022\.netlify\.app\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
 });
 </script>
 <script src="https://giscus.app/client.js" data-repo="qfwr2022/qfwr2022.github.io" data-repo-id="R_kgDOICWtow" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="zh-CN" crossorigin="anonymous" data-loading="lazy" async="">
@@ -498,7 +514,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../weeks/week-03.qmd" class="pagination-link">
+      <a href="../weeks/week-03.html" class="pagination-link">
         <span class="nav-page-text">第3周 rmarkdown与Quarto</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
