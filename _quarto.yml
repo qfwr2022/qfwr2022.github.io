@@ -93,6 +93,10 @@ format:
       dark: [cosmo, theme-dark.scss]
     code-copy: true
     code-overflow: wrap
+    link-external-icon: true
+    link-external-newwindow: true
+    # link-external-filter: |
+    #   ^(?:http:|https:)\/\/qfwr2022\.netlify\.app\/
     lang: zh
     language: 
       title-block-author-single: 发布者

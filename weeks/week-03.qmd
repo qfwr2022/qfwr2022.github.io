@@ -1,0 +1,77 @@
+---
+title: "第 3 周"
+subtitle: "rmarkdown与Quarto"
+author: 曾永艺
+date: 2022-09-30
+categories: [预习, 讲义, 随堂练习, 作业]
+# image: /slides/lec-02/L02_Visualization_files/figure-html/datasaurus-1.png
+# editor: visual
+---
+
+<hr>
+
+在上一讲课后作业中同学们通过代码脚本文档 `L02_coding_practice.R` 完成编程作业并直接提交，但如果不运行同学们的代码，我将很难得知代码能否正常运行及其运行结果；同时通过注释方式添加说明性文字或文档逻辑分节也显得笨拙和不够美观。那么，有没有更好的解决方案呢？答案就是本讲将要介绍的“动态文档”（dynamic documents）——它允许你将代码、代码输出、文字等有机地组合在一起，并可方便地转化为多种类型的输出格式（如网页、PDF、docx、幻灯片等）。
+
+本讲主要涵盖以下几方面的内容：
+
+* R Markdown 与 Quarto 简介
+
+* Quarto 动态文档组成
+  - YAML 文件头
+  - Markdown 文本
+  - 代码块
+
+* Quarto 工作流与随堂练习
+
+<hr>
+
+## 1. 课前准备
+
+📖 阅读 [Markdown基础](/readings/markdown-basics.qmd) 一文。
+
+:::{.callout-note appearance="simple"}
+此文主要翻译自 Quarto 官方文档 [Markdown Basics](https://quarto.org/docs/authoring/markdown-basics.html) 并经小幅改写。
+:::
+
+:::::{.columns}
+
+::::{.column width="60%"}
+
+📖 阅读 [*R for Data Science*](https://r4ds.had.co.nz/) 一书**第27章**和**第30章**关于如何使用 R Markdown 文档来记录数据科学研究过程并展示与沟通研究结果的内容。
+
+:::{.callout-tip appearance="simple"}
+此书的中文翻译版 [《R数据科学》](https://www.ituring.com.cn/book/2113) 发行有官方pdf电子版，对应章节为“第21章 R Markdown”和“第23章 R Markdown工作流”。若觉得英文阅读有点吃力的同学，可找来参阅。
+:::
+
+::::
+
+::::{.column width="40%"}
+:::{style="text-align:right"}
+<img src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" class="cover" width="80%"/>
+:::
+::::
+
+:::::
+
+## 2. 课堂讲义
+
+🖥️ [第3讲 rmarkdown与Quarto](/slides/lec-03/L03_Communication.html)
+
+:::{.callout-note appearance="simple"}
+课堂**讲义 PDF 版**和**腾讯会议云录制链接**将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。
+:::
+
+## 3. 随堂练习
+
+⌨️ 本讲将有比较长时间的随堂编程练习，请同学们带上自己的笔记本电脑
+（也可找上编程小伙伴，坐在一起结队练习效果可能更佳，😁）。
+
+## 4. 课后作业
+
+✍️ [课后作业](/hw/hw-03.qmd)
+
+<br>
+
+<!-- ::: {style="font-size:0.875em; text-align:right"} -->
+<!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
+<!-- ::: -->

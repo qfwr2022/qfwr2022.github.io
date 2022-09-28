@@ -30,7 +30,7 @@ image: /slides/lec-02/L02_Visualization_files/figure-html/datasaurus-1.png
 <img src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" class="cover" width="300"/>
 :::
 
-📖 阅读 [*R for Data Science*](https://r4ds.had.co.nz/) 一书关于数据可视化的第3章和第28章的内容。
+📖 阅读 [*R for Data Science*](https://r4ds.had.co.nz/) 一书关于数据可视化的**第3章**和**第28章**的内容。
 
 ::: callout-tip
 此书的中文翻译版 [《R数据科学》](https://www.ituring.com.cn/book/2113) 发行有官方pdf电子版，对应章节为“第1章 使用ggplot2进行数据可视化”和“第21章 使用ggplot2进行图形化沟通”。若觉得英文阅读有点吃力的同学，可找来参阅。
