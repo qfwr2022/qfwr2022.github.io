@@ -53,7 +53,7 @@
     "href": "weeks/week-03.html#课前准备",
     "title": "第 3 周",
     "section": "1. 课前准备",
-    "text": "1. 课前准备\n📖 阅读 Markdown基础 一文。\n\n\n\n\n\n\n此文主要翻译自 Quarto 官方文档 Markdown Basics 并经小幅改写。\n\n\n\n\n\n📖 阅读 R for Data Science 一书第27章和第30章关于如何使用 R Markdown 文档来记录数据科学研究过程并展示与沟通研究结果的内容。\n\n\n\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第21章 R Markdown”和“第23章 R Markdown工作流”。若觉得英文阅读有点吃力的同学，可找来参阅。"
+    "text": "1. 课前准备\n📖 阅读 Markdown基础 一文。\n\n\n\n\n\n\n此文主要翻译自 Quarto 官方文档 Markdown Basics 并经小幅改写。\n\n\n\n\n\n📖 阅读 R for Data Science 一书第27章和第30章关于如何使用 R Markdown 文档来记录数据科学研究过程并展示与沟通研究结果的内容。\n\n\n\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第21章 R Markdown”和“第23章 R Markdown工作流”。若觉得英文阅读有点吃力的同学，可找来参阅。\n\n\n\n\n\n\n\n\n\n💻 根据自己电脑操作系统的类型从 Quarto 官网 下载相应版本的 Quarto CLI 安装程序并完成安装（无需自定义，默认安装即可）。"
   },
   {
     "objectID": "weeks/week-03.html#课堂讲义",
