@@ -53,6 +53,8 @@ categories: [预习, 讲义, 随堂练习, 作业]
 
 :::::
 
+💻 根据自己电脑操作系统的类型从 [Quarto 官网](https://quarto.org/docs/get-started/) 下载相应版本的 Quarto CLI 安装程序并完成安装（无需自定义，默认安装即可）。
+
 ## 2. 课堂讲义
 
 🖥️ [第3讲 rmarkdown与Quarto](/slides/lec-03/L03_Communication.html)
