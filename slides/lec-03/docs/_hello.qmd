@@ -1,0 +1,46 @@
+---
+title: "Penguins, meet Quarto!"
+subtitle: 当企鹅遇上Quarto！💘
+author: "曾永艺"
+date: today
+format: 
+  html:
+    toc: true
+editor: visual
+---
+
+```{r}
+#| label: load-packages
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## 初识Quarto
+
+Quarto 使你能够将普通文本（如解释性内容）和可执行代码（其及运行结果）有机融合为最终展示文档。关于 Quarto 的更多信息请参见 <https://quarto.org>。
+
+## 遇见企鹅
+
+![](imgs/penguins.png){style="float:right" width="300"}
+
+`penguins` 数据集出自 R 包 [**palmerpenguins**](https://allisonhorst.github.io/palmerpenguins)，其中共包含从南极洲帕尔默群岛三个岛屿上收集到的三个品种共 `r nrow(penguins)` 企鹅的数据。
+
+下图利用散点图展示样本企鹅鳍状肢（flipper）长度和喙（bill）长度之间的关系。从图上可以明显看出，两者之间存在正相关关系。在三个品种的企业中，巴布亚企鹅（Gentoo）有着最长的喙，其鳍状肢长度和帽带企鹅（Chinstrap）大致相当；而阿德利企鹅有着最短的鳍状肢，喙也整体较短。
+
+```{r}
+#| label: plot-penguins
+
+ggplot(penguins, 
+       aes(x = flipper_length_mm, y = bill_length_mm)) +
+  geom_point(aes(color = species, shape = species)) +
+  scale_color_manual(values = c("darkorange", "purple", "cyan4")) +
+  labs(
+    title = "Flipper and bill length",
+    subtitle = "Dimensions for penguins at Palmer Station LTER",
+    x = "Flipper length (mm)", y = "Bill length (mm)",
+    color = "Penguin species", shape = "Penguin species"
+  ) +
+  theme_minimal()
+```
+

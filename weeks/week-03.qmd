@@ -4,7 +4,7 @@ subtitle: "rmarkdown与Quarto"
 author: 曾永艺
 date: 2022-09-30
 categories: [预习, 讲义, 随堂练习, 作业]
-# image: /slides/lec-02/L02_Visualization_files/figure-html/datasaurus-1.png
+image: /slides/lec-03/imgs/workflow-template.png
 # editor: visual
 ---
 
@@ -57,7 +57,8 @@ categories: [预习, 讲义, 随堂练习, 作业]
 
 ## 2. 课堂讲义
 
-🖥️ [第3讲 rmarkdown与Quarto](/slides/lec-03/L03_Communication.html)
+🖥️
+[第3讲 rmarkdown与Quarto](/slides/lec-03/L03_Quarto.html)
 
 :::{.callout-note appearance="simple"}
 课堂**讲义 PDF 版**和**腾讯会议云录制链接**将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。

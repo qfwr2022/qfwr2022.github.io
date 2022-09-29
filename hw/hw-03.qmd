@@ -1,0 +1,46 @@
+---
+title: "第3周课后作业"
+author: 曾永艺
+date: 2022-09-30
+# editor: visual
+---
+
+<hr>
+:::{.callout-note}
+必做部分，需在截止日期前上传完成的代码文档！
+:::
+
+- **自由组队，两人一组，共同完成以下课后作业：**
+
+  1. **从 L02 课件中挑出 3 ~ 4 个你们感兴趣的数据可视化代码段，就其制作两种类型的展示文档：**
+     - [{{`Quarto|HTML`}}](https://quarto.org/docs/output-formats/html-basics.html) 或 [{{`prettydoc`}}](https://prettydoc.statr.me/themes.html) -> 📂 *L03_HW/docs/*
+     - [{{`Quarto|Revealjs`}}](https://quarto.org/docs/presentations/revealjs/) 或 [{{`xaringan`}}](https://slides.yihui.org/xaringan/zh-CN.html) -> 📂 *L03_HW/slides/*
+  
+  2. **记得多尝试各种选项设置，同时在文档内加上相应的说明性文字（如解释代码或输出图形，其余内容可自由发挥，丰俭由人啦，😁）**
+
+  3. **作业共同署名（姓名 + 姓名）**
+
+  4. **确认两份文档运行无误后将文件夹📂 *L03_HW* 打包为 .zip 格式压缩文档，由其中一位同学于2022年10月5日22:00前将压缩包提交至 [{{坚果云链接}}](https://workspace.jianguoyun.com/inbox/collect/451ce296ff554b999cb0fd79797ee6bc/submitv2)**
+
+<hr>
+:::{.callout-note}
+相信同学们现在对 `rmarkdown` 和 `Quarto` 有了初步的认识，下面列出一些学习资料，感兴趣的同学们可进一步学习精进 🏆
+:::
+
+- 📖 [{{_R for Data Science_}}](https://r4ds.had.co.nz/) 一书关于 `rmarkdown` 的第27、**29**、30章
+
+- 📖 [**{{Quarto 官网}}**](https://quarto.org/)
+
+- 📖 [**{{R Markdown 官网}}**](https://rmarkdown.rstudio.com/)
+
+- 📝 RStudio IDE's Help &gt; 
+    
+    * CS &gt; [**_R Mardown Cheet Sheet_**](https://qfwr2022.netlify.app/slides/lec-03/docs/rmarkdown-cheatsheet.pdf)
+    * CS &gt; _R Mardown Reference Guide_
+    * _Markdown Quick Reference_
+    
+- **<https://rstudio.github.io/visual-markdown-editing/>**
+
+- 📖 [{{_R Markdown: The Definitive Guide_}}](https://bookdown.org/yihui/rmarkdown/) 和 [{{_R Markdown Cookbook_}}](https://bookdown.org/yihui/rmarkdown-cookbook/)
+
+<br>
