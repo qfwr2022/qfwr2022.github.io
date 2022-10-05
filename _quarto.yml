@@ -69,6 +69,8 @@ website:
           href: weeks/week-02.qmd
         - text: "第3周 rmarkdown与Quarto"
           href: weeks/week-03.qmd
+        - text: "第4周 向量与函数"
+          href: weeks/week-04.qmd
         - text: "......"
   page-navigation: true
   page-footer:

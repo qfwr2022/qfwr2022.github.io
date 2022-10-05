@@ -1,0 +1,80 @@
+---
+title: "第 4 周"
+subtitle: "向量与函数"
+author: 曾永艺
+date: 2022-10-07
+categories: [预习, 讲义, 作业]
+# image: /slides/lec-04/imgs/workflow-template.png
+# editor: visual
+---
+
+<hr>
+
+在前面两讲中我们在“净土宇宙 🌌”（_tidyverse_）中勇敢地跨出第一步，收获探索“数据可视化”（主要基于 `ggplot2` 包）和“动态文档”（主要基于 ~~`rmarkdown` ->~~ Quarto）带来的超酷体验 😎。在这一讲中我们将稍作“休整”，返过头去学习 R 语言编程方面的核心知识：**向量**与**函数**。了解、学习并掌握 R 语言向量和函数方面的知识对我们在“净土宇宙 🌌”的后续探索来说也是必备的知识基础。
+
+本讲主要涵盖以下几方面的内容：
+
+* 向量
+  - 原子向量
+  - 列表
+  - 向量属性
+  - 增强向量
+
+* 函数
+  - 使用函数的优点
+  - 编写函数的套路
+  - 函数的参数
+  - 函数的返回值
+  - 函数的环境
+  - 作为一等公民的函数
+
+<hr>
+
+## 1. 课前准备
+
+:::::{.columns}
+
+::::{.column width="60%"}
+
+📖 阅读 [*R for Data Science*](https://r4ds.had.co.nz/) 一书**第19章**和**第20章**（分别介绍关于函数和向量方面的 R 语言编程基础知识）。
+
+:::{.callout-tip appearance="simple"}
+此书的中文翻译版 [《R数据科学》](https://www.ituring.com.cn/book/2113) 发行有官方pdf电子版，对应章节为“第14章 函数”和“第15章 向量”。若觉得英文阅读有点吃力的同学，可找来参阅。
+:::
+
+:::{.callout-warning appearance="simple"}
+由于上课内容较多，而上课时间只有45分钟 × 2，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间过一遍上述有关函数和向量的两章内容。
+:::
+
+::::
+
+::::{.column width="40%"}
+:::{style="text-align:right"}
+<img src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" class="cover" width="80%"/>
+:::
+::::
+
+:::::
+
+## 2. 课堂讲义
+
+🖥️
+[第4讲 向量与函数](/slides/lec-04/L04_Vectors_Functions.html)
+
+:::{.callout-note appearance="simple"}
+课堂**讲义 PDF 版**和**腾讯会议云录制链接**将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。
+:::
+
+## 3. 随堂练习
+
+⌨️ 本讲时间安排较紧张，将不安排随堂编程练习。
+
+## 4. 课后作业
+
+✍️ [课后作业](/hw/hw-04.qmd)
+
+<br>
+
+<!-- ::: {style="font-size:0.875em; text-align:right"} -->
+<!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
+<!-- ::: -->
