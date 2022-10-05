@@ -4,7 +4,7 @@
     "href": "weeks.html",
     "title": "每周列表",
     "section": "",
-    "text": "排序方式\n       缺省\n         \n          日期 - 日期升序\n        \n         \n          日期 - 日期降序\n        \n         \n          标题\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\n第 3 周\n\n\nrmarkdown与Quarto\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-30\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 2 周\n\n\nggplot2数据可视化\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-23\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 1 周\n\n\n课程简介\n\n\n\n\n准备\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-16\n\n\n曾永艺\n\n\n\n\n\n\n无匹配项"
+    "text": "排序方式\n       缺省\n         \n          日期 - 日期升序\n        \n         \n          日期 - 日期降序\n        \n         \n          标题\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\n第 4 周\n\n\n向量与函数\n\n\n\n\n预习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-07\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 3 周\n\n\nrmarkdown与Quarto\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-30\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 2 周\n\n\nggplot2数据可视化\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-23\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 1 周\n\n\n课程简介\n\n\n\n\n准备\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-16\n\n\n曾永艺\n\n\n\n\n\n\n无匹配项"
   },
   {
     "objectID": "weeks/week-02.html",
@@ -38,6 +38,41 @@
     "objectID": "weeks/week-02.html#课后作业",
     "href": "weeks/week-02.html#课后作业",
     "title": "第 2 周",
+    "section": "4. 课后作业",
+    "text": "4. 课后作业\n✍️ 课后作业"
+  },
+  {
+    "objectID": "weeks/week-04.html",
+    "href": "weeks/week-04.html",
+    "title": "第 4 周",
+    "section": "",
+    "text": "在前面两讲中我们在“净土宇宙 🌌”（tidyverse）中勇敢地跨出第一步，收获探索“数据可视化”（主要基于 ggplot2 包）和“动态文档”（主要基于 rmarkdown -> Quarto）带来的超酷体验 😎。在这一讲中我们将稍作“休整”，返过头去学习 R 语言编程方面的核心知识：向量与函数。了解、学习并掌握 R 语言向量和函数方面的知识对我们在“净土宇宙 🌌”的后续探索来说也是必备的知识基础。\n本讲主要涵盖以下几方面的内容："
+  },
+  {
+    "objectID": "weeks/week-04.html#课前准备",
+    "href": "weeks/week-04.html#课前准备",
+    "title": "第 4 周",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n\n\n📖 阅读 R for Data Science 一书第19章和第20章（分别介绍关于函数和向量方面的 R 语言编程基础知识）。\n\n\n\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第14章 函数”和“第15章 向量”。若觉得英文阅读有点吃力的同学，可找来参阅。\n\n\n\n\n\n\n\n\n\n由于上课内容较多，而上课时间只有45分钟 × 2，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间过一遍上述有关函数和向量的两章内容。"
+  },
+  {
+    "objectID": "weeks/week-04.html#课堂讲义",
+    "href": "weeks/week-04.html#课堂讲义",
+    "title": "第 4 周",
+    "section": "2. 课堂讲义",
+    "text": "2. 课堂讲义\n🖥️ 第4讲 向量与函数\n\n\n\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
+  },
+  {
+    "objectID": "weeks/week-04.html#随堂练习",
+    "href": "weeks/week-04.html#随堂练习",
+    "title": "第 4 周",
+    "section": "3. 随堂练习",
+    "text": "3. 随堂练习\n⌨️ 本讲时间安排较紧张，将不安排随堂编程练习。"
+  },
+  {
+    "objectID": "weeks/week-04.html#课后作业",
+    "href": "weeks/week-04.html#课后作业",
+    "title": "第 4 周",
     "section": "4. 课后作业",
     "text": "4. 课后作业\n✍️ 课后作业"
   },
@@ -116,7 +151,7 @@
     "href": "schedule.html",
     "title": "课程安排",
     "section": "",
-    "text": "周次\n日期\n主题\n准备\n讲义\n练习\n作业\n项目\n\n\n\n\n1\n2022-09-16\n课程简介\n📖\n🖥️\n\n✍️\n\n\n\n2\n2022-09-23\nggplot2 数据可视化\n📖\n🖥️\n⌨️\n✍️\n\n\n\n3\n2022-09-30\nrmarkdown 与 Quarto\n📖\n🖥️\n⌨️\n✍️"
+    "text": "周次\n日期\n主题\n准备\n讲义\n练习\n作业\n项目\n\n\n\n\n1\n2022-09-16\n课程简介\n📖\n🖥️\n\n✍️\n\n\n\n2\n2022-09-23\nggplot2 数据可视化\n📖\n🖥️\n⌨️\n✍️\n\n\n\n3\n2022-09-30\nrmarkdown 与 Quarto\n📖\n🖥️\n⌨️\n✍️\n\n\n\n4\n2022-10-07\n向量与函数\n📖"
   },
   {
     "objectID": "index.html",
