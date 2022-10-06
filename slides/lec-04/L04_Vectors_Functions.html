@@ -1,0 +1,2363 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>量化金融与金融编程</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=" 曾永艺" />
+    <meta name="date" content="2022-10-07" />
+    <script src="../libs/header-attrs/header-attrs.js"></script>
+    <link href="../libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="../libs/tile-view/tile-view.js"></script>
+    <link href="../libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <script src="../libs/freezeframe/freezeframe.min.js"></script>
+    <script src="../libs/xaringanExtra-freezeframe/freezeframe-init.js"></script>
+    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":false,"warnings":true}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"fd03458482774f48b3b1319fc9a1c05a","expires":7}</script>
+    <script src="../libs/himalaya/himalaya.js"></script>
+    <script src="../libs/js-cookie/js.cookie.js"></script>
+    <link href="../libs/editable/editable.css" rel="stylesheet" />
+    <script src="../libs/editable/editable.js"></script>
+    <link href="../libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <link href="../libs/animate.css/animate.xaringan.css" rel="stylesheet" />
+    <script src="../libs/clipboard/clipboard.min.js"></script>
+    <link href="../libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="../libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-copy\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"<i class=\"fa fa-times-circle\" style=\"color: #F94144\"><\/i>"})</script>
+    <link href="../libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="../libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../libs/zen-styles-v2.3.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# 量化金融与金融编程
+]
+.subtitle[
+## L04 向量与函数
+]
+.author[
+### <br>曾永艺
+]
+.institute[
+### 厦门大学管理学院
+]
+.date[
+### <br>2022-10-07
+]
+
+---
+
+
+
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 50px;
+height: 50px;
+z-index: 0;
+background-image: url(imgs/logo-sm.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:0.5em;right:0.5em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+&lt;br&gt;
+.font120[
+&gt; To understand computations in __R__, two slogans are helpful:
+&gt; 
+&gt; - Everything that exists is an _object_.
+&gt; 
+&gt; - Everything that happens is a _function call_.
+&gt; 
+]
+
+--
+
+.pull-left.bold[
+
+## __1. 向量__
+  * .font140[原子向量]
+  * .font140[列表]
+  * .font140[向量属性]
+  * .font140[增强向量]
+  
+]
+
+--
+
+.pull-right.bold[
+
+## __2. 函数__
+  * .font140[使用函数的优点]
+  * .font140[编写函数的套路]
+  * .font140[函数的参数]
+  * .font140[函数的返回值]
+  * .font140[函数的环境]
+  * .font140[作为一等公民的函数]
+
+]
+
+---
+class: inverse, center, middle
+
+# 1. 向量
+
+.font150[(vectors)]
+
+---
+class: middle
+background-image: url(imgs/vectors-01.png)
+background-size: 80%
+background-position: 50% 50%
+
+---
+
+### 1.1 原子向量 &gt;&gt; 逻辑向量（_logical vector_）
+
+
+
+.full-width[.content-box-blue.bold.font120.note[逻辑向量的元素只有三种可能取值：`TRUE | FALSE | NA`]]
+
+--
+
+.full-width[.content-box-blue.bold.font120.note[逻辑向量通常由比较运算（`?Comparison`）生成]]
+
+
+```r
+1:10 %% 3 == 0
+```
+
+```
+#&gt;  [1] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
+```
+
+--
+
+.full-width[.content-box-blue.bold.font120.note[当然也可以用 `c()` 直接构造逻辑向量]]
+
+
+```r
+c(TRUE, FALSE, NA, T, F)   # c(): Combine Values into a Vector or List
+```
+
+```
+#&gt; [1]  TRUE FALSE    NA  TRUE FALSE
+```
+
+--
+
+.full-width[.content-box-blue.bold.font120.warning[强烈建议不要使用 `TRUE` 和 `FALSE` 的缩写形式 `T` 和 `F`]]
+
+
+```r
+T &lt;- FALSE; F &lt;- 2; c(TRUE, FALSE, NA, T, F); rm(list = c("T", "F"))
+```
+
+```
+#&gt; [1]  1  0 NA  0  2
+```
+
+---
+
+### 1.1 原子向量 &gt;&gt; 数值向量（_numeric vector_）
+
+.full-width[.content-box-blue.bold.font120.note[数值向量包括整数向量（integer）和实数向量（double）]]
+
+--
+
+.pull-left.code100[
+
+.full-width[.content-box-blue.bold.font120.note[默认为实数，除非在整数后加上 `L`]]
+
+.code80[
+
+```r
+typeof(1);typeof(1L);typeof(1.5L)
+```
+
+```
+#&gt; [1] "double"
+```
+
+```
+#&gt; [1] "integer"
+```
+
+```
+#&gt; [1] "double"
+```
+]
+
+.full-width[.content-box-blue.bold.font120.warning[R 用双精度来存储实数向量的数值，但在很多情况下只是近似值，因此不要用 `==` 直接比较实数向量的取值，而用 `dplyr::near()`]]
+
+]
+
+--
+
+.pull-right[
+
+.full-width[.content-box-blue.bold.font120.info[整数向量只有一个特殊值 `NA`，而实数向量则有四个特殊值 `NA`、`NaN`、`Inf` 和 `-Inf`；用 `is.*()` 而不要直接用 `==` 检测这些特殊值]]
+
+.code100[
+
+```r
+c(-1, 0, 1, NA) / 0  # 4个特殊值
+#&gt; [1] -Inf  NaN  Inf   NA
+```
+]
+
+|                  | `0` |`Inf`|`NA` |`NaN`|
+|:-----------------|:---:|:---:|:---:|:---:|
+| `is.finite()`    |  √  |     |     |     |
+| `is.infinite()`  |     |  √  |     |     |
+| `is.na()`        |     |     |  √  |  √  |
+| `is.nan()`       |     |     |     |  √  |
+
+]
+
+---
+
+### 1.1 原子向量 &gt;&gt; 字符向量（_charater vector_）
+
+.pull-left.code110[
+
+.full-width[.content-box-blue.bold.font120.note[字符向量的每个元素由字符串构成，可用来表示任意数据]]
+
+
+```r
+c("FALSE", "123L", "123.45", 
+  "a string", "1 + 2i", 
+  "3a 29",
+  "2018-11-13 10:00 CST")
+```
+
+```
+#&gt; [1] "FALSE"               
+#&gt; [2] "123L"                
+#&gt; [3] "123.45"              
+#&gt; [4] "a string"            
+#&gt; [5] "1 + 2i"              
+#&gt; [6] "3a 29"               
+#&gt; [7] "2018-11-13 10:00 CST"
+```
+
+]
+
+--
+
+.pull-right.code110[
+
+.full-width[.content-box-blue.bold.font120.info[R 使用全局字符串池，这意味着每个字符串在内存中只存一次]]
+
+
+```r
+x &lt;- "This is a long string."
+object.size(x)
+# lobstr::obj_size(x)
+```
+
+```
+#&gt; 136 bytes
+```
+
+
+```r
+y &lt;- rep(x, 1000)
+object.size(y)
+```
+
+```
+#&gt; 8128 bytes
+```
+
+```r
+# 8 * 1000 + 128 B
+```
+
+]
+
+---
+
+### 1.1 原子向量 &gt;&gt; 类型转换
+
+.full-width[.content-box-blue.bold.font120.note[显性转换：`as.logical()` | `as.integer()` | `as.double()` | `as.character()`]]
+--
+
+.code90[
+
+```r
+as.integer(c("1", "2")) + c(10, 11)   ## [1] 11 13
+```
+]
+
+--
+
+.pull-left.font120[
+
+.full-width[.content-box-blue.bold.note[隐性转换：当向量用于需要特定类型输入的函数时，R 会自动将向量转换为特定类型.red[（但非总是如此）]]]
+
+
+```r
+x &lt;- sample(1:20, 100, 
+            replace = TRUE)
+# what proportion &gt; 10?
+mean(x &gt; 10)
+```
+
+```
+#&gt; [1] 0.46
+```
+
+```r
+x + "3"  # 但并非总是如此
+```
+
+```
+#&gt; Error in x + "3": non-numeric argument to binary operator
+```
+
+]
+
+--
+
+.pull-right.font120[
+
+.full-width[.content-box-blue.bold.note[隐性转换：当用 `c()` 联结不同类型的向量时，R 会套用最复杂的类型]]
+
+
+```r
+c(FALSE, 1L, 1.5, "a", 1 + 1i, raw(2))
+```
+
+```
+#&gt; [1] "FALSE" "1"     "1.5"   "a"    
+#&gt; [5] "1+1i"  "00"    "00"
+```
+
+
+```r
+1 == "1"; -1 &lt; FALSE; "one" &lt; 2
+```
+
+```
+#&gt; [1] TRUE
+#&gt; [1] TRUE
+#&gt; [1] FALSE
+```
+
+]
+
+---
+
+### 1.1 原子向量 &gt;&gt; 类型检测
+
+.pull-left[
+
+&lt;br&gt;
+
+.full-width[.content-box-blue.bold.font120.info[尽管 R 的 `base` 包提供很多类型检测函数（如 `is.logical()` ），但建议使用 .bold[`purrr`] 包中用法更加一致的相关函数 &lt;sup&gt;.red[*]&lt;/sup&gt;]]
+
+]
+
+.pull-right.font120[
+
+&lt;br&gt;
+
+|                  | lgl | int | dbl | chr | list |
+|:-----------------|:---:|:---:|:---:|:---:|:----:|
+| `is_logical()`   |  √  |     |     |     |      |
+| `is_integer()`   |     |  √  |     |     |      |
+| `is_double()`    |     |     |  √  |     |      |
+| `is_numeric()`   |     |  √  |  √  |     |      |
+| `is_character()` |     |     |     |  √  |      |
+| `is_atomic()`    |  √  |  √  |  √  |  √  |      |
+| `is_list()`      |     |     |     |     |  √   |
+| `is_vector()`    |  √  |  √  |  √  |  √  |  √   |
+
+]
+
+
+.footnote.red[*：事实上这些函数现在都 import 自 `rlang` 包]
+
+---
+
+### 1.1 原子向量 &gt;&gt; 循环规则（_recycling_）
+
+.full-width[.content-box-blue.bold.font120.note[R 不仅会隐性地转换向量类型， R 中的向量化函数还会采用循环规则自动转换向量的长度，通过重复将较短向量的长度增加至较长向量的长度]]
+--
+
+.code100[
+
+```r
+runif(10) &gt; 0.5  # R中不存在所谓的标量（scalar），它们只是长度为1的向量
+```
+
+```
+#&gt;  [1] FALSE FALSE  TRUE FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE
+```
+]
+
+--
+
+.pull-left.code100[
+.full-width[.content-box-blue.bold.font120.info[当较长向量不是较短向量的整数倍时，R 照样会进行转换，但会有个 .red.font90[Warning message]]]
+
+
+```r
+1:5 + c(1, NA)
+```
+
+```
+#&gt; Warning in 1:5 + c(1, NA): longer
+#&gt; object length is not a multiple of
+#&gt; shorter object length
+```
+
+```
+#&gt; [1]  2 NA  4 NA  6
+```
+
+]
+
+--
+
+.pull-right.code100[
+
+.full-width[.content-box-blue.bold.font120.info[当向量的长短不一时（标量除外），要求更严格的 `tidyverse` 则会抛出 Error，停止运行]]
+
+
+```r
+tibble(x = 1:4, y = 1:2)
+```
+
+```
+#&gt; Error:
+#&gt; ! Tibble columns must have compatible sizes.
+#&gt; • Size 4: Existing data.
+#&gt; • Size 2: Column `y`.
+#&gt; ℹ Only values of size one are recycled.
+```
+
+]
+
+---
+layout: true
+
+### 1.1 原子向量 &gt;&gt; 用 `[` 函数选取元素（_subsetting_）
+
+---
+
+.full-width[.content-box-blue.bold.font120[方法一：用.red[整数向量]选取元素]]
+
+--
+
+
+```r
+x &lt;- c("one", "two", "three", "four", "five")
+
+x[c(1, 1, 3, 2, 2, 5)]    # 正整数表示提取相应位置的元素，可重复；位置索引从1开始
+```
+
+```
+#&gt; [1] "one"   "one"   "three" "two"   "two"   "five"
+```
+--
+
+
+```r
+x[c(-1, -3, -5)]          # 负整数表示剔除相应位置的元素
+```
+
+```
+#&gt; [1] "two"  "four"
+```
+--
+
+
+```r
+x[c(1, -3, 5)]            # 不可混用正整数和负整数
+```
+
+```
+#&gt; Error in x[c(1, -3, 5)]: only 0's may be mixed with negative subscripts
+```
+--
+
+
+```r
+x[0]                      # 返回空值（但非NULL）
+```
+
+```
+#&gt; character(0)
+```
+
+--
+
+
+```r
+x[c(1.2, 2.3, 3.4, 4.5, 5.6, 6.7)]  # 想想，这会返回什么？
+```
+
+---
+
+.pull-left.code100[
+
+.full-width[.content-box-blue.bold.font120[方法二：用.red[逻辑向量]选取元素，保留逻辑向量取值为 `TRUE` 位置的元素]]
+
+
+```r
+x &lt;- c(10, 3, NA, 5)
+
+x[!is.na(x)]  # 提取非缺失值
+```
+
+```
+#&gt; [1] 10  3  5
+```
+
+
+```r
+# 逻辑向量取值为NA的位置也会被
+# 保留下来，相应元素的取值也为NA
+x[x %% 2 == 0] # 提取偶数或缺失值
+```
+
+```
+#&gt; [1] 10 NA
+```
+]
+
+--
+
+.pull-right.code100[
+
+.full-width[.content-box-blue.bold.font120[方法三：用.red[字符向量]选取命名向量的元素]]
+
+
+```r
+# 命名向量：创建时直接命名
+abc &lt;- c(a = 1, b = 2, c = 3)
+# 命名向量：事后再命名
+abc &lt;- 1:3
+abc &lt;- purrr::set_names(        
+  # 也可用base包的setNames()
+  x = abc,
+  nm = c("a", "b", "c")
+)
+```
+
+
+```r
+# 提取相应命名的元素
+abc[c("a", "c", "b", "a", "d")]
+```
+
+```
+#&gt;    a    c    b    a &lt;NA&gt; 
+#&gt;    1    3    2    1   NA
+```
+
+]
+
+---
+
+.pull-left.code110[
+
+.full-width[.content-box-blue.bold.font120[方法四：.red[空向量]表示选取全部元素]]
+
+
+```r
+abc
+```
+
+```
+#&gt; a b c 
+#&gt; 1 2 3
+```
+
+```r
+abc[]
+```
+
+```
+#&gt; a b c 
+#&gt; 1 2 3
+```
+
+]
+
+--
+
+.pull-right.code110[
+
+.full-width[.content-box-blue.bold.font120[最后，&amp;#91; 有个特殊的变型  &amp;#91;&amp;#91;，后者.red[只返回单个元素，且会丢弃元素名称]。当你想要明确表达你只需要一个元素时，推荐使用 &amp;#91;&amp;#91;。]]
+   
+
+```r
+abc["a"]    # abc[1]
+```
+
+```
+#&gt; a 
+#&gt; 1
+```
+
+```r
+abc[["a"]]  # abc[[1]]
+```
+
+```
+#&gt; [1] 1
+```
+
+]
+
+---
+layout: true
+
+### 1.2 列表 &gt;&gt; 基础
+
+---
+.full-width[.content-box-blue.bold.font120.note[和原子向量不同，列表可同时包含.red[多种类型（type）的元素（甚至嵌套下一级的列表）]，这使得列表适合用来存储混合或树状结构的数据]]
+
+--
+
+.pull-left.code90[
+
+```r
+a &lt;- list(a = 1:3, b = "a string",
+          c = pi, d = list(-1, -5))
+a  # print(a)
+```
+
+```
+#&gt; $a
+#&gt; [1] 1 2 3
+#&gt; 
+#&gt; $b
+#&gt; [1] "a string"
+#&gt; 
+#&gt; $c
+#&gt; [1] 3.14
+#&gt; 
+#&gt; $d
+#&gt; $d[[1]]
+#&gt; [1] -1
+#&gt; 
+#&gt; $d[[2]]
+#&gt; [1] -5
+```
+]
+
+--
+
+.pull-right.code90[
+
+.full-width[.content-box-blue.bold.font120.info[除了直接 `print()` 列表的内容之外，更推荐使用 `str()` 函数来查看列表的结构或使用 RStudio's Environment 面板中的对象浏览器]]
+
+
+```r
+str(a)
+```
+
+```
+#&gt; List of 4
+#&gt;  $ a: int [1:3] 1 2 3
+#&gt;  $ b: chr "a string"
+#&gt;  $ c: num 3.14
+#&gt;  $ d:List of 2
+#&gt;   ..$ : num -1
+#&gt;   ..$ : num -5
+```
+]
+
+
+---
+layout: true
+
+### 1.2 列表 &gt;&gt; 提取列表元素（_subsetting_）
+
+---
+
+.pull-left.code90[
+
+.full-width[.content-box-blue.bold.font120[方法一：用 &amp;#91; 提取子列表，.red[总是返回列表]]]
+
+
+```r
+# 可用 数值|字符|逻辑向量 提取，如a[1:2]
+# 或a[c(TRUE, TRUE, FALSE, FALSE)]
+a[c("a", "b")] %&gt;% str()
+```
+
+```
+#&gt; List of 2
+#&gt;  $ a: int [1:3] 1 2 3
+#&gt;  $ b: chr "a string"
+```
+
+```r
+# 尽管只有一个元素，但仍是列表
+a[3] %&gt;% str()
+```
+
+```
+#&gt; List of 1
+#&gt;  $ c: num 3.14
+```
+
+```r
+a[4] %&gt;% str() 
+```
+
+```
+#&gt; List of 1
+#&gt;  $ d:List of 2
+#&gt;   ..$ : num -1
+#&gt;   ..$ : num -5
+```
+
+]
+
+--
+
+.pull-right.code90[
+
+.full-width[.content-box-blue.bold.font120[方法二：用 &amp;#91;&amp;#91; 提取单一列表元素，.red[并从列表中移除一个层级]]]
+
+
+```r
+a[[3]] %&gt;% str()
+```
+
+```
+#&gt;  num 3.14
+```
+
+```r
+a[[4]] %&gt;% str()
+```
+
+```
+#&gt; List of 2
+#&gt;  $ : num -1
+#&gt;  $ : num -5
+```
+
+.full-width[.content-box-blue.bold.font120[方法三：`$` 大致等同 &amp;#91;&amp;#91; ，更方便地提取一个.red[命名列表]的元素]]
+
+
+```r
+a$a  # a[["a"]]
+```
+
+```
+#&gt; [1] 1 2 3
+```
+]
+
+---
+
+.pull-left[
+
+&lt;img src="imgs/lists-subsetting-1.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+]
+
+--
+
+.pull-right[
+
+&lt;img src="imgs/lists-subsetting-2.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+.footnote[.red[
+- 图中圆角方框代表**列表**，而普通方框代表**原子向量**
+- 子元素被包围在父元素之内
+]]
+
+]
+
+---
+layout: true
+
+### 1.3 向量属性（_attributes_）
+
+---
+
+.full-width[.content-box-blue.bold.font120.note[我们可以通过.red[向量属性]来给向量增加任意的额外元数据（metadata），而向量属性可被视作附加在向量上的.red[命名列表]]]
+
+--
+
+.full-width[.content-box-blue.bold.font120.note[通过 `attr()` 来设定或获取向量的属性；通过 `attributes()` 来获取全部或批量设置向量的属性信息]]
+
+--
+
+.pull-left.code100[
+
+
+```r
+x &lt;- 1:10
+attr(x, "source")
+```
+
+```
+#&gt; NULL
+```
+
+```r
+attributes(x) &lt;- list(
+  source = c("Wind", "GTA"), 
+  date   = Sys.Date()
+)
+attr(x, "cleaned_by") &lt;- "Y.Z"
+```
+
+]
+
+--
+
+.pull-right.code100[
+
+```r
+attributes(x)
+```
+
+```
+#&gt; $source
+#&gt; [1] "Wind" "GTA" 
+#&gt; 
+#&gt; $date
+#&gt; [1] "2022-10-06"
+#&gt; 
+#&gt; $cleaned_by
+#&gt; [1] "Y.Z"
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120.note[R 中的向量除了我们之前提到过的“类型 `typeof()`”和“长度 `length()`”两个性质之外，还有三个.red[基础]属性：名称、维度和类]]
+
+--
+
+.pull-left.code100[
+.full-width[.content-box-blue.bold.font120[①名称属性（_names_）：给向量元素命名]]
+
+
+```r
+# 命名向量
+x = c(1, 2, 3)
+*names(x) &lt;- c("a", "b", "c")
+x
+```
+
+```
+#&gt; a b c 
+#&gt; 1 2 3
+```
+
+```r
+names(x)   # attr(x, "names")
+```
+
+```
+#&gt; [1] "a" "b" "c"
+```
+]
+
+--
+
+.pull-right.code90[
+
+.full-width[.content-box-blue.bold.font120[②维度属性（_dimensions_）：将向量“改造”为矩阵或数组]]
+
+
+```r
+x &lt;- 1:10
+*dim(x) &lt;- c(2, 5) # ?matrix
+x
+```
+
+```
+#&gt;      [,1] [,2] [,3] [,4] [,5]
+#&gt; [1,]    1    3    5    7    9
+#&gt; [2,]    2    4    6    8   10
+```
+
+```r
+class(x); dim(x)  # attr(x, "dim")
+```
+
+```
+#&gt; [1] "matrix" "array"
+```
+
+```
+#&gt; [1] 2 5
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[③类属性（_class_）：控制.red[泛型函数（_generic functions_）]的行为方式，这是 R 语言用来实现“S3 面向对象系统”的方法]]
+
+--
+.pull-left.code100[
+
+
+```r
+# as.Date()是个典型的泛型函数
+# 列印as.Date()函数的源代码
+as.Date
+```
+
+```
+#&gt; function (x, ...) 
+*#&gt; UseMethod("as.Date")
+#&gt; &lt;bytecode: 0x000001759557f710&gt;
+#&gt; &lt;environment: namespace:base&gt;
+```
+
+]
+
+--
+
+.pull-right.code100[
+
+.font110[**结果显示**，`as.Date()` 函数调用 `UseMethod()`，这就意味着 `as.Date()` 是个泛型函数，它将根据第一个参数 `x` 的类来确定该调用哪个特定方法（`method`）。]
+
+
+```r
+# 查看as.Date()泛型函数调用的全部方法
+methods("as.Date")
+```
+
+```
+#&gt; [1] as.Date.character   as.Date.default    
+#&gt; [3] as.Date.factor      as.Date.numeric    
+#&gt; [5] as.Date.POSIXct     as.Date.POSIXlt    
+#&gt; [7] as.Date.vctrs_sclr* as.Date.vctrs_vctr*
+#&gt; see '?methods' for accessing help and source code
+```
+
+]
+
+---
+
+.code90[
+
+
+```r
+# 查看as.Date()函数指定类（如numeric）所实现的具体方法
+getS3method("as.Date", "numeric")
+# 由于as.Date.numeric()是导出函数，也可用as.Date.numeric直接查看其代码
+```
+
+```
+#&gt; function (x, origin, ...) 
+#&gt; {
+#&gt;     if (missing(origin)) {
+#&gt;         if (!length(x)) 
+#&gt;             return(.Date(numeric()))
+#&gt;         if (!any(is.finite(x))) 
+#&gt;             return(.Date(x))
+#&gt;         stop("'origin' must be supplied")
+#&gt;     }
+#&gt;     as.Date(origin, ...) + x
+#&gt; }
+#&gt; &lt;bytecode: 0x000001759d68d618&gt;
+#&gt; &lt;environment: namespace:base&gt;
+```
+
+]
+
+--
+
+.font120.info[记住，**类**和**泛型函数**是`R`中非常重要的概念，有很多常见的函数都是泛型函数，具体如 `print()`、`summary()`、`mean()`、&amp;#91;、&amp;#91;&amp;#91; 和 `$` 等。]
+
+
+---
+layout: true
+
+### 1.4 增强向量（_augmented vectors_）
+
+---
+
+.full-width[.content-box-blue.bold.font120[增强向量①：因子向量（_factors_）]]
+
+--
+
+.pull-left.code90[
+
+
+```r
+(x &lt;- factor(c("A", "B", "A"), 
+        levels = c("A", "B", "C")))
+```
+
+```
+#&gt; [1] A B A
+#&gt; Levels: A B C
+```
+
+```r
+typeof(x)     # 获取向量x的类型
+```
+
+```
+#&gt; [1] "integer"
+```
+
+```r
+attributes(x) # 获取向量x的属性
+```
+
+```
+#&gt; $levels
+#&gt; [1] "A" "B" "C"
+#&gt; 
+#&gt; $class
+#&gt; [1] "factor"
+```
+]
+
+--
+
+.pull-right.code100[
+
+```r
+# 获取x向量levels属性的便捷函数
+levels(x)
+```
+
+```
+#&gt; [1] "A" "B" "C"
+```
+
+```r
+# 获取x向量class属性的便捷函数
+class(x)
+```
+
+```
+#&gt; [1] "factor"
+```
+
+```r
+unclass(x)  # 移除向量x的类属性
+```
+
+```
+#&gt; [1] 1 2 1
+#&gt; attr(,"levels")
+#&gt; [1] "A" "B" "C"
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[增强向量②：日期向量和日期-时间向量（_dates_ and _date-times_）]]
+
+--
+
+.pull-left.code90[
+
+```r
+(x &lt;- as.Date("1971-01-01"))
+```
+
+```
+#&gt; [1] "1971-01-01"
+```
+
+```r
+typeof(x)
+```
+
+```
+#&gt; [1] "double"
+```
+
+```r
+attributes(x)
+```
+
+```
+#&gt; $class
+#&gt; [1] "Date"
+```
+
+```r
+unclass(x)   # as.integer(x)
+```
+
+```
+#&gt; [1] 365
+```
+]
+--
+
+.pull-right.code90[
+
+```r
+(x &lt;- lubridate::ymd_hm(
+        "1970-01-01 01:00"))
+```
+
+```
+#&gt; [1] "1970-01-01 01:00:00 UTC"
+```
+
+```r
+typeof(x); as.double(x) # unclass(x)
+```
+
+```
+#&gt; [1] "double"
+```
+
+```
+#&gt; [1] 3600
+```
+
+```r
+attributes(x)
+```
+
+```
+#&gt; $class
+#&gt; [1] "POSIXct" "POSIXt" 
+#&gt; 
+#&gt; $tzone
+#&gt; [1] "UTC"
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[增强向量②：日期向量和日期-时间向量（_dates_ and _date-times_）]]
+
+--
+
+.code90[
+
+```r
+(y &lt;- as.POSIXlt(x))  # built on top of named lists
+```
+
+```
+#&gt; [1] "1970-01-01 01:00:00 UTC"
+```
+]
+
+--
+
+.pull-left.code90[
+
+
+```r
+typeof(y)
+```
+
+```
+#&gt; [1] "list"
+```
+
+```r
+attributes(y)
+```
+
+```
+#&gt; $names
+#&gt; [1] "sec"   "min"   "hour"  "mday"  "mon"  
+#&gt; [6] "year"  "wday"  "yday"  "isdst"
+#&gt; 
+#&gt; $class
+#&gt; [1] "POSIXlt" "POSIXt" 
+#&gt; 
+#&gt; $tzone
+#&gt; [1] "UTC"
+```
+
+]
+
+--
+
+.pull-right.code90[
+
+
+```r
+unclass(y) %&gt;% str
+```
+
+```
+#&gt; List of 9
+#&gt;  $ sec  : num 0
+#&gt;  $ min  : int 0
+#&gt;  $ hour : int 1
+#&gt;  $ mday : int 1
+#&gt;  $ mon  : int 0
+#&gt;  $ year : int 70
+#&gt;  $ wday : int 4
+#&gt;  $ yday : int 0
+#&gt;  $ isdst: int 0
+#&gt;  - attr(*, "tzone")= chr "UTC"
+```
+
+```r
+y$year   # 提取列表y的"year"元素
+```
+
+```
+#&gt; [1] 70
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[增强向量③：`dataframe` 和 `tibble`]]
+
+--
+
+.pull-left.code90[
+
+
+```r
+df &lt;- data.frame(
+  x = LETTERS[1:3], 
+  y = 0:2, `:)` = runif(3))
+typeof(df)
+```
+
+```
+#&gt; [1] "list"
+```
+
+
+```r
+attributes(df)
+```
+
+```
+#&gt; $names
+*#&gt; [1] "x"   "y"   "X.."
+#&gt; 
+#&gt; $class
+#&gt; [1] "data.frame"
+#&gt; 
+#&gt; $row.names
+#&gt; [1] 1 2 3
+```
+
+]
+
+--
+
+.pull-right.code90[
+
+
+```r
+tb &lt;- tibble(
+  x = LETTERS[1:3], 
+  y = 0:2, `:)` = runif(3))
+typeof(tb)
+```
+
+```
+#&gt; [1] "list"
+```
+
+
+```r
+attributes(tb)
+```
+
+```
+#&gt; $class
+*#&gt; [1] "tbl_df"     "tbl"        "data.frame"
+#&gt; 
+#&gt; $row.names
+#&gt; [1] 1 2 3
+#&gt; 
+#&gt; $names
+*#&gt; [1] "x"  "y"  ":)"
+```
+
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[增强向量③：`dataframe` 和 `tibble` &lt;sup&gt;.red[*]&lt;/sup&gt;]]
+
+.footnote.red[*：`dataframe` 和 `tibble` 的底层是个 `list`，每列是 `list` 的一个元素，但要求每列都必须是等长的向量]
+
+--
+
+.pull-left.code90[
+
+```r
+# 看看df底层的list
+unclass(df) %&gt;% str()
+```
+
+```
+#&gt; List of 3
+#&gt;  $ x  : chr [1:3] "A" "B" "C"
+#&gt;  $ y  : int [1:3] 0 1 2
+#&gt;  $ X..: num [1:3] 0.6216 0.0929 0.0138
+#&gt;  - attr(*, "row.names")= int [1:3] 1 2 3
+```
+
+```r
+df  # 列印df的内容
+```
+
+```
+#&gt;   x y    X..
+#&gt; 1 A 0 0.6216
+#&gt; 2 B 1 0.0929
+#&gt; 3 C 2 0.0138
+```
+]
+
+--
+
+.pull-right.code90[
+
+```r
+# 看看tb底层的list
+unclass(tb) %&gt;% str()
+```
+
+```
+#&gt; List of 3
+#&gt;  $ x : chr [1:3] "A" "B" "C"
+#&gt;  $ y : int [1:3] 0 1 2
+#&gt;  $ :): num [1:3] 0.1062 0.1188 0.0625
+#&gt;  - attr(*, "row.names")= int [1:3] 1 2 3
+```
+
+
+```r
+tb  # 列印tb的内容
+```
+
+```
+*#&gt; # A tibble: 3 × 3
+#&gt;   x         y   `:)`
+*#&gt;   &lt;chr&gt; &lt;int&gt;  &lt;dbl&gt;
+#&gt; 1 A         0 0.106 
+#&gt; 2 B         1 0.119 
+#&gt; 3 C         2 0.0625
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[增强向量③：`dataframe` 和 `tibble`]]
+
+--
+
+.pull-left.code100[
+
+```r
+# 提取tb的第1列和第3列
+tb[c(1, 3)]
+```
+
+```
+#&gt; # A tibble: 3 × 2
+#&gt;   x       `:)`
+#&gt;   &lt;chr&gt;  &lt;dbl&gt;
+#&gt; 1 A     0.106 
+#&gt; 2 B     0.119 
+#&gt; 3 C     0.0625
+```
+]
+
+--
+
+.pull-right.code100[
+
+
+```r
+# 提取第2列，仍结果为tibble
+# 也可用tb[2]
+tb["y"]
+```
+
+```
+#&gt; # A tibble: 3 × 1
+#&gt;       y
+#&gt;   &lt;int&gt;
+#&gt; 1     0
+#&gt; 2     1
+#&gt; 3     2
+```
+
+```r
+# 提取第2列，但结果为向量
+# 也可用tb[[2]]或tb[["y"]]
+tb$y
+```
+
+```
+#&gt; [1] 0 1 2
+```
+
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[增强向量③：`dataframe` 和 `tibble`]]
+
+.code100[
+
+```r
+# tb（df）具有类似矩阵（matrix）类的性质
+# tb的维度“属性”
+dim(tb)
+```
+
+```
+#&gt; [1] 3 3
+```
+]
+
+--
+
+.pull-left.code100[
+
+```r
+# 用提取子矩阵的方法提取子集
+tb[c(1, 3), c("y", ":)")]
+```
+
+```
+#&gt; # A tibble: 2 × 2
+#&gt;       y   `:)`
+#&gt;   &lt;int&gt;  &lt;dbl&gt;
+#&gt; 1     0 0.106 
+#&gt; 2     2 0.0625
+```
+]
+
+--
+
+.pull-right.code100[
+
+```r
+# 用dplyr工具可能更为直观
+tb %&gt;% slice(c(1, 3)) %&gt;% 
+  select(y, ":)")
+```
+
+```
+#&gt; # A tibble: 2 × 2
+#&gt;       y   `:)`
+#&gt;   &lt;int&gt;  &lt;dbl&gt;
+#&gt; 1     0 0.106 
+#&gt; 2     2 0.0625
+```
+]
+
+---
+layout: false
+class: inverse, center, middle
+
+# 2. 函数
+
+.font150[(_functions_)]
+
+---
+
+### 2.1 使用函数的优点
+
+--
+
+.pull-left.font130[
+
+.full-width.content-box-blue.bold.note[和复制-粘贴-修改比，使用函数的优点]
+
+- 清晰的函数名让代码更容易理解
+
+- 当要求发生变化时，你只需要在一个地方进行改动
+
+- 消除复制-粘贴-修改过程中可能出现的无心之误
+
+- 有时你必须写函数（如某些函数的参数就是函数）
+
+.full-width[.content-box-blue.bold[来围观一个栗子 &amp;nbsp;&amp;nbsp; 👉]]
+
+]
+
+--
+
+.pull-right[
+
+
+```r
+set.seed(1234)
+df &lt;- tibble::tibble(
+  a = rnorm(10),
+  b = rnorm(10),
+  c = rnorm(10)
+)
+
+# 甲：以上生成正态分布的随机变量并组装成df ……
+# 乙：这我明白！
+```
+
+
+```r
+# 甲：那么请问，以下又是神马操作？
+# 乙：……
+
+df$a &lt;- (df$a - min(df$a, na.rm = TRUE)) /
+        (max(df$a, na.rm = TRUE) - 
+           min(df$a, na.rm = TRUE))
+df$b &lt;- (df$b - min(df$b, na.rm = TRUE)) /
+        (max(df$b, na.rm = TRUE) - 
+           min(df$a, na.rm = TRUE))
+df$c &lt;- (df$c - min(df$c, na.rm = TRUE)) /
+        (max(df$c, na.rm = TRUE) - 
+           min(df$c, na.rm = TRUE))
+```
+]
+
+---
+layout: true
+
+### 2.2 编写函数的套路
+
+---
+
+.full-width[.content-box-blue.bold.font120[Step#1 分析重复性的代码 &lt;sup&gt;.red[*1]&lt;/sup&gt;]]
+
+.code110[
+
+```r
+(df$a - min(df$a, na.rm = TRUE)) /
+  (max(df$a, na.rm = TRUE) - min(df$a, na.rm = TRUE))
+```
+]
+
+--
+
+&lt;br&gt;
+
+.full-width[.content-box-blue.bold.font120[Step#2 将函数的输入提取为临时变量 &lt;sup&gt;.red[*2]&lt;/sup&gt;]]
+
+.code110[
+
+```r
+x &lt;- df$a
+(x - min(x, na.rm = TRUE)) / 
+  (max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
+```
+
+```
+#&gt;  [1] 0.332 0.765 1.000 0.000 0.809 0.831 0.516 0.524 0.519 0.424
+```
+]
+
+.footnote.red[
+\*1：可选步骤。  
+\*2: 多个__输入__也可类似处理。
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[Step#3 &amp;nbsp; 包装成函数 [ -&gt; 改进] -&gt; 测试]]
+
+.code100[
+
+```r
+rescale01 &lt;- function(x) {
+  (x - min(x, na.rm = TRUE)) / 
+    (max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
+}
+rescale01(df$a)  # 测试看看结果是否正确
+```
+
+```
+#&gt;  [1] 0.332 0.765 1.000 0.000 0.809 0.831 0.516 0.524 0.519 0.424
+```
+]
+
+--
+
+.code100[
+
+```r
+# 改进之：使用range()，一举得到min和max
+rescale01 &lt;- function(x) {
+  rng &lt;- range(x, na.rm = TRUE)  
+  (x - rng[1]) / (rng[2] - rng[1])
+}
+rescale01(df$a)  # 测试看看结果是否正确
+```
+
+```
+#&gt;  [1] 0.332 0.765 1.000 0.000 0.809 0.831 0.516 0.524 0.519 0.424
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[应用新编写的函数]]
+
+.code95[
+
+```r
+df$a &lt;- rescale01(df$a)
+df$b &lt;- rescale01(df$b)
+df$c &lt;- rescale01(df$c)
+df
+```
+
+```
+#&gt; # A tibble: 10 × 3
+#&gt;       a      b     c
+#&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 0.332 0.153  0.782
+#&gt; 2 0.765 0      0.473
+#&gt; 3 1     0.0651 0.498
+#&gt; # … with 7 more rows
+```
+]
+
+--
+
+.full-width.content-box-blue.bold.font120[但 …… 上面的代码还是有点 WET，不够 DRY！]
+
+.full-width.content-box-blue.bold.font120.info[解决方案：用&amp;nbsp;`for`&amp;nbsp;循环或函数式编程]
+
+
+---
+
+.full-width[.content-box-blue.bold.font120.note[R 中函数的构成要素]]
+
+&lt;br&gt;
+
+.code100[
+
+```r
+rescale01 &lt;-                            # 函数名：rescale01
+  function(x)                           # 函数参数：  &lt;- formals()
+  {                                     # 函数体：{   &lt;- body()
+    rng &lt;- range(x, na.rm = TRUE)       # ...
+    (x - rng[1]) / (rng[2] - rng[1])    # ...
+  }                                     # } + 函数环境 &lt;- enviornment()
+```
+]
+
+---
+
+.pull-left.font110[
+
+.full-width[.content-box-blue.font110.bold.note[函数名]]
+
+- 明晰易懂、建议为动词
+
+- 推荐`snake_case`命名法
+
+- 保持一致，如统一前缀
+
+.code90[
+
+```r
+# Long, but clear
+impute_missing()
+collapse_years()
+
+# common prefix for a family
+stringr::str_*()
+
+# Never do this!
+col_mins &lt;- function(x, y) {}
+rowMaxes &lt;- function(y, x) {}
+```
+]
+]
+
+--
+
+.pull-right.font110[
+
+.full-width[.content-box-blue.font110.bold.note[函数体]]
+
+- 代码缩进，形成层级结构
+
+- 使用空格
+
+- 合理使用注释
+  - 说明函数目的
+  - 代码分块（Ctrl+Shift+R）
+
+- 使用中间变量
+
+&lt;br&gt;
+
+- **保持一致风格** &amp;nbsp; 👉 `styler` 包
+
+]
+
+---
+layout: true
+
+### 2.3 函数的参数
+
+---
+
+.full-width[.content-box-blue.bold.font120.note[函数的参数大致可划分为两类：]]
+
+.font110[
+1. 提供函数操作的（数据）对象
+2. 控制函数如何操作对象的具体细节
+]
+
+.code90[
+
+```r
+?t.test  # args(t.test)或formals(t.test)在此不好用
+# t.test(x, y = NULL,
+#        alternative = c("two.sided", "less", "greater"),
+#        mu = 0, paired = FALSE, var.equal = FALSE,
+#        conf.level = 0.95, ...)
+```
+]
+
+--
+
+.full-width[.content-box-blue.bold.font120.info[通常把对象参数放在最前面，其余参数则按重要性排序，并设定默认值]]
+
+--
+
+.pull-left[
+.full-width[.content-box-blue.bold.font120.info[参数名可采用约定俗成的名字，并与通常用法保持一致 👉 ]]
+
+]
+
+.pull-right.font90[
+
+|参数名       |惯常含义          |参数名       |惯常含义             |
+|:------------|:-----------------|:------------|:--------------------|
+|`x`, `y`, `z`|数据向量          |`i`, `j`     |行列序号             |
+|`df`         |数据框            |`n`          |向量长度或数据框行数 |
+|`w`          |权重向量          |`na.rm`      |是否移除缺失值       |
+
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120.info[特殊参数 `...`]]
+
+--
+
+.code100[
+
+```r
+# 很多R函数接受任意数量的输入，此时可用...来捕捉未被匹配的参数
+sum(1, 2, 3, 4, 5, NA, 7, 8, 9, 10, na.rm = TRUE)
+```
+
+```
+#&gt; [1] 49
+```
+]
+
+--
+
+.code100[
+
+```r
+# 也可用...将不想直接处理的参数传递至函数体内调用的底层函数，如
+rule &lt;- function(..., pad = "-") {
+  title &lt;- paste0(...)
+  width &lt;- getOption("width") - nchar(title) - 6
+  cat("## ", title, " ", stringr::str_dup(pad, width), "\n", 
+      sep = "")
+}
+rule("Important output", pad = "=")
+```
+
+```
+## Important output ================================================
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120.info[在函数体中对重要参数的取值进行检验]]
+
+.code90[
+
+```r
+wt_mean &lt;- function(x, w, na.rm = FALSE) {
+* if (length(x) != length(w)) {   # conditional execution
+    stop("`x` and `w` must be the same length", call. = FALSE)
+  }
+* stopifnot(is.logical(na.rm), length(na.rm) == 1)
+
+* if (na.rm) {
+    miss &lt;- is.na(x) | is.na(w)
+    x &lt;- x[!miss]
+    w &lt;- w[!miss]
+  }
+  sum(w * x) / sum(w)
+}
+```
+]
+
+--
+
+.pull-left[
+
+```r
+wt_mean(1:6, 5:1, na.rm = "foo")
+```
+
+```
+#&gt; Error: `x` and `w` must be the same length
+```
+]
+
+--
+
+.pull-right[
+
+```r
+wt_mean(1:6, 6:1, na.rm = "foo")
+```
+
+```
+#&gt; Error in wt_mean(1:6, 6:1, na.rm = "foo"): is.logical(na.rm) is not TRUE
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120.note[调用函数时将_实际参数_映射到_形式参数_三种方法的优先级依次为：]]
+
+.bold.font120[&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;名字完全匹配 &gt;&gt; 名字前缀部分匹配 &gt;&gt; 位置匹配]
+
+--
+
+.full-width[.content-box-blue.bold.font120.note[调用函数时通常可略去对象参数名，而其余参数则建议使用全名]]
+
+--
+
+.code100[
+
+```r
+# Good
+mean(1:10, na.rm = TRUE)
+ggplot(mpg, aes(x = displ, y = hwy)) + geom_point()
+```
+]
+
+--
+
+.code100[
+
+```r
+# Bad
+mean(1:10, , TRUE)          # 位置匹配
+mean(n = TRUE, x = 1:10)    # 简写“细节”参数名
+mean(, TRUE, x = 1:10)      # 参数名匹配 + 位置匹配
+```
+]
+
+---
+layout: true
+
+### 2.4 函数的返回值
+
+---
+
+.full-width[.content-box-blue.bold.font120.note[通常函数返回其最后一个语句求值的结果]]
+
+--
+
+.full-width[.content-box-blue.bold.font120.note[当然你也可以用 `return()` 来提前返回结果，从而让代码更易读]]
+
+--
+
+.pull-left.code90[
+
+```r
+f &lt;- function() {
+  if (condition) {
+    # Do 
+    # something
+    # that
+    # takes
+    # many
+    # lines
+    # to
+    # express
+  } else {
+    # return something short
+  }
+}
+```
+]
+
+--
+
+.pull-right.code90[
+
+```r
+f &lt;- function() {
+  if (!condition) {
+*   return(something_short)
+  }
+
+  # Do 
+  # something
+  # that
+  # takes
+  # many
+  # lines
+  # to
+  # express
+}
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120.note[编写支持管道操作 `%&gt;%` 的函数]]
+
+- .font120[.bold[_transformation_ 类型的函数]：直接对输入的（数据）对象进行转化操作，生成新的（数据）对象。此类函数天然支持管道操作。]
+- .font120[.bold[_side-effect_ 类型的函数]：就输入的（数据）对象完成特定任务，如赋值 `&lt;-`、打印结果、作图、存入文档等。此类函数最好能用 `invisible()` 不可见地返回输入对象，从而支持管道操作。]
+
+--
+
+.pull-left.code90[
+
+```r
+show_missings &lt;- function(df) {
+  n &lt;- sum(is.na(df))
+  cat("Missing values: ", n, "\n", 
+      sep = "")
+* invisible(df)
+}
+```
+
+
+```r
+x &lt;- show_missings(mtcars)
+```
+
+```
+#&gt; Missing values: 0
+```
+
+```r
+class(x)
+```
+
+```
+#&gt; [1] "data.frame"
+```
+
+]
+
+--
+
+.pull-right.code90[
+
+```r
+library(dplyr)
+mtcars %&gt;%
+  show_missings() %&gt;%
+  mutate(
+    mpg = ifelse(mpg &lt; 20, NA, mpg)
+  ) %&gt;%
+  show_missings()
+```
+
+```
+#&gt; Missing values: 0
+#&gt; Missing values: 18
+```
+]
+
+---
+layout: false
+
+### 2.5 函数的环境
+
+.code90[
+
+```r
+f &lt;- function(x) {
+  x + y
+}
+```
+]
+
+--
+
+.full-width[.content-box-blue.bold.font120.info[前面定义的 `f` 看起来像个奇怪的函数：只有一个参数 `x`，希望返回 `x + y` 的值，但却没有对 `y` 进行定义和赋值 😲]]
+
+--
+
+.full-width[.content-box-blue.bold.font120.info[但在 R 中这是个完全合法的函数，R 会根据所谓的“词法作用域”规则（_lexical scoping_）来查找 `y` 的取值，查找的结果受到函数环境的影响。在本例中，由于在函数 `f` 中并未定义 `y`，R 就会依次到创建函数 `f` 的环境（即封闭环境）及其父环境中查找 `y` 的值。]]
+
+.pull-left.code90[
+
+```r
+environment(f)
+```
+
+```
+#&gt; &lt;environment: R_GlobalEnv&gt;
+```
+]
+
+--
+
+.pull-right.code90[
+
+```r
+x &lt;- 100; y &lt;- 100; f(10)
+```
+
+```
+#&gt; [1] 110
+```
+
+```r
+x &lt;- 100; y &lt;- 1000; f(10)
+```
+
+```
+#&gt; [1] 1010
+```
+]
+
+---
+background-image: url(imgs/first-class.png)
+background-size: 15em
+background-position: 90% 90%
+layout: false
+
+
+### 2.6 作为一等公民的函数
+
+.full-width[.content-box-blue.bold.font120.info[R 的函数还是所谓的 _first-class_ 函数，适用于向量的所有操作也都适用于函数]]
+
+.font120[
+1. 可以将函数赋值给变量（当然也可以不 -&gt; _匿名函数_）
+
+2. 将函数存储在列表中（_函数列表_）
+
+3. 在函数内创建函数（_函数工厂_ 与 _闭包_）
+
+4. 将函数作为参数传递给其它函数（_泛函_）
+
+5. 甚至把函数作为一个函数的结果返回（_函数工厂_ 与 _函数运算符_）
+]
+
+---
+layout: false
+class: inverse, center, middle
+
+# 课后作业
+
+---
+
+.large[
+🕐 结合讲义内容**复习** 📖 [_R for Data Science_](https://r4ds.had.co.nz/) 一书的第 19 章和第 20 章
+]
+
+--
+.large[
+🕑 进一步完善并重新提交 *L03_RMarkdown与Quarto* 的课后作业 📑
+]
+
+--
+.pull-left[
+
+1. 由老师（基于某些考虑因素）半随机分组（已完成，见右表 &gt;&gt;）
+
+2. 小组成员以之前提交的多份 L03 课后作业为基础，碰头讨论并相互学习借鉴，以小组为单位重新制作一份课后作业
+
+3. **在 slides 文档中增加若干页，记录小组讨论过程与内容、新作业的改进之处并根据组员的参与度和贡献大小分配小组的总分数（总分数 = 10 * 小组成员数）**
+
+4. 确认两份文档运行无误后将文件夹📂 *L03_HW* 打包为 .zip 格式压缩文档，由小组中的**一位**同学于2022年10月12日22:00前将压缩包提交至 [{{坚果云链接}}](https://workspace.jianguoyun.com/inbox/collect/76ce62d2266649c68d899995c0afd1da/submitv2)
+
+5. 老师将从同学们提交的作业中选取 3~5 份优秀作业，展示于课程网站上，供同学们学习参考
+
+]
+
+.pull-right.font110[
+
+|成员1  |成员2  |成员3  |成员4    |
+|:------|:------|:------|:--------|
+|白雨婷 |王梓萌 |李芳玉 |严邓荆雅 |
+|陈颖倩 |邹桢皓 |刘之荣 |谢柏杰   |
+|高杨驰 |于小珊 |陈杰   |李世杰   |
+|胡安琪 |焦雨欣 |应舒恬 |赵子钧   |
+|李红浪 |杨星雨 |王圣鑫 |于野     |
+|林臻杰 |张欣   |王雨彤 |田伊迪   |
+|刘向尧 |胡典   |路旭飞 |龚福深   |
+|陆思橙 |林宸   |曹煜   |陈智杰   |
+|唐秋婷 |邵嘉蓉 |梅云开 |李植丹   |
+|詹辉铭 |李康平 |张婧瑶 |张道琳   |
+|张欣宇 |洪瑜蔓 |徐逸祺 |         |
+]
+
+1. 完成第六讲的课后练习 👩‍💻
+&gt; .code90[
+
+```r
+remotes::install_github("yyzeng/qfwr")
+library(qfwr)
+qfwr_ex("L06")
+```
+]
+
+&lt;!-- --&gt;
+
+&gt; .code80[
+```
+- 第6章 工作流：项目86
+  + 6.1 什么是真实的86
+  + 6.2 你的分析位于哪里87
+  + 6.3 路径和目录88
+  + 6.4 RStudio 项目88
+  + 6.5 小结90
+- 第7章 使用 `tibble` 实现简单数据框73
+  + 7.1 简介93
+  + 7.2 创建 `tibble`93
+  + 7.3 对比 `tibble` 与 `data.frame` 95
+    - 7.3.1 打印95
+    - 7.3.2 取子集96
+  + 7.4 与旧代码进行交互96
+- 第14章 函数185
+  + 14.1 简介185
+  + 14.2 什么时候应该使用函数186
+  + 14.3 人与计算机的函数188
+  + 14.4 条件执行190
+      - 14.4.1 条件191
+      - 14.4.2 多重条件192
+      - 14.4.3 代码风格192
+      - 14.4.4 练习193
+  + 14.5 函数参数194
+      - 14.5.1 选择参数名称195
+      - 14.5.2 检查参数值195
+      - 14.5.3 点点点（...）197
+      - 14.5.4 惰性求值197
+      - 14.5.5 练习198
+  + 14.6 返回值198
+      - 14.6.1 显式返回语句198
+      - 14.6.2 使得函数支持管道199
+  + 14.7 环境200
+- 第15章 向量201
+  + 15.1 简介201
+  + 15.2 向量基础202
+  + 15.3 重要的原子向量203
+    - 15.3.1 逻辑型203
+    - 15.3.2 数值型203
+    - 15.3.3 字符型204
+    - 15.3.4 缺失值204
+    - 15.3.5 练习204
+  + 15.4 使用原子向量205
+    - 15.4.1 强制转换205
+    - 15.4.2 检验函数206
+    - 15.4.3 标量与循环规则206
+    - 15.4.4 向量命名208
+    - 15.4.5 向量取子集208
+    - 15.4.6 练习209
+  + 15.5 递归向量（列表）210
+    - 15.5.1 列表可视化211
+    - 15.5.2 列表取子集211
+    - 15.5.3 调料列表212
+    - 15.5.4 练习214
+  + 15.6 特性214
+  + 15.7 扩展向量216
+    - 15.7.1 因子216
+    - 15.7.2 日期和日期时间216
+    - 15.7.3 `tibble`217
+    - 15.7.4 练习218
+```
+]
+
+---
+class: center middle
+background-image: url(imgs/xaringan.png)
+background-size: 12%
+background-position: 50% 40%
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;hr color='#f00' size='2px' width='80%'&gt;
+&lt;br&gt;
+.Large.red[_**本网页版讲义的制作由 R 包 [{{`xaringan`}}](https://github.com/yihui/xaringan) 赋能！**_]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="../libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

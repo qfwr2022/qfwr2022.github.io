@@ -1,0 +1,69 @@
+---
+title: "第4周课后作业"
+author: 曾永艺
+date: 2022-10-07
+# editor: visual
+---
+
+[🕐 结合讲义内容复习 📖 [_R for Data Science_](https://r4ds.had.co.nz/) 一书的第 19 章和第 20 章]{style="font-size:1.2rem; font-weight:bolder"}
+
+[🕑 进一步完善并重新提交 *L03_RMarkdown与Quarto* 的课后作业 📑]{style="font-size:1.2rem; font-weight:bolder"}
+
+(@) 由老师（基于某些考虑因素）半随机分组（已完成，见下表）
+
+<style>
+.table {
+  width: auto;
+  margin: auto;
+  margin-bottom: 1em
+}
+.table>:not(caption)>*>* {
+  padding: 0.1rem 0.5rem
+}
+</style>
+
+:::{style="text-align:center"}
+
+| 成员1  | 成员2  | 成员3  | 成员4    |
+|:-------|:-------|:-------|:---------|
+| 白雨婷 | 王梓萌 | 李芳玉 | 严邓荆雅 |
+| 陈颖倩 | 邹桢皓 | 刘之荣 | 谢柏杰   |
+| 高杨驰 | 于小珊 | 陈杰   | 李世杰   |
+| 胡安琪 | 焦雨欣 | 应舒恬 | 赵子钧   |
+| 李红浪 | 杨星雨 | 王圣鑫 | 于野     |
+| 林臻杰 | 张欣   | 王雨彤 | 田伊迪   |
+| 刘向尧 | 胡典   | 路旭飞 | 龚福深   |
+| 陆思橙 | 林宸   | 曹煜   | 陈智杰   |
+| 唐秋婷 | 邵嘉蓉 | 梅云开 | 李植丹   |
+| 詹辉铭 | 李康平 | 张婧瑶 | 张道琳   |
+| 张欣宇 | 洪瑜蔓 | 徐逸祺 |          |
+
+:::
+
+(@) 小组成员以之前提交的多份 L03 课后作业为基础，碰头讨论并相互学习借鉴，以小组为单位重新制作一份课后作业
+
+(@) **在 slides 文档中增加若干页，记录小组讨论过程与内容、新作业的改进之处并根据组员的参与度和贡献大小分配小组的总分数（总分数 = 10 * 小组成员数）**
+
+(@) 确认两份文档运行无误后将 文件夹📂 *L03_HW* 打包为 .zip 格式压缩文档，由小组中的**一位**同学于2022年10月12日22:00前将压缩包提交至 [{{坚果云链接}}](https://workspace.jianguoyun.com/inbox/collect/76ce62d2266649c68d899995c0afd1da/submitv2)
+
+5. 老师将从同学们提交的作业中选取 3~5 份优秀作业，展示于课程网站上，供同学们学习参考
+
+<hr>
+
+:::{.callout-note appearance="simple"}
+以下是*L03*课后作业的初始要求（备忘）
+:::
+
+- 自由组队，两人一组，共同完成以下课后作业：
+
+  1. 从 L02 课件中挑出 3 ~ 4 个你们感兴趣的数据可视化代码段，就其制作两种类型的展示文档：
+     - [{{`Quarto|HTML`}}](https://quarto.org/docs/output-formats/html-basics.html) 或 [{{`prettydoc`}}](https://prettydoc.statr.me/themes.html) -> 📂 *L03_HW/docs/*
+     - [{{`Quarto|Revealjs`}}](https://quarto.org/docs/presentations/revealjs/) 或 [{{`xaringan`}}](https://slides.yihui.org/xaringan/zh-CN.html) -> 📂 *L03_HW/slides/*
+  
+  2. 记得多尝试各种选项设置，同时在文档内加上相应的说明性文字（如解释代码或输出图形，其余内容可自由发挥，丰俭由人啦，😁）
+
+  3. 作业共同署名（姓名 + 姓名）
+
+  4. 确认两份文档运行无误后将文件夹📂 *L03_HW* 打包为 .zip 格式压缩文档，由其中一位同学于2022年10月5日22:00前将压缩包提交至 [{{坚果云链接}}](https://workspace.jianguoyun.com/inbox/collect/451ce296ff554b999cb0fd79797ee6bc/submitv2)
+
+<hr>

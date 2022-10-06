@@ -20,7 +20,7 @@ tbl-colwidths: [5,10,18,5,5,5,5,5]
 | [1](/weeks/week-01.qmd)  | 2022-09-16  | 课程简介           | [📖](/weeks/week-01.qmd#课前准备) | [🖥️](/slides/lec-01/L01_Introduction.html "第1讲 课程简介")  |   | [✍️](/hw/hw-01.qmd "课后作业") |  |
 | [2](/weeks/week-02.qmd)  | 2022-09-23  | ggplot2 数据可视化 | [📖](/weeks/week-02.qmd#课前准备) | [🖥️](/slides/lec-02/L02_Visualization.html "第2讲 ggplot2数据可视化") | [⌨️](/weeks/week-02.qmd#随堂练习) | [✍️](/hw/hw-02.qmd "课后作业") |   |
 | [3](/weeks/week-03.qmd)  | 2022-09-30  | rmarkdown 与 Quarto | [📖](/weeks/week-03.qmd#课前准备) | [🖥️](/slides/lec-03/L03_Quarto.html "第3讲 rmarkdown与Quarto") | [⌨️](/weeks/week-03.qmd#随堂练习)  | [✍️](/hw/hw-03.qmd "课后作业") |   |
-| [4](/weeks/week-04.qmd)  | 2022-10-07  | 向量与函数 | [📖](/weeks/week-04.qmd#课前准备) |   |   |   |   |
+| [4](/weeks/week-04.qmd)  | 2022-10-07  | 向量与函数 | [📖](/weeks/week-04.qmd#课前准备) | [🖥️](/slides/lec-04/L04_Vectors_Functions.html "第4讲 向量与函数") |    | [✍️](/hw/hw-04.qmd "课后作业") |   |
 
 :::
 
