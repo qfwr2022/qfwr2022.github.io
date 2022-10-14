@@ -15,6 +15,8 @@
     <script type="application/json" id="xaringanExtra-editable-docid">{"id":"fd03458482774f48b3b1319fc9a1c05a","expires":7}</script>
     <script src="../libs/himalaya/himalaya.js"></script>
     <script src="../libs/js-cookie/js.cookie.js"></script>
+    <link href="../libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="../libs/panelset/panelset.js"></script>
     <link href="../libs/editable/editable.css" rel="stylesheet" />
     <script src="../libs/editable/editable.js"></script>
     <link href="../libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
@@ -23,6 +25,8 @@
     <link href="../libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
     <script src="../libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
     <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-copy\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"<i class=\"fa fa-times-circle\" style=\"color: #F94144\"><\/i>"})</script>
+    <link href="../libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="../libs/countdown/countdown.js"></script>
     <link href="../libs/font-awesome/css/all.css" rel="stylesheet" />
     <link href="../libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
     <link rel="stylesheet" href="../libs/zen-styles-v2.3.css" type="text/css" />
@@ -1489,6 +1493,110 @@ tb %&gt;% slice(c(1, 3)) %&gt;%
 
 ---
 layout: false
+
+## 🙋‍♂️ Your Turn! 
+
+&lt;style type="text/css"&gt;
+#special_timer.running {
+  background-color: black;
+  background-image: url(imgs/bg-stars.gif);
+}
+#special_timer.finished {
+  background-color: black;
+  background-image: url(imgs/bg-sqfw.gif);
+  background-size: cover;
+}
+#special_timer.running .countdown-digits {
+  color: #fdf6e3;
+}
+#special_timer.finished .countdown-digits {
+  color: #fdf6e3;
+}
+&lt;/style&gt;
+
+<div class="countdown" id="special_timer" data-warn-when="10" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:3em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+.panelset.font150[
+
+.panel[.panel-name[Question?]
+
+1. 以嵌套集合的方式表示列表 `list(1, 2, list(3, 4), list(5, c(6, 7)))`；
+
+2. 如何从上述列表中提取出 `list(3, 4)`？
+
+]
+
+.panel[.panel-name[Answer!]
+
+1. 
+&gt; 
+&lt;img src="imgs/myList.png" width="20%" style="display: block; margin: auto auto auto 0;" /&gt;
+
+2. `myList[[3]]`
+
+]
+
+]
+
+---
+layout: false
+
+## 🙋‍♂️ Your Turn! 
+
+<div class="countdown" id="special_timer" data-warn-when="10" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:3em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+.panelset.font120[
+
+.panel.font120[.panel-name[Question?]
+
+1. `hms::hms(3600)` 会返回什么？返回值如何输出？这种扩展向量是基于哪种基本类型构造的？使用了哪种向量属性？
+
+]
+
+.panel[.panel-name[Answer!]
+
+&gt; 
+
+```r
+x &lt;- hms::hms(3600)
+x
+```
+
+```
+#&gt; 01:00:00
+```
+
+```r
+typeof(x)
+```
+
+```
+#&gt; [1] "double"
+```
+
+```r
+attributes(x)
+```
+
+```
+#&gt; $units
+#&gt; [1] "secs"
+#&gt; 
+#&gt; $class
+#&gt; [1] "hms"      "difftime"
+```
+]
+
+]
+
+---
+layout: false
 class: inverse, center, middle
 
 # 2. 函数
@@ -2090,6 +2198,44 @@ layout: false
 
 ---
 layout: false
+
+## 🙋‍♂️ Your Turn! 
+
+<div class="countdown" id="special_timer" data-warn-when="10" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:3em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+.panelset.font120[
+
+.panel.font120[.panel-name[Question?]
+
+1. 将下面的代码片段转换成函数。思考一下每个函数的作用，你应该为新函数选择什么样的名称？
+
+```r
+mean(is.na(x))
+
+x / sum(x, na.rm = TRUE)
+
+sd(x, na.rm = TRUE) / mean(x, na.rm = TRUE)
+```
+
+]
+
+.panel[.panel-name[Answer!]
+
+- `mean(is.na(x))` takes a single argument `x`, and returns a single numeric value between 0 and 1 -&gt; `prop_na()`
+
+- `x / sum(x, na.rm = TRUE)` standardizes a vector so that it sums to one -&gt; `sum_to_one()`
+
+- `sd(x, na.rm = TRUE) / mean(x, na.rm = TRUE)` calculates the coefficient of variation -&gt; `coef_variation()`
+
+]
+
+]
+
+---
+layout: false
 class: inverse, center, middle
 
 # 课后作业
@@ -2137,80 +2283,41 @@ class: inverse, center, middle
 |张欣宇 |洪瑜蔓 |徐逸祺 |         |
 ]
 
-1. 完成第六讲的课后练习 👩‍💻
-&gt; .code90[
+---
+class: middle
 
-```r
-remotes::install_github("yyzeng/qfwr")
-library(qfwr)
-qfwr_ex("L06")
-```
+--
+
+.pull-left.font120[
+
+&lt;br&gt;
+
+.font120[
+**复习** 📖 [_R for Data Science_](https://r4ds.had.co.nz/) 一书以下章节，并（结队）**完成课后练习**。
 ]
 
-&lt;!-- --&gt;
+- 第 1、2、17、26 章 (_Introduction_)
 
-&gt; .code80[
-```
-- 第6章 工作流：项目86
-  + 6.1 什么是真实的86
-  + 6.2 你的分析位于哪里87
-  + 6.3 路径和目录88
-  + 6.4 RStudio 项目88
-  + 6.5 小结90
-- 第7章 使用 `tibble` 实现简单数据框73
-  + 7.1 简介93
-  + 7.2 创建 `tibble`93
-  + 7.3 对比 `tibble` 与 `data.frame` 95
-    - 7.3.1 打印95
-    - 7.3.2 取子集96
-  + 7.4 与旧代码进行交互96
-- 第14章 函数185
-  + 14.1 简介185
-  + 14.2 什么时候应该使用函数186
-  + 14.3 人与计算机的函数188
-  + 14.4 条件执行190
-      - 14.4.1 条件191
-      - 14.4.2 多重条件192
-      - 14.4.3 代码风格192
-      - 14.4.4 练习193
-  + 14.5 函数参数194
-      - 14.5.1 选择参数名称195
-      - 14.5.2 检查参数值195
-      - 14.5.3 点点点（...）197
-      - 14.5.4 惰性求值197
-      - 14.5.5 练习198
-  + 14.6 返回值198
-      - 14.6.1 显式返回语句198
-      - 14.6.2 使得函数支持管道199
-  + 14.7 环境200
-- 第15章 向量201
-  + 15.1 简介201
-  + 15.2 向量基础202
-  + 15.3 重要的原子向量203
-    - 15.3.1 逻辑型203
-    - 15.3.2 数值型203
-    - 15.3.3 字符型204
-    - 15.3.4 缺失值204
-    - 15.3.5 练习204
-  + 15.4 使用原子向量205
-    - 15.4.1 强制转换205
-    - 15.4.2 检验函数206
-    - 15.4.3 标量与循环规则206
-    - 15.4.4 向量命名208
-    - 15.4.5 向量取子集208
-    - 15.4.6 练习209
-  + 15.5 递归向量（列表）210
-    - 15.5.1 列表可视化211
-    - 15.5.2 列表取子集211
-    - 15.5.3 调料列表212
-    - 15.5.4 练习214
-  + 15.6 特性214
-  + 15.7 扩展向量216
-    - 15.7.1 因子216
-    - 15.7.2 日期和日期时间216
-    - 15.7.3 `tibble`217
-    - 15.7.4 练习218
-```
+- 第 4、6、8 章 (_Workflows_)
+
+- 第 3、28 章 (_Visualization_)
+
+- 第 27、29、30 章 (_R Markdown_)
+
+- 第 19、20 章 (_Functions &amp; Vectors_)
+
+&lt;br&gt;&lt;br&gt;
+
+]
+
+--
+
+.pull-right.font90[
+
+&lt;img src="imgs/r4ds-exercise-solutions-cover.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+&lt;https://jrnold.github.io/r4ds-exercise-solutions/&gt;
+
 ]
 
 ---

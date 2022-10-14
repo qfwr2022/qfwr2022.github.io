@@ -8,7 +8,7 @@
 
 <meta name="author" content="曾永艺">
 
-<title>Quantitative Finance with R - 第 4 周</title>
+<title>Quantitative Finance with R - 第5周课后作业</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../weeks/week-05.html" rel="next">
-<link href="../weeks/week-03.html" rel="prev">
 <link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -121,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">第 4 周</h1>
+      <h1 class="quarto-secondary-nav-title">第5周课后作业</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -156,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-04.html" class="sidebar-item-text sidebar-link active">第4周 向量与函数 I</a>
+  <a href="../weeks/week-04.html" class="sidebar-item-text sidebar-link">第4周 向量与函数 I</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -172,30 +170,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">该页面内容</h2>
-   
-  <ul>
-  <li><a href="#课前准备" id="toc-课前准备" class="nav-link active" data-scroll-target="#课前准备">1. 课前准备</a></li>
-  <li><a href="#课堂讲义" id="toc-课堂讲义" class="nav-link" data-scroll-target="#课堂讲义">2. 课堂讲义</a></li>
-  <li><a href="#随堂练习" id="toc-随堂练习" class="nav-link" data-scroll-target="#随堂练习">3. 随堂练习</a></li>
-  <li><a href="#课后作业" id="toc-课后作业" class="nav-link" data-scroll-target="#课后作业">4. 课后作业</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/qfwr2022/qfwr2022.github.io/edit/main/weeks/week-04.qmd" class="toc-action">编辑该页面</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">第 4 周</h1>
-<p class="subtitle lead">向量与函数</p>
-  <div class="quarto-categories">
-    <div class="quarto-category">预习</div>
-    <div class="quarto-category">讲义</div>
-    <div class="quarto-category">作业</div>
-  </div>
-  </div>
+<h1 class="title d-none d-lg-block">第5周课后作业</h1>
+</div>
 
 
 
@@ -211,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">发布日期</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2022年10月7日</p>
+      <p class="date">2022年10月14日</p>
     </div>
   </div>
     
@@ -221,87 +204,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<p>在前面两讲中我们在“净土宇宙 🌌”（<em>tidyverse</em>）中勇敢地跨出第一步，收获探索“数据可视化”（主要基于 <code>ggplot2</code> 包）和“动态文档”（主要基于 <del><code>rmarkdown</code> -&gt;</del> Quarto）带来的超酷体验 😎。在这一讲中我们将稍作“休整”，返过头去学习 R 语言编程方面的核心知识：<strong>向量</strong>与<strong>函数</strong>。了解、学习并掌握 R 语言向量和函数方面的知识对我们在“净土宇宙 🌌”的后续探索来说也是必备的知识基础。</p>
-<p>本讲主要涵盖以下几方面的内容：</p>
+<p><img src="../slides/lec-04/imgs/r4ds-exercise-solutions-cover.png" class="img-fluid" style="float:right;width:33.0%"></p>
+<p><span style="font-size:1.2rem">1. <strong>复习</strong> 📖 <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> 一书以下章节，并（结队）<strong>完成课后练习</strong>。</span><span style="font-size:1.2rem; color:red"><strong>自觉完成，无需提交。</strong></span></p>
 <ul>
-<li>向量
-<ul>
-<li>原子向量</li>
-<li>列表</li>
-<li>向量属性</li>
-<li>增强向量</li>
-</ul></li>
-<li>函数
-<ul>
-<li>使用函数的优点</li>
-<li>编写函数的套路</li>
-<li>函数的参数</li>
-<li>函数的返回值</li>
-<li>函数的环境</li>
-<li>作为一等公民的函数</li>
-</ul></li>
+<li><p>第 1、2、17、26 章 (<em>Introduction</em>)</p></li>
+<li><p>第 4、6、8 章 (<em>Workflows</em>)</p></li>
+<li><p>第 3、28 章 (<em>Visualization</em>)</p></li>
+<li><p>第 27、29、30 章 (<em>R Markdown</em>)</p></li>
+<li><p>第 19、20 章 (<em>Functions &amp; Vectors</em>)</p></li>
 </ul>
+<p><span style="font-size:1.2rem">2. <strong>课后习题参考答案链接</strong> 📖 <a href="https://jrnold.github.io/r4ds-exercise-solutions/"><em>R for Data Science: Exercise Solutions</em></a></span></p>
 <hr>
-<section id="课前准备" class="level2">
-<h2 class="anchored" data-anchor-id="课前准备">1. 课前准备</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>📖 阅读 <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> 一书<strong>第19章</strong>和<strong>第20章</strong>（分别介绍关于函数和向量方面的 R 语言编程基础知识）。</p>
-<div class="callout-tip callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>此书的中文翻译版 <a href="https://www.ituring.com.cn/book/2113">《R数据科学》</a> 发行有官方pdf电子版，对应章节为“第14章 函数”和“第15章 向量”。若觉得英文阅读有点吃力的同学，可找来参阅。</p>
-</div>
-</div>
-</div>
-<div class="callout-warning callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>由于上课内容较多，而上课时间只有45分钟 × 2，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间过一遍上述有关函数和向量的两章内容。</p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:40%;">
-<div style="text-align:right">
-<p><img src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" class="cover" width="80%"></p>
-</div>
-</div>
-</div>
-</section>
-<section id="课堂讲义" class="level2">
-<h2 class="anchored" data-anchor-id="课堂讲义">2. 课堂讲义</h2>
-<p>🖥️ <a href="../slides/lec-04/L04_Vectors_Functions.html">第4讲 向量与函数</a></p>
-<div class="callout-note callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>课堂<strong>讲义 PDF 版</strong>和<strong>腾讯会议云录制链接</strong>将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。</p>
-</div>
-</div>
-</div>
-</section>
-<section id="随堂练习" class="level2">
-<h2 class="anchored" data-anchor-id="随堂练习">3. 随堂练习</h2>
-<p>⌨️ 本讲时间安排较紧张，将不安排随堂编程练习。</p>
-</section>
-<section id="课后作业" class="level2">
-<h2 class="anchored" data-anchor-id="课后作业">4. 课后作业</h2>
-<p>✍️ <a href="../hw/hw-04.html">课后作业</a></p>
-<p><br></p>
-<!-- ::: {style="font-size:0.875em; text-align:right"} -->
-<!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
-<!-- ::: -->
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -533,18 +448,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <script src="https://giscus.app/client.js" data-repo="qfwr2022/qfwr2022.github.io" data-repo-id="R_kgDOICWtow" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="zh-CN" crossorigin="anonymous" data-loading="lazy" async="">
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../weeks/week-03.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">第3周 rmarkdown与Quarto</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../weeks/week-05.html" class="pagination-link">
-        <span class="nav-page-text">第5周 向量与函数 II</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

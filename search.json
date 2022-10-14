@@ -4,7 +4,7 @@
     "href": "weeks.html",
     "title": "每周列表",
     "section": "",
-    "text": "排序方式\n       缺省\n         \n          日期 - 日期升序\n        \n         \n          日期 - 日期降序\n        \n         \n          标题\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\n第 4 周\n\n\n向量与函数\n\n\n\n\n预习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-07\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 3 周\n\n\nrmarkdown与Quarto\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-30\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 2 周\n\n\nggplot2数据可视化\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-23\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 1 周\n\n\n课程简介\n\n\n\n\n准备\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-16\n\n\n曾永艺\n\n\n\n\n\n\n无匹配项"
+    "text": "排序方式\n       缺省\n         \n          日期 - 日期升序\n        \n         \n          日期 - 日期降序\n        \n         \n          标题\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\n第 5 周\n\n\n向量与函数 II\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-14\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 4 周\n\n\n向量与函数\n\n\n\n\n预习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-07\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 3 周\n\n\nrmarkdown与Quarto\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-30\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 2 周\n\n\nggplot2数据可视化\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-23\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 1 周\n\n\n课程简介\n\n\n\n\n准备\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-16\n\n\n曾永艺\n\n\n\n\n\n\n无匹配项"
   },
   {
     "objectID": "weeks/week-02.html",
@@ -38,6 +38,41 @@
     "objectID": "weeks/week-02.html#课后作业",
     "href": "weeks/week-02.html#课后作业",
     "title": "第 2 周",
+    "section": "4. 课后作业",
+    "text": "4. 课后作业\n✍️ 课后作业"
+  },
+  {
+    "objectID": "weeks/week-05.html",
+    "href": "weeks/week-05.html",
+    "title": "第 5 周",
+    "section": "",
+    "text": "由于上一次课在点评 L03 课后作业上花费了较多时间，课程进度有些滞后，未能完成关于“函数”部分内容的讲解，特加课一周（45分钟 × 2）。\n本讲主要涵盖以下几方面的内容："
+  },
+  {
+    "objectID": "weeks/week-05.html#课前准备",
+    "href": "weeks/week-05.html#课前准备",
+    "title": "第 5 周",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n\n\n📖 阅读 R for Data Science 一书第19章和第20章（分别介绍关于函数和向量方面的 R 语言编程基础知识）。\n\n\n\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第14章 函数”和“第15章 向量”。若觉得英文阅读有点吃力的同学，可找来参阅。\n\n\n\n\n\n\n\n\n\n由于上课内容较多，而上课时间只有45分钟 × 2，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间过一遍上述有关函数和向量的两章内容。 已经加课一周（45分钟 × 2），授课时间宽裕。"
+  },
+  {
+    "objectID": "weeks/week-05.html#课堂讲义",
+    "href": "weeks/week-05.html#课堂讲义",
+    "title": "第 5 周",
+    "section": "2. 课堂讲义",
+    "text": "2. 课堂讲义\n🖥️ 第4讲 向量与函数\n\n\n\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
+  },
+  {
+    "objectID": "weeks/week-05.html#随堂练习",
+    "href": "weeks/week-05.html#随堂练习",
+    "title": "第 5 周",
+    "section": "3. 随堂练习",
+    "text": "3. 随堂练习\n⌨️ 由于本讲加课一周，授课时间宽裕，增加安排 3 次随堂小练习（无需电脑，在头脑中完成即可）。"
+  },
+  {
+    "objectID": "weeks/week-05.html#课后作业",
+    "href": "weeks/week-05.html#课后作业",
+    "title": "第 5 周",
     "section": "4. 课后作业",
     "text": "4. 课后作业\n✍️ 课后作业"
   },
@@ -151,7 +186,7 @@
     "href": "schedule.html",
     "title": "课程安排",
     "section": "",
-    "text": "周次\n日期\n主题\n准备\n讲义\n练习\n作业\n项目\n\n\n\n\n1\n2022-09-16\n课程简介\n📖\n🖥️\n\n✍️\n\n\n\n2\n2022-09-23\nggplot2 数据可视化\n📖\n🖥️\n⌨️\n✍️\n\n\n\n3\n2022-09-30\nrmarkdown 与 Quarto\n📖\n🖥️\n⌨️\n✍️\n\n\n\n4\n2022-10-07\n向量与函数\n📖\n🖥️\n\n✍️"
+    "text": "周次\n日期\n主题\n准备\n讲义\n练习\n作业\n项目\n\n\n\n\n1\n2022-09-16\n课程简介\n📖\n🖥️\n\n✍️\n\n\n\n2\n2022-09-23\nggplot2 数据可视化\n📖\n🖥️\n⌨️\n✍️\n\n\n\n3\n2022-09-30\nrmarkdown 与 Quarto\n📖\n🖥️\n⌨️\n✍️\n\n\n\n4\n2022-10-07\n向量与函数 I\n📖\n🖥️\n\n✍️\n\n\n\n5\n2022-10-07\n向量与函数 II\n\n🖥️\n⌨️\n✍️"
   },
   {
     "objectID": "index.html",
@@ -299,6 +334,13 @@
     "title": "第1周课后作业",
     "section": "",
     "text": "🕐 明确是否选修这门课程——若不选修，请于今天下午2点前在 {{厦门大学教学服务平台}} 上提出退课申请，我会在3点前完成审核\n\n\n\n🕑 初步了解 RStudio 的工作界面，并大致浏览下 {{rstudio-IDE-cheatsheet}}\n🕒 在 RStudio 命令窗口中键入 help(mean) 和 help(files)，了解 R 帮助文档的整体结构\n🕓 到前面课件中提到的那些 {{网络社区}} 随意逛逛\n🕔 2022年9月18日22:00前通过 {{坚果云链接}} 回答几道问题\n\n\n\n🕔 完成课前预习（具体任务下周三前我会在 QQ 课程群上通知）"
+  },
+  {
+    "objectID": "hw/hw-05.html",
+    "href": "hw/hw-05.html",
+    "title": "第5周课后作业",
+    "section": "",
+    "text": "1. 复习 📖 R for Data Science 一书以下章节，并（结队）完成课后练习。自觉完成，无需提交。\n\n第 1、2、17、26 章 (Introduction)\n第 4、6、8 章 (Workflows)\n第 3、28 章 (Visualization)\n第 27、29、30 章 (R Markdown)\n第 19、20 章 (Functions & Vectors)\n\n2. 课后习题参考答案链接 📖 R for Data Science: Exercise Solutions"
   },
   {
     "objectID": "hw/hw-02.html",
