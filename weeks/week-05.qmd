@@ -1,0 +1,79 @@
+---
+title: "第 5 周"
+subtitle: "向量与函数 II"
+author: 曾永艺
+date: 2022-10-14
+categories: [预习, 讲义, 随堂练习, 作业]
+image: /slides/lec-04/imgs/r4ds-exercise-solutions-cover.png
+# editor: visual
+---
+
+<hr>
+
+由于上一次课在点评 [L03 课后作业](../hw/hw-03.html)上花费了较多时间，课程进度有些滞后，未能完成关于“函数”部分内容的讲解，特加课一周（45分钟 × 2）。
+
+本讲主要涵盖以下几方面的内容：
+
+* ~~向量~~
+  - ~~原子向量~~
+  - ~~列表~~
+  - ~~向量属性~~
+  - ~~增强向量~~
+
+* 函数
+  - 使用函数的优点
+  - 编写函数的套路
+  - 函数的参数
+  - 函数的返回值
+  - 函数的环境
+  - 作为一等公民的函数
+
+<hr>
+
+## 1. 课前准备
+
+:::::{.columns}
+
+::::{.column width="60%"}
+
+📖 阅读 [*R for Data Science*](https://r4ds.had.co.nz/) 一书**第19章**和**第20章**（分别介绍关于函数和向量方面的 R 语言编程基础知识）。
+
+:::{.callout-tip appearance="simple"}
+此书的中文翻译版 [《R数据科学》](https://www.ituring.com.cn/book/2113) 发行有官方pdf电子版，对应章节为“第14章 函数”和“第15章 向量”。若觉得英文阅读有点吃力的同学，可找来参阅。
+:::
+
+:::{.callout-warning appearance="simple"}
+~~由于上课内容较多，而上课时间只有45分钟 × 2，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间过一遍上述有关函数和向量的两章内容。~~ 已经加课一周（45分钟 × 2），授课时间宽裕。
+:::
+
+::::
+
+::::{.column width="40%"}
+:::{style="text-align:right"}
+<img src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" class="cover" width="80%"/>
+:::
+::::
+
+:::::
+
+## 2. 课堂讲义
+
+🖥️ [第4讲 向量与函数](/slides/lec-04/L04_Vectors_Functions.html)
+
+:::{.callout-note appearance="simple"}
+课堂**讲义 PDF 版**和**腾讯会议云录制链接**将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。
+:::
+
+## 3. 随堂练习
+
+⌨️ 由于本讲加课一周，授课时间宽裕，增加安排 3 次随堂小练习（无需电脑，在头脑中完成即可）。
+
+## 4. 课后作业
+
+✍️ [课后作业](/hw/hw-05.qmd)
+
+<br>
+
+<!-- ::: {style="font-size:0.875em; text-align:right"} -->
+<!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
+<!-- ::: -->

@@ -1,0 +1,26 @@
+---
+title: "第5周课后作业"
+author: 曾永艺
+date: 2022-10-14
+# editor: visual
+---
+
+<hr>
+![](../slides/lec-04/imgs/r4ds-exercise-solutions-cover.png){style="float:right" width="33%"}
+
+[1. **复习** 📖 [_R for Data Science_](https://r4ds.had.co.nz/) 一书以下章节，并（结队）**完成课后练习**。]{style="font-size:1.2rem"}[**自觉完成，无需提交。**]{style="font-size:1.2rem; color:red"}
+
+- 第 1、2、17、26 章 (_Introduction_)
+
+- 第 4、6、8 章 (_Workflows_)
+
+- 第 3、28 章 (_Visualization_)
+
+- 第 27、29、30 章 (_R Markdown_)
+
+- 第 19、20 章 (_Functions &amp; Vectors_)
+
+[2. **课后习题参考答案链接** 📖 [_R for Data Science: Exercise Solutions_](https://jrnold.github.io/r4ds-exercise-solutions/)]{style="font-size:1.2rem"}
+
+<hr>
+
