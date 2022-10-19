@@ -8,7 +8,7 @@
 
 <meta name="author" content="曾永艺">
 
-<title>Quantitative Finance with R - 第5周课后作业</title>
+<title>Quantitative Finance with R - 第 6 周</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,6 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../weeks/week-07.qmd" rel="next">
+<link href="../weeks/week-05.html" rel="prev">
 <link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -119,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">第5周课后作业</h1>
+      <h1 class="quarto-secondary-nav-title">第 6 周</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -164,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-06.html" class="sidebar-item-text sidebar-link">第6周 dplyr数据处理 I</a>
+  <a href="../weeks/week-06.html" class="sidebar-item-text sidebar-link active">第6周 dplyr数据处理 I</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -180,15 +182,31 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#课前准备" id="toc-课前准备" class="nav-link active" data-scroll-target="#课前准备">1. 课前准备</a></li>
+  <li><a href="#课堂讲义" id="toc-课堂讲义" class="nav-link" data-scroll-target="#课堂讲义">2. 课堂讲义</a></li>
+  <li><a href="#随堂练习" id="toc-随堂练习" class="nav-link" data-scroll-target="#随堂练习">3. 随堂练习</a></li>
+  <li><a href="#课后作业" id="toc-课后作业" class="nav-link" data-scroll-target="#课后作业">4. 课后作业</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/qfwr2022/qfwr2022.github.io/edit/main/weeks/week-06.qmd" class="toc-action">编辑该页面</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">第5周课后作业</h1>
-</div>
+<h1 class="title d-none d-lg-block">第 6 周</h1>
+<p class="subtitle lead">dplyr数据处理 I</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">预习</div>
+    <div class="quarto-category">随堂练习</div>
+    <div class="quarto-category">讲义</div>
+    <div class="quarto-category">作业</div>
+  </div>
+  </div>
 
 
 
@@ -204,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">发布日期</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2022年10月14日</p>
+      <p class="date">2022年10月21日</p>
     </div>
   </div>
     
@@ -214,19 +232,78 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<p><img src="../slides/lec-04/imgs/r4ds-exercise-solutions-cover.png" class="img-fluid" style="float:right;width:33.0%"></p>
-<p><span style="font-size:1.2rem">1. <strong>复习</strong> 📖 <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> 一书以下章节，并（结队）<strong>完成课后练习</strong>。</span><span style="font-size:1.2rem; color:red"><strong>自觉完成，无需提交。</strong></span></p>
-<ul>
-<li><p>第 1、2、17、26 章 (<em>Introduction</em>)</p></li>
-<li><p>第 4、6、8 章 (<em>Workflows</em>)</p></li>
-<li><p>第 3、28 章 (<em>Visualization</em>)</p></li>
-<li><p>第 27、29、30 章 (<em>R Markdown</em>)</p></li>
-<li><p>第 19、20 章 (<em>Functions &amp; Vectors</em>)</p></li>
-</ul>
-<p><span style="font-size:1.2rem">2. <strong>课后习题参考答案链接</strong> 📖 <a href="https://jrnold.github.io/r4ds-exercise-solutions/"><em>R for Data Science: Exercise Solutions</em></a></span></p>
+<p>在上一讲中我们用两次课的时间学习 R 语言编程方面的核心知识：<strong>向量</strong>与<strong>函数</strong>，为接下来探索“净土宇宙 🌌”奠定了知识基础。“净土宇宙 🌌”的核心数据结构并非原子型向量或普通列表对象，而是 <code>tibble</code>（由行（样本）和列（变量）构成的表格型数据），dplyr 包基于<strong>数据操作语法</strong>构建出一组用来操作 <code>tibble</code> 对象的核心函数——它们就是我们在接下来两次课中需要学习、理解并掌握的知识。</p>
+<p>本讲主要涵盖以下几方面的内容：</p>
+<ol type="1">
+<li>样本处理</li>
+<li>变量处理</li>
+<li>汇总</li>
+<li>分组和行式处理</li>
+<li>用 <code>%&gt;%</code> 连接多个操作</li>
+<li>合并多个数据集</li>
+<li>操作数据库和 <code>data.table</code></li>
+</ol>
 <hr>
+<section id="课前准备" class="level2">
+<h2 class="anchored" data-anchor-id="课前准备">1. 课前准备</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>📖 阅读 <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> 一书<strong>第5章</strong>、<strong>第13章</strong>和<strong>第18章</strong>，这些章节依次介绍如何利用 dplyr 包中的核心函数对单表数据和关系型数据表进行处理以及管道操作符 <code>%&gt;%</code> 的相关知识。</p>
+<div class="callout-tip callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>此书的中文翻译版 <a href="https://www.ituring.com.cn/book/2113">《R数据科学》</a> 发行有官方pdf电子版，对应章节为“第3章 使用dplyr进行数据转换”、“第9章 使用dplyr处理关系数据”和“第13章 使用magrittr进行管道操作”。若觉得英文阅读有点吃力的同学，可找来参阅。</p>
+</div>
+</div>
+</div>
+<div class="callout-warning callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>由于上课内容较多，而上课时间有限，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间来过一遍上述预习章节的内容。</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div style="text-align:right">
+<p><img src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" class="cover" width="80%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="课堂讲义" class="level2">
+<h2 class="anchored" data-anchor-id="课堂讲义">2. 课堂讲义</h2>
+<p>🖥️ [第5讲 dplyr数据处理]<!-- (/slides/lec-05/L05_Transformation.html) --></p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>课堂<strong>讲义 PDF 版</strong>和<strong>腾讯会议云录制链接</strong>将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。</p>
+</div>
+</div>
+</div>
+</section>
+<section id="随堂练习" class="level2">
+<h2 class="anchored" data-anchor-id="随堂练习">3. 随堂练习</h2>
+<p>⌨️ 见课堂讲义</p>
+</section>
+<section id="课后作业" class="level2">
+<h2 class="anchored" data-anchor-id="课后作业">4. 课后作业</h2>
+<p>✍️ [课后作业]<!-- (/hw/hw-05.qmd) --></p>
+<p><br></p>
+<!-- ::: {style="font-size:0.875em; text-align:right"} -->
+<!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
+<!-- ::: -->
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -458,6 +535,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <script src="https://giscus.app/client.js" data-repo="qfwr2022/qfwr2022.github.io" data-repo-id="R_kgDOICWtow" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="zh-CN" crossorigin="anonymous" data-loading="lazy" async="">
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../weeks/week-05.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">第5周 向量与函数 II</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../weeks/week-07.qmd" class="pagination-link">
+        <span class="nav-page-text">第7周 dplyr数据处理 II</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
