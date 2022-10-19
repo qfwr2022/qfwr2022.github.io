@@ -73,6 +73,10 @@ website:
           href: weeks/week-04.qmd
         - text: "第5周 向量与函数 II"
           href: weeks/week-05.qmd
+        - text: "第6周 dplyr数据处理 I"
+          href: weeks/week-06.qmd
+        - text: "第7周 dplyr数据处理 II"
+          href: weeks/week-07.qmd
         - text: "......"
   page-navigation: true
   page-footer:
