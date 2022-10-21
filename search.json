@@ -1,234 +1,31 @@
 [
   {
-    "objectID": "weeks.html",
-    "href": "weeks.html",
-    "title": "每周列表",
-    "section": "",
-    "text": "排序方式\n       缺省\n         \n          日期 - 日期升序\n        \n         \n          日期 - 日期降序\n        \n         \n          标题\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\n第 6 周\n\n\ndplyr数据处理 I\n\n\n\n\n预习\n\n\n随堂练习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-21\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 5 周\n\n\n向量与函数 II\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-14\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 4 周\n\n\n向量与函数\n\n\n\n\n预习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-07\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 3 周\n\n\nrmarkdown与Quarto\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-30\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 2 周\n\n\nggplot2数据可视化\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-23\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 1 周\n\n\n课程简介\n\n\n\n\n准备\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-16\n\n\n曾永艺\n\n\n\n\n\n\n无匹配项"
+    "objectID": "project/team-project.html#时间安排",
+    "href": "project/team-project.html#时间安排",
+    "title": "小组研究项目说明",
+    "section": "2. 时间安排",
+    "text": "2. 时间安排"
   },
   {
-    "objectID": "weeks/week-02.html",
-    "href": "weeks/week-02.html",
-    "title": "第 2 周",
-    "section": "",
-    "text": "“一图胜千言”。R 语言有着强大的数据可视化（制图）功能，很多人学习 R 语言编程主要就是冲着这一点来的。在本讲中我们将侧重介绍影响力巨大的 ggplot2 包，并涵盖以下几方面的内容："
+    "objectID": "project/team-project.html#任务说明",
+    "href": "project/team-project.html#任务说明",
+    "title": "小组研究项目说明",
+    "section": "3. 任务说明",
+    "text": "3. 任务说明"
   },
   {
-    "objectID": "weeks/week-02.html#课前准备",
-    "href": "weeks/week-02.html#课前准备",
-    "title": "第 2 周",
-    "section": "1. 课前准备",
-    "text": "1. 课前准备\n\n\n\n📖 阅读 R for Data Science 一书关于数据可视化的第3章和第28章的内容。\n\n\n\n\n\n\n提示\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第1章 使用ggplot2进行数据可视化”和“第21章 使用ggplot2进行图形化沟通”。若觉得英文阅读有点吃力的同学，可找来参阅。"
+    "objectID": "project/team-project.html#报告展示",
+    "href": "project/team-project.html#报告展示",
+    "title": "小组研究项目说明",
+    "section": "4. 报告展示",
+    "text": "4. 报告展示"
   },
   {
-    "objectID": "weeks/week-02.html#课堂讲义",
-    "href": "weeks/week-02.html#课堂讲义",
-    "title": "第 2 周",
-    "section": "2. 课堂讲义",
-    "text": "2. 课堂讲义\n🖥️ 第2讲 ggplot2数据可视化\n\n\n\n\n\n\n注释\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接已经发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
-  },
-  {
-    "objectID": "weeks/week-02.html#随堂练习",
-    "href": "weeks/week-02.html#随堂练习",
-    "title": "第 2 周",
-    "section": "3. 随堂练习",
-    "text": "3. 随堂练习\n⌨️ 见课堂讲义"
-  },
-  {
-    "objectID": "weeks/week-02.html#课后作业",
-    "href": "weeks/week-02.html#课后作业",
-    "title": "第 2 周",
-    "section": "4. 课后作业",
-    "text": "4. 课后作业\n✍️ 课后作业"
-  },
-  {
-    "objectID": "weeks/week-05.html",
-    "href": "weeks/week-05.html",
-    "title": "第 5 周",
-    "section": "",
-    "text": "由于上一次课在点评 L03 课后作业上花费了较多时间，课程进度有些滞后，未能完成关于“函数”部分内容的讲解，特加课一周（45分钟 × 2）。\n本讲主要涵盖以下几方面的内容："
-  },
-  {
-    "objectID": "weeks/week-05.html#课前准备",
-    "href": "weeks/week-05.html#课前准备",
-    "title": "第 5 周",
-    "section": "1. 课前准备",
-    "text": "1. 课前准备\n\n\n📖 阅读 R for Data Science 一书第19章和第20章（分别介绍关于函数和向量方面的 R 语言编程基础知识）。\n\n\n\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第14章 函数”和“第15章 向量”。若觉得英文阅读有点吃力的同学，可找来参阅。\n\n\n\n\n\n\n\n\n\n由于上课内容较多，而上课时间只有45分钟 × 2，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间过一遍上述有关函数和向量的两章内容。 已经加课一周（45分钟 × 2），授课时间宽裕。"
-  },
-  {
-    "objectID": "weeks/week-05.html#课堂讲义",
-    "href": "weeks/week-05.html#课堂讲义",
-    "title": "第 5 周",
-    "section": "2. 课堂讲义",
-    "text": "2. 课堂讲义\n🖥️ 第4讲 向量与函数\n\n\n\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
-  },
-  {
-    "objectID": "weeks/week-05.html#随堂练习",
-    "href": "weeks/week-05.html#随堂练习",
-    "title": "第 5 周",
-    "section": "3. 随堂练习",
-    "text": "3. 随堂练习\n⌨️ 由于本讲加课一周，授课时间宽裕，增加安排 3 次随堂小练习（无需电脑，在头脑中完成即可）。"
-  },
-  {
-    "objectID": "weeks/week-05.html#课后作业",
-    "href": "weeks/week-05.html#课后作业",
-    "title": "第 5 周",
-    "section": "4. 课后作业",
-    "text": "4. 课后作业\n✍️ 课后作业"
-  },
-  {
-    "objectID": "weeks/week-06.html",
-    "href": "weeks/week-06.html",
-    "title": "第 6 周",
-    "section": "",
-    "text": "在上一讲中我们用两次课的时间学习 R 语言编程方面的核心知识：向量与函数，为接下来探索“净土宇宙 🌌”奠定了知识基础。“净土宇宙 🌌”的核心数据结构并非原子型向量或普通列表对象，而是 tibble（由行（样本）和列（变量）构成的表格型数据），dplyr 包基于数据操作语法构建出一组用来操作 tibble 对象的核心函数——它们就是我们在接下来两次课中需要学习、理解并掌握的知识。\n本讲主要涵盖以下几方面的内容："
-  },
-  {
-    "objectID": "weeks/week-06.html#课前准备",
-    "href": "weeks/week-06.html#课前准备",
-    "title": "第 6 周",
-    "section": "1. 课前准备",
-    "text": "1. 课前准备\n\n\n📖 阅读 R for Data Science 一书第5章、第13章和第18章，这些章节依次介绍如何利用 dplyr 包中的核心函数对单表数据和关系型数据表进行处理以及管道操作符 %>% 的相关知识。\n\n\n\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第3章 使用dplyr进行数据转换”、“第9章 使用dplyr处理关系数据”和“第13章 使用magrittr进行管道操作”。若觉得英文阅读有点吃力的同学，可找来参阅。\n\n\n\n\n\n\n\n\n\n由于上课内容较多，而上课时间有限，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间来过一遍上述预习章节的内容。"
-  },
-  {
-    "objectID": "weeks/week-06.html#课堂讲义",
-    "href": "weeks/week-06.html#课堂讲义",
-    "title": "第 6 周",
-    "section": "2. 课堂讲义",
-    "text": "2. 课堂讲义\n🖥️ [第5讲 dplyr数据处理]\n\n\n\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
-  },
-  {
-    "objectID": "weeks/week-06.html#随堂练习",
-    "href": "weeks/week-06.html#随堂练习",
-    "title": "第 6 周",
-    "section": "3. 随堂练习",
-    "text": "3. 随堂练习\n⌨️ 见课堂讲义"
-  },
-  {
-    "objectID": "weeks/week-06.html#课后作业",
-    "href": "weeks/week-06.html#课后作业",
-    "title": "第 6 周",
-    "section": "4. 课后作业",
-    "text": "4. 课后作业\n✍️ [课后作业]"
-  },
-  {
-    "objectID": "weeks/week-04.html",
-    "href": "weeks/week-04.html",
-    "title": "第 4 周",
-    "section": "",
-    "text": "在前面两讲中我们在“净土宇宙 🌌”（tidyverse）中勇敢地跨出第一步，收获探索“数据可视化”（主要基于 ggplot2 包）和“动态文档”（主要基于 rmarkdown -> Quarto）带来的超酷体验 😎。在这一讲中我们将稍作“休整”，返过头去学习 R 语言编程方面的核心知识：向量与函数。了解、学习并掌握 R 语言向量和函数方面的知识对我们在“净土宇宙 🌌”的后续探索来说也是必备的知识基础。\n本讲主要涵盖以下几方面的内容："
-  },
-  {
-    "objectID": "weeks/week-04.html#课前准备",
-    "href": "weeks/week-04.html#课前准备",
-    "title": "第 4 周",
-    "section": "1. 课前准备",
-    "text": "1. 课前准备\n\n\n📖 阅读 R for Data Science 一书第19章和第20章（分别介绍关于函数和向量方面的 R 语言编程基础知识）。\n\n\n\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第14章 函数”和“第15章 向量”。若觉得英文阅读有点吃力的同学，可找来参阅。\n\n\n\n\n\n\n\n\n\n由于上课内容较多，而上课时间只有45分钟 × 2，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间过一遍上述有关函数和向量的两章内容。"
-  },
-  {
-    "objectID": "weeks/week-04.html#课堂讲义",
-    "href": "weeks/week-04.html#课堂讲义",
-    "title": "第 4 周",
-    "section": "2. 课堂讲义",
-    "text": "2. 课堂讲义\n🖥️ 第4讲 向量与函数\n\n\n\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
-  },
-  {
-    "objectID": "weeks/week-04.html#随堂练习",
-    "href": "weeks/week-04.html#随堂练习",
-    "title": "第 4 周",
-    "section": "3. 随堂练习",
-    "text": "3. 随堂练习\n⌨️ 本讲时间安排较紧张，将不安排随堂编程练习。"
-  },
-  {
-    "objectID": "weeks/week-04.html#课后作业",
-    "href": "weeks/week-04.html#课后作业",
-    "title": "第 4 周",
-    "section": "4. 课后作业",
-    "text": "4. 课后作业\n✍️ 课后作业"
-  },
-  {
-    "objectID": "weeks/week-03.html",
-    "href": "weeks/week-03.html",
-    "title": "第 3 周",
-    "section": "",
-    "text": "在上一讲课后作业中同学们通过代码脚本文档 L02_coding_practice.R 完成编程作业并直接提交，但如果不运行同学们的代码，我将很难得知代码能否正常运行及其运行结果；同时通过注释方式添加说明性文字或文档逻辑分节也显得笨拙和不够美观。那么，有没有更好的解决方案呢？答案就是本讲将要介绍的“动态文档”（dynamic documents）——它允许你将代码、代码输出、文字等有机地组合在一起，并可方便地转化为多种类型的输出格式（如网页、PDF、docx、幻灯片等）。\n本讲主要涵盖以下几方面的内容："
-  },
-  {
-    "objectID": "weeks/week-03.html#课前准备",
-    "href": "weeks/week-03.html#课前准备",
-    "title": "第 3 周",
-    "section": "1. 课前准备",
-    "text": "1. 课前准备\n📖 阅读 Markdown基础 一文。\n\n\n\n\n\n\n此文主要翻译自 Quarto 官方文档 Markdown Basics 并经小幅改写。\n\n\n\n\n\n📖 阅读 R for Data Science 一书第27章和第30章关于如何使用 R Markdown 文档来记录数据科学研究过程并展示与沟通研究结果的内容。\n\n\n\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第21章 R Markdown”和“第23章 R Markdown工作流”。若觉得英文阅读有点吃力的同学，可找来参阅。\n\n\n\n\n\n\n\n\n\n💻 根据自己电脑操作系统的类型从 Quarto 官网 下载相应版本的 Quarto CLI 安装程序并完成安装（无需自定义，默认安装即可）。"
-  },
-  {
-    "objectID": "weeks/week-03.html#课堂讲义",
-    "href": "weeks/week-03.html#课堂讲义",
-    "title": "第 3 周",
-    "section": "2. 课堂讲义",
-    "text": "2. 课堂讲义\n🖥️ 第3讲 rmarkdown与Quarto\n\n\n\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
-  },
-  {
-    "objectID": "weeks/week-03.html#随堂练习",
-    "href": "weeks/week-03.html#随堂练习",
-    "title": "第 3 周",
-    "section": "3. 随堂练习",
-    "text": "3. 随堂练习\n⌨️ 本讲将有比较长时间的随堂编程练习，请同学们带上自己的笔记本电脑 （也可找上编程小伙伴，坐在一起结队练习效果可能更佳，😁）。"
-  },
-  {
-    "objectID": "weeks/week-03.html#课后作业",
-    "href": "weeks/week-03.html#课后作业",
-    "title": "第 3 周",
-    "section": "4. 课后作业",
-    "text": "4. 课后作业\n✍️ 课后作业"
-  },
-  {
-    "objectID": "weeks/week-01.html",
-    "href": "weeks/week-01.html",
-    "title": "第 1 周",
-    "section": "",
-    "text": "作为“量化金融与金融编程”课程的开学第一课，本讲的主要目的在于向学生介绍为什么要开设本门课程、教学设计以及如何才能学好这门课程，方便同学们作出理性的选课决定。授课将主要涵盖以下三方面的内容："
-  },
-  {
-    "objectID": "weeks/week-01.html#课前准备",
-    "href": "weeks/week-01.html#课前准备",
-    "title": "第 1 周",
-    "section": "1. 课前准备",
-    "text": "1. 课前准备\n🖥️ 请同学们依照如下幻灯片的步骤说明完成 R、RStudio、R 包等相关软件的安装及配置工作："
-  },
-  {
-    "objectID": "weeks/week-01.html#课堂讲义",
-    "href": "weeks/week-01.html#课堂讲义",
-    "title": "第 1 周",
-    "section": "2. 课堂讲义",
-    "text": "2. 课堂讲义\n🖥️ 第1讲 课程简介\n\n\n\n\n\n\n注释\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接已经发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
-  },
-  {
-    "objectID": "weeks/week-01.html#随堂练习",
-    "href": "weeks/week-01.html#随堂练习",
-    "title": "第 1 周",
-    "section": "3. 随堂练习",
-    "text": "3. 随堂练习\n⌨️ 见课堂讲义"
-  },
-  {
-    "objectID": "weeks/week-01.html#课后作业",
-    "href": "weeks/week-01.html#课后作业",
-    "title": "第 1 周",
-    "section": "4. 课后作业",
-    "text": "4. 课后作业\n✍️ 课后作业"
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "课程安排",
-    "section": "",
-    "text": "周次\n日期\n主题\n准备\n讲义\n练习\n作业\n项目\n\n\n\n\n1\n2022-09-16\n课程简介\n📖\n🖥️\n\n✍️\n\n\n\n2\n2022-09-23\nggplot2 数据可视化\n📖\n🖥️\n⌨️\n✍️\n\n\n\n3\n2022-09-30\nrmarkdown 与 Quarto\n📖\n🖥️\n⌨️\n✍️\n\n\n\n4\n2022-10-07\n向量与函数 I\n📖\n🖥️\n\n✍️\n\n\n\n5\n2022-10-14\n向量与函数 II\n\n🖥️\n⌨️\n✍️\n\n\n\n6\n2022-10-21\ndplyr数据处理 I\n📖\n\n\n\n\n\n\n7\n2022-10-28\ndplyr数据处理 II"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "_Quantitative Finance with R_",
-    "section": "",
-    "text": "这是厦门大学管理学院 2022-2023 学年秋季学期“量化金融与金融编程”课的课程主页， 将主要展示课程 准备 | 预习、课堂讲义 | 随堂练习、课后作业、 小组研究项目 等方面的信息和资源。\n希望同学们通过课程学习，能在  语言金融编程领域实现 from Zero to Hero 的升级！\n \n  \n   \n  \n    \n     网站\n  \n  \n    \n     Github"
+    "objectID": "project/team-project.html#小组互评",
+    "href": "project/team-project.html#小组互评",
+    "title": "小组研究项目说明",
+    "section": "5. 小组互评",
+    "text": "5. 小组互评"
   },
   {
     "objectID": "readings/markdown-basics.html",
@@ -336,41 +133,6 @@
     "text": "其它\n\n引用和线文本块\n\n\n\n\n\n\n\nMarkdown语法\n输出\n\n\n\n\n> 引用 \\\n> 子在川上曰 \\\n> 逝者如斯夫\n\n引用\n子在川上曰\n逝者如斯夫\n\n\n\n| 线文本块\n|   保留文本中的起始空格和\n|     换行符\n线文本块\n  保留文本中的起始空格和\n    换行符\n\n\n\n\n\n原始 HTML 和 TeX\nMarkdown 语法允许你在文档中绝大多数的地方插入原始的 HTML（如插入 <br> 来强制换行、<a href=\"https://bing.com\">Bing</a> 等）和 TeX 的内容，并在输出文档中得到渲染支持（或忽略）。\n\n\n特殊字符\n\n\n\n\n\n\n\nMarkdown语法\n输出\n\n\n\n\n连接号 (en-dash)：--\n连接号 (en-dash)：–\n\n\n破折号 (em-dash)：---\n破折号 (em-dash)：—"
   },
   {
-    "objectID": "project/team-project.html#时间安排",
-    "href": "project/team-project.html#时间安排",
-    "title": "小组研究项目说明",
-    "section": "2. 时间安排",
-    "text": "2. 时间安排"
-  },
-  {
-    "objectID": "project/team-project.html#任务说明",
-    "href": "project/team-project.html#任务说明",
-    "title": "小组研究项目说明",
-    "section": "3. 任务说明",
-    "text": "3. 任务说明"
-  },
-  {
-    "objectID": "project/team-project.html#报告展示",
-    "href": "project/team-project.html#报告展示",
-    "title": "小组研究项目说明",
-    "section": "4. 报告展示",
-    "text": "4. 报告展示"
-  },
-  {
-    "objectID": "project/team-project.html#小组互评",
-    "href": "project/team-project.html#小组互评",
-    "title": "小组研究项目说明",
-    "section": "5. 小组互评",
-    "text": "5. 小组互评"
-  },
-  {
-    "objectID": "hw/hw-01.html",
-    "href": "hw/hw-01.html",
-    "title": "第1周课后作业",
-    "section": "",
-    "text": "🕐 明确是否选修这门课程——若不选修，请于今天下午2点前在 {{厦门大学教学服务平台}} 上提出退课申请，我会在3点前完成审核\n\n\n\n🕑 初步了解 RStudio 的工作界面，并大致浏览下 {{rstudio-IDE-cheatsheet}}\n🕒 在 RStudio 命令窗口中键入 help(mean) 和 help(files)，了解 R 帮助文档的整体结构\n🕓 到前面课件中提到的那些 {{网络社区}} 随意逛逛\n🕔 2022年9月18日22:00前通过 {{坚果云链接}} 回答几道问题\n\n\n\n🕔 完成课前预习（具体任务下周三前我会在 QQ 课程群上通知）"
-  },
-  {
     "objectID": "hw/hw-05.html",
     "href": "hw/hw-05.html",
     "title": "第5周课后作业",
@@ -385,11 +147,18 @@
     "text": "注释\n\n\n\n必做部分，需在截止日期前上传完成的代码文档！\n\n\n\n🕐 根据 L2 课程讲义的打印稿，在 📑 R Script 中键入并完成全部代码的运行\n\n打开新的 R script 文件\n\nCtrl+Shift+N 打开 -> Ctrl+S 存盘为“L02_coding_practice.R”\n注：文件保存路径和文件名最好为英文，中间不要有空格\n\n输入与运行代码\n\n长代码手动断行，最好不要超过80个字符\n灵活使用快捷键，如 Tab（代码提示与自动补全）、Ctrl+A（选中全部代码） -> Ctrl+Shift+A（代码重新格式化）等\nCtrl+Enter 运行光标所在行或选中代码（Ctrl+Alt+R 运行全部代码，Ctrl+Shift+P 重新运行代码，Ctrl+Alt+P 运行光标前的代码）\n\n注释\n\n以 # 作为注释开始标记，如说明性文字、区分不同代码块（Ctrl+Shift+R）\n最后加入一段注释说明，简单说说使用ggplot2包的体会\n\n提交代码\n\n可结队编写代码，共同署名，分别提交，但不能完全雷同\n2022年9月26日22:00前通过 {{坚果云链接}} 直接提交代码文档\n\n\n\n\n\n\n\n\n\n\n注释\n\n\n\n以下为同学们根据自己的时间安排选做部分——很多是非常棒的参考资料！😁\n\n\n\n🕑 请复习 📖 {{R for Data Science}} 一书关于数据可视化的第3章和第28章（以及第4、6、8章关于工作流程）的内容\n🕒 从 📖 {{R Graphics Cookbook}} 一书中挑选 两章，复制性代码练习\n🕓 下载（打印）📰 {{ggplot2-cheatsheet}} 并浏览之\n🕔 登录浏览 🖼 {{The R Graph Gallery}}\n🕕 登录浏览 📦 {{ggplot2 extentions}}，进一步了解 ggplot2 包的“生态圈”\n🕖 进阶内容：R 对中文字体的支持不够理想，可参考 📝 {{ RJournal 的文章}} 以及帖子 {{showtext}} 中提到的解决方案和有趣示例"
   },
   {
-    "objectID": "hw/hw-04.html",
-    "href": "hw/hw-04.html",
-    "title": "第4周课后作业",
+    "objectID": "hw/hw-06.html",
+    "href": "hw/hw-06.html",
+    "title": "第6周课后作业",
     "section": "",
-    "text": "🕑 进一步完善并重新提交 L03_RMarkdown与Quarto 的课后作业 📑\n\n由老师（基于某些考虑因素）半随机分组（已完成，见下表）\n\n\n\n\n\n\n\n成员1\n成员2\n成员3\n成员4\n\n\n\n\n白雨婷\n王梓萌\n李芳玉\n严邓荆雅\n\n\n陈颖倩\n邹桢皓\n刘之荣\n谢柏杰\n\n\n高杨驰\n于小珊\n陈杰\n李世杰\n\n\n胡安琪\n焦雨欣\n应舒恬\n赵子钧\n\n\n李红浪\n杨星雨\n王圣鑫\n于野\n\n\n林臻杰\n张欣\n王雨彤\n田伊迪\n\n\n刘向尧\n胡典\n路旭飞\n龚福深\n\n\n陆思橙\n林宸\n曹煜\n陈智杰\n\n\n唐秋婷\n邵嘉蓉\n梅云开\n李植丹\n\n\n詹辉铭\n李康平\n张婧瑶\n张道琳\n\n\n张欣宇\n洪瑜蔓\n徐逸祺\n\n\n\n\n\n\n小组成员以之前提交的多份 L03 课后作业为基础，碰头讨论并相互学习借鉴，以小组为单位重新制作一份课后作业\n在 slides 文档中增加若干页，记录小组讨论过程与内容、新作业的改进之处并根据组员的参与度和贡献大小分配小组的总分数（总分数 = 10 * 小组成员数）\n确认两份文档运行无误后将 文件夹📂 L03_HW 打包为 .zip 格式压缩文档，由小组中的一位同学于2022年10月12日22:00前将压缩包提交至 {{坚果云链接}}\n\n\n老师将从同学们提交的作业中选取 3~5 份优秀作业，展示于课程网站上，供同学们学习参考\n\n\n\n\n\n\n\n\n以下是L03课后作业的初始要求（备忘）\n\n\n\n\n自由组队，两人一组，共同完成以下课后作业：\n\n从 L02 课件中挑出 3 ~ 4 个你们感兴趣的数据可视化代码段，就其制作两种类型的展示文档：\n\n{{Quarto|HTML}} 或 {{prettydoc}} -> 📂 L03_HW/docs/\n{{Quarto|Revealjs}} 或 {{xaringan}} -> 📂 L03_HW/slides/\n\n记得多尝试各种选项设置，同时在文档内加上相应的说明性文字（如解释代码或输出图形，其余内容可自由发挥，丰俭由人啦，😁）\n作业共同署名（姓名 + 姓名）\n确认两份文档运行无误后将文件夹📂 L03_HW 打包为 .zip 格式压缩文档，由其中一位同学于2022年10月5日22:00前将压缩包提交至 {{坚果云链接}}"
+    "text": "1. 复习 📖 R for Data Science 一书第5章（Data transformation）、第13章和第18章的内容，并（结队）完成（自选）课后练习。\n\n\n\n\n\n\n\n课后动手编程实操是掌握一门编程语言的必由之路，r4ds一书配套练习都很不错，尽管并未要求同学们提交课后编程实操作业，但希望同学们都能自觉完成，也正好检验下自己对 dplyr 包核心函数和关键知识的掌握情况\n课后习题参考答案链接 📖 R for Data Science: Exercise Solutions\n若在课后编程实操中遇到什么问题或难解之处，也可在课程QQ群上贴出并讨论\n\n\n\n\n2. 下载（打印） 📰 {{dplyr的cheatsheet}}并阅读之（该小抄也已上传到课程QQ群文件中）\n3. browseVignettes(package = \"dplyr\") 📝\n\nIntroduction to dplyr\ncolwise\nGrouped data\nTwo-table verbs\nFrom base R to dplyr"
+  },
+  {
+    "objectID": "hw/hw-01.html",
+    "href": "hw/hw-01.html",
+    "title": "第1周课后作业",
+    "section": "",
+    "text": "🕐 明确是否选修这门课程——若不选修，请于今天下午2点前在 {{厦门大学教学服务平台}} 上提出退课申请，我会在3点前完成审核\n\n\n\n🕑 初步了解 RStudio 的工作界面，并大致浏览下 {{rstudio-IDE-cheatsheet}}\n🕒 在 RStudio 命令窗口中键入 help(mean) 和 help(files)，了解 R 帮助文档的整体结构\n🕓 到前面课件中提到的那些 {{网络社区}} 随意逛逛\n🕔 2022年9月18日22:00前通过 {{坚果云链接}} 回答几道问题\n\n\n\n🕔 完成课前预习（具体任务下周三前我会在 QQ 课程群上通知）"
   },
   {
     "objectID": "hw/hw-03.html",
@@ -397,5 +166,243 @@
     "title": "第3周课后作业",
     "section": "",
     "text": "注释\n\n\n\n必做部分，需在截止日期前上传完成的代码文档！\n\n\n\n自由组队，两人一组，共同完成以下课后作业：\n\n从 L02 课件中挑出 3 ~ 4 个你们感兴趣的数据可视化代码段，就其制作两种类型的展示文档：\n\n{{Quarto|HTML}} 或 {{prettydoc}} -> 📂 L03_HW/docs/\n{{Quarto|Revealjs}} 或 {{xaringan}} -> 📂 L03_HW/slides/\n\n记得多尝试各种选项设置，同时在文档内加上相应的说明性文字（如解释代码或输出图形，其余内容可自由发挥，丰俭由人啦，😁）\n作业共同署名（姓名 + 姓名）\n确认两份文档运行无误后将文件夹📂 L03_HW 打包为 .zip 格式压缩文档，由其中一位同学于2022年10月5日22:00前将压缩包提交至 {{坚果云链接}}\n\n\n\n\n\n\n\n\n\n注释\n\n\n\n相信同学们现在对 rmarkdown 和 Quarto 有了初步的认识，下面列出一些学习资料，感兴趣的同学们可进一步学习精进 🏆\n\n\n\n📖 {{R for Data Science}} 一书关于 rmarkdown 的第27、29、30章\n📖 {{Quarto 官网}}\n📖 {{R Markdown 官网}}\n📝 RStudio IDE’s Help >\n\nCS > R Mardown Cheet Sheet\nCS > R Mardown Reference Guide\nMarkdown Quick Reference\n\nhttps://rstudio.github.io/visual-markdown-editing/\n📖 {{R Markdown: The Definitive Guide}} 和 {{R Markdown Cookbook}}"
+  },
+  {
+    "objectID": "hw/hw-04.html",
+    "href": "hw/hw-04.html",
+    "title": "第4周课后作业",
+    "section": "",
+    "text": "🕑 进一步完善并重新提交 L03_RMarkdown与Quarto 的课后作业 📑\n\n由老师（基于某些考虑因素）半随机分组（已完成，见下表）\n\n\n\n\n\n\n\n成员1\n成员2\n成员3\n成员4\n\n\n\n\n白雨婷\n王梓萌\n李芳玉\n严邓荆雅\n\n\n陈颖倩\n邹桢皓\n刘之荣\n谢柏杰\n\n\n高杨驰\n于小珊\n陈杰\n李世杰\n\n\n胡安琪\n焦雨欣\n应舒恬\n赵子钧\n\n\n李红浪\n杨星雨\n王圣鑫\n于野\n\n\n林臻杰\n张欣\n王雨彤\n田伊迪\n\n\n刘向尧\n胡典\n路旭飞\n龚福深\n\n\n陆思橙\n林宸\n曹煜\n陈智杰\n\n\n唐秋婷\n邵嘉蓉\n梅云开\n李植丹\n\n\n詹辉铭\n李康平\n张婧瑶\n张道琳\n\n\n张欣宇\n洪瑜蔓\n徐逸祺\n\n\n\n\n\n\n小组成员以之前提交的多份 L03 课后作业为基础，碰头讨论并相互学习借鉴，以小组为单位重新制作一份课后作业\n在 slides 文档中增加若干页，记录小组讨论过程与内容、新作业的改进之处并根据组员的参与度和贡献大小分配小组的总分数（总分数 = 10 * 小组成员数）\n确认两份文档运行无误后将 文件夹📂 L03_HW 打包为 .zip 格式压缩文档，由小组中的一位同学于2022年10月12日22:00前将压缩包提交至 {{坚果云链接}}\n\n\n老师将从同学们提交的作业中选取 3~5 份优秀作业，展示于课程网站上，供同学们学习参考\n\n\n\n\n\n\n\n\n以下是L03课后作业的初始要求（备忘）\n\n\n\n\n自由组队，两人一组，共同完成以下课后作业：\n\n从 L02 课件中挑出 3 ~ 4 个你们感兴趣的数据可视化代码段，就其制作两种类型的展示文档：\n\n{{Quarto|HTML}} 或 {{prettydoc}} -> 📂 L03_HW/docs/\n{{Quarto|Revealjs}} 或 {{xaringan}} -> 📂 L03_HW/slides/\n\n记得多尝试各种选项设置，同时在文档内加上相应的说明性文字（如解释代码或输出图形，其余内容可自由发挥，丰俭由人啦，😁）\n作业共同署名（姓名 + 姓名）\n确认两份文档运行无误后将文件夹📂 L03_HW 打包为 .zip 格式压缩文档，由其中一位同学于2022年10月5日22:00前将压缩包提交至 {{坚果云链接}}"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "_Quantitative Finance with R_",
+    "section": "",
+    "text": "这是厦门大学管理学院 2022-2023 学年秋季学期“量化金融与金融编程”课的课程主页， 将主要展示课程 准备 | 预习、课堂讲义 | 随堂练习、课后作业、 小组研究项目 等方面的信息和资源。\n希望同学们通过课程学习，能在  语言金融编程领域实现 from Zero to Hero 的升级！\n \n  \n   \n  \n    \n     网站\n  \n  \n    \n     Github"
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "课程安排",
+    "section": "",
+    "text": "周次\n日期\n主题\n准备\n讲义\n练习\n作业\n项目\n\n\n\n\n1\n2022-09-16\n课程简介\n📖\n🖥️\n\n✍️\n\n\n\n2\n2022-09-23\nggplot2 数据可视化\n📖\n🖥️\n⌨️\n✍️\n\n\n\n3\n2022-09-30\nrmarkdown 与 Quarto\n📖\n🖥️\n⌨️\n✍️\n\n\n\n4\n2022-10-07\n向量与函数 I\n📖\n🖥️\n\n✍️\n\n\n\n5\n2022-10-14\n向量与函数 II\n\n🖥️\n⌨️\n✍️\n\n\n\n6\n2022-10-21\ndplyr数据处理 I\n📖\n🖥️\n⌨️\n✍️\n\n\n\n7\n2022-10-28\ndplyr数据处理 II"
+  },
+  {
+    "objectID": "weeks/week-02.html",
+    "href": "weeks/week-02.html",
+    "title": "第 2 周",
+    "section": "",
+    "text": "“一图胜千言”。R 语言有着强大的数据可视化（制图）功能，很多人学习 R 语言编程主要就是冲着这一点来的。在本讲中我们将侧重介绍影响力巨大的 ggplot2 包，并涵盖以下几方面的内容："
+  },
+  {
+    "objectID": "weeks/week-02.html#课前准备",
+    "href": "weeks/week-02.html#课前准备",
+    "title": "第 2 周",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n\n\n\n📖 阅读 R for Data Science 一书关于数据可视化的第3章和第28章的内容。\n\n\n\n\n\n\n提示\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第1章 使用ggplot2进行数据可视化”和“第21章 使用ggplot2进行图形化沟通”。若觉得英文阅读有点吃力的同学，可找来参阅。"
+  },
+  {
+    "objectID": "weeks/week-02.html#课堂讲义",
+    "href": "weeks/week-02.html#课堂讲义",
+    "title": "第 2 周",
+    "section": "2. 课堂讲义",
+    "text": "2. 课堂讲义\n🖥️ 第2讲 ggplot2数据可视化\n\n\n\n\n\n\n注释\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接已经发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
+  },
+  {
+    "objectID": "weeks/week-02.html#随堂练习",
+    "href": "weeks/week-02.html#随堂练习",
+    "title": "第 2 周",
+    "section": "3. 随堂练习",
+    "text": "3. 随堂练习\n⌨️ 见课堂讲义"
+  },
+  {
+    "objectID": "weeks/week-02.html#课后作业",
+    "href": "weeks/week-02.html#课后作业",
+    "title": "第 2 周",
+    "section": "4. 课后作业",
+    "text": "4. 课后作业\n✍️ 课后作业"
+  },
+  {
+    "objectID": "weeks/week-05.html",
+    "href": "weeks/week-05.html",
+    "title": "第 5 周",
+    "section": "",
+    "text": "由于上一次课在点评 L03 课后作业上花费了较多时间，课程进度有些滞后，未能完成关于“函数”部分内容的讲解，特加课一周（45分钟 × 2）。\n本讲主要涵盖以下几方面的内容："
+  },
+  {
+    "objectID": "weeks/week-05.html#课前准备",
+    "href": "weeks/week-05.html#课前准备",
+    "title": "第 5 周",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n\n\n📖 阅读 R for Data Science 一书第19章和第20章（分别介绍关于函数和向量方面的 R 语言编程基础知识）。\n\n\n\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第14章 函数”和“第15章 向量”。若觉得英文阅读有点吃力的同学，可找来参阅。\n\n\n\n\n\n\n\n\n\n由于上课内容较多，而上课时间只有45分钟 × 2，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间过一遍上述有关函数和向量的两章内容。 已经加课一周（45分钟 × 2），授课时间宽裕。"
+  },
+  {
+    "objectID": "weeks/week-05.html#课堂讲义",
+    "href": "weeks/week-05.html#课堂讲义",
+    "title": "第 5 周",
+    "section": "2. 课堂讲义",
+    "text": "2. 课堂讲义\n🖥️ 第4讲 向量与函数\n\n\n\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
+  },
+  {
+    "objectID": "weeks/week-05.html#随堂练习",
+    "href": "weeks/week-05.html#随堂练习",
+    "title": "第 5 周",
+    "section": "3. 随堂练习",
+    "text": "3. 随堂练习\n⌨️ 由于本讲加课一周，授课时间宽裕，增加安排 3 次随堂小练习（无需电脑，在头脑中完成即可）。"
+  },
+  {
+    "objectID": "weeks/week-05.html#课后作业",
+    "href": "weeks/week-05.html#课后作业",
+    "title": "第 5 周",
+    "section": "4. 课后作业",
+    "text": "4. 课后作业\n✍️ 课后作业"
+  },
+  {
+    "objectID": "weeks/week-06.html",
+    "href": "weeks/week-06.html",
+    "title": "第 6 周",
+    "section": "",
+    "text": "在上一讲中我们用两次课的时间学习 R 语言编程方面的核心知识：向量与函数，为接下来探索“净土宇宙 🌌”奠定了知识基础。“净土宇宙 🌌”的核心数据结构并非原子型向量或普通列表对象，而是 tibble（由行（样本）和列（变量）构成的表格型数据），dplyr 包基于数据操作语法（A Grammar of Data Manipulation）构建出一组用来操作 tibble 对象的核心函数——它们就是我们在接下来两次课中需要学习、理解并掌握的知识。\n本讲主要涵盖以下几方面的内容："
+  },
+  {
+    "objectID": "weeks/week-06.html#课前准备",
+    "href": "weeks/week-06.html#课前准备",
+    "title": "第 6 周",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n\n\n📖 阅读 R for Data Science 一书第5章、第13章和第18章，这些章节依次介绍如何利用 dplyr 包中的核心函数对单表数据和关系型数据表进行处理以及管道操作符 %>% 的相关知识。\n\n\n\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第3章 使用dplyr进行数据转换”、“第9章 使用dplyr处理关系数据”和“第13章 使用magrittr进行管道操作”。若觉得英文阅读有点吃力的同学，可找来参阅。\n\n\n\n\n\n\n\n\n\n由于上课内容较多，而上课时间有限，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间来过一遍上述预习章节的内容。"
+  },
+  {
+    "objectID": "weeks/week-06.html#课堂讲义",
+    "href": "weeks/week-06.html#课堂讲义",
+    "title": "第 6 周",
+    "section": "2. 课堂讲义",
+    "text": "2. 课堂讲义\n🖥️ 第5讲 dplyr数据处理\n\n\n\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
+  },
+  {
+    "objectID": "weeks/week-06.html#随堂练习",
+    "href": "weeks/week-06.html#随堂练习",
+    "title": "第 6 周",
+    "section": "3. 随堂练习",
+    "text": "3. 随堂练习\n⌨️ 见课堂讲义——并非动手编程练习，思维体操而已"
+  },
+  {
+    "objectID": "weeks/week-06.html#课后作业",
+    "href": "weeks/week-06.html#课后作业",
+    "title": "第 6 周",
+    "section": "4. 课后作业",
+    "text": "4. 课后作业\n✍️ 课后作业"
+  },
+  {
+    "objectID": "weeks/week-03.html",
+    "href": "weeks/week-03.html",
+    "title": "第 3 周",
+    "section": "",
+    "text": "在上一讲课后作业中同学们通过代码脚本文档 L02_coding_practice.R 完成编程作业并直接提交，但如果不运行同学们的代码，我将很难得知代码能否正常运行及其运行结果；同时通过注释方式添加说明性文字或文档逻辑分节也显得笨拙和不够美观。那么，有没有更好的解决方案呢？答案就是本讲将要介绍的“动态文档”（dynamic documents）——它允许你将代码、代码输出、文字等有机地组合在一起，并可方便地转化为多种类型的输出格式（如网页、PDF、docx、幻灯片等）。\n本讲主要涵盖以下几方面的内容："
+  },
+  {
+    "objectID": "weeks/week-03.html#课前准备",
+    "href": "weeks/week-03.html#课前准备",
+    "title": "第 3 周",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n📖 阅读 Markdown基础 一文。\n\n\n\n\n\n\n此文主要翻译自 Quarto 官方文档 Markdown Basics 并经小幅改写。\n\n\n\n\n\n📖 阅读 R for Data Science 一书第27章和第30章关于如何使用 R Markdown 文档来记录数据科学研究过程并展示与沟通研究结果的内容。\n\n\n\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第21章 R Markdown”和“第23章 R Markdown工作流”。若觉得英文阅读有点吃力的同学，可找来参阅。\n\n\n\n\n\n\n\n\n\n💻 根据自己电脑操作系统的类型从 Quarto 官网 下载相应版本的 Quarto CLI 安装程序并完成安装（无需自定义，默认安装即可）。"
+  },
+  {
+    "objectID": "weeks/week-03.html#课堂讲义",
+    "href": "weeks/week-03.html#课堂讲义",
+    "title": "第 3 周",
+    "section": "2. 课堂讲义",
+    "text": "2. 课堂讲义\n🖥️ 第3讲 rmarkdown与Quarto\n\n\n\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
+  },
+  {
+    "objectID": "weeks/week-03.html#随堂练习",
+    "href": "weeks/week-03.html#随堂练习",
+    "title": "第 3 周",
+    "section": "3. 随堂练习",
+    "text": "3. 随堂练习\n⌨️ 本讲将有比较长时间的随堂编程练习，请同学们带上自己的笔记本电脑 （也可找上编程小伙伴，坐在一起结队练习效果可能更佳，😁）。"
+  },
+  {
+    "objectID": "weeks/week-03.html#课后作业",
+    "href": "weeks/week-03.html#课后作业",
+    "title": "第 3 周",
+    "section": "4. 课后作业",
+    "text": "4. 课后作业\n✍️ 课后作业"
+  },
+  {
+    "objectID": "weeks/week-01.html",
+    "href": "weeks/week-01.html",
+    "title": "第 1 周",
+    "section": "",
+    "text": "作为“量化金融与金融编程”课程的开学第一课，本讲的主要目的在于向学生介绍为什么要开设本门课程、教学设计以及如何才能学好这门课程，方便同学们作出理性的选课决定。授课将主要涵盖以下三方面的内容："
+  },
+  {
+    "objectID": "weeks/week-01.html#课前准备",
+    "href": "weeks/week-01.html#课前准备",
+    "title": "第 1 周",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n🖥️ 请同学们依照如下幻灯片的步骤说明完成 R、RStudio、R 包等相关软件的安装及配置工作："
+  },
+  {
+    "objectID": "weeks/week-01.html#课堂讲义",
+    "href": "weeks/week-01.html#课堂讲义",
+    "title": "第 1 周",
+    "section": "2. 课堂讲义",
+    "text": "2. 课堂讲义\n🖥️ 第1讲 课程简介\n\n\n\n\n\n\n注释\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接已经发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
+  },
+  {
+    "objectID": "weeks/week-01.html#随堂练习",
+    "href": "weeks/week-01.html#随堂练习",
+    "title": "第 1 周",
+    "section": "3. 随堂练习",
+    "text": "3. 随堂练习\n⌨️ 见课堂讲义"
+  },
+  {
+    "objectID": "weeks/week-01.html#课后作业",
+    "href": "weeks/week-01.html#课后作业",
+    "title": "第 1 周",
+    "section": "4. 课后作业",
+    "text": "4. 课后作业\n✍️ 课后作业"
+  },
+  {
+    "objectID": "weeks/week-04.html",
+    "href": "weeks/week-04.html",
+    "title": "第 4 周",
+    "section": "",
+    "text": "在前面两讲中我们在“净土宇宙 🌌”（tidyverse）中勇敢地跨出第一步，收获探索“数据可视化”（主要基于 ggplot2 包）和“动态文档”（主要基于 rmarkdown -> Quarto）带来的超酷体验 😎。在这一讲中我们将稍作“休整”，返过头去学习 R 语言编程方面的核心知识：向量与函数。了解、学习并掌握 R 语言向量和函数方面的知识对我们在“净土宇宙 🌌”的后续探索来说也是必备的知识基础。\n本讲主要涵盖以下几方面的内容："
+  },
+  {
+    "objectID": "weeks/week-04.html#课前准备",
+    "href": "weeks/week-04.html#课前准备",
+    "title": "第 4 周",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n\n\n📖 阅读 R for Data Science 一书第19章和第20章（分别介绍关于函数和向量方面的 R 语言编程基础知识）。\n\n\n\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第14章 函数”和“第15章 向量”。若觉得英文阅读有点吃力的同学，可找来参阅。\n\n\n\n\n\n\n\n\n\n由于上课内容较多，而上课时间只有45分钟 × 2，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间过一遍上述有关函数和向量的两章内容。"
+  },
+  {
+    "objectID": "weeks/week-04.html#课堂讲义",
+    "href": "weeks/week-04.html#课堂讲义",
+    "title": "第 4 周",
+    "section": "2. 课堂讲义",
+    "text": "2. 课堂讲义\n🖥️ 第4讲 向量与函数\n\n\n\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
+  },
+  {
+    "objectID": "weeks/week-04.html#随堂练习",
+    "href": "weeks/week-04.html#随堂练习",
+    "title": "第 4 周",
+    "section": "3. 随堂练习",
+    "text": "3. 随堂练习\n⌨️ 本讲时间安排较紧张，将不安排随堂编程练习。"
+  },
+  {
+    "objectID": "weeks/week-04.html#课后作业",
+    "href": "weeks/week-04.html#课后作业",
+    "title": "第 4 周",
+    "section": "4. 课后作业",
+    "text": "4. 课后作业\n✍️ 课后作业"
+  },
+  {
+    "objectID": "weeks.html",
+    "href": "weeks.html",
+    "title": "每周列表",
+    "section": "",
+    "text": "排序方式\n       缺省\n         \n          日期 - 日期升序\n        \n         \n          日期 - 日期降序\n        \n         \n          标题\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\n第 6 周\n\n\ndplyr数据处理 I\n\n\n\n\n预习\n\n\n随堂练习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-21\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 5 周\n\n\n向量与函数 II\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-14\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 4 周\n\n\n向量与函数\n\n\n\n\n预习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-07\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 3 周\n\n\nrmarkdown与Quarto\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-30\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 2 周\n\n\nggplot2数据可视化\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-23\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 1 周\n\n\n课程简介\n\n\n\n\n准备\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-16\n\n\n曾永艺\n\n\n\n\n\n\n无匹配项"
   }
 ]

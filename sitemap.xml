@@ -1,67 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://qfwr2022.netlify.app/weeks.html</loc>
-    <lastmod>2022-10-19T09:43:36.220Z</lastmod>
-  </url>
-  <url>
-    <loc>https://qfwr2022.netlify.app/weeks/week-02.html</loc>
-    <lastmod>2022-10-19T09:43:37.228Z</lastmod>
-  </url>
-  <url>
-    <loc>https://qfwr2022.netlify.app/weeks/week-05.html</loc>
-    <lastmod>2022-10-19T09:43:38.165Z</lastmod>
-  </url>
-  <url>
-    <loc>https://qfwr2022.netlify.app/weeks/week-06.html</loc>
-    <lastmod>2022-10-19T09:43:38.961Z</lastmod>
-  </url>
-  <url>
-    <loc>https://qfwr2022.netlify.app/weeks/week-04.html</loc>
-    <lastmod>2022-10-19T09:43:39.757Z</lastmod>
-  </url>
-  <url>
-    <loc>https://qfwr2022.netlify.app/weeks/week-03.html</loc>
-    <lastmod>2022-10-19T09:43:40.521Z</lastmod>
-  </url>
-  <url>
-    <loc>https://qfwr2022.netlify.app/weeks/week-01.html</loc>
-    <lastmod>2022-10-19T09:43:41.333Z</lastmod>
-  </url>
-  <url>
-    <loc>https://qfwr2022.netlify.app/schedule.html</loc>
-    <lastmod>2022-10-19T09:43:42.133Z</lastmod>
-  </url>
-  <url>
-    <loc>https://qfwr2022.netlify.app/index.html</loc>
-    <lastmod>2022-10-19T09:43:42.509Z</lastmod>
+    <loc>https://qfwr2022.netlify.app/project/team-project.html</loc>
+    <lastmod>2022-10-21T02:30:42.546Z</lastmod>
   </url>
   <url>
     <loc>https://qfwr2022.netlify.app/readings/markdown-basics.html</loc>
-    <lastmod>2022-10-19T09:43:43.697Z</lastmod>
-  </url>
-  <url>
-    <loc>https://qfwr2022.netlify.app/project/team-project.html</loc>
-    <lastmod>2022-10-19T09:43:44.417Z</lastmod>
-  </url>
-  <url>
-    <loc>https://qfwr2022.netlify.app/hw/hw-01.html</loc>
-    <lastmod>2022-10-19T09:43:45.177Z</lastmod>
+    <lastmod>2022-10-21T02:30:44.946Z</lastmod>
   </url>
   <url>
     <loc>https://qfwr2022.netlify.app/hw/hw-05.html</loc>
-    <lastmod>2022-10-19T09:43:45.953Z</lastmod>
+    <lastmod>2022-10-21T02:30:45.850Z</lastmod>
   </url>
   <url>
     <loc>https://qfwr2022.netlify.app/hw/hw-02.html</loc>
-    <lastmod>2022-10-19T09:43:46.777Z</lastmod>
+    <lastmod>2022-10-21T02:30:46.738Z</lastmod>
   </url>
   <url>
-    <loc>https://qfwr2022.netlify.app/hw/hw-04.html</loc>
-    <lastmod>2022-10-19T09:43:47.590Z</lastmod>
+    <loc>https://qfwr2022.netlify.app/hw/hw-06.html</loc>
+    <lastmod>2022-10-21T02:30:47.662Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qfwr2022.netlify.app/hw/hw-01.html</loc>
+    <lastmod>2022-10-21T02:30:48.542Z</lastmod>
   </url>
   <url>
     <loc>https://qfwr2022.netlify.app/hw/hw-03.html</loc>
-    <lastmod>2022-10-19T09:43:48.414Z</lastmod>
+    <lastmod>2022-10-21T02:30:49.446Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qfwr2022.netlify.app/hw/hw-04.html</loc>
+    <lastmod>2022-10-21T02:30:50.362Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qfwr2022.netlify.app/index.html</loc>
+    <lastmod>2022-10-21T02:30:50.838Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qfwr2022.netlify.app/schedule.html</loc>
+    <lastmod>2022-10-21T02:30:51.766Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qfwr2022.netlify.app/weeks/week-02.html</loc>
+    <lastmod>2022-10-21T02:30:52.686Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qfwr2022.netlify.app/weeks/week-05.html</loc>
+    <lastmod>2022-10-21T02:30:53.630Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qfwr2022.netlify.app/weeks/week-06.html</loc>
+    <lastmod>2022-10-21T02:30:54.518Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qfwr2022.netlify.app/weeks/week-03.html</loc>
+    <lastmod>2022-10-21T02:30:55.510Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qfwr2022.netlify.app/weeks/week-01.html</loc>
+    <lastmod>2022-10-21T02:30:56.470Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qfwr2022.netlify.app/weeks/week-04.html</loc>
+    <lastmod>2022-10-21T02:30:57.370Z</lastmod>
+  </url>
+  <url>
+    <loc>https://qfwr2022.netlify.app/weeks.html</loc>
+    <lastmod>2022-10-21T02:30:57.970Z</lastmod>
   </url>
 </urlset>
