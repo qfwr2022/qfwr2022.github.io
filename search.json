@@ -140,6 +140,13 @@
     "text": "1. 复习 📖 R for Data Science 一书以下章节，并（结队）完成课后练习。自觉完成，无需提交。\n\n第 1、2、17、26 章 (Introduction)\n第 4、6、8 章 (Workflows)\n第 3、28 章 (Visualization)\n第 27、29、30 章 (R Markdown)\n第 19、20 章 (Functions & Vectors)\n\n2. 课后习题参考答案链接 📖 R for Data Science: Exercise Solutions"
   },
   {
+    "objectID": "hw/hw-07.html",
+    "href": "hw/hw-07.html",
+    "title": "第7周课后作业",
+    "section": "",
+    "text": "1. 复习 📖 R for Data Science 一书第5章（Data transformation）、第13章（Relational data）和第18章（Pipe）的内容，并（结队）完成（自选）课后练习。\n\n\n\n\n\n\n\n课后动手编程实操是掌握一门编程语言的必由之路，r4ds一书配套练习都很不错，尽管并未要求同学们提交课后编程实操作业，但希望同学们都能自觉完成，也正好检验下自己对 dplyr 包核心函数和关键知识的掌握情况\n课后习题参考答案链接 📖 R for Data Science: Exercise Solutions\n若在课后编程实操中遇到什么问题或难解之处，也可在课程QQ群上贴出并讨论\n\n\n\n\n2. 下载（打印） 📰 {{dplyr的cheatsheet}}并阅读之（该小抄已上传到课程QQ群文件中）\n3. browseVignettes(package = \"dplyr\") 📝\n\nIntroduction to dplyr\ncolwise\nGrouped data\nTwo-table verbs\nFrom base R to dplyr\n\n4. 安装 qfwr 包并完成练习 L05 👩‍💻，将结果文档上传至坚果云\n\nremotes::install_github(\"qfwr2022/qfwr\")\n# 记得选择确认安装 qfwr 包所依赖的 learnr、testwhat 等包\nlibrary(qfwr)  # 加载 qfwr 包，然后按提示行事 ……\n\n5. 自主选定小组作业捆绑对象👭（1+1，当然也可以选择不绑定），填写到坚果云表格中\n6. 中文语境下表示表扬（≥2句）和鼓励（≥1句）的词句，填写到坚果云表格中\n注：4-6三项作业的提交截止日期为11月2日24:00"
+  },
+  {
     "objectID": "hw/hw-02.html",
     "href": "hw/hw-02.html",
     "title": "第2周课后作业",
@@ -186,7 +193,7 @@
     "href": "schedule.html",
     "title": "课程安排",
     "section": "",
-    "text": "周次\n日期\n主题\n准备\n讲义\n练习\n作业\n项目\n\n\n\n\n1\n2022-09-16\n课程简介\n📖\n🖥️\n\n✍️\n\n\n\n2\n2022-09-23\nggplot2 数据可视化\n📖\n🖥️\n⌨️\n✍️\n\n\n\n3\n2022-09-30\nrmarkdown 与 Quarto\n📖\n🖥️\n⌨️\n✍️\n\n\n\n4\n2022-10-07\n向量与函数 I\n📖\n🖥️\n\n✍️\n\n\n\n5\n2022-10-14\n向量与函数 II\n\n🖥️\n⌨️\n✍️\n\n\n\n6\n2022-10-21\ndplyr数据处理 I\n📖\n🖥️\n⌨️\n✍️\n\n\n\n7\n2022-10-28\ndplyr数据处理 II"
+    "text": "周次\n日期\n主题\n准备\n讲义\n练习\n作业\n项目\n\n\n\n\n1\n2022-09-16\n课程简介\n📖\n🖥️\n\n✍️\n\n\n\n2\n2022-09-23\nggplot2 数据可视化\n📖\n🖥️\n⌨️\n✍️\n\n\n\n3\n2022-09-30\nrmarkdown 与 Quarto\n📖\n🖥️\n⌨️\n✍️\n\n\n\n4\n2022-10-07\n向量与函数 I\n📖\n🖥️\n\n✍️\n\n\n\n5\n2022-10-14\n向量与函数 II\n\n🖥️\n⌨️\n✍️\n\n\n\n6\n2022-10-21\ndplyr数据处理 I\n📖\n🖥️\n⌨️\n✍️\n\n\n\n7\n2022-10-28\ndplyr数据处理 II\n📖\n🖥️\n⌨️\n✍️"
   },
   {
     "objectID": "weeks/week-02.html",
@@ -220,6 +227,41 @@
     "objectID": "weeks/week-02.html#课后作业",
     "href": "weeks/week-02.html#课后作业",
     "title": "第 2 周",
+    "section": "4. 课后作业",
+    "text": "4. 课后作业\n✍️ 课后作业"
+  },
+  {
+    "objectID": "weeks/week-07.html",
+    "href": "weeks/week-07.html",
+    "title": "第 7 周",
+    "section": "",
+    "text": "在上一讲中我们用两次课的时间学习 R 语言编程方面的核心知识：向量与函数，为接下来探索“净土宇宙 🌌”奠定了知识基础。“净土宇宙 🌌”的核心数据结构并非原子型向量或普通列表对象，而是 tibble（由行（样本）和列（变量）构成的表格型数据），dplyr 包基于数据操作语法（A Grammar of Data Manipulation）构建出一组用来操作 tibble 对象的核心函数——它们就是我们在接下来两次课中需要学习、理解并掌握的知识。\n本讲主要涵盖以下几方面的内容（其中加粗字体为本次课的讲授内容）："
+  },
+  {
+    "objectID": "weeks/week-07.html#课前准备",
+    "href": "weeks/week-07.html#课前准备",
+    "title": "第 7 周",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n\n\n📖 阅读 R for Data Science 一书第5章、第13章和第18章，这些章节依次介绍如何利用 dplyr 包中的核心函数对单表数据和关系型数据表进行处理以及管道操作符 %>% 的相关知识。\n\n\n\n\n\n\n此书的中文翻译版 《R数据科学》 发行有官方pdf电子版，对应章节为“第3章 使用dplyr进行数据转换”、“第9章 使用dplyr处理关系数据”和“第13章 使用magrittr进行管道操作”。若觉得英文阅读有点吃力的同学，可找来参阅。\n\n\n\n\n\n\n\n\n\n由于上课内容较多，而上课时间有限，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间来过一遍上述预习章节的内容。"
+  },
+  {
+    "objectID": "weeks/week-07.html#课堂讲义",
+    "href": "weeks/week-07.html#课堂讲义",
+    "title": "第 7 周",
+    "section": "2. 课堂讲义",
+    "text": "2. 课堂讲义\n🖥️ 第5讲 dplyr数据处理\n\n\n\n\n\n\n课堂讲义 PDF 版和腾讯会议云录制链接将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。"
+  },
+  {
+    "objectID": "weeks/week-07.html#随堂练习",
+    "href": "weeks/week-07.html#随堂练习",
+    "title": "第 7 周",
+    "section": "3. 随堂练习",
+    "text": "3. 随堂练习\n⌨️ 见课堂讲义——思维体操，无需动手编程"
+  },
+  {
+    "objectID": "weeks/week-07.html#课后作业",
+    "href": "weeks/week-07.html#课后作业",
+    "title": "第 7 周",
     "section": "4. 课后作业",
     "text": "4. 课后作业\n✍️ 课后作业"
   },
@@ -263,7 +305,7 @@
     "href": "weeks/week-06.html",
     "title": "第 6 周",
     "section": "",
-    "text": "在上一讲中我们用两次课的时间学习 R 语言编程方面的核心知识：向量与函数，为接下来探索“净土宇宙 🌌”奠定了知识基础。“净土宇宙 🌌”的核心数据结构并非原子型向量或普通列表对象，而是 tibble（由行（样本）和列（变量）构成的表格型数据），dplyr 包基于数据操作语法（A Grammar of Data Manipulation）构建出一组用来操作 tibble 对象的核心函数——它们就是我们在接下来两次课中需要学习、理解并掌握的知识。\n本讲主要涵盖以下几方面的内容："
+    "text": "在上一讲中我们用两次课的时间学习 R 语言编程方面的核心知识：向量与函数，为接下来探索“净土宇宙 🌌”奠定了知识基础。“净土宇宙 🌌”的核心数据结构并非原子型向量或普通列表对象，而是 tibble（由行（样本）和列（变量）构成的表格型数据），dplyr 包基于数据操作语法（A Grammar of Data Manipulation）构建出一组用来操作 tibble 对象的核心函数——它们就是我们在接下来两次课中需要学习、理解并掌握的知识。\n本讲主要涵盖以下几方面的内容（加粗字体为本次课的讲授内容）："
   },
   {
     "objectID": "weeks/week-06.html#课前准备",
@@ -403,6 +445,6 @@
     "href": "weeks.html",
     "title": "每周列表",
     "section": "",
-    "text": "排序方式\n       缺省\n         \n          日期 - 日期升序\n        \n         \n          日期 - 日期降序\n        \n         \n          标题\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\n第 6 周\n\n\ndplyr数据处理 I\n\n\n\n\n预习\n\n\n随堂练习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-21\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 5 周\n\n\n向量与函数 II\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-14\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 4 周\n\n\n向量与函数\n\n\n\n\n预习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-07\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 3 周\n\n\nrmarkdown与Quarto\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-30\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 2 周\n\n\nggplot2数据可视化\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-23\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 1 周\n\n\n课程简介\n\n\n\n\n准备\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-16\n\n\n曾永艺\n\n\n\n\n\n\n无匹配项"
+    "text": "排序方式\n       缺省\n         \n          日期 - 日期升序\n        \n         \n          日期 - 日期降序\n        \n         \n          标题\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\n第 7 周\n\n\ndplyr数据处理 II\n\n\n\n\n预习\n\n\n随堂练习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-28\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 6 周\n\n\ndplyr数据处理 I\n\n\n\n\n预习\n\n\n随堂练习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-21\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 5 周\n\n\n向量与函数 II\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-14\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 4 周\n\n\n向量与函数\n\n\n\n\n预习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-07\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 3 周\n\n\nrmarkdown与Quarto\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-30\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 2 周\n\n\nggplot2数据可视化\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-23\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 1 周\n\n\n课程简介\n\n\n\n\n准备\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-16\n\n\n曾永艺\n\n\n\n\n\n\n无匹配项"
   }
 ]

@@ -8,7 +8,7 @@
 
 <meta name="author" content="曾永艺">
 
-<title>Quantitative Finance with R - 第3周课后作业</title>
+<title>Quantitative Finance with R - 第7周课后作业</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -119,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">第3周课后作业</h1>
+      <h1 class="quarto-secondary-nav-title">第7周课后作业</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -187,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">第3周课后作业</h1>
+<h1 class="title d-none d-lg-block">第7周课后作业</h1>
 </div>
 
 
@@ -204,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">发布日期</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2022年9月30日</p>
+      <p class="date">2022年10月28日</p>
     </div>
   </div>
     
@@ -214,60 +277,40 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
+<p><span style="font-size:1.2rem">1. <strong>复习</strong> 📖 <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> 一书第5章（<em>Data transformation</em>）、<strong>第13章</strong>（<em>Relational data</em>）和<strong>第18章</strong>（<em>Pipe</em>）的内容，并（结队）<strong>完成（自选）课后练习</strong>。</span></p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-注释
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>必做部分，需在截止日期前上传完成的代码文档！</p>
-</div>
-</div>
+<div class="callout-body-container">
 <ul>
-<li><p><strong>自由组队，两人一组，共同完成以下课后作业：</strong></p>
-<ol type="1">
-<li><p><strong>从 L02 课件中挑出 3 ~ 4 个你们感兴趣的数据可视化代码段，就其制作两种类型的展示文档：</strong></p>
-<ul>
-<li><a href="https://quarto.org/docs/output-formats/html-basics.html">{{<code>Quarto|HTML</code>}}</a> 或 <a href="https://prettydoc.statr.me/themes.html">{{<code>prettydoc</code>}}</a> -&gt; 📂 <em>L03_HW/docs/</em></li>
-<li><a href="https://quarto.org/docs/presentations/revealjs/">{{<code>Quarto|Revealjs</code>}}</a> 或 <a href="https://slides.yihui.org/xaringan/zh-CN.html">{{<code>xaringan</code>}}</a> -&gt; 📂 <em>L03_HW/slides/</em></li>
-</ul></li>
-<li><p><strong>记得多尝试各种选项设置，同时在文档内加上相应的说明性文字（如解释代码或输出图形，其余内容可自由发挥，丰俭由人啦，😁）</strong></p></li>
-<li><p><strong>作业共同署名（姓名 + 姓名）</strong></p></li>
-<li><p><strong>确认两份文档运行无误后将文件夹📂 <em>L03_HW</em> 打包为 .zip 格式压缩文档，由其中一位同学于2022年10月5日22:00前将压缩包提交至 <a href="https://workspace.jianguoyun.com/inbox/collect/451ce296ff554b999cb0fd79797ee6bc/submitv2">{{坚果云链接}}</a></strong></p></li>
-</ol></li>
+<li><span style="color:red"><strong>课后动手编程实操是掌握一门编程语言的必由之路，r4ds一书配套练习都很不错，尽管并未要求同学们提交课后编程实操作业，但希望同学们都能自觉完成，也正好检验下自己对 dplyr 包核心函数和关键知识的掌握情况</strong></span></li>
+<li><strong>课后习题参考答案链接</strong> 📖 <a href="https://jrnold.github.io/r4ds-exercise-solutions/"><em>R for Data Science: Exercise Solutions</em></a></li>
+<li>若在课后编程实操中遇到什么问题或难解之处，也可在课程QQ群上贴出并讨论</li>
 </ul>
+</div>
+</div>
+</div>
+<p><span style="font-size:1.2rem">2. 下载（打印） 📰 <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-transformation.pdf">{{dplyr的cheatsheet}}</a>并阅读之（该小抄已上传到课程QQ群文件中）</span></p>
+<p><span style="font-size:1.2rem">3. <code>browseVignettes(package = "dplyr")</code> 📝</span></p>
+<blockquote style="margin-left: 1.2rem; font-size: 1.2rem; color: black" class="blockquote">
+Introduction to dplyr<br>
+colwise<br>
+Grouped data<br>
+<strong>Two-table verbs</strong><br>
+From base R to dplyr
+</blockquote>
+<p><span style="font-size:1.2rem">4. <strong>安装 qfwr 包并完成练习 L05 👩‍💻，将结果文档上传至坚果云</strong></span></p>
+<blockquote style="margin-left: 1.2rem; font-size: 1.2rem; color: black" class="blockquote">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"qfwr2022/qfwr"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 记得选择确认安装 qfwr 包所依赖的 learnr、testwhat 等包</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qfwr)  <span class="co"># 加载 qfwr 包，然后按提示行事 ……</span></span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</blockquote>
+<p><span style="font-size:1.2rem">5. <strong>自主选定小组作业捆绑对象👭（<code>1+1</code>，当然也可以选择不绑定），填写到坚果云表格中</strong></span></p>
+<p><span style="font-size:1.2rem">6. <strong>中文语境下表示表扬（≥2句）和鼓励（≥1句）的词句，填写到坚果云表格中</strong></span></p>
+<p><span style="font-size:1rem; color:red"><strong>注：4-6三项作业的提交截止日期为11月2日24:00</strong></span></p>
 <hr>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-注释
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>相信同学们现在对 <code>rmarkdown</code> 和 <code>Quarto</code> 有了初步的认识，下面列出一些学习资料，感兴趣的同学们可进一步学习精进 🏆</p>
-</div>
-</div>
-<ul>
-<li><p>📖 <a href="https://r4ds.had.co.nz/">{{<em>R for Data Science</em>}}</a> 一书关于 <code>rmarkdown</code> 的第27、<strong>29</strong>、30章</p></li>
-<li><p>📖 <a href="https://quarto.org/"><strong>{{Quarto 官网}}</strong></a></p></li>
-<li><p>📖 <a href="https://rmarkdown.rstudio.com/"><strong>{{R Markdown 官网}}</strong></a></p></li>
-<li><p>📝 RStudio IDE’s Help &gt;</p>
-<ul>
-<li>CS &gt; <a href="https://qfwr2022.netlify.app/slides/lec-03/docs/rmarkdown-cheatsheet.pdf"><strong><em>R Mardown Cheet Sheet</em></strong></a></li>
-<li>CS &gt; <em>R Mardown Reference Guide</em></li>
-<li><em>Markdown Quick Reference</em></li>
-</ul></li>
-<li><p><strong><a href="https://rstudio.github.io/visual-markdown-editing/" class="uri">https://rstudio.github.io/visual-markdown-editing/</a></strong></p></li>
-<li><p>📖 <a href="https://bookdown.org/yihui/rmarkdown/">{{<em>R Markdown: The Definitive Guide</em>}}</a> 和 <a href="https://bookdown.org/yihui/rmarkdown-cookbook/">{{<em>R Markdown Cookbook</em>}}</a></p></li>
-</ul>
-<p><br></p>
 
 
 
