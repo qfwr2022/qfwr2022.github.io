@@ -8,7 +8,7 @@
 
 <meta name="author" content="曾永艺">
 
-<title>Quantitative Finance with R - 第4周课后作业</title>
+<title>Quantitative Finance with R - 第 8 周</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,6 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../weeks/week-07.html" rel="prev">
 <link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -119,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">第4周课后作业</h1>
+      <h1 class="quarto-secondary-nav-title">第 8 周</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -174,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-08.html" class="sidebar-item-text sidebar-link">第8周 数据导入与齐整</a>
+  <a href="../weeks/week-08.html" class="sidebar-item-text sidebar-link active">第8周 数据导入与齐整</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -185,15 +186,31 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#课前准备" id="toc-课前准备" class="nav-link active" data-scroll-target="#课前准备">1. 课前准备</a></li>
+  <li><a href="#课堂讲义" id="toc-课堂讲义" class="nav-link" data-scroll-target="#课堂讲义">2. 课堂讲义</a></li>
+  <li><a href="#随堂练习" id="toc-随堂练习" class="nav-link" data-scroll-target="#随堂练习">3. 随堂练习</a></li>
+  <li><a href="#课后作业" id="toc-课后作业" class="nav-link" data-scroll-target="#课后作业">4. 课后作业</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/qfwr2022/qfwr2022.github.io/edit/main/weeks/week-08.qmd" class="toc-action">编辑该页面</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">第4周课后作业</h1>
-</div>
+<h1 class="title d-none d-lg-block">第 8 周</h1>
+<p class="subtitle lead">数据导入与齐整</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">预习</div>
+    <div class="quarto-category">随堂练习</div>
+    <div class="quarto-category">讲义</div>
+    <div class="quarto-category">作业</div>
+  </div>
+  </div>
 
 
 
@@ -209,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">发布日期</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2022年10月7日</p>
+      <p class="date">2022年11月11日</p>
     </div>
   </div>
     
@@ -218,137 +235,85 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><span style="font-size:1.2rem; font-weight:bolder">🕐 结合讲义内容复习 📖 <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> 一书的第 19 章和第 20 章</span></p>
-<p><span style="font-size:1.2rem; font-weight:bolder">🕑 进一步完善并重新提交 <em>L03_RMarkdown与Quarto</em> 的课后作业 📑</span></p>
-<ol class="example" type="1">
-<li>由老师（基于某些考虑因素）半随机分组（已完成，见下表）</li>
-</ol>
-
-<style>
-.table {
-  width: auto;
-  margin: auto;
-  margin-bottom: 1em
-}
-.table>:not(caption)>*>* {
-  padding: 0.1rem 0.5rem
-}
-</style>
-<div style="text-align:center">
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">成员1</th>
-<th style="text-align: left;">成员2</th>
-<th style="text-align: left;">成员3</th>
-<th style="text-align: left;">成员4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">白雨婷</td>
-<td style="text-align: left;">王梓萌</td>
-<td style="text-align: left;">李芳玉</td>
-<td style="text-align: left;">严邓荆雅</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">陈颖倩</td>
-<td style="text-align: left;">邹桢皓</td>
-<td style="text-align: left;">刘之荣</td>
-<td style="text-align: left;">谢柏杰</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">高杨驰</td>
-<td style="text-align: left;">于小珊</td>
-<td style="text-align: left;">陈杰</td>
-<td style="text-align: left;">李世杰</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">胡安琪</td>
-<td style="text-align: left;">焦雨欣</td>
-<td style="text-align: left;">应舒恬</td>
-<td style="text-align: left;">赵子钧</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">李红浪</td>
-<td style="text-align: left;">杨星雨</td>
-<td style="text-align: left;">王圣鑫</td>
-<td style="text-align: left;">于野</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">林臻杰</td>
-<td style="text-align: left;">张欣</td>
-<td style="text-align: left;">王雨彤</td>
-<td style="text-align: left;">田伊迪</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">刘向尧</td>
-<td style="text-align: left;">胡典</td>
-<td style="text-align: left;">路旭飞</td>
-<td style="text-align: left;">龚福深</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">陆思橙</td>
-<td style="text-align: left;">林宸</td>
-<td style="text-align: left;">曹煜</td>
-<td style="text-align: left;">陈智杰</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">唐秋婷</td>
-<td style="text-align: left;">邵嘉蓉</td>
-<td style="text-align: left;">梅云开</td>
-<td style="text-align: left;">李植丹</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">詹辉铭</td>
-<td style="text-align: left;">李康平</td>
-<td style="text-align: left;">张婧瑶</td>
-<td style="text-align: left;">张道琳</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">张欣宇</td>
-<td style="text-align: left;">洪瑜蔓</td>
-<td style="text-align: left;">徐逸祺</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<ol start="2" class="example" type="1">
-<li><p>小组成员以之前提交的多份 L03 课后作业为基础，碰头讨论并相互学习借鉴，以小组为单位重新制作一份课后作业</p></li>
-<li><p><strong>在 slides 文档中增加若干页，记录小组讨论过程与内容、新作业的改进之处并根据组员的参与度和贡献大小分配小组的总分数（总分数 = 10 * 小组成员数）</strong></p></li>
-<li><p>确认两份文档运行无误后将 文件夹📂 <em>L03_HW</em> 打包为 .zip 格式压缩文档，由小组中的<strong>一位</strong>同学于2022年10月12日22:00前将压缩包提交至 <a href="https://workspace.jianguoyun.com/inbox/collect/76ce62d2266649c68d899995c0afd1da/submitv2">{{坚果云链接}}</a></p></li>
-</ol>
-<ol start="5" type="1">
-<li>老师将从同学们提交的作业中选取 3~5 份优秀作业，展示于课程网站上，供同学们学习参考</li>
-</ol>
 <hr>
+<p>“问渠那得清如许？为有源头活水来。” 在上一讲中我们主要讲述 dplyr 包基于数据操作语法（<em>A Grammar of Data Manipulation</em>）的核心函数，并利用 nycflights13 包提供的数据集作为示例。数据操作语法想要达到其预期目标依赖于其所操作的 tibble 对象为“齐整的数据”（tidy data），而在数据科学实践中我们往往会从不同来源读取 / 导入形形色色的数据集，这就需要我们掌握 tidyverse 中与数据导入和数据齐整有关的 R 包及其核心函数。</p>
+<p>本讲主要涵盖以下几方面的内容：</p>
+<p>1. 数据导入</p>
+<ul>
+<li>读入矩形文本数据：<code>readr</code> 包</li>
+<li>读入其它类型的数据</li>
+</ul>
+<p>2. 数据齐整</p>
+<ul>
+<li>齐整数据</li>
+<li><code>tidyr</code> 包</li>
+<li><code>pivot_longer()</code> 和 <code>pivot_wider()</code></li>
+<li><code>separate()</code> 和 <code>unite()</code></li>
+<li>复杂案例</li>
+<li><code>unnest_*()</code> 和 <code>hoist()</code></li>
+</ul>
+<br>
+<hr>
+<section id="课前准备" class="level2">
+<h2 class="anchored" data-anchor-id="课前准备">1. 课前准备</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>📖 阅读 <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> 一书第10章、第11章和第12章，这些章节依次介绍 tibble、readr 包和 tidyr 包。</p>
+<div class="callout-tip callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>此书的中文翻译版 <a href="https://www.ituring.com.cn/book/2113">《R数据科学》</a> 发行有官方pdf电子版，对应章节为“第7章 使用tibble实现简单数据框”和“第8章 使用readr进行数据导入”（很遗憾，原书关于 tidyr 包的第12章在翻译版中并未出现，🙃）。若觉得英文阅读有点吃力的同学，可找来参阅。</p>
+</div>
+</div>
+</div>
+<div class="callout-warning callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>由于上课内容较多，而上课时间有限，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间来过一遍上述预习章节的内容。</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div style="text-align:right">
+<p><img src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" class="cover" width="80%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="课堂讲义" class="level2">
+<h2 class="anchored" data-anchor-id="课堂讲义">2. 课堂讲义</h2>
+<p>🖥️ [第6讲 数据导入与齐整] <!-- (/slides/lec-05/L05_Transformation.html) --></p>
 <div class="callout-note callout callout-style-simple">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>以下是<em>L03</em>课后作业的初始要求（备忘）</p>
+<p>课堂<strong>讲义 PDF 版</strong>和<strong>腾讯会议云录制链接</strong>将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。</p>
 </div>
 </div>
 </div>
-<ul>
-<li><p>自由组队，两人一组，共同完成以下课后作业：</p>
-<ol type="1">
-<li><p>从 L02 课件中挑出 3 ~ 4 个你们感兴趣的数据可视化代码段，就其制作两种类型的展示文档：</p>
-<ul>
-<li><a href="https://quarto.org/docs/output-formats/html-basics.html">{{<code>Quarto|HTML</code>}}</a> 或 <a href="https://prettydoc.statr.me/themes.html">{{<code>prettydoc</code>}}</a> -&gt; 📂 <em>L03_HW/docs/</em></li>
-<li><a href="https://quarto.org/docs/presentations/revealjs/">{{<code>Quarto|Revealjs</code>}}</a> 或 <a href="https://slides.yihui.org/xaringan/zh-CN.html">{{<code>xaringan</code>}}</a> -&gt; 📂 <em>L03_HW/slides/</em></li>
-</ul></li>
-<li><p>记得多尝试各种选项设置，同时在文档内加上相应的说明性文字（如解释代码或输出图形，其余内容可自由发挥，丰俭由人啦，😁）</p></li>
-<li><p>作业共同署名（姓名 + 姓名）</p></li>
-<li><p>确认两份文档运行无误后将文件夹📂 <em>L03_HW</em> 打包为 .zip 格式压缩文档，由其中一位同学于2022年10月5日22:00前将压缩包提交至 <a href="https://workspace.jianguoyun.com/inbox/collect/451ce296ff554b999cb0fd79797ee6bc/submitv2">{{坚果云链接}}</a></p></li>
-</ol></li>
-</ul>
-<hr>
+</section>
+<section id="随堂练习" class="level2">
+<h2 class="anchored" data-anchor-id="随堂练习">3. 随堂练习</h2>
+<p>⌨️ [见课堂讲义] <!-- (/slides/lec-05/L05_Transformation.html#76) --></p>
+</section>
+<section id="课后作业" class="level2">
+<h2 class="anchored" data-anchor-id="课后作业">4. 课后作业</h2>
+<!-- ✍️ [课后作业](/hw/hw-07.qmd) -->
+<p><br></p>
+<!-- ::: {style="font-size:0.875em; text-align:right"} -->
+<!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
+<!-- ::: -->
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -580,6 +545,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <script src="https://giscus.app/client.js" data-repo="qfwr2022/qfwr2022.github.io" data-repo-id="R_kgDOICWtow" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="zh-CN" crossorigin="anonymous" data-loading="lazy" async="">
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../weeks/week-07.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">第7周 dplyr数据处理 II</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
