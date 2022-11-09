@@ -1,0 +1,82 @@
+---
+title: "第 8 周"
+subtitle: "数据导入与齐整"
+author: 曾永艺
+date: 2022-11-11
+categories: [预习, 随堂练习, 讲义, 作业]
+image: /slides/lec-06/imgs/readr-tidyr.png
+# editor: visual
+---
+
+<hr>
+
+“问渠那得清如许？为有源头活水来。” 在上一讲中我们主要讲述 dplyr 包基于数据操作语法（_A Grammar of Data Manipulation_）的核心函数，并利用 nycflights13 包提供的数据集作为示例。数据操作语法想要达到其预期目标依赖于其所操作的 tibble 对象为“齐整的数据”（tidy data），而在数据科学实践中我们往往会从不同来源读取 / 导入形形色色的数据集，这就需要我们掌握 tidyverse 中与数据导入和数据齐整有关的 R 包及其核心函数。
+
+本讲主要涵盖以下几方面的内容：
+
+1\. 数据导入
+
+  * 读入矩形文本数据：`readr` 包
+  * 读入其它类型的数据
+
+2\. 数据齐整
+
+  * 齐整数据
+  * `tidyr` 包
+  * `pivot_longer()` 和 `pivot_wider()`
+  * `separate()` 和 `unite()`
+  * 复杂案例
+  * `unnest_*()` 和 `hoist()`
+
+<br><hr>
+
+## 1. 课前准备
+
+:::::{.columns}
+
+::::{.column width="60%"}
+
+📖 阅读 [*R for Data Science*](https://r4ds.had.co.nz/) 一书第10章、第11章和第12章，这些章节依次介绍 tibble、readr 包和 tidyr 包。
+
+:::{.callout-tip appearance="simple"}
+此书的中文翻译版 [《R数据科学》](https://www.ituring.com.cn/book/2113) 发行有官方pdf电子版，对应章节为“第7章 使用tibble实现简单数据框”和“第8章    使用readr进行数据导入”（很遗憾，原书关于 tidyr 包的第12章在翻译版中并未出现，🙃）。若觉得英文阅读有点吃力的同学，可找来参阅。
+:::
+
+:::{.callout-warning appearance="simple"}
+由于上课内容较多，而上课时间有限，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间来过一遍上述预习章节的内容。
+:::
+
+::::
+
+::::{.column width="40%"}
+:::{style="text-align:right"}
+<img src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" class="cover" width="80%"/>
+:::
+::::
+
+:::::
+
+## 2. 课堂讲义
+
+🖥️
+[第6讲 数据导入与齐整]
+<!-- (/slides/lec-05/L05_Transformation.html) -->
+
+:::{.callout-note appearance="simple"}
+课堂**讲义 PDF 版**和**腾讯会议云录制链接**将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。
+:::
+
+## 3. 随堂练习
+
+⌨️ [见课堂讲义]
+<!-- (/slides/lec-05/L05_Transformation.html#76) -->
+
+## 4. 课后作业
+
+<!-- ✍️ [课后作业](/hw/hw-07.qmd) -->
+
+<br>
+
+<!-- ::: {style="font-size:0.875em; text-align:right"} -->
+<!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
+<!-- ::: -->
