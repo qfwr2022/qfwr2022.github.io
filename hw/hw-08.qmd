@@ -1,0 +1,43 @@
+---
+title: "第8周课后作业"
+author: 曾永艺
+date: 2022-11-11
+# editor: visual
+---
+
+<hr>
+
+[1. **复习** 📖 [_R for Data Science_](https://r4ds.had.co.nz/) 一书第10章（_Tibbles_）、第11章（_Data import_）和第12章（_Tidy data_）的内容，并（结队）**完成（自选）课后练习**。]{style="font-size:1.2rem"}
+
+:::{.callout-note appearance="simple"}
+- [**课后动手编程实操是掌握一门编程语言的必由之路，r4ds一书配套练习都很不错，尽管并未要求同学们提交课后编程实操作业，但希望同学们都能自觉完成，也正好检验下自己对 readr 包和 tidyr 包核心函数和关键知识的掌握情况**]{style="color:red"}
+- **课后习题参考答案链接** 📖 [_R for Data Science: Exercise Solutions_](https://jrnold.github.io/r4ds-exercise-solutions/)
+- 若在课后编程实操中遇到什么问题或难解之处，也可在课程QQ群上贴出并讨论
+:::
+
+[2. 下载（打印） 📰 [{{Data Import的cheatsheet}}](https://posit.co/wp-content/uploads/2022/10/data-import.pdf)和[{{Data Tidying的cheatsheet}}](https://posit.co/wp-content/uploads/2022/10/tidyr.pdf)并阅读之（该小抄已上传到课程QQ群文件中）]{style="font-size:1.2rem"}
+
+[3. `browseVignettes(package = c("readr", "tidyr"))` 📝]{style="font-size:1.2rem"}
+
+<blockquote style="margin-left: 1.2rem; font-size: 1.2rem; color: black">
+Introduction to readr  
+Tidy data  
+Pivoting
+</blockquote>
+
+[4. **安装 qfwr 包并完成练习 L06 👩‍💻，将结果文档上传至坚果云**]{style="font-size:1.2rem"}
+
+<blockquote style="margin-left: 1.2rem; font-size: 1.2rem; color: black">
+```r
+remotes::install_github("qfwr2022/qfwr")
+# 记得选择确认安装 qfwr 包所依赖的 learnr、testwhat 等包
+library(qfwr)  # 加载 qfwr 包，然后按提示行事 ……
+```
+</blockquote>
+
+[5. **小组讨论确定组名、小组长、选题等信息并填写到坚果云表格中**]{style="font-size:1.2rem"}
+
+[**注：4-5两项作业的提交截止日期为11月16日24:00**]{style="font-size:1rem; color:red"}
+
+<hr>
+

@@ -24,6 +24,6 @@ tbl-colwidths: [5,10,18,5,5,5,5,5]
 | [5](/weeks/week-05.qmd)  | 2022-10-14  | 向量与函数 II |   | [🖥️](/slides/lec-04/L04_Vectors_Functions.html "第4讲 向量与函数") | [⌨️](/weeks/week-05.qmd#随堂练习)  | [✍️](/hw/hw-05.qmd "课后作业") |   |
 | [6](/weeks/week-06.qmd)  | 2022-10-21  | dplyr数据处理 I | [📖](/weeks/week-06.qmd#课前准备) | [🖥️](/slides/lec-05/L05_Transformation.html "第5讲 dplyr数据处理") | [⌨️](/weeks/week-06.qmd#随堂练习)  | [✍️](/hw/hw-06.qmd "课后作业") |   |
 | [7](/weeks/week-07.qmd)  | 2022-10-28  | dplyr数据处理 II | [📖](/weeks/week-07.qmd#课前准备) | [🖥️](/slides/lec-05/L05_Transformation.html "第5讲 dplyr数据处理") | [⌨️](/weeks/week-07.qmd#随堂练习) | [✍️](/hw/hw-07.qmd "课后作业") |   |
-| [8](/weeks/week-08.qmd)  | 2022-11-11  | 数据导入与齐整 | [📖](/weeks/week-08.qmd#课前准备) |    |    |    |   |
+| [8](/weeks/week-08.qmd)  | 2022-11-11  | 数据导入与齐整 | [📖](/weeks/week-08.qmd#课前准备) | [🖥️](/slides/lec-06/L06_Import_Tidy.html "第6讲 数据导入与齐整") | [⌨️](/weeks/week-08.qmd#随堂练习) | [✍️](/hw/hw-08.qmd "课后作业") |   |
 :::
 

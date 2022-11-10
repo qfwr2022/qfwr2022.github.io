@@ -59,8 +59,7 @@ image: /slides/lec-06/imgs/readr-tidyr.png
 ## 2. 课堂讲义
 
 🖥️
-[第6讲 数据导入与齐整]
-<!-- (/slides/lec-05/L05_Transformation.html) -->
+[第6讲 数据导入与齐整](/slides/lec-06/L06_Import_Tidy.html)
 
 :::{.callout-note appearance="simple"}
 课堂**讲义 PDF 版**和**腾讯会议云录制链接**将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。
@@ -68,12 +67,11 @@ image: /slides/lec-06/imgs/readr-tidyr.png
 
 ## 3. 随堂练习
 
-⌨️ [见课堂讲义]
-<!-- (/slides/lec-05/L05_Transformation.html#76) -->
+⌨️ [见课堂讲义](/slides/lec-06/L06_Import_Tidy.html#76)
 
 ## 4. 课后作业
 
-<!-- ✍️ [课后作业](/hw/hw-07.qmd) -->
+✍️ [课后作业](/hw/hw-08.qmd)
 
 <br>
 
