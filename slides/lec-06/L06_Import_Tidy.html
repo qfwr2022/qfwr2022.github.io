@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>第6讲 数据导入与齐整</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=" 曾永艺" />
+    <meta name="date" content="2022-11-11" />
+    <script src="../libs/header-attrs/header-attrs.js"></script>
+    <link href="../libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="../libs/tile-view/tile-view.js"></script>
+    <link href="../libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <link href="../libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="../libs/panelset/panelset.js"></script>
+    <script src="../libs/freezeframe/freezeframe.min.js"></script>
+    <script src="../libs/xaringanExtra-freezeframe/freezeframe-init.js"></script>
+    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":false,"warnings":true}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xeda7b107bc441d598bda5269a926a9c","expires":7}</script>
+    <script src="../libs/himalaya/himalaya.js"></script>
+    <script src="../libs/js-cookie/js.cookie.js"></script>
+    <link href="../libs/editable/editable.css" rel="stylesheet" />
+    <script src="../libs/editable/editable.js"></script>
+    <link href="../libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <link href="../libs/animate.css/animate.xaringan.css" rel="stylesheet" />
+    <script src="../libs/clipboard/clipboard.min.js"></script>
+    <link href="../libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="../libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-copy\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"<i class=\"fa fa-times-circle\" style=\"color: #F94144\"><\/i>"})</script>
+    <link href="../libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="../libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link href="../libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="../libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="../libs/zen-styles-v2.3.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# 量化金融与金融编程
+]
+.subtitle[
+## L06 数据导入与齐整
+]
+.author[
+### <br>曾永艺
+]
+.institute[
+### 厦门大学管理学院
+]
+.date[
+### <br>2022-11-11
+]
+
+---
+
+class: middle
+background-image: url(imgs/readr-tidyr.png)
+background-size: 18%
+background-position: 85% 50%
+
+
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 50px;
+height: 50px;
+z-index: 0;
+background-image: url(imgs/logo-sm.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:0.5em;right:0.5em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+&gt; 问渠那得清如许？为有源头活水来。——[宋]朱熹
+
+--
+
+&gt; Like families, tidy datasets are all alike but every messy &lt;br&gt;
+&gt; dataset is messy in its own way. ——Hadley Wickham
+
+&lt;br&gt;
+--
+
+.bold.font150[1\. 数据导入]
+  * .font120[读入矩形文本数据：`readr` 包 &lt;sup&gt;.font80[2.1.3]&lt;/sup&gt;]
+  * .font120[读入其它类型的数据]
+
+--
+
+.bold.font150[2\. 数据齐整]
+  * .font120[齐整数据]
+  * .font120[`tidyr` 包 &lt;sup&gt;.font80[1.2.1]&lt;/sup&gt;]
+  * .font120[`pivot_longer()` 和 `pivot_wider()`]
+  * .font120[`separate()` 和 `unite()`]
+  * .font120[复杂案例]
+  * .font120[`unnest_*()` 和 `hoist()`]
+
+---
+class: inverse, center, middle
+
+# 1. 数据导入
+
+.font150[(Data Import)]
+
+---
+layout: true
+
+### &gt;&gt; 读入文本文档：`readr` 包
+
+---
+
+.full-width[.content-box-blue.bold.font120[☑ 一致的函数命名方式]]
+
+
+```r
+read_csv()   | read_csv2()      | read_tsv()   | read_delim()    |
+read_table() | read_fwf()       |
+
+read_lines() | read_lines_raw() | read_file()  | read_file_raw() | read_log()  | 
+```
+
+--
+
+.full-width[.content-box-blue.bold.font120[☑ 基本一致的参数设置]]
+
+```r
+read_*(file,  # delim = NULL, escape_backslash = FALSE, escape_double = TRUE,
+       col_names = TRUE, col_types = NULL, col_select = NULL, 
+       id = NULL, locale = default_locale(), 
+       na = c("", "NA"), quoted_na = TRUE, quote = "\"", comment = "", trim_ws = TRUE, 
+       skip = 0, n_max = Inf, guess_max = min(1000, n_max), 
+       name_repair = "unique", num_threads = readr_threads(), 
+       progress = show_progress(), show_col_types = should_show_types(), 
+       skip_empty_rows = TRUE, lazy = should_read_lazy())
+# file: Either a path to a file, a connection, or literal data. 
+#       Files ending in .gz, .bz2, .xz, or .zip will be automatically uncompressed.
+#       Files starting with http://, https://, ftp://, or ftps:// will be downloaded.
+#       Using a value of clipboard() will read from the system clipboard.
+```
+
+---
+
+.full-width[.content-box-blue.bold.font120[☑ 和内置 `utils` 包中 `read.*()` 比较]]
+
+--
+.font110[
+* 生成 `tibble`.red[&lt;sup&gt;*&lt;/sup&gt;]（更确切地说应该是 `spec_tbl_df`）
+
+* 默认情况下做得更少，如不会自动将字符型变量转换为因子型变量（`read.*()`有个`stringsAsFactors`参数）、不会自动更改列名、不会将一列数据转化为行名等
+
+* 较少依赖系统和环境变量，结果更具可重现性（_reproducible_）
+
+* 读入速度通常更快（~50x），且读入大文件时有进度条提示
+
+]
+
+--
+
+```
+?`tbl_df-class`
+tibble: a subclass of data.frame and the central data structure for the tidyverse
+lazy and surly - do less and complain more than base data.frames.
+======================================================================================
+
+1. 列数据不进行自动类型转换（如字符-&gt;因子），且原生直接支持列表列
+2. 只对长度为1的“标量”向量进行循环操作
+3. tibble支持不合法的数据变量名，如 tibble(`:)` = "smile")
+4. 不增加行名，也不鼓励使用行名来存储数据信息
+5. 用 [ 对tibble取子集操作总是返回新的tibble，[[ 和 $ 总是返回向量，且 $ 不支持变量名部分匹配
+6. tibble在屏幕上打印输出时会适应屏幕大小，并提供更多有用信息（类似str()）
+```
+
+---
+
+.full-width[.content-box-blue.bold.font120[常用参数示例：`read_csv()`]]
+--
+
+
+
+.pull-left.code80[
+
+```r
+library(tidyverse)
+read_csv("The 1st line of metadata
+         The 2nd line of metadata
+         # A comment to skip
+         x,y,z
+         1,2,3", 
+         skip = 2,
+         comment = "#")
+```
+
+```
+#&gt; Rows: 1 Columns: 3
+#&gt; ── Column specification ────────────────
+#&gt; Delimiter: ","
+#&gt; dbl (3): x, y, z
+#&gt; 
+#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.
+#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```
+#&gt; # A tibble: 1 × 3
+#&gt;       x     y     z
+#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     1     2     3
+```
+]
+--
+
+.pull-right.code80[
+
+```r
+read_csv("1,2,3\n4,5,6")
+```
+
+```
+#&gt; # A tibble: 1 × 3
+#&gt;     `1`   `2`   `3`
+#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     4     5     6
+```
+
+
+```r
+read_csv("1,2,3\n4,5,6", 
+         col_names = FALSE)
+```
+
+```
+#&gt; # A tibble: 2 × 3
+#&gt;      X1    X2    X3
+#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     1     2     3
+#&gt; 2     4     5     6
+```
+
+
+```r
+read_csv("1,2,3\n4,5,6", 
+         col_names = c("x", "y", "z"))
+```
+
+```
+#&gt; # A tibble: 2 × 3
+#&gt;       x     y     z
+#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1     1     2     3
+#&gt; 2     4     5     6
+```
+
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[`readr` 包采用启发式策略来解析文本文档中数据]]
+
+
+```r
+#  生成示例数据文档
+set.seed(123456)   # 设定随机数种子
+nycflights13::flights %&gt;% 
+  mutate(dep_delay = if_else(dep_delay &lt;= 0, FALSE, TRUE)) %&gt;% 
+  select(month:dep_time, dep_delay, tailnum, time_hour) %&gt;% 
+  slice_sample(n = 20) %&gt;%  
+  mutate(across(everything(), ~ifelse(runif(20) &lt;= 0.1, NA, .))) %&gt;% 
+  mutate(time_hour = lubridate::as_datetime(time_hour)) %&gt;% 
+* print(n = 5) %&gt;%
+  write_csv(file = "data/ex_flights.csv", na = "--")  # 默认na = "NA"
+```
+
+```
+#&gt; # A tibble: 20 × 6
+#&gt;   month   day dep_time dep_delay tailnum time_hour          
+#&gt;   &lt;int&gt; &lt;int&gt;    &lt;int&gt; &lt;lgl&gt;     &lt;chr&gt;   &lt;dttm&gt;             
+#&gt; 1     6    26      932 TRUE      &lt;NA&gt;    2013-06-26 12:00:00
+#&gt; 2    NA     5       NA NA        &lt;NA&gt;    2013-12-05 17:00:00
+#&gt; 3     7    20      656 FALSE     N17245  2013-07-20 10:00:00
+#&gt; 4     5    16       NA FALSE     N27152  2013-05-16 12:00:00
+#&gt; 5    12    23       NA NA        &lt;NA&gt;    2013-12-23 23:00:00
+#&gt; # … with 15 more rows
+```
+
+---
+.full-width[.content-box-blue.bold.font120[`readr` 包采用启发式策略来解析文本文档中数据]]
+
+
+```r
+(ex_flights &lt;- read_csv("data/ex_flights.csv"))  # 默认na = c("", "NA")
+```
+
+```
+#&gt; Rows: 20 Columns: 6
+#&gt; ── Column specification ──────────────────────────────────────────────────────────────────
+#&gt; Delimiter: ","
+#&gt; chr (6): month, day, dep_time, dep_delay, tailnum, time_hour
+#&gt; 
+#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.
+#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+```
+#&gt; # A tibble: 20 × 6
+#&gt;   month day   dep_time dep_delay tailnum time_hour           
+#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;               
+#&gt; 1 6     26    932      TRUE      --      2013-06-26T12:00:00Z
+#&gt; 2 --    5     --       --        --      2013-12-05T17:00:00Z
+#&gt; 3 7     20    656      FALSE     N17245  2013-07-20T10:00:00Z
+#&gt; 4 5     16    --       FALSE     N27152  2013-05-16T12:00:00Z
+#&gt; 5 12    23    --       --        --      2013-12-23T23:00:00Z
+#&gt; # … with 15 more rows
+```
+
+---
+
+.full-width[.content-box-blue.bold.font120[`readr` 包采用启发式策略来解析文本文档中数据]]
+
+&gt; .font120[1\. 根据给定或猜测的分隔符将文本文档分割为字符串矩阵]  
+&gt; .font120[2\. 确定每列字符串向量的类型]  
+&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2\.1 由 `col_types` 参数直接给定  
+&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2\.2 猜测：读入文档 `guess_max` 行（v2 vs. v1），并按如下顺序猜测每列变量的类型：*logical -&gt; ~~integer -&gt;~~ double -&gt; ~~number -&gt;~~ time -&gt; date -&gt; date-time -&gt; character *  
+&gt; .font120[3\. 将每列字符串解析为相应类型的向量]
+
+--
+
+.full-width[.content-box-blue.bold.font120[当发现 `readr` 自动解析碰到问题时]]
+ 
+ * 可用 `problems()` 查看读入时遇到的问题
+ 
+ * 根据需要设定 `read_*()` 的相关参数，如 `na = "--"`
+ 
+ * 直接设定 `read_*()` 的参数 `col_types = cols(...)`
+ 
+ * 将全部数据读入为字符型变量，然后再用 `type_convert()` 转换变量类型
+ 
+ * 在后续的数据整理步骤中进行相应的处理（如 `dplyr::muate() + parse_*()`）
+
+---
+
+.pull-left.code75[
+
+```r
+# 设定缺失值参数
+read_csv("data/ex_flights.csv", 
+         na = "--") %&gt;% spec()
+```
+
+```
+#&gt; cols(
+#&gt;   month = col_double(),
+#&gt;   day = col_double(),
+#&gt;   dep_time = col_double(),
+#&gt;   dep_delay = col_logical(),
+#&gt;   tailnum = col_character(),
+#&gt;   time_hour = col_datetime(format = "")
+#&gt; )
+```
+
+```r
+# 直接设定参数col_types，?cols
+ex_flights &lt;- read_csv(
+  "data/ex_flights.csv", 
+  col_types = cols(  # cols_only()
+    dep_delay = col_logical(),    # "l"
+    tailnum   = col_character(),  # "c"
+    time_hour = col_datetime(),   # "T"
+    .default  = col_integer()
+  ) # col_types = "iiilcT"
+)
+```
+
+```
+#&gt; Warning: One or more parsing issues, call `problems()` on
+#&gt; your data frame for details, e.g.:
+#&gt;   dat &lt;- vroom(...)
+#&gt;   problems(dat)
+```
+]
+
+--
+
+.pull-right.code80[
+
+```r
+problems(ex_flights)
+```
+
+```
+#&gt; # A tibble: 17 × 5
+#&gt;     row   col expected           actual file                                              
+#&gt;   &lt;int&gt; &lt;int&gt; &lt;chr&gt;              &lt;chr&gt;  &lt;chr&gt;                                             
+#&gt; 1     3     1 an integer         --     C:/Users/admin/Desktop/QFwR_2022.09/slides/L06_Im…
+#&gt; 2     3     3 an integer         --     C:/Users/admin/Desktop/QFwR_2022.09/slides/L06_Im…
+#&gt; 3     3     4 1/0/T/F/TRUE/FALSE --     C:/Users/admin/Desktop/QFwR_2022.09/slides/L06_Im…
+#&gt; # … with 14 more rows
+```
+
+```r
+# 全部读入，再行转换类型
+read_csv(
+  "data/ex_flights.csv",
+  col_types = cols(
+*   .default = col_character()
+  )
+) %&gt;% 
+* type_convert(col_types = "iiilcT")
+```
+
+```
+#&gt; # A tibble: 20 × 6
+#&gt;   month   day dep_time dep_delay tailnum time_hour          
+#&gt;   &lt;int&gt; &lt;int&gt;    &lt;int&gt; &lt;lgl&gt;     &lt;chr&gt;   &lt;dttm&gt;             
+#&gt; 1     6    26      932 TRUE      --      2013-06-26 12:00:00
+#&gt; 2    NA     5       NA NA        --      2013-12-05 17:00:00
+#&gt; 3     7    20      656 FALSE     N17245  2013-07-20 10:00:00
+#&gt; # … with 17 more rows
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[一次性读入多个相同性质的文档]]
+
+
+```r
+# 生成相同性质的示例文档
+nycflights13::flights %&gt;% split(.$carrier) %&gt;% 
+  purrr::iwalk(~ write_tsv(.x, glue::glue("data/flights_{.y}.tsv")))
+```
+
+--
+
+
+```r
+# 文件路径向量
+(files &lt;- dir(path = "data/", pattern = "\\.tsv$", full.names = TRUE))
+```
+
+```
+#&gt;  [1] "data/flights_9E.tsv" "data/flights_AA.tsv" "data/flights_AS.tsv"
+#&gt;  [4] "data/flights_B6.tsv" "data/flights_DL.tsv" "data/flights_EV.tsv"
+#&gt;  [7] "data/flights_F9.tsv" "data/flights_FL.tsv" "data/flights_HA.tsv"
+#&gt; [10] "data/flights_MQ.tsv" "data/flights_OO.tsv" "data/flights_UA.tsv"
+#&gt; [13] "data/flights_US.tsv" "data/flights_VX.tsv" "data/flights_WN.tsv"
+#&gt; [16] "data/flights_YV.tsv"
+```
+
+```r
+# 一次性读入（并纵向合并为 tibble）
+read_tsv(files, id = "fpath")  # 这里通过设置 id 参数将文件路径存入指定变量fpath中
+```
+
+```
+#&gt; # A tibble: 336,776 × 20
+#&gt;   fpath    year month   day dep_t…¹ sched…² dep_d…³ arr_t…⁴ sched…⁵ arr_d…⁶ carrier flight
+#&gt;   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
+#&gt; 1 data/f…  2013     1     1     810     810       0    1048    1037      11 9E        3538
+#&gt; 2 data/f…  2013     1     1    1451    1500      -9    1634    1636      -2 9E        4105
+#&gt; 3 data/f…  2013     1     1    1452    1455      -3    1637    1639      -2 9E        3295
+#&gt; # … with 336,773 more rows, 8 more variables: tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
+#&gt; #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, and
+#&gt; #   abbreviated variable names ¹​dep_time, ²​sched_dep_time, ³​dep_delay, ⁴​arr_time,
+#&gt; #   ⁵​sched_arr_time, ⁶​arr_delay
+```
+
+---
+
+.full-width[.content-box-blue.bold.font120[`readr` 的图形化用户界面 &lt;sup&gt;.font80.red[*]&lt;/sup&gt;]]
+
+&lt;img src="imgs/readr_UI.png" width="88%" style="display: block; margin: auto;" /&gt;
+
+.footnote.red.font80[\* `RStudio` 右上 `Environment` 标签页 &gt; `Import Dataset` &gt; `From Text (readr)` ...]
+
+---
+layout: true
+
+### &gt;&gt; 读入其它类型的数据
+
+---
+
+--
+.font110[
+* .bold[`readr::read_rds()`]: `R` data files (*.rds*)
+]
+
+--
+
+.pull-left.font110[
+* ![](imgs/logo-vroom.png) [~~.bold[{{`vroom`}}~~]](https://vroom.r-lib.org/): Read and Write Rectangular Text Data **Quickly**
+
+* ![](imgs/logo-readxl.png) [.bold[{{`readxl`}}]](https://readxl.tidyverse.org/): excel files (_.xls_ and _.xlsx_) &lt;- take a 🧐 at it!
+
+* ![](imgs/logo-haven.png) [.bold[{{`haven`}}]](https://haven.tidyverse.org/): SPSS, Stata, and SAS files
+
+* ![](imgs/logo-arrow.png) [.bold[{{`arrow`}}]](https://arrow.apache.org/docs/r/): Apache Arrow
+]
+
+--
+
+.pull-right.font110[
+
+* [.bold[{{`DBI`}}]](https://dbi.r-dbi.org/) with specific interface packages: databases, such as SQLite, MySQL and PostgreSQL
+
+* .bold[`jsonlite`]: JSON files
+
+* [.bold[{{`xml2`}}]](https://xml2.r-lib.org/): XML and HTML files
+
+* ![](imgs/logo-rvest.png) [.bold[{{`rvest`}}]](https://rvest.tidyverse.org): HTML (Web Scraping)
+
+* [.bold[{{`httr2`}}]](https://httr2.r-lib.org/): Web APIs
+
+]
+
+--
+
+&lt;br&gt;
+.font110[
+* .bold[[{{其它}}](https://cran.r-project.org/web/views/)]: text、network、spatial、genome、image 等类型的数据
+]
+
+---
+layout: false
+class: inverse, center, middle
+
+# 2. 数据齐整
+
+.font150[(Tidy Data)]
+
+---
+layout: true
+
+### &gt;&gt; 齐整数据
+
+---
+
+.full-width[.content-box-blue.bold.font120[齐整数据的三个条件 📐]]
+
+.font120[
+
+* 每列都是一个变量（Every column is a variable.）
+
+* 每行都是一个观测（Every row is an observation.）
+
+* 每格都是一个取值（Every cell is a single value.）
+]
+
+--
+&lt;img src="imgs/tidy-1.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+---
+
+.full-width[.content-box-blue.bold.font120[齐整数据的好处 💪]]
+
+.font120[
+
+☑ 齐整数据按照逻辑一致的方式存储数据，这让你更容易学习并掌握相关工具对数据进行处理
+
+☑ “每列都是一个变量”及“每行都是一个观测”有助于发挥 R 语言向量化操作的优势
+
+]
+
+&lt;img src="imgs/tidy-2.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+.font120[
+☑ `tidyverse` 中的 R 包（如 `dplyr` 等）在设计上要求输入数据为齐整数据
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[但……并非所有的数据集都是齐整的，😭]]
+
+.pull-left.code80[
+
+```r
+table1
+```
+
+```
+#&gt; # A tibble: 6 × 4
+#&gt;   country      year cases population
+#&gt;   &lt;chr&gt;       &lt;int&gt; &lt;int&gt;      &lt;int&gt;
+#&gt; 1 Afghanistan  1999   745   19987071
+#&gt; 2 Afghanistan  2000  2666   20595360
+#&gt; 3 Brazil       1999 37737  172006362
+#&gt; # … with 3 more rows
+```
+
+```r
+table2
+```
+
+```
+#&gt; # A tibble: 12 × 4
+#&gt;   country      year type          count
+#&gt;   &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;         &lt;int&gt;
+#&gt; 1 Afghanistan  1999 cases           745
+#&gt; 2 Afghanistan  1999 population 19987071
+#&gt; 3 Afghanistan  2000 cases          2666
+#&gt; # … with 9 more rows
+```
+]
+
+.pull-right.code70[
+
+```r
+table3
+```
+
+```
+#&gt; # A tibble: 6 × 3
+#&gt;   country      year rate           
+#&gt; * &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;          
+#&gt; 1 Afghanistan  1999 745/19987071   
+#&gt; 2 Afghanistan  2000 2666/20595360  
+#&gt; 3 Brazil       1999 37737/172006362
+#&gt; # … with 3 more rows
+```
+
+```r
+table4a   # cases
+```
+
+```
+#&gt; # A tibble: 3 × 3
+#&gt;   country     `1999` `2000`
+#&gt; * &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;
+#&gt; 1 Afghanistan    745   2666
+#&gt; 2 Brazil       37737  80488
+#&gt; 3 China       212258 213766
+```
+
+```r
+table4b   # population
+```
+
+```
+#&gt; # A tibble: 3 × 3
+#&gt;   country         `1999`     `2000`
+#&gt; * &lt;chr&gt;            &lt;int&gt;      &lt;int&gt;
+#&gt; 1 Afghanistan   19987071   20595360
+#&gt; 2 Brazil       172006362  174504898
+#&gt; 3 China       1272915272 1280428583
+```
+]
+
+---
+layout: true
+
+### &gt;&gt; 该 `tidyr` 包出场啦 🎉
+
+---
+
+.full-width[.content-box-blue.bold.font120[`tidyr`包中的函数大致可分为5大类：]]
+
+.pull-left.font105[
+1. 数据长型-宽型转换（_pivoting_）：`pivot_longer()` 和 `pivot_wider()`
+
+2. 分解或合并字符型变量：`separate()`、`separate_rows()`、`extract()` 和 `unite()`
+
+3. 将深度嵌套的列表数据表格化（_rectangling_）：`unnest_longer()`、`unnest_wider()`、`unnest_auto()` 和 `hoist()`
+
+4. 将分组数据框转化成嵌套的数据框（每组占一行）或反之： `nest()` 和 `unnest()`
+
+5. **缺失值处理：-&gt;**
+]
+
+--
+
+.pull-right.font80[
+
+- `complete(data, ..., fill = list())`: Complete a data frame with missing combinations of data
+
+- `expand(data, ...)`, `crossing(...)`, `nesting(...)`: Expand data frame to include all combinations of values
+
+- `expand_grid(...)`: Create a tibble from all combinations of the inputted name-value pairs
+
+- `full_seq(x, period, tol = 1e-06)`: Create the full sequence of values in a vector
+
+- `drop_na(data, ...)`: Drop rows containing missing values
+
+- `fill(data, ..., .direction = c("down", "up", "downup", "updown"))`: Fill in missing values with previous or next value
+
+- `replace_na(data, replace, ...)`: Replace missing values with specified values
+
+]
+
+---
+layout: true
+
+### &gt;&gt; **.red[`pivot_longer()`]** 和 `pivot_wider()`
+
+---
+
+&lt;img src="imgs/tidy-3.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+--
+
+.pull-left.code80[
+
+```r
+pivot_longer(
+* data, cols,
+* names_to = "name",
+  names_prefix = NULL,
+  names_sep = NULL, 
+  names_pattern = NULL, 
+  names_ptypes = NULL, 
+  names_transform = NULL, 
+  names_repair = "check_unique", 
+* values_to = "value",
+  values_drop_na = FALSE, 
+  values_ptypes = NULL,
+  values_transform = NULL, ...
+)
+```
+]
+
+--
+
+.pull-right.code80[
+
+```r
+table4a %&gt;% 
+  pivot_longer(
+    cols = c(`1999`, `2000`),
+    names_to = "year", 
+    values_to = "cases"
+  )
+# table4b %&gt;% ...
+```
+
+```
+#&gt; # A tibble: 6 × 3
+#&gt;   country     year  cases
+#&gt;   &lt;chr&gt;       &lt;chr&gt; &lt;int&gt;
+#&gt; 1 Afghanistan 1999    745
+#&gt; 2 Afghanistan 2000   2666
+#&gt; 3 Brazil      1999  37737
+#&gt; # … with 3 more rows
+```
+]
+
+---
+layout: true
+
+### &gt;&gt; `pivot_longer()` 和 **.red[`pivot_wider()`]**
+
+---
+
+&lt;img src="imgs/tidy-4.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+--
+.pull-left.code80[
+
+
+```r
+pivot_wider(
+* data,
+  id_cols = NULL, id_expand = FALSE,
+* names_from = name,
+  names_prefix = "", names_sep = "_", 
+  names_glue = NULL, 
+  names_sort = FALSE, 
+  names_vary = "fastest",
+  names_expand = FALSE, 
+  names_repair = "check_unique",
+* values_from = value,
+  values_fill = NULL, values_fn = NULL, 
+  unused_fn = NULL, ...
+)
+```
+]
+
+--
+
+.pull-right.code80[
+
+```r
+table2 %&gt;% 
+  pivot_wider(
+    names_from = type, 
+    values_from = count
+  )
+```
+
+```
+#&gt; # A tibble: 6 × 4
+#&gt;   country      year cases population
+#&gt;   &lt;chr&gt;       &lt;int&gt; &lt;int&gt;      &lt;int&gt;
+#&gt; 1 Afghanistan  1999   745   19987071
+#&gt; 2 Afghanistan  2000  2666   20595360
+#&gt; 3 Brazil       1999 37737  172006362
+#&gt; # … with 3 more rows
+```
+]
+
+---
+layout: true
+
+### &gt;&gt; **.red[`separate()`、`extract()`]** 和 `unite()`
+
+---
+
+&lt;img src="imgs/tidy-5.png" width="55%" style="display: block; margin: auto;" /&gt;
+
+--
+.pull-left.code80[
+
+
+```r
+separate(
+* data, col, into,
+  sep = "[^[:alnum:]]+", 
+  remove = TRUE, convert = FALSE, 
+  extra = "warn", fill = "warn", ...
+)
+extract(
+* data, col, into,
+  regex = "([[:alnum:]]+)", 
+  remove = TRUE, convert = FALSE, ...
+)
+separate_rows(data, ..., sep, convert)
+```
+]
+
+--
+
+.pull-right.code80[
+
+```r
+table3 %&gt;% 
+  separate(
+    rate,
+    into = c("cases", "population"),
+    convert = TRUE
+  )
+```
+
+```
+#&gt; # A tibble: 6 × 4
+#&gt;   country      year cases population
+#&gt;   &lt;chr&gt;       &lt;int&gt; &lt;int&gt;      &lt;int&gt;
+#&gt; 1 Afghanistan  1999   745   19987071
+#&gt; 2 Afghanistan  2000  2666   20595360
+#&gt; 3 Brazil       1999 37737  172006362
+#&gt; # … with 3 more rows
+```
+
+]
+
+---
+layout: true
+
+### &gt;&gt; `separate()`、`extract()` 和 **.red[`unite()`]**
+
+---
+
+&lt;img src="imgs/tidy-6.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+--
+.pull-left.code100[
+
+
+```r
+unite(
+  data, 
+  col,
+  ...,
+  sep = "_", 
+  remove = TRUE, 
+  na.rm = FALSE
+)
+```
+]
+
+--
+
+.pull-right.code90[
+
+```r
+table5 %&gt;% 
+  unite(
+    col = "year", 
+    century, year, sep = ""
+  )
+```
+
+```
+#&gt; # A tibble: 6 × 3
+#&gt;   country     year  rate           
+#&gt;   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;          
+#&gt; 1 Afghanistan 1999  745/19987071   
+#&gt; 2 Afghanistan 2000  2666/20595360  
+#&gt; 3 Brazil      1999  37737/172006362
+#&gt; # … with 3 more rows
+```
+
+]
+
+---
+layout: true
+
+### &gt;&gt; 复杂例子
+
+---
+
+
+```r
+who    # ?who
+```
+
+```
+#&gt; # A tibble: 7,240 × 60
+#&gt;    country     iso2  iso3   year new_sp_…¹ new_s…² new_s…³ new_s…⁴ new_s…⁵ new_s…⁶ new_s…⁷
+#&gt;    &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;int&gt;     &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;
+#&gt;  1 Afghanistan AF    AFG    1980        NA      NA      NA      NA      NA      NA      NA
+#&gt;  2 Afghanistan AF    AFG    1981        NA      NA      NA      NA      NA      NA      NA
+#&gt;  3 Afghanistan AF    AFG    1982        NA      NA      NA      NA      NA      NA      NA
+#&gt;  4 Afghanistan AF    AFG    1983        NA      NA      NA      NA      NA      NA      NA
+#&gt;  5 Afghanistan AF    AFG    1984        NA      NA      NA      NA      NA      NA      NA
+#&gt;  6 Afghanistan AF    AFG    1985        NA      NA      NA      NA      NA      NA      NA
+#&gt;  7 Afghanistan AF    AFG    1986        NA      NA      NA      NA      NA      NA      NA
+#&gt;  8 Afghanistan AF    AFG    1987        NA      NA      NA      NA      NA      NA      NA
+#&gt;  9 Afghanistan AF    AFG    1988        NA      NA      NA      NA      NA      NA      NA
+#&gt; 10 Afghanistan AF    AFG    1989        NA      NA      NA      NA      NA      NA      NA
+#&gt; # … with 7,230 more rows, 49 more variables: new_sp_f014 &lt;int&gt;, new_sp_f1524 &lt;int&gt;,
+#&gt; #   new_sp_f2534 &lt;int&gt;, new_sp_f3544 &lt;int&gt;, new_sp_f4554 &lt;int&gt;, new_sp_f5564 &lt;int&gt;,
+#&gt; #   new_sp_f65 &lt;int&gt;, new_sn_m014 &lt;int&gt;, new_sn_m1524 &lt;int&gt;, new_sn_m2534 &lt;int&gt;,
+#&gt; #   new_sn_m3544 &lt;int&gt;, new_sn_m4554 &lt;int&gt;, new_sn_m5564 &lt;int&gt;, new_sn_m65 &lt;int&gt;,
+#&gt; #   new_sn_f014 &lt;int&gt;, new_sn_f1524 &lt;int&gt;, new_sn_f2534 &lt;int&gt;, new_sn_f3544 &lt;int&gt;,
+#&gt; #   new_sn_f4554 &lt;int&gt;, new_sn_f5564 &lt;int&gt;, new_sn_f65 &lt;int&gt;, new_ep_m014 &lt;int&gt;,
+#&gt; #   new_ep_m1524 &lt;int&gt;, new_ep_m2534 &lt;int&gt;, new_ep_m3544 &lt;int&gt;, new_ep_m4554 &lt;int&gt;, …
+```
+
+---
+.code80[
+
+```r
+who1 &lt;- who %&gt;% 
+  pivot_longer(
+    cols = new_sp_m014:newrel_f65,
+    names_to = "name", 
+    values_to = "cases", 
+    values_drop_na = TRUE
+  )
+who1
+```
+
+```
+#&gt; # A tibble: 76,046 × 6
+#&gt;   country     iso2  iso3   year name         cases
+#&gt;   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt;        &lt;int&gt;
+#&gt; 1 Afghanistan AF    AFG    1997 new_sp_m014      0
+#&gt; 2 Afghanistan AF    AFG    1997 new_sp_m1524    10
+#&gt; 3 Afghanistan AF    AFG    1997 new_sp_m2534     6
+#&gt; # … with 76,043 more rows
+```
+]
+
+--
+
+&gt; 变量 `name` 中的字符串代表什么？通过查阅 `who` 的数据字典得到如下信息：
+&gt;  1. 前3个字母代表是否是“新增”肺结核病例，在数据中均为`new`
+&gt;  2. 接下来2-3个字母代表肺结核的类型（`sp`、`sn`、`ep`、`rel`等）
+&gt;  3. 接下来的字母`m`或`f`代表肺结核病人的性别（男或女）
+&gt;  4. 余下数字代表年龄组，如 `014 = 0 - 14岁 | 1524 = 15 - 24岁`
+
+---
+
+.code80[
+
+```r
+who2 &lt;- who1 %&gt;% 
+  mutate(name = stringr::str_replace(name, "newrel", "new_rel")) %&gt;% 
+  separate(name, c(NA, "type", "sexage"), sep = "_")  # 基于分隔符
+who2
+```
+
+```
+#&gt; # A tibble: 76,046 × 7
+#&gt;   country     iso2  iso3   year type  sexage cases
+#&gt;   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;
+#&gt; 1 Afghanistan AF    AFG    1997 sp    m014       0
+#&gt; 2 Afghanistan AF    AFG    1997 sp    m1524     10
+#&gt; 3 Afghanistan AF    AFG    1997 sp    m2534      6
+#&gt; # … with 76,043 more rows
+```
+]
+
+--
+
+.code80[
+
+```r
+who3 &lt;- who2 %&gt;% separate(sexage, c("sex", "age"), sep = 1)  # 基于位置
+who3
+```
+
+```
+#&gt; # A tibble: 76,046 × 8
+#&gt;   country     iso2  iso3   year type  sex   age   cases
+#&gt;   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt;
+#&gt; 1 Afghanistan AF    AFG    1997 sp    m     014       0
+#&gt; 2 Afghanistan AF    AFG    1997 sp    m     1524     10
+#&gt; 3 Afghanistan AF    AFG    1997 sp    m     2534      6
+#&gt; # … with 76,043 more rows
+```
+]
+
+---
+
+.code80[
+
+```r
+*# all in a pipe!
+who %&gt;%
+  pivot_longer(cols = new_sp_m014:newrel_f65, 
+               names_to = "name", values_to = "cases", values_drop_na = TRUE) %&gt;% 
+  mutate(name = stringr::str_replace(name, "newrel", "new_rel")) %&gt;%
+  separate(name, c(NA, "type", "sexage")) %&gt;% 
+  separate(sexage, c("sex", "age"), sep = 1)
+```
+]
+
+--
+
+.pull-left.code80[
+
+```r
+*# all with powerful pivot_longer()!
+who %&gt;%
+  pivot_longer(
+    cols = starts_with("new"),
+*   names_to = c("type", "sex", "age"),
+*   names_pattern = "new_?(.*)_(.)(.*)",
+*   names_ptypes = list(
+*     sex = factor(levels = c("f", "m")),
+*     age = factor(
+*       levels = c("014", "1524", "2534",
+*         "3544", "4554", "5564", "65"),
+*       ordered = TRUE)),
+    values_to = "cases",
+    values_drop_na = TRUE
+  )
+```
+]
+
+.pull-right.code80[
+
+
+```
+#&gt; # A tibble: 76,046 × 8
+#&gt;   country  iso2  iso3   year type  sex  
+#&gt;   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;fct&gt;
+#&gt; 1 Afghani… AF    AFG    1997 sp    m    
+#&gt; 2 Afghani… AF    AFG    1997 sp    m    
+#&gt; 3 Afghani… AF    AFG    1997 sp    m    
+#&gt; 4 Afghani… AF    AFG    1997 sp    m    
+#&gt; 5 Afghani… AF    AFG    1997 sp    m    
+#&gt; # … with 76,041 more rows, and 2 more
+#&gt; #   variables: age &lt;ord&gt;, cases &lt;int&gt;
+```
+
+&lt;br&gt;
+.font120.bold[👉  `vignette("pivot")`]
+]
+
+---
+layout: false
+class: hide_logo
+
+## 🙋‍♂️ Your Turn!
+
+&lt;style type="text/css"&gt;
+#special_timer.running {
+  background-color: black;
+  background-image: url(imgs/bg-stars.gif);
+}
+#special_timer.finished {
+  background-color: black;
+  background-image: url(imgs/bg-sqfw.gif);
+  background-size: cover;
+}
+#special_timer.running .countdown-digits {
+  color: #fdf6e3;
+}
+#special_timer.finished .countdown-digits {
+  color: #fdf6e3;
+}
+&lt;/style&gt;
+
+<div class="countdown" id="special_timer" data-warn-when="10" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:3em;">
+<div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+.panelset[
+
+.panel[.panel-name[问题]
+
+.font120[在空白处填入恰当的代码将数据集 billboard 转化为目标结构：]
+
+
+
+.pull-left.code100[
+
+&lt;code class ='r hljs remark-code'&gt;library(tidyverse)&lt;br&gt;billboard %&gt;% View()&lt;br&gt;billboard %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;pivot_&lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;(&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cols = &lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;names_to = &lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt; ,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;names_transform = &lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;values_to = &lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;values_drop_na = TRUE&lt;br&gt;&amp;nbsp;&amp;nbsp;)&lt;/code&gt;
+]
+
+.pull-right.code80[
+
+
+```
+*# A tibble: 317 × 79
+  artist    track date.ent…¹   wk1   wk2
+  &lt;chr&gt;     &lt;chr&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;
+1 2 Pac     Baby… 2000-02-26    87    82
+2 2Ge+her   The … 2000-09-02    91    87
+3 3 Doors … Kryp… 2000-04-08    81    70
+# … with 314 more rows, 74 more
+#   variables: wk3 &lt;dbl&gt;, wk4 &lt;dbl&gt;,
+#   wk5 &lt;dbl&gt;, wk6 &lt;dbl&gt;, wk7 &lt;dbl&gt;,
+#   wk8 &lt;dbl&gt;, wk9 &lt;dbl&gt;, wk10 &lt;dbl&gt;,
+#   wk11 &lt;dbl&gt;, wk12 &lt;dbl&gt;, wk13 &lt;dbl&gt;,
+#   wk14 &lt;dbl&gt;, wk15 &lt;dbl&gt;, wk16 &lt;dbl&gt;,
+#   wk17 &lt;dbl&gt;, wk18 &lt;dbl&gt;, …
+```
+
+
+```
+*# A tibble: 5,307 × 5
+  artist track    date.ent…¹  week  rank
+  &lt;chr&gt;  &lt;chr&gt;    &lt;date&gt;     &lt;int&gt; &lt;dbl&gt;
+1 2 Pac  Baby Do… 2000-02-26     1    87
+2 2 Pac  Baby Do… 2000-02-26     2    82
+3 2 Pac  Baby Do… 2000-02-26     3    72
+# … with 5,304 more rows, and
+#   abbreviated variable name
+#   ¹​date.entered
+```
+]
+]
+
+.panel[.panel-name[参考答案]
+
+.code110[
+
+```r
+library(tidyverse)
+billboard %&gt;% View()
+billboard %&gt;%
+  pivot_longer(
+    cols = starts_with("wk") ,
+    names_to = "week"        ,
+    names_prefix = "wk"      ,
+    names_transform = list(week = as.integer),
+    values_to = "rank"       ,
+    values_drop_na = TRUE
+  )
+```
+]
+]
+]
+
+---
+layout: true
+
+### &gt;&gt; `unnest_*` 和 `hoist()`
+
+---
+.pull-left.code90[
+
+
+```r
+repurrrsive::gh_repos %&gt;% View()
+```
+
+&lt;img src="imgs/repos.png" width="100%" style="display: block; margin: auto auto auto 0;" /&gt;
+]
+
+--
+
+.pull-right.code80[
+
+
+```r
+(repos &lt;- 
+   tibble(repo = repurrrsive::gh_repos))
+```
+
+```
+#&gt; # A tibble: 6 × 1
+#&gt;   repo       
+#&gt;   &lt;list&gt;     
+#&gt; 1 &lt;list [30]&gt;
+#&gt; 2 &lt;list [30]&gt;
+#&gt; 3 &lt;list [30]&gt;
+#&gt; 4 &lt;list [26]&gt;
+#&gt; 5 &lt;list [30]&gt;
+#&gt; # … with 1 more row
+```
+
+```r
+(repos &lt;- repos %&gt;% unnest_longer(repo))
+```
+
+```
+#&gt; # A tibble: 176 × 1
+#&gt;   repo             
+#&gt;   &lt;list&gt;           
+#&gt; 1 &lt;named list [68]&gt;
+#&gt; 2 &lt;named list [68]&gt;
+#&gt; 3 &lt;named list [68]&gt;
+#&gt; 4 &lt;named list [68]&gt;
+#&gt; 5 &lt;named list [68]&gt;
+#&gt; # … with 171 more rows
+```
+]
+
+---
+
+.pull-left.code90[
+
+
+```r
+repos %&gt;% 
+  unnest_wider(repo)
+```
+
+```
+#&gt; # A tibble: 176 × 68
+#&gt;         id name     full_…¹ owner       
+#&gt;      &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;list&gt;      
+#&gt; 1 61160198 after    gaborc… &lt;named list&gt;
+#&gt; 2 40500181 argufy   gaborc… &lt;named list&gt;
+#&gt; 3 36442442 ask      gaborc… &lt;named list&gt;
+#&gt; 4 34924886 baseimp… gaborc… &lt;named list&gt;
+#&gt; 5 61620661 citest   gaborc… &lt;named list&gt;
+#&gt; # … with 171 more rows, 64 more
+#&gt; #   variables: private &lt;lgl&gt;,
+#&gt; #   html_url &lt;chr&gt;, description &lt;chr&gt;,
+#&gt; #   fork &lt;lgl&gt;, url &lt;chr&gt;,
+#&gt; #   forks_url &lt;chr&gt;, keys_url &lt;chr&gt;,
+#&gt; #   collaborators_url &lt;chr&gt;,
+#&gt; #   teams_url &lt;chr&gt;, hooks_url &lt;chr&gt;, …
+```
+
+]
+
+--
+
+.pull-right.code90[
+
+
+```r
+*repos %&gt;% hoist(
+  repo, 
+* login = c("owner", "login"),
+  name = "name",
+  homepage = "homepage",
+  watchers = "watchers_count"
+)
+```
+
+```
+#&gt; # A tibble: 176 × 5
+*#&gt;   login       name       homep…¹ watch…²
+*#&gt;   &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;     &lt;int&gt;
+#&gt; 1 gaborcsardi after      &lt;NA&gt;          5
+#&gt; 2 gaborcsardi argufy     &lt;NA&gt;         19
+#&gt; 3 gaborcsardi ask        &lt;NA&gt;          5
+#&gt; 4 gaborcsardi baseimpor… &lt;NA&gt;          0
+#&gt; 5 gaborcsardi citest     &lt;NA&gt;          0
+#&gt; # … with 171 more rows, 1 more
+#&gt; #   variable: repo &lt;list&gt;, and
+#&gt; #   abbreviated variable names
+#&gt; #   ¹​homepage, ²​watchers
+```
+
+&lt;br&gt;
+.font120.bold[👉 `vignette("rectangle")`]
+
+]
+
+
+---
+layout: false
+class: inverse, center, middle
+
+# 课后作业
+
+---
+
+&lt;br&gt;
+.font130[
+1\. 复习 📖 [_R for Data Science_](https://r4ds.had.co.nz/) 一书的第10章、第11章和第12章的内容
+
+2\. 下载（打印） 📰 .bold[[{{Data Import的cheatsheet}}](https://posit.co/wp-content/uploads/2022/10/data-import.pdf)] 和 .bold[[{{Data Tidying的cheatsheet}}](https://posit.co/wp-content/uploads/2022/10/tidyr.pdf)] 并阅读之
+
+3\. `browseVignettes(package = c("readr", "tidyr"))` 📝
+
+&gt; .code80[
+
+```
+Introduction to readr
+Tidy data
+Pivoting
+```
+]
+
+4\. 完成第六讲的课后练习 👩‍💻
+
+&gt; .code90[
+
+```r
+remotes::install_github("qfwr2022/qfwr")
+# 记得选择允许安装qfwr包所依赖的learnr、testwhat等包
+library(qfwr)
+qfwr_ex("L06")
+```
+]
+]
+
+---
+class: center, middle, hide_logo
+background-image: url(imgs/xaringan.png)
+background-size: 12%
+background-position: 50% 40%
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;hr color='#f00' size='2px' width='80%'&gt;
+&lt;br&gt;
+.Large.red[_**本网页版讲义的制作由 R 包 [{{`xaringan`}}](https://github.com/yihui/xaringan) 赋能！**_]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="../libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

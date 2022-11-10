@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="曾永艺">
 
-<title>Quantitative Finance with R - 课程安排</title>
+<title>Quantitative Finance with R - 第8周课后作业</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,28 +21,91 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -65,17 +129,17 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./favicon.png" alt="Quantitative Finance with R" class="navbar-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../favicon.png" alt="Quantitative Finance with R" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title"><em>Quantitative Finance with R</em></span>
     </a>
   </div>
@@ -85,16 +149,16 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"><strong>课程主页</strong></a>
+    <a class="nav-link" href="../index.html"><strong>课程主页</strong></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./schedule.html" aria-current="page"><strong>课程安排</strong></a>
+    <a class="nav-link" href="../schedule.html"><strong>课程安排</strong></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./weeks.html"><strong>每周资料</strong></a>
+    <a class="nav-link active" href="../weeks.html" aria-current="page"><strong>每周资料</strong></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./project/team-project.html"><strong>小组项目</strong></a>
+    <a class="nav-link" href="../project/team-project.html"><strong>小组项目</strong></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -116,155 +180,139 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">第8周课后作业</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks.html" class="sidebar-item-text sidebar-link">每周列表</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-01.html" class="sidebar-item-text sidebar-link">第1周 课程简介</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-02.html" class="sidebar-item-text sidebar-link">第2周 ggplot2数据可视化</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-03.html" class="sidebar-item-text sidebar-link">第3周 rmarkdown与Quarto</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-04.html" class="sidebar-item-text sidebar-link">第4周 向量与函数 I</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-05.html" class="sidebar-item-text sidebar-link">第5周 向量与函数 II</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-06.html" class="sidebar-item-text sidebar-link">第6周 dplyr数据处理 I</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-07.html" class="sidebar-item-text sidebar-link">第7周 dplyr数据处理 II</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-08.html" class="sidebar-item-text sidebar-link">第8周 数据导入与齐整</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  ......
+  </li>
+    </ul>
+    </div>
+</nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">课程安排</h1>
+<h1 class="title d-none d-lg-block">第8周课后作业</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">发布者</div>
+    <div class="quarto-title-meta-contents">
+             <p>曾永艺 </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">发布日期</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2022年11月11日</p>
+    </div>
+  </div>
     
   </div>
   
 
 </header>
 
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
+<hr>
+<p><span style="font-size:1.2rem">1. <strong>复习</strong> 📖 <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> 一书第10章（<em>Tibbles</em>）、第11章（<em>Data import</em>）和第12章（<em>Tidy data</em>）的内容，并（结队）<strong>完成（自选）课后练习</strong>。</span></p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-注释
+<div class="callout-body-container">
+<ul>
+<li><span style="color:red"><strong>课后动手编程实操是掌握一门编程语言的必由之路，r4ds一书配套练习都很不错，尽管并未要求同学们提交课后编程实操作业，但希望同学们都能自觉完成，也正好检验下自己对 readr 包和 tidyr 包核心函数和关键知识的掌握情况</strong></span></li>
+<li><strong>课后习题参考答案链接</strong> 📖 <a href="https://jrnold.github.io/r4ds-exercise-solutions/"><em>R for Data Science: Exercise Solutions</em></a></li>
+<li>若在课后编程实操中遇到什么问题或难解之处，也可在课程QQ群上贴出并讨论</li>
+</ul>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>本页包含本课程周次安排、教学主题、课前准备、讲义、课后作业、小组项目等方面的 概要信息以及相应的链接。 目前课程网站仍处于草创阶段，但随着本学期教学进度的推进，本表格将逐步增补、充实并完善。</p>
 </div>
-</div>
-<p><br></p>
-<div class="column-body">
-<table class="table">
-<colgroup>
-<col style="width: 5%">
-<col style="width: 10%">
-<col style="width: 18%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">周次</th>
-<th style="text-align: center;">日期</th>
-<th>主题</th>
-<th style="text-align: center;">准备</th>
-<th style="text-align: center;">讲义</th>
-<th style="text-align: center;">练习</th>
-<th style="text-align: center;">作业</th>
-<th style="text-align: center;">项目</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><a href="./weeks/week-01.html">1</a></td>
-<td style="text-align: center;">2022-09-16</td>
-<td>课程简介</td>
-<td style="text-align: center;"><a href="./weeks/week-01.html#课前准备">📖</a></td>
-<td style="text-align: center;"><a href="./slides/lec-01/L01_Introduction.html" title="第1讲 课程简介">🖥️</a></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><a href="./hw/hw-01.html" title="课后作业">✍️</a></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><a href="./weeks/week-02.html">2</a></td>
-<td style="text-align: center;">2022-09-23</td>
-<td>ggplot2 数据可视化</td>
-<td style="text-align: center;"><a href="./weeks/week-02.html#课前准备">📖</a></td>
-<td style="text-align: center;"><a href="./slides/lec-02/L02_Visualization.html" title="第2讲 ggplot2数据可视化">🖥️</a></td>
-<td style="text-align: center;"><a href="./weeks/week-02.html#随堂练习">⌨️</a></td>
-<td style="text-align: center;"><a href="./hw/hw-02.html" title="课后作业">✍️</a></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><a href="./weeks/week-03.html">3</a></td>
-<td style="text-align: center;">2022-09-30</td>
-<td>rmarkdown 与 Quarto</td>
-<td style="text-align: center;"><a href="./weeks/week-03.html#课前准备">📖</a></td>
-<td style="text-align: center;"><a href="./slides/lec-03/L03_Quarto.html" title="第3讲 rmarkdown与Quarto">🖥️</a></td>
-<td style="text-align: center;"><a href="./weeks/week-03.html#随堂练习">⌨️</a></td>
-<td style="text-align: center;"><a href="./hw/hw-03.html" title="课后作业">✍️</a></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><a href="./weeks/week-04.html">4</a></td>
-<td style="text-align: center;">2022-10-07</td>
-<td>向量与函数 I</td>
-<td style="text-align: center;"><a href="./weeks/week-04.html#课前准备">📖</a></td>
-<td style="text-align: center;"><a href="./slides/lec-04/L04_Vectors_Functions.html" title="第4讲 向量与函数">🖥️</a></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><a href="./hw/hw-04.html" title="课后作业">✍️</a></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><a href="./weeks/week-05.html">5</a></td>
-<td style="text-align: center;">2022-10-14</td>
-<td>向量与函数 II</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"><a href="./slides/lec-04/L04_Vectors_Functions.html" title="第4讲 向量与函数">🖥️</a></td>
-<td style="text-align: center;"><a href="./weeks/week-05.html#随堂练习">⌨️</a></td>
-<td style="text-align: center;"><a href="./hw/hw-05.html" title="课后作业">✍️</a></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><a href="./weeks/week-06.html">6</a></td>
-<td style="text-align: center;">2022-10-21</td>
-<td>dplyr数据处理 I</td>
-<td style="text-align: center;"><a href="./weeks/week-06.html#课前准备">📖</a></td>
-<td style="text-align: center;"><a href="./slides/lec-05/L05_Transformation.html" title="第5讲 dplyr数据处理">🖥️</a></td>
-<td style="text-align: center;"><a href="./weeks/week-06.html#随堂练习">⌨️</a></td>
-<td style="text-align: center;"><a href="./hw/hw-06.html" title="课后作业">✍️</a></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><a href="./weeks/week-07.html">7</a></td>
-<td style="text-align: center;">2022-10-28</td>
-<td>dplyr数据处理 II</td>
-<td style="text-align: center;"><a href="./weeks/week-07.html#课前准备">📖</a></td>
-<td style="text-align: center;"><a href="./slides/lec-05/L05_Transformation.html" title="第5讲 dplyr数据处理">🖥️</a></td>
-<td style="text-align: center;"><a href="./weeks/week-07.html#随堂练习">⌨️</a></td>
-<td style="text-align: center;"><a href="./hw/hw-07.html" title="课后作业">✍️</a></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><a href="./weeks/week-08.html">8</a></td>
-<td style="text-align: center;">2022-11-11</td>
-<td>数据导入与齐整</td>
-<td style="text-align: center;"><a href="./weeks/week-08.html#课前准备">📖</a></td>
-<td style="text-align: center;"><a href="./slides/lec-06/L06_Import_Tidy.html" title="第6讲 数据导入与齐整">🖥️</a></td>
-<td style="text-align: center;"><a href="./weeks/week-08.html#随堂练习">⌨️</a></td>
-<td style="text-align: center;"><a href="./hw/hw-08.html" title="课后作业">✍️</a></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
+<p><span style="font-size:1.2rem">2. 下载（打印） 📰 <a href="https://posit.co/wp-content/uploads/2022/10/data-import.pdf">{{Data Import的cheatsheet}}</a>和<a href="https://posit.co/wp-content/uploads/2022/10/tidyr.pdf">{{Data Tidying的cheatsheet}}</a>并阅读之（该小抄已上传到课程QQ群文件中）</span></p>
+<p><span style="font-size:1.2rem">3. <code>browseVignettes(package = c("readr", "tidyr"))</code> 📝</span></p>
+<blockquote style="margin-left: 1.2rem; font-size: 1.2rem; color: black" class="blockquote">
+Introduction to readr<br>
+Tidy data<br>
+Pivoting
+</blockquote>
+<p><span style="font-size:1.2rem">4. <strong>安装 qfwr 包并完成练习 L06 👩‍💻，将结果文档上传至坚果云</strong></span></p>
+<blockquote style="margin-left: 1.2rem; font-size: 1.2rem; color: black" class="blockquote">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"qfwr2022/qfwr"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 记得选择确认安装 qfwr 包所依赖的 learnr、testwhat 等包</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qfwr)  <span class="co"># 加载 qfwr 包，然后按提示行事 ……</span></span></code><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</blockquote>
+<p><span style="font-size:1.2rem">5. <strong>小组讨论确定组名、小组长、选题等信息并填写到坚果云表格中</strong></span></p>
+<p><span style="font-size:1rem; color:red"><strong>注：4-5两项作业的提交截止日期为11月16日24:00</strong></span></p>
+<hr>
 
 
 
