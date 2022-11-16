@@ -1,0 +1,79 @@
+---
+title: "第 9 周"
+subtitle: "迭代"
+author: 曾永艺
+date: 2022-11-18
+categories: [预习, 讲义, 作业]
+image: /slides/lec-07/imgs/list_column_workflow.png
+# editor: visual
+---
+
+<hr>
+
+R 中很多内置函数都支持向量化操作，我们在对已读入内存的数据进行简单的数据处理时通常不需要用到显性的 `for` 循环。但在某些特定情况下，我们还是需要循环迭代操作（如不存在相应的向量化函数、计算数据框多列的汇总统计量、导入 / 输出多个文档等）。R 支持传统命令式编程语言的 `for`、`while`、`if` 等控制结构，同时还支持函数式迭代范式（如 `apply` 族函数）。tidyverse 通过 purrr 包提供更一致、易用且强大的函数式迭代工具，并可和 R 语言核心数据结构数据框（或 tibble）的列表列（list-column）配合使用来完成复杂的数据处理 / 分析工作。
+
+本讲主要涵盖以下几方面的内容：
+
+1. 控制流结构
+
+2. 函数式编程
+
+3. purrr 包
+
+4. purrr 包 与 列表列
+
+5. purrr -> furrr
+
+<br><hr>
+
+## 1. 课前准备
+
+:::::{.columns}
+
+::::{.column width="60%"}
+
+📖 阅读 [*R for Data Science*](https://r4ds.had.co.nz/) 一书的第21章和第25章，这些章节介绍 `for` 循环、purrr 包、列表列和 broom 包等 R 语言中与循环迭代和模型结果提取相关的知识。
+
+:::{.callout-tip appearance="simple"}
+此书的中文翻译版 [《R数据科学》](https://www.ituring.com.cn/book/2113) 发行有官方pdf电子版，对应章节为“第16章 使用 `purrr` 实现迭代”和“第19章 使用 `purrr` 和 `broom` 处理多个模型”（很遗憾，翻译版的第19章出现大量删减🙃，建议参阅英文原著）。若觉得英文阅读有点吃力的同学，可找来参阅。
+:::
+
+:::{.callout-warning appearance="simple"}
+由于上课内容较多，而上课时间有限，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间来过一遍上述预习章节的内容。
+:::
+
+::::
+
+::::{.column width="40%"}
+:::{style="text-align:right"}
+<img src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" class="cover" width="80%"/>
+:::
+::::
+
+:::::
+
+## 2. 课堂讲义
+
+🖥️
+[第7讲 迭代]
+<!-- (/slides/lec-07/L07_Iteration.html) -->
+
+:::{.callout-note appearance="simple"}
+课堂**讲义 PDF 版**和**腾讯会议云录制链接**将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。
+:::
+
+## 3. 随堂练习
+
+⌨️ [见课堂讲义]
+<!-- (/slides/lec-07/L07_Iteration) -->
+
+## 4. 课后作业
+
+✍️ [课后作业]
+<!-- (/hw/hw-09.qmd) -->
+
+<br>
+
+<!-- ::: {style="font-size:0.875em; text-align:right"} -->
+<!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
+<!-- ::: -->

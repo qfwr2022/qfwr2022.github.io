@@ -67,7 +67,7 @@ image: /slides/lec-06/imgs/readr-tidyr.png
 
 ## 3. 随堂练习
 
-⌨️ [见课堂讲义](/slides/lec-06/L06_Import_Tidy.html#76)
+⌨️ [见课堂讲义](/slides/lec-06/L06_Import_Tidy.html#55)
 
 ## 4. 课后作业
 

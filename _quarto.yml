@@ -79,6 +79,8 @@ website:
           href: weeks/week-07.qmd
         - text: "第8周 数据导入与齐整"
           href: weeks/week-08.qmd
+        - text: "第9周 迭代"
+          href: weeks/week-09.qmd
         - text: "......"
   page-navigation: true
   page-footer:
