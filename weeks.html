@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh" xml:lang="zh"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -119,28 +119,35 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"><strong>课程主页</strong></a>
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text"><strong>课程主页</strong></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html"><strong>课程安排</strong></a>
+    <a class="nav-link" href="./schedule.html"><i class="bi bi-calendar-day-fill" role="img">
+</i> 
+ <span class="menu-text"><strong>课程安排</strong></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./weeks.html" aria-current="page"><strong>每周资料</strong></a>
+    <a class="nav-link active" href="./weeks.html" aria-current="page"><i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text"><strong>每周资料</strong></span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./project/team-project.html"><strong>小组项目</strong></a>
+    <a class="nav-link" href="./project/team-project.html"><i class="bi bi-trophy" role="img">
+</i> 
+ <span class="menu-text"><strong>小组项目</strong></span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
     <a class="nav-link" href="https://qfwr2022.netlify.app"><i class="bi bi-globe" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/qfwr2022"><i class="bi bi-github" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -157,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">类别</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">所有 <span class="quarto-category-count">(8)</span></div><div class="category" data-category="作业">作业 <span class="quarto-category-count">(8)</span></div><div class="category" data-category="准备">准备 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="讲义">讲义 <span class="quarto-category-count">(8)</span></div><div class="category" data-category="随堂练习">随堂练习 <span class="quarto-category-count">(6)</span></div><div class="category" data-category="预习">预习 <span class="quarto-category-count">(7)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">类别</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">所有 <span class="quarto-category-count">(9)</span></div><div class="category" data-category="作业">作业 <span class="quarto-category-count">(9)</span></div><div class="category" data-category="准备">准备 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="讲义">讲义 <span class="quarto-category-count">(9)</span></div><div class="category" data-category="随堂练习">随堂练习 <span class="quarto-category-count">(6)</span></div><div class="category" data-category="预习">预习 <span class="quarto-category-count">(8)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -171,6 +178,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -204,7 +212,48 @@ ul.task-list li input[type="checkbox"] {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="预习,随堂练习,讲义,作业" data-listing-date-sort="1668124800000" data-listing-file-modified-sort="1668122079225" data-listing-reading-time-sort="0.515">
+<div class="quarto-post image-right" data-index="0" data-categories="预习,讲义,作业" data-listing-date-sort="1668729600000" data-listing-file-modified-sort="1668587176392" data-listing-reading-time-sort="0.45">
+<div class="thumbnail">
+<p><a href="./weeks/week-09.html"> <img src="./slides/lec-07/imgs/list_column_workflow.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./weeks/week-09.html">
+<h3 class="no-anchor listing-title">
+第 9 周
+</h3>
+<div class="listing-subtitle">
+迭代
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('预习'); return false;">
+预习
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('讲义'); return false;">
+讲义
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('作业'); return false;">
+作业
+</div>
+</div>
+<a href="./weeks/week-09.html">
+<div class="listing-description">
+R 中很多内置函数都支持向量化操作，我们在对已读入内存的数据进行简单的数据处理时通常不需要用到显性的 <code>for</code> 循环。但在某些特定情况下，我们还是需要循环迭代操作（如不存在相应的向量化函数、计算数据框多列的汇总统计量、导入 / 输出多个文档等）。R 支持传统命令式编程语言的 <code>for</code>、<code>while</code>、<code>if</code> 等控制结构，同时还支持函数式迭代范式（如 <code>…</code>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./weeks/week-09.html">
+<div class="listing-date">
+2022-11-18
+</div>
+<div class="listing-author">
+曾永艺
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="预习,随堂练习,讲义,作业" data-listing-date-sort="1668124800000" data-listing-file-modified-sort="1668587176392" data-listing-reading-time-sort="0.515">
 <div class="thumbnail">
 <p><a href="./weeks/week-08.html"> <img src="./slides/lec-06/imgs/readr-tidyr.png" class="thumnail-image"> </a></p>
 </div>
@@ -233,7 +282,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <a href="./weeks/week-08.html">
 <div class="listing-description">
-“问渠那得清如许？为有源头活水来。” 在上一讲中我们主要讲述 dplyr 包基于数据操作语法（<em>A Grammar of Data Manipulation</em>）的核心函数，并利用 nycflights13 包提供的数据集作为示例。数据操作语法想要达到其预期目标依赖于其所操作的 tibble 对象为“齐整的数据”（tidy data），而在数据科学实践中我们往往会从不同来源读取 / 导入形形色色的数据集，这就需要我们掌握 tidyverse 中与数据导入和数据齐整有关的 R 包及其核心函数。
+“问渠那得清如许？为有源头活水来。” 在上一讲中我们主要讲述 dplyr 包基于数据操作语法（<em>A Grammar of Data Manipulation</em>）的核心函数，并利用 nycflights13 包提供的数据集作为示例。数据操作语法想要达到其预期目标依赖于其所操作的 tibble…
 </div>
 </a>
 </div>
@@ -248,7 +297,7 @@ ul.task-list li input[type="checkbox"] {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="预习,随堂练习,讲义,作业" data-listing-date-sort="1666915200000" data-listing-file-modified-sort="1668122079225" data-listing-reading-time-sort="0.345">
+<div class="quarto-post image-right" data-index="2" data-categories="预习,随堂练习,讲义,作业" data-listing-date-sort="1666915200000" data-listing-file-modified-sort="1668587176392" data-listing-reading-time-sort="0.345">
 <div class="thumbnail">
 <p><a href="./weeks/week-07.html"> <img src="./slides/lec-05/imgs/relational-nycflights.png" class="thumnail-image"> </a></p>
 </div>
@@ -277,7 +326,7 @@ dplyr数据处理 II
 </div>
 <a href="./weeks/week-07.html">
 <div class="listing-description">
-在上一讲中我们用两次课的时间学习 R 语言编程方面的核心知识：<strong>向量</strong>与<strong>函数</strong>，为接下来探索“净土宇宙 🌌”奠定了知识基础。“净土宇宙 🌌”的核心数据结构并非原子型向量或普通列表对象，而是 <code>tibble</code>（由行（样本）和列（变量）构成的表格型数据），dplyr 包基于<strong>数据操作语法</strong>（<em>A Grammar of Data Manipulation</em>）构建出一组用来操作 <code>tibble</code> 对象的核心函数——它们就是我们在接下来两次课中需要学习、理解并掌握的知识。
+在上一讲中我们用两次课的时间学习 R 语言编程方面的核心知识：<strong>向量</strong>与<strong>函数</strong>，为接下来探索“净土宇宙 🌌”奠定了知识基础。“净土宇宙 🌌”的核心数据结构并非原子型向量或普通列表对象，而是 <code>tibble</code>（由行（样本）和列（变量）构成的表格型数据），dplyr 包基于<strong>数据操作语法</strong>（<em>A Grammar of Data Manipulation</em>）构建出…<code></code>
 </div>
 </a>
 </div>
@@ -292,7 +341,7 @@ dplyr数据处理 II
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="预习,随堂练习,讲义,作业" data-listing-date-sort="1666310400000" data-listing-file-modified-sort="1668122079225" data-listing-reading-time-sort="0.345">
+<div class="quarto-post image-right" data-index="3" data-categories="预习,随堂练习,讲义,作业" data-listing-date-sort="1666310400000" data-listing-file-modified-sort="1668587176392" data-listing-reading-time-sort="0.345">
 <div class="thumbnail">
 <p><a href="./weeks/week-06.html"> <img src="./slides/lec-05/imgs/logo-dplyr.png" class="thumnail-image"> </a></p>
 </div>
@@ -321,7 +370,7 @@ dplyr数据处理 I
 </div>
 <a href="./weeks/week-06.html">
 <div class="listing-description">
-在上一讲中我们用两次课的时间学习 R 语言编程方面的核心知识：<strong>向量</strong>与<strong>函数</strong>，为接下来探索“净土宇宙 🌌”奠定了知识基础。“净土宇宙 🌌”的核心数据结构并非原子型向量或普通列表对象，而是 <code>tibble</code>（由行（样本）和列（变量）构成的表格型数据），dplyr 包基于<strong>数据操作语法</strong>（<em>A Grammar of Data Manipulation</em>）构建出一组用来操作 <code>tibble</code> 对象的核心函数——它们就是我们在接下来两次课中需要学习、理解并掌握的知识。
+在上一讲中我们用两次课的时间学习 R 语言编程方面的核心知识：<strong>向量</strong>与<strong>函数</strong>，为接下来探索“净土宇宙 🌌”奠定了知识基础。“净土宇宙 🌌”的核心数据结构并非原子型向量或普通列表对象，而是 <code>tibble</code>（由行（样本）和列（变量）构成的表格型数据），dplyr 包基于<strong>数据操作语法</strong>（<em>A Grammar of Data Manipulation</em>）构建出…<code></code>
 </div>
 </a>
 </div>
@@ -336,7 +385,7 @@ dplyr数据处理 I
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="预习,讲义,随堂练习,作业" data-listing-date-sort="1665705600000" data-listing-file-modified-sort="1668122079225" data-listing-reading-time-sort="0.44">
+<div class="quarto-post image-right" data-index="4" data-categories="预习,讲义,随堂练习,作业" data-listing-date-sort="1665705600000" data-listing-file-modified-sort="1668587176392" data-listing-reading-time-sort="0.44">
 <div class="thumbnail">
 <p><a href="./weeks/week-05.html"> <img src="./slides/lec-04/imgs/r4ds-exercise-solutions-cover.png" class="thumnail-image"> </a></p>
 </div>
@@ -380,7 +429,7 @@ dplyr数据处理 I
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="预习,讲义,作业" data-listing-date-sort="1665100800000" data-listing-file-modified-sort="1668122079225" data-listing-reading-time-sort="0.45">
+<div class="quarto-post image-right" data-index="5" data-categories="预习,讲义,作业" data-listing-date-sort="1665100800000" data-listing-file-modified-sort="1668587176392" data-listing-reading-time-sort="0.45">
 <div class="thumbnail">
 <p><a href="./weeks/week-04.html"> <img src="./slides/lec-04/imgs/vectors-01.png" class="thumnail-image"> </a></p>
 </div>
@@ -406,7 +455,7 @@ dplyr数据处理 I
 </div>
 <a href="./weeks/week-04.html">
 <div class="listing-description">
-在前面两讲中我们在“净土宇宙 🌌”（<em>tidyverse</em>）中勇敢地跨出第一步，收获探索“数据可视化”（主要基于 <code>ggplot2</code> 包）和“动态文档”（主要基于 <del><code>rmarkdown</code> -&gt;</del> Quarto）带来的超酷体验 😎。在这一讲中我们将稍作“休整”，返过头去学习 R 语言编程方面的核心知识：<strong>向量</strong>与<strong>函数</strong>。了解、学习并掌握 R 语言向量和函数方面的知识对我们在“净土宇宙 🌌”的后续探索来说也是必备的知识基础。
+在前面两讲中我们在“净土宇宙 🌌”（<em>tidyverse</em>）中勇敢地跨出第一步，收获探索“数据可视化”（主要基于 <code>ggplot2</code> 包）和“动态文档”（主要基于 <del><code>rmarkdown</code> -&gt;</del> Quarto）带来的超酷体验 😎。在这一讲中我们将稍作“休整”，返过头去学习 R 语言编程方面的核心知识：<strong>向量</strong>与<strong>函数</strong>。了解、学习并掌握 R…
 </div>
 </a>
 </div>
@@ -421,9 +470,9 @@ dplyr数据处理 I
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="预习,讲义,随堂练习,作业" data-listing-date-sort="1664496000000" data-listing-file-modified-sort="1668122079225" data-listing-reading-time-sort="0.425">
+<div class="quarto-post image-right" data-index="6" data-categories="预习,讲义,随堂练习,作业" data-listing-date-sort="1664496000000" data-listing-file-modified-sort="1668587176392" data-listing-reading-time-sort="0.425">
 <div class="thumbnail">
-<p><a href="./weeks/week-03.html"> <img src="./slides/lec-03/imgs/workflow-template.png" class="thumnail-image"> </a></p>
+<p><a href="./weeks/week-03.html"> <img data-src="./slides/lec-03/imgs/workflow-template.png" class="thumnail-image"> </a></p>
 </div>
 <div class="body">
 <a href="./weeks/week-03.html">
@@ -450,7 +499,7 @@ rmarkdown与Quarto
 </div>
 <a href="./weeks/week-03.html">
 <div class="listing-description">
-在上一讲课后作业中同学们通过代码脚本文档 <code>L02_coding_practice.R</code> 完成编程作业并直接提交，但如果不运行同学们的代码，我将很难得知代码能否正常运行及其运行结果；同时通过注释方式添加说明性文字或文档逻辑分节也显得笨拙和不够美观。那么，有没有更好的解决方案呢？答案就是本讲将要介绍的“动态文档”（dynamic documents）——它允许你将代码、代码输出、文字等有机地组合在一起，并可方便地转化为多种类型的输出格式（如网页、PDF、docx、幻灯片等）。
+在上一讲课后作业中同学们通过代码脚本文档 <code>L02_coding_practice.R</code> 完成编程作业并直接提交，但如果不运行同学们的代码，我将很难得知代码能否正常运行及其运行结果；同时通过注释方式添加说明性文…
 </div>
 </a>
 </div>
@@ -465,7 +514,7 @@ rmarkdown与Quarto
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="预习,讲义,随堂练习,作业" data-listing-date-sort="1663891200000" data-listing-file-modified-sort="1668122079225" data-listing-reading-time-sort="0.35">
+<div class="quarto-post image-right" data-index="7" data-categories="预习,讲义,随堂练习,作业" data-listing-date-sort="1663891200000" data-listing-file-modified-sort="1668587176392" data-listing-reading-time-sort="0.35">
 <div class="thumbnail">
 <p><a href="./weeks/week-02.html"> <img data-src="./slides/lec-02/L02_Visualization_files/figure-html/datasaurus-1.png" class="thumnail-image"> </a></p>
 </div>
@@ -509,7 +558,7 @@ ggplot2数据可视化
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="准备,讲义,作业" data-listing-date-sort="1663286400000" data-listing-file-modified-sort="1668122079221" data-listing-reading-time-sort="0.305">
+<div class="quarto-post image-right" data-index="8" data-categories="准备,讲义,作业" data-listing-date-sort="1663286400000" data-listing-file-modified-sort="1668587176392" data-listing-reading-time-sort="0.305">
 <div class="thumbnail">
 <p><a href="./weeks/week-01.html"> <img data-src="./slides/lec-01/imgs/ds4b_rating.png" class="thumnail-image"> </a></p>
 </div>
@@ -696,7 +745,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } 
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -718,7 +769,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "已复制");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "已复制");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -754,24 +822,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var filterRegex = new RegExp(/https:\/\/qfwr2022\.netlify\.app\//);
@@ -779,7 +865,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
-    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
