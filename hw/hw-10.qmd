@@ -1,0 +1,37 @@
+---
+title: "第10周课后作业"
+author: 曾永艺
+date: 2022-11-18
+# editor: visual
+---
+
+<hr>
+
+[1. 根据第七讲课程讲义的打印稿，在 📑 _Rmd_ 中键入并完成代码的运行。]{style="font-size:1.2rem"}
+
+[2. **复习** 📖 [_R for Data Science_](https://r4ds.had.co.nz/) 一书的第21章（_Iteration_）和第25章（_Many models_）的内容（为中文翻译版的第16章和第19章，其中第19章被大量删减），并（结队）**完成（自选）课后练习**。]{style="font-size:1.2rem"}
+
+:::{.callout-note appearance="simple"}
+- [**课后动手编程实操是掌握一门编程语言的必由之路，r4ds一书配套练习都很不错，尽管并未要求同学们提交课后编程实操作业，但希望同学们都能自觉完成，也正好检验下自己对 purrr 包、列表列和 broom 包核心函数和关键知识的掌握情况**]{style="color:red"}
+- **课后习题参考答案链接** 📖 [_R for Data Science: Exercise Solutions_](https://jrnold.github.io/r4ds-exercise-solutions/)
+- 若在课后编程实操中遇到什么问题或难解之处，也可在课程QQ群上贴出并讨论
+:::
+
+[3. 下载（打印） 📰 [{{purrr 包的cheatsheet}}](https://posit.co/wp-content/uploads/2022/10/purrr.pdf)并阅读之（该小抄已上传到课程QQ群文件中）。]{style="font-size:1.2rem"}
+
+[4. **安装 qfwr 包并完成练习 L07 👩‍💻，并于11月23日24:00前将结果文档上传至坚果云**。]{style="font-size:1.2rem"}
+
+<blockquote style="margin-left: 1.2rem; font-size: 1.2rem; color: black">
+```r
+remotes::install_github("qfwr2022/qfwr")
+# 记得选择确认安装 qfwr 包所依赖的 learnr、testwhat 等包
+library(qfwr)  # 加载 qfwr 包，然后按提示行事 ……
+```
+</blockquote>
+
+[5. 抽出时间来**自学** 📖 [_R for Data Science_](https://r4ds.had.co.nz/) 一书关于 [字符串](https://r4ds.had.co.nz/strings.html)、[因子](https://r4ds.had.co.nz/factors.html) 和 [日期-时间](https://r4ds.had.co.nz/dates-and-times.html) 等三种重要数据类型以及重要数据处理函数的内容（为中文翻译版的第10章、第11章和第12章）。我也会在课程平台上挂出对应的 [{{课件}}](https://qfwr2022.netlify.app/weeks/week-x.html) 供同学们参考。]{style="font-size:1.2rem"}
+
+<!-- [**注：第4项作业的提交截止日期为11月23日24:00**]{style="font-size:1rem; color:red"} -->
+
+<hr>
+
