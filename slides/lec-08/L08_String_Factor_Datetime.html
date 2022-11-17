@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>第8讲 字符串、因子和日期-时间</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=" 曾永艺" />
+    <meta name="date" content="2022-11-18" />
+    <script src="../libs/header-attrs/header-attrs.js"></script>
+    <link href="../libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="../libs/tile-view/tile-view.js"></script>
+    <link href="../libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <link href="../libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="../libs/panelset/panelset.js"></script>
+    <link href="../libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script src="../libs/clipboard/clipboard.min.js"></script>
+    <link href="../libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="../libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-copy\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"<i class=\"fa fa-times-circle\" style=\"color: #F94144\"><\/i>"})</script>
+    <link href="../libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="../libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <script src="../libs/htmlwidgets/htmlwidgets.js"></script>
+    <link href="../libs/str_view/str_view.css" rel="stylesheet" />
+    <script src="../libs/str_view-binding/str_view.js"></script>
+    <link rel="stylesheet" href="../libs/zen-styles-v2.3.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# 量化金融与金融编程
+]
+.subtitle[
+## <br>L08 字符串、因子和日期-时间
+]
+.author[
+### <br>曾永艺
+]
+.institute[
+### 厦门大学管理学院
+]
+.date[
+### <br>2022-11-18
+]
+
+---
+
+class: middle
+background-image: url(imgs/s-f-l.png)
+background-size: 15em
+background-position: 90% 85%
+
+
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 50px;
+height: 50px;
+z-index: 0;
+background-image: url(imgs/logo-sm.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:0.5em;right:0.5em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+
+
+--
+
+.pull-left[
+
+### 1. 字符串
+
+  * .font130[字符串基础]
+  
+  * .font130[模式匹配]
+  
+  * .font130[工具函数]
+
+&lt;br&gt;
+
+### 2. 因子
+
+  * .font130[因子向量]
+  
+  * .font130[修改因子水平]
+  
+  * .font130[调整因子次序]
+
+]
+
+.pull-right[
+
+### 3. 日期-时间
+
+  * .font130[创建日期-时间]
+  
+  * .font130[处理时间成分]
+  
+  * .font130[时间间隔]
+
+]
+
+---
+class: inverse, center, middle
+background-image: url(imgs/logo-stringr.png), url(imgs/sxc.png)
+background-size: 10%, 100%
+background-position: 30% 40%, 0% 100%
+
+# 1. 字符串
+
+.font120[(.bold[`stringr`&lt;sup&gt;.font60[v1.4.1]&lt;/sup&gt;]: Simple, Consistent Wrappers for Common String Operations)]
+
+---
+layout: true
+
+### &gt;&gt; 1.1 字符串基础
+
+---
+
+
+```r
+# 用 '' 或 "" 来创建字符串，但优先用 ""
+x &lt;- "This is a string."; x_zh &lt;- '这是中文字符串。'
+```
+
+--
+
+
+```r
+# 若想在字符串中包括'或"，你需要使用转义符 \
+x &lt;- '"This is a string enclosed in \" &amp; \"!"'    # ?'"'
+x   # 打印字符串
+```
+
+```
+#&gt; [1] "\"This is a string enclosed in \" &amp; \"!\""
+```
+
+```r
+writeLines(x)   # 写出字符串的内容
+```
+
+```
+#&gt; "This is a string enclosed in " &amp; "!"
+```
+
+--
+
+
+```r
+# 可直接输入给定Unicode编码表代码的字符
+(zh &lt;- c("\u4e00", "\u9fa5"))  # Unicode编码表中第一个和最后一个中文字符
+```
+
+```
+#&gt; [1] "一" "龥"
+```
+
+--
+
+
+```r
+# 用c()创建字符向量来存储多个字符串
+(greeting &lt;- c("Good morning", "同学们", "！"))
+```
+
+```
+#&gt; [1] "Good morning" "同学们"       "！"
+```
+
+---
+
+.full-width[.content-box-blue.bold.font120[字符串长度]]
+
+
+```r
+c("Good morning", "同学们", "！") %&gt;% str_length()  # {stringr}
+# c("Good morning", "同学们", "！") %&gt;% nchar()     # {base}
+```
+
+```
+#&gt; [1] 12  3  1
+```
+
+--
+
+.full-width[.content-box-blue.bold.font120[字符串连接]]
+
+
+```r
+str_c("X", str_replace_na(c("a", NA, "c"), replacement = "NA"), 1:3, sep = "_")
+# paste("X", c("a", NA, "c"), 1:3, sep = "_")
+```
+
+```
+#&gt; [1] "X_a_1"  "X_NA_2" "X_c_3"
+```
+
+
+```r
+str_c("X", str_replace_na(c("a", NA, "c")), 1:3,  sep = "_", 
+*     collapse = " |-&gt; ")
+paste0("X", c("a", NA, "c"), 1:3, sep = "_", collapse = " |-&gt; ")
+str_flatten(c("X", str_replace_na(c("a", NA, "c")), 1:3, sep = "_"), collapse = " |-&gt; ")
+```
+
+```
+#&gt; [1] "X_a_1 |-&gt; X_NA_2 |-&gt; X_c_3"
+#&gt; [1] "Xa1_ |-&gt; XNA2_ |-&gt; Xc3_"
+#&gt; [1] "X |-&gt; a |-&gt; NA |-&gt; c |-&gt; 1 |-&gt; 2 |-&gt; 3 |-&gt; _"
+```
+
+---
+
+.full-width[.content-box-blue.bold.font120[提取（修改）子字符串]]
+
+.code110[
+
+```r
+greeting
+```
+
+```
+#&gt; [1] "Good morning" "同学们"       "！"
+```
+
+```r
+str_sub(greeting, start = 1:3, end = -2)    # 提取
+```
+
+```
+#&gt; [1] "Good mornin" "学"          ""
+```
+
+```r
+str_sub(greeting, 1:3, -2) &lt;- LETTERS[1:3]  # 修改
+greeting
+```
+
+```
+#&gt; [1] "Ag"    "同B们" "！C"
+```
+
+```r
+# base::substr(x, start, stop)
+```
+]
+
+---
+layout: true
+
+### &gt;&gt; 1.2 模式匹配
+
+---
+
+.full-width[.content-box-blue.bold.font120[`stringr` 包多数函数都有 `pattern` 参数，默认调用正则表达式函数 `regex()`]]
+
+&gt; 正则表达式（_Regular Expression, RegEx_）是一种用来精简描述字符串模式的语言。
+&gt; `stringr` 包采用 `ICU` 正则表达式引擎（类似于 `Perl`）。
+
+--
+
+.pull-left[
+
+```r
+x &lt;- c("apple &amp; banana", "ana@财管2020")
+
+# 基础匹配（精确匹配指定字符）
+# -----------------------------
+str_view(x, pattern = "na")
+```
+
+<div id="htmlwidget-e0c80754446792aea569" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e0c80754446792aea569">{"x":{"html":"<ul>\n  <li>apple & ba<span class='match'>na<\/span>na<\/li>\n  <li>a<span class='match'>na<\/span>@财管2020<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+
+
+```r
+# "." 匹配任意一个字符（换行符除外）
+# -----------------------------
+str_view(x, pattern = "..a..")
+```
+
+<div id="htmlwidget-c07f0f8d61bef8227562" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c07f0f8d61bef8227562">{"x":{"html":"<ul>\n  <li>apple &<span class='match'> bana<\/span>na<\/li>\n  <li><span class='match'>ana@财<\/span>管2020<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+]
+
+--
+
+.pull-right[
+
+```r
+# 用转义符"\"转义
+# -----------------------------
+# 正则表达式"\\."匹配字符"."
+str_view(c("abc", "a.c"), "a\\.c")
+```
+
+<div id="htmlwidget-3d31c4b31c541d55c861" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3d31c4b31c541d55c861">{"x":{"html":"<ul>\n  <li>abc<\/li>\n  <li><span class='match'>a.c<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+
+```r
+# 需要用"\\\\"来匹配一个字符"\"！
+# str_view("a\\c", "a\\c")
+str_view("a\\c", "a\\\\c")
+```
+
+<div id="htmlwidget-1958908fb874a8953d68" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1958908fb874a8953d68">{"x":{"html":"<ul>\n  <li><span class='match'>a\\c<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+]
+
+---
+
+.pull-left.code100[
+
+```r
+# 锚定符"^"和"$"
+# ----------------------------
+
+str_view(x, "^a")  # ^：开头
+```
+
+<div id="htmlwidget-9f1c485b0e81c3ef7f2f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9f1c485b0e81c3ef7f2f">{"x":{"html":"<ul>\n  <li><span class='match'>a<\/span>pple & banana<\/li>\n  <li><span class='match'>a<\/span>na@财管2020<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+```r
+str_view(x, "a$")  # $：结尾
+```
+
+<div id="htmlwidget-405383a8d7980cadea57" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-405383a8d7980cadea57">{"x":{"html":"<ul>\n  <li>apple & banan<span class='match'>a<\/span><\/li>\n  <li>ana@财管2020<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+```r
+str_view(x, "^ana$")
+```
+
+<div id="htmlwidget-e5d8fb33a15003a4fcd6" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e5d8fb33a15003a4fcd6">{"x":{"html":"<ul>\n  <li>apple & banana<\/li>\n  <li>ana@财管2020<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+]
+
+--
+
+.pull-right.code95[
+
+```r
+# 匹配一组字符中的任意一个
+# -----------------------------
+# "\\d"匹配任意阿拉伯数字
+# "\\s"匹配任意空白符
+#     （如空格符、tab、换行符等）
+# "[abc.]"匹配a或b或c或.（无需转义）
+# "|"为或，"(a|b|c)"也匹配a或b或c
+# "[a-c]"匹配从a到c的任意字符
+*# "[^abc]"匹配非a非b和非c的任意字符
+
+*str_view_all(x, "\\d")
+```
+
+<div id="htmlwidget-91e5a1cef3e21577e9c0" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-91e5a1cef3e21577e9c0">{"x":{"html":"<ul>\n  <li>apple & banana<\/li>\n  <li>ana@财管<span class='match'>2<\/span><span class='match'>0<\/span><span class='match'>2<\/span><span class='match'>0<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+```r
+str_view_all(x, "[\u4e00-\u9fa5]")
+```
+
+<div id="htmlwidget-e9f3fe67bcecb62fab30" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e9f3fe67bcecb62fab30">{"x":{"html":"<ul>\n  <li>apple & banana<\/li>\n  <li>ana@<span class='match'>财<\/span><span class='match'>管<\/span>2020<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+]
+
+
+---
+
+.pull-left.code95[
+
+```r
+# 重复
+# -----------------------------
+# ?：0或1次
+# +：至少1次
+# *：任意次数
+# {n}：正好n次
+# {n,}：至少n次
+# {,m}：至多m次
+# {n,m}：n次和m次之间
+
+# 从左到右依次查找直至匹配
+str_view(x, "(a.)*")
+```
+
+<div id="htmlwidget-d6f2e2359b281333371d" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d6f2e2359b281333371d">{"x":{"html":"<ul>\n  <li><span class='match'>ap<\/span>ple & banana<\/li>\n  <li><span class='match'>ana@<\/span>财管2020<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+```r
+str_view(x, "(a.){2,}")
+```
+
+<div id="htmlwidget-44f0b240b010a6f88eca" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-44f0b240b010a6f88eca">{"x":{"html":"<ul>\n  <li>apple & b<span class='match'>anan<\/span>a<\/li>\n  <li><span class='match'>ana@<\/span>财管2020<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+]
+
+--
+
+.pull-right.code100[
+
+```r
+# 重复
+# -----------------------------
+# 默认为“贪婪”，最长匹配字符串
+# 加上?修改为“懒惰”，最短匹配字符串
+
+str_view(x, "(a.){1,}")
+```
+
+<div id="htmlwidget-3afbb8df2bcc95e00cc6" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3afbb8df2bcc95e00cc6">{"x":{"html":"<ul>\n  <li><span class='match'>ap<\/span>ple & banana<\/li>\n  <li><span class='match'>ana@<\/span>财管2020<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+```r
+str_view(x, "(a.){1,}?")
+```
+
+<div id="htmlwidget-4633f14870f3e7ec3d10" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4633f14870f3e7ec3d10">{"x":{"html":"<ul>\n  <li><span class='match'>ap<\/span>ple & banana<\/li>\n  <li><span class='match'>an<\/span>a@财管2020<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+]
+
+
+---
+
+.pull-left.code100[
+
+```r
+# 分组与回溯引用(backreference)
+# -----------------------------
+# ()：字符串分组
+#   （使用()也可使得RegEx更清晰）
+# \1：回溯引用第1组匹配字符串
+
+str_view(x, "(.).*\\1")
+```
+
+<div id="htmlwidget-81104ac738452b232fda" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-81104ac738452b232fda">{"x":{"html":"<ul>\n  <li><span class='match'>apple & banana<\/span><\/li>\n  <li><span class='match'>ana<\/span>@财管2020<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+```r
+str_view(x, "(.)(.).\\2\\1")
+```
+
+<div id="htmlwidget-44fb028bd2deafacb947" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-44fb028bd2deafacb947">{"x":{"html":"<ul>\n  <li>apple & b<span class='match'>anana<\/span><\/li>\n  <li>ana@财管2020<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+]
+
+--
+
+.pull-right.code90[
+
+```r
+# regex()的参数
+# -----------------------------
+# ignore_case = FALSE
+# multiline   = FALSE
+# comments    = FALSE
+# dotall      = FALSE
+
+str_view("AB", 
+  regex("ab", ignore_case = TRUE))
+```
+
+<div id="htmlwidget-f5993a389474a4cc2a87" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f5993a389474a4cc2a87">{"x":{"html":"<ul>\n  <li><span class='match'>AB<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+```r
+xd &lt;- regex("
+  \\(?        # 可能的(
+  (0592)      # 四位区号0592，第1组
+  [^\\d]*     # 可能的非数字，如)、-等
+  (218\\d{4}) # 218开头的7个号码，第2组
+  ", comments = TRUE)
+str_match("0592-2187091", xd)
+```
+
+```
+#&gt;      [,1]           [,2]   [,3]     
+#&gt; [1,] "0592-2187091" "0592" "2187091"
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[`pattern` 参数还支持 `fixed()`、`coll()` 和 `boundary()`]]
+
+--
+.pull-left.code95[
+
+```r
+# fixed()会忽略特殊的RegEx字符
+# -----------------------------
+str_view_all("\\d for 123...", 
+             fixed("\\d"))
+```
+
+<div id="htmlwidget-4c86225a3d3001429612" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4c86225a3d3001429612">{"x":{"html":"<ul>\n  <li><span class='match'>\\d<\/span> for 123...<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+
+
+```r
+# coll()按标准字符分类规则匹配字符
+# -----------------------------
+str_subset(
+  c("I", "İ", "i", "ı"), 
+  coll("i", ignore_case = TRUE, 
+       locale = "tr")
+)
+```
+
+```
+#&gt; [1] "İ" "i"
+```
+]
+
+--
+
+.pull-right.code95[
+
+```r
+# boundary(type = ...)匹配边界
+# -----------------------------
+# "character"：默认按字符
+# "line_break"：按行
+# "sentence"：按句
+# "word"：按词
+
+str_view_all(c("字符串与因子"), 
+             boundary())
+```
+
+<div id="htmlwidget-c2a7a3979625b5903323" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c2a7a3979625b5903323">{"x":{"html":"<ul>\n  <li><span class='match'>字<\/span><span class='match'>符<\/span><span class='match'>串<\/span><span class='match'>与<\/span><span class='match'>因<\/span><span class='match'>子<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+```r
+str_view_all(c("字符串与因子"), 
+             boundary("word"))
+```
+
+<div id="htmlwidget-3fc14bab63567589b8b0" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3fc14bab63567589b8b0">{"x":{"html":"<ul>\n  <li><span class='match'>字符<\/span><span class='match'>串<\/span><span class='match'>与<\/span><span class='match'>因子<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+]
+
+---
+layout: true
+
+### &gt;&gt; 1.3 工具函数
+
+---
+
+.full-width[.content-box-blue.bold.font120[匹配与否及匹配次数：`str_detect()` 和 `str_count()`]]
+
+--
+
+.pull-left.code90[
+
+```r
+# x向量中哪些字符串包含数字？
+str_detect(x, "\\d")
+```
+
+```
+#&gt; [1] FALSE  TRUE
+```
+
+```r
+# 内置向量words中以元音字母结尾词占比
+mean(str_detect(words, "[aeiou]$"))
+```
+
+```
+#&gt; [1] 0.277
+```
+
+```r
+# 提取words中以字母x结尾的词
+words[str_detect(words, "x$")]
+```
+
+```
+#&gt; [1] "box" "sex" "six" "tax"
+```
+
+```r
+# 等同于
+str_subset(words, "x$")
+```
+
+```
+#&gt; [1] "box" "sex" "six" "tax"
+```
+]
+
+--
+
+.pull-right.code85[
+
+```r
+# 在数据框中搭配filter()使用
+df &lt;- tibble(word = words, 
+             i = seq_along(word))
+df %&gt;% filter(str_detect(words, "x$"))
+```
+
+```
+#&gt; # A tibble: 4 × 2
+#&gt;   word      i
+#&gt;   &lt;chr&gt; &lt;int&gt;
+#&gt; 1 box     108
+#&gt; 2 sex     747
+#&gt; 3 six     772
+#&gt; 4 tax     841
+```
+
+```r
+# 使用mutate()+str_count()统计匹配次数
+df %&gt;% mutate(
+  vo = str_count(words, "[^aeiou]"))
+```
+
+```
+#&gt; # A tibble: 980 × 3
+#&gt;   word      i    vo
+#&gt;   &lt;chr&gt; &lt;int&gt; &lt;int&gt;
+#&gt; 1 a         1     0
+#&gt; 2 able      2     2
+#&gt; 3 about     3     2
+#&gt; # … with 977 more rows
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[替换匹配：`str_replace()` 和 `str_replace_all()`]]
+
+--
+
+.pull-left.code95[
+
+```r
+# 将x向量中的元音字母替换为"*"
+str_replace(x, "[aeiou]", "*")
+```
+
+```
+#&gt; [1] "*pple &amp; banana" "*na@财管2020"
+```
+
+
+```r
+# str_replace()只替换了第一个匹配
+# str_replace_all()进行全部替换
+# 如下可删除全部元音字母
+str_replace_all(x, "[aeiou]", "")
+```
+
+```
+#&gt; [1] "ppl &amp; bnn"  "n@财管2020"
+```
+
+```r
+# 等同于
+str_remove_all(x, "[aeiou]")
+```
+
+```
+#&gt; [1] "ppl &amp; bnn"  "n@财管2020"
+```
+]
+
+--
+
+.pull-right.code95[
+
+```r
+# 通过指定命名向量完成多重替换
+x2 &lt;- c("1 car", "2 cats", 
+        "3 cups")
+str_replace_all(x2, 
+  c("1" = "one", "\\d" = "some"))
+```
+
+```
+#&gt; [1] "one car"   "some cats" "some cups"
+```
+
+
+```r
+# 回溯引用替换
+str_replace(
+  x, 
+  "^(...)(.*)(...)$", 
+  "\\3\\2\\1"
+)
+```
+
+```
+#&gt; [1] "anale &amp; banapp" "020@财管2ana"
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[匹配分割：`str_split()` 和 `str_split_fixed()`]]
+
+--
+
+.code90[
+
+```r
+info &lt;- c("姓名: 张三 &amp; 李四", "年龄 @ 20 &amp; 21", "宿舍 @ L2-111")
+```
+]
+
+--
+.pull-left.code95[
+
+
+```r
+# 在给定pattern处
+# 将字符串向量info分割为列表
+info %&gt;% str_split(" ?[:@&amp;] ")
+# 默认参数n = Inf, simplify = FALSE
+```
+
+```
+#&gt; [[1]]
+#&gt; [1] "姓名" "张三" "李四"
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] "年龄" "20"   "21"  
+#&gt; 
+#&gt; [[3]]
+#&gt; [1] "宿舍"   "L2-111"
+```
+]
+
+--
+
+.pull-right.code85[
+
+```r
+# 分割为矩阵
+info %&gt;% str_split(" ?[:@&amp;] ", 
+           n = 2, simplify = TRUE)
+```
+
+```
+#&gt;      [,1]   [,2]         
+#&gt; [1,] "姓名" "张三 &amp; 李四"
+#&gt; [2,] "年龄" "20 &amp; 21"    
+#&gt; [3,] "宿舍" "L2-111"
+```
+
+```r
+# 分割为矩阵
+info %&gt;% 
+  str_split_fixed(" ?[:@&amp;] ", n = 4)
+```
+
+```
+#&gt;      [,1]   [,2]     [,3]   [,4]
+#&gt; [1,] "姓名" "张三"   "李四" ""  
+#&gt; [2,] "年龄" "20"     "21"   ""  
+#&gt; [3,] "宿舍" "L2-111" ""     ""
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[提取匹配：`str_extract()` 和 `str_extract_all()`]]
+
+--
+
+.pull-left.code80[
+
+```r
+head(sentences, n = 5)  # 720 in total
+```
+
+```
+#&gt; [1] "The birch canoe slid on the smooth planks." 
+#&gt; [2] "Glue the sheet to the dark blue background."
+#&gt; [3] "It's easy to tell the depth of a well."     
+#&gt; [4] "These days a chicken leg is a rare dish."   
+#&gt; [5] "Rice is often served in round bowls."
+```
+
+```r
+# 想从中找出含有2种及以上彩虹颜色单词的句子
+rainbow &lt;- c("red", "orange", "yellow", 
+             "green", "blue", "indigo", 
+             "purple")
+rb_match &lt;- str_c(rainbow, 
+                  collapse = "|")
+rb_match
+```
+
+```
+#&gt; [1] "red|orange|yellow|green|blue|indigo|purple"
+```
+]
+
+--
+
+.pull-right.code80[
+
+
+```r
+more &lt;- sentences[
+  str_count(sentences, rb_match) &gt;= 2]
+str_view_all(more, rb_match)
+```
+
+<div id="htmlwidget-0ac826c25a932da933a2" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0ac826c25a932da933a2">{"x":{"html":"<ul>\n  <li>It is hard to erase <span class='match'>blue<\/span> or <span class='match'>red<\/span> ink.<\/li>\n  <li>The <span class='match'>green<\/span> light in the brown box flicke<span class='match'>red<\/span>.<\/li>\n  <li>The sky in the west is tinged with <span class='match'>orange<\/span> <span class='match'>red<\/span>.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+
+```r
+str_extract(more, rb_match)
+```
+
+```
+#&gt; [1] "blue"   "green"  "orange"
+```
+
+```r
+str_extract_all(more, rb_match, 
+                simplify = TRUE)
+```
+
+```
+#&gt;      [,1]     [,2] 
+#&gt; [1,] "blue"   "red"
+#&gt; [2,] "green"  "red"
+#&gt; [3,] "orange" "red"
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[分组提取匹配：`str_match()` 和 `str_match_all()`]]
+
+--
+
+.code90[
+
+```r
+# 想从中sentences数据集中找出名词（使用启发式法则：在冠词a或the后面）
+noun &lt;- "(a|the) +([^ ]+)"
+sentences %&gt;% str_subset(noun) %&gt;% head(2) -&gt; has_noun
+```
+]
+
+--
+
+.pull-left.code85[
+
+```r
+has_noun %&gt;% str_extract(noun)
+```
+
+```
+#&gt; [1] "the smooth" "the sheet"
+```
+]
+
+--
+
+.pull-right.code85[
+
+```r
+has_noun %&gt;% str_match(noun)
+```
+
+```
+#&gt;      [,1]         [,2]  [,3]    
+#&gt; [1,] "the smooth" "the" "smooth"
+#&gt; [2,] "the sheet"  "the" "sheet"
+```
+]
+
+--
+
+.code90[
+
+```r
+# 在tibble中使用tidyr::extract()可能更方便
+tibble(sentence = sentences) %&gt;% 
+  extract(sentence, c("article", "noun"), "(a|the) +([^ ]+)", remove = FALSE)
+```
+
+```
+#&gt; # A tibble: 720 × 3
+#&gt;   sentence                                    article noun  
+#&gt;   &lt;chr&gt;                                       &lt;chr&gt;   &lt;chr&gt; 
+#&gt; 1 The birch canoe slid on the smooth planks.  the     smooth
+#&gt; 2 Glue the sheet to the dark blue background. the     sheet 
+#&gt; 3 It's easy to tell the depth of a well.      the     depth 
+#&gt; # … with 717 more rows
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[最后让我们看下 `stringr` 包中究竟有多少个以 `str_` 开头的函数]]
+
+.code85[
+
+```r
+*ls("package:stringr", pattern = "^str_") %&gt;%
+  matrix(ncol = 5, byrow = TRUE) -&gt; strfuns
+
+strfuns[9, 3:5] &lt;- "-"
+
+strfuns %&gt;% as_tibble(.name_repair = "unique") %&gt;% print(n = 9)
+```
+
+```
+#&gt; # A tibble: 9 × 5
+#&gt;   ...1           ...2            ...3            ...4            ...5          
+#&gt;   &lt;chr&gt;          &lt;chr&gt;           &lt;chr&gt;           &lt;chr&gt;           &lt;chr&gt;         
+#&gt; 1 str_c          str_conv        str_count       str_detect      str_dup       
+#&gt; 2 str_ends       str_extract     str_extract_all str_flatten     str_glue      
+#&gt; 3 str_glue_data  str_interp      str_length      str_locate      str_locate_all
+#&gt; 4 str_match      str_match_all   str_order       str_pad         str_remove    
+#&gt; 5 str_remove_all str_replace     str_replace_all str_replace_na  str_sort      
+#&gt; 6 str_split      str_split_fixed str_squish      str_starts      str_sub       
+#&gt; 7 str_sub&lt;-      str_subset      str_to_lower    str_to_sentence str_to_title  
+#&gt; 8 str_to_upper   str_trim        str_trunc       str_view        str_view_all  
+#&gt; 9 str_which      str_wrap        -               -               -
+```
+]
+
+---
+layout: false
+class: inverse, center, middle
+background-image: url(imgs/logo-forcats.png), url(imgs/sxc.png)
+background-size: 10%, 100%
+background-position: 30% 40%, 0% 100%
+
+# 2. 因子
+
+.font120[(.bold[`forcats`&lt;sup&gt;.font60[v0.5.2]&lt;/sup&gt;]: Tools for Working with Categorical Variables (Factors))]
+
+---
+layout: true
+
+### &gt;&gt; 2.1 因子向量
+
+---
+.full-width[.content-box-blue.bold.font120[我们可以将字符串直接存入字符向量中 ...]]
+
+
+```r
+x1 &lt;- c("Excelence", "Good", "Average", "Pass", "Failed")
+```
+
+--
+
+.full-width[.content-box-blue.bold.font120[... 但以字符方式存储数据可能面临两个问题]]
+
+.font120[
+* 取值水平问题：尽管我们知道成绩等级水平只有5个，但字符方式无法保证你没有输入错误
+]
+
+
+```r
+x2 &lt;- c("Excelence", "Good", "Averege", "Pass", "Failed") # "Averege" 输入错了
+```
+
+.font120[
+* 排序问题：可能无法得到有意义的排序结果 &lt;sup&gt;.red[*]&lt;/sup&gt;
+]
+
+
+```r
+sort(x1)
+```
+
+```
+#&gt; [1] "Average"   "Excelence" "Failed"    "Good"      "Pass"
+```
+
+.footnote.red.font100[*：而我们在制表、作图等场合通常需要保持合理的排序信息。]
+
+---
+
+.pull-left[
+
+.full-width[.content-box-blue.bold.font120[创建因子向量 ...]]
+
+
+```r
+# 1. 设定合法的因子水平及其次序
+grade_levels &lt;- c(
+  "Failed", "Pass", "Average",
+  "Good", "Excelence"
+)
+
+# 2. 将字符向量转变为因子向量
+y1 &lt;- factor(x1, 
+             levels = grade_levels)
+y1
+```
+
+```
+#&gt; [1] Excelence Good      Average   Pass      Failed   
+#&gt; Levels: Failed Pass Average Good Excelence
+```
+]
+
+--
+
+.pull-right[
+
+.full-width[.content-box-blue.bold.font120[... 有助于克服这两个问题]]
+
+
+```r
+#1. 不合法的字符取值将变为`NA`
+y2 &lt;- factor(x2, 
+             levels = grade_levels)
+y2
+```
+
+```
+#&gt; [1] Excelence Good      &lt;NA&gt;      Pass      Failed   
+#&gt; Levels: Failed Pass Average Good Excelence
+```
+
+```r
+#2. 排序正确
+sort(y1)
+```
+
+```
+#&gt; [1] Failed    Pass      Average   Good      Excelence
+#&gt; Levels: Failed Pass Average Good Excelence
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[其它说明]]
+
+* R 以整数存储因子向量 &lt;br&gt;
+
+&lt;img src="imgs/factor-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+--
+
+.pull-left[
+
+* 若使用 `readr::parse_factor()`，出现不合法的输入时会给你提醒
+
+  
+  ```r
+  y2 &lt;- parse_factor(x2, 
+              levels = grade_levels)
+  ```
+  
+  ```
+  #&gt; Warning: 1 parsing failure.
+  #&gt; row col           expected  actual
+  #&gt;   3  -- value in level set Averege
+  ```
+]
+
+--
+
+.pull-right[
+
+* 若不指定因子水平的 `levels` 参数，则以字符排序作为因子顺序
+
+  
+  ```r
+  factor(x1)
+  as.integer(factor(x1))
+  # unclass(factor(x1))
+  ```
+  
+  ```
+  #&gt; [1] Excelence Good      Average   Pass      Failed   
+  #&gt; Levels: Average Excelence Failed Good Pass
+  #&gt; [1] 2 4 1 5 3
+  ```
+]
+
+---
+layout: true
+
+### &gt;&gt; 2.2 修改因子水平
+
+---
+
+.pull-left.code95[
+
+```r
+# 示例数据集
+gss_cat
+```
+
+```
+#&gt; # A tibble: 21,483 × 9
+#&gt;     year marital         age race 
+#&gt;    &lt;int&gt; &lt;fct&gt;         &lt;int&gt; &lt;fct&gt;
+#&gt;  1  2000 Never married    26 White
+#&gt;  2  2000 Divorced         48 White
+#&gt;  3  2000 Widowed          67 White
+#&gt;  4  2000 Never married    39 White
+#&gt;  5  2000 Divorced         25 White
+#&gt;  6  2000 Married          25 White
+#&gt;  7  2000 Never married    36 White
+#&gt;  8  2000 Divorced         44 White
+#&gt;  9  2000 Married          44 White
+#&gt; 10  2000 Married          47 White
+#&gt; # … with 21,473 more rows, and 5
+#&gt; #   more variables: rincome &lt;fct&gt;,
+#&gt; #   partyid &lt;fct&gt;, relig &lt;fct&gt;,
+#&gt; #   denom &lt;fct&gt;, tvhours &lt;int&gt;
+```
+]
+
+--
+
+.pull-right.code100[
+
+```r
+# 查看特定变量的因子水平及其计数
+gss_cat %&gt;% 
+  count(partyid)
+```
+
+```
+#&gt; # A tibble: 10 × 2
+#&gt;    partyid                n
+#&gt;    &lt;fct&gt;              &lt;int&gt;
+#&gt;  1 No answer            154
+#&gt;  2 Don't know             1
+#&gt;  3 Other party          393
+#&gt;  4 Strong republican   2314
+#&gt;  5 Not str republican  3032
+#&gt;  6 Ind,near rep        1791
+#&gt;  7 Independent         4119
+#&gt;  8 Ind,near dem        2499
+#&gt;  9 Not str democrat    3690
+#&gt; 10 Strong democrat     3490
+```
+]
+
+---
+.full-width[.content-box-blue.bold.font120[`fct_recode()`：手动改变因子水平]]
+--
+
+.code95[
+
+```r
+gss_cat %&gt;% mutate(
+  partyid = fct_recode(
+    partyid,
+    "Republican, strong"    = "Strong republican",
+    "Republican, weak"      = "Not str republican",
+    "Independent, near rep" = "Ind,near rep",
+    "Independent, near dem" = "Ind,near dem",
+    "Democrat, weak"        = "Not str democrat",
+    "Democrat, strong"      = "Strong democrat",
+*   "Other"                 = "No answer",
+*   "Other"                 = "Don't know",
+*   "Other"                 = "Other party"
+    # fct_recode()中未指定的因子水平 Independent 将保持原样
+  )
+) %&gt;% count(partyid)
+```
+
+```
+#&gt; # A tibble: 8 × 2
+#&gt;   partyid                n
+#&gt;   &lt;fct&gt;              &lt;int&gt;
+#&gt; 1 Other                548
+#&gt; 2 Republican, strong  2314
+#&gt; 3 Republican, weak    3032
+#&gt; # … with 5 more rows
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[`fct_collapse()`：合并因子水平]]
+--
+
+.code90[
+
+```r
+# fct_collapse()函数是fct_recode()函数的一种变体
+gss_cat %&gt;% mutate(
+  partyid = fct_collapse(
+    partyid,
+    other = c("No answer", "Don't know", "Other party"),
+    rep = c("Strong republican", "Not str republican"),
+    ind = c("Ind,near rep", "Independent", "Ind,near dem"),
+    dem = c("Not str democrat", "Strong democrat")
+    # 左边满足R合法变量名的因子水平无需使用""（但要用""也行）
+    # 因子水平的顺序以在`fct_collapse()`中出现的先后为序
+  )
+) %&gt;% count(partyid)
+```
+
+```
+#&gt; # A tibble: 4 × 2
+#&gt;   partyid     n
+#&gt;   &lt;fct&gt;   &lt;int&gt;
+#&gt; 1 other     548
+#&gt; 2 rep      5346
+#&gt; 3 ind      8409
+#&gt; 4 dem      7180
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[`fct_lump*()`：将最不常见/最常见的因子水平归并为 "Other"]]
+--
+
+.pull-left.code90[
+
+```r
+gss_cat %&gt;%
+  count(relig, sort = TRUE)
+```
+
+```
+#&gt; # A tibble: 15 × 2
+#&gt;    relig                       n
+#&gt;    &lt;fct&gt;                   &lt;int&gt;
+#&gt;  1 Protestant              10846
+#&gt;  2 Catholic                 5124
+#&gt;  3 None                     3523
+#&gt;  4 Christian                 689
+#&gt;  5 Jewish                    388
+#&gt;  6 Other                     224
+#&gt;  7 Buddhism                  147
+#&gt;  8 Inter-nondenominational   109
+#&gt;  9 Moslem/islam              104
+#&gt; 10 Orthodox-christian         95
+#&gt; 11 No answer                  93
+#&gt; 12 Hinduism                   71
+#&gt; 13 Other eastern              32
+#&gt; 14 Native american            23
+#&gt; 15 Don't know                 15
+```
+]
+
+--
+
+.pull-right.code90[
+
+```r
+gss_cat %&gt;%
+  mutate(
+    relig = fct_lump_n(
+      relig, 
+*     n = 5,  # 负数归并最常见的水平
+*     other_level = "Other"  # 默认
+    )
+  ) %&gt;% 
+  count(relig, sort = TRUE)
+```
+
+```
+#&gt; # A tibble: 6 × 2
+#&gt;   relig          n
+#&gt;   &lt;fct&gt;      &lt;int&gt;
+#&gt; 1 Protestant 10846
+#&gt; 2 Catholic    5124
+#&gt; 3 None        3523
+*#&gt; 4 Other        913
+#&gt; 5 Christian    689
+#&gt; 6 Jewish       388
+```
+]
+
+---
+layout: true
+
+### &gt;&gt; 2.3 调整因子次序
+
+---
+.full-width[.content-box-blue.bold.font120[有时默认的因子次序并不满足你的要求 ...]]
+
+--
+
+.pull-left.code95[
+
+```r
+# 探索分析信仰不同宗教的人在
+# 每日看电视时间方面的差异
+relig_summary &lt;- gss_cat %&gt;%
+* group_by(relig) %&gt;%
+  summarise(
+    age = mean(age, na.rm = TRUE),
+*   tvhours = mean(tvhours,
+*                  na.rm = TRUE),
+    n = n()
+  )
+
+# 作图
+ggplot(relig_summary, 
+       aes(tvhours, relig)) + 
+  geom_point()
+```
+]
+
+.pull-right[
+&lt;img src="L08_String_Factor_Datetime_files/figure-html/unnamed-chunk-59-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+- 很难从上图中看出特定模式并进行相应的分析，😢
+]
+
+---
+
+.full-width[.content-box-blue.bold.font100[`fct_reorder()`：基于另一变量取值的排序来调整因子次序]]
+--
+
+.code95[
+
+```r
+# fct_reorder(.f, .x, .fun = median, ..., .desc = FALSE)
+relig_summary %&gt;% 
+  ggplot(aes(tvhours, fct_reorder(relig, tvhours))) + 
+  geom_point()
+```
+]
+
+.pull-left[
+&lt;img src="L08_String_Factor_Datetime_files/figure-html/unnamed-chunk-60-1.png" width="100%" /&gt;
+]
+
+--
+
+.pull-right.code95[
+
+```r
+# 左图的纵坐标标题有点奇怪 -&gt;
+# 作图前先生成新变量可能是个更好的做法
+relig_summary %&gt;% 
+* mutate(
+*   relig = fct_reorder(relig,
+*                       tvhours)
+* ) %&gt;%
+  ggplot(aes(tvhours, relig)) + 
+  geom_point()
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold[`fct_relevel()`：手动调整因子次序]]
+--
+
+.code90[
+
+```r
+# fct_relevel(.f, ..., after = 0L)
+relig_summary %&gt;% 
+  mutate(relig = fct_relevel(relig, "No answer", after = Inf)) %&gt;% 
+  arrange(relig)
+```
+]
+
+--
+
+.full-width[.content-box-blue.bold[`fct_infreq() | fct_inorder() | fct_inseq()`：分别根据频数从大到小 | 在数据集中出现先后 | 数字顺序来调整因子次序]]
+
+--
+
+.full-width[.content-box-blue.bold[`fct_rev()`：反转因子次序]]
+--
+
+.pull-left.code90[
+
+```r
+gss_cat %&gt;%
+* mutate(marital =
+*          marital %&gt;%
+*          fct_infreq() %&gt;%
+*          fct_rev()) %&gt;%
+  ggplot(aes(marital)) + geom_bar()
+```
+]
+
+.pull-right[
+&lt;img src="L08_String_Factor_Datetime_files/figure-html/unnamed-chunk-63-1.png" width="90%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+layout: false
+class: inverse, center, middle
+background-image: url(imgs/logo-lubridate.png), url(imgs/sxc.png)
+background-size: 10%, 100%
+background-position: 25% 40%, 0% 100%
+
+# 3. 日期-时间
+
+.font120[(.bold[`lubridate`&lt;sup&gt;.font60[v1.9.0]&lt;/sup&gt;]: Make Dealing with Dates a Little Easier)]
+
+---
+layout: true
+
+### &gt;&gt; 3.1 创建日期-时间
+
+---
+
+.full-width[.content-box-blue.bold.font120[`readr::parse_datetime() | parse_date() | parse_time()`]]
+
+--
+
+.code85[
+
+```r
+parse_datetime(x, format = "", na = c("", "NA"), locale = default_locale())
+# format: If unset, parsed as ISO8601 with formats specified in the locale().
+```
+]
+
+--
+
+.pull-left.code85[
+
+
+```r
+- Year: "%Y"(4 digits); "%y"(2 digits)
+- Month:
+  "%m"(2 digits) 
+  "%b"(abbr. name in locale()) 
+  "%B"(full name in locale())
+- Day: 
+  "%d"(2 digits)
+  "%e"(optional leading space)
+- Hour:
+  "%H"(0-23)
+  "%I"(0-12, used with "%p")
+- AM/PM indicator: "%p"
+- Minutes: "%M"
+- Seconds: 
+  "%S"(integer seconds)
+  "%OS"(real seconds)
+```
+]
+
+--
+
+.pull-right.code85[
+
+```r
+- Time zone:
+  "%Z"(name, e.g. "America/Chicago")
+  "%z"(offset from UTC, e.g. "+0800")
+- Non-digits:
+  "%." skips one non-digit
+  "%+" skips one or more non-digits
+  "%*" skips any number non-digits
+```
+
+
+```r
+parse_datetime("2022-11-10 12:00")
+```
+
+```
+#&gt; [1] "2022-11-10 12:00:00 UTC"
+```
+
+```r
+parse_date("11/10/y21", "%m/%d/%.%y")
+```
+
+```
+#&gt; [1] "2021-11-10"
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[`lubridate::ymd_hms() | ymd() ...`]]
+
+--
+
+.pull-left.code95[
+
+
+```r
+*library(lubridate) # 手动加载
+```
+
+
+```r
+ymd("2022-11-10")
+```
+
+```
+#&gt; [1] "2022-11-10"
+```
+
+
+```r
+# All are Date 2022-11-10
+dmy("10-11, 2022")
+
+ymd(20221110)  # unquoted numbers
+
+# Sys.getlocale("LC_TIME")
+ymd("2022十一月10日") # “日”会被忽略
+```
+]
+
+--
+
+.pull-right.code95[
+
+```r
+# truncated formats
+ymd("2022", truncated = 2)
+```
+
+```
+#&gt; [1] "2022-01-01"
+```
+
+
+```r
+ymd_hms("2022-11-10 20:11:59")
+```
+
+```
+#&gt; [1] "2022-11-10 20:11:59 UTC"
+```
+
+```r
+mdy_hm("11-10 2022 !08:11 PM")
+```
+
+```
+#&gt; [1] "2022-11-10 20:11:00 UTC"
+```
+
+
+```r
+# &lt;date&gt; with tz -&gt; &lt;dttm&gt;
+ymd(20221110, tz = "UTC")
+```
+
+```
+#&gt; [1] "2022-11-10 UTC"
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[`lubridate::make_datetime() | make_date()`]]
+
+--
+
+.code90[
+
+```r
+(flights_dt &lt;- nycflights13::flights %&gt;% 
+  filter(!is.na(dep_time), !is.na(arr_time)) %&gt;% 
+  mutate(
+    dep_dttm = make_datetime(
+      year, month, day,               # year, month, day
+      dep_time%/%100, dep_time%%100   # hour, min,   sec = 0
+    ),
+    arr_dttm = make_datetime(
+      year, month, day,               # year, month, day
+      arr_time%/%100, arr_time%%100   # hour, min,   sec = 0
+    )
+  ) %&gt;% 
+  select(origin, dest, dep_time, arr_time, ends_with("_dttm")))
+```
+
+```
+#&gt; # A tibble: 328,063 × 6
+#&gt;   origin dest  dep_time arr_time dep_dttm            arr_dttm           
+#&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;int&gt;    &lt;int&gt; &lt;dttm&gt;              &lt;dttm&gt;             
+#&gt; 1 EWR    IAH        517      830 2013-01-01 05:17:00 2013-01-01 08:30:00
+#&gt; 2 LGA    IAH        533      850 2013-01-01 05:33:00 2013-01-01 08:50:00
+#&gt; 3 JFK    MIA        542      923 2013-01-01 05:42:00 2013-01-01 09:23:00
+#&gt; # … with 328,060 more rows
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[`lubridate::make_datetime() | make_date()`]]
+
+--
+
+.code95[
+
+```r
+flights_dt %&gt;% 
+* filter(dep_dttm &lt; ymd(20130102)) %&gt;%    # &lt;dttm&gt; 可和 &lt;date&gt; 直接比较大小
+  ggplot(aes(dep_dttm)) + 
+  geom_freqpoly(binwidth = 600) +         # 600s = 10 minutes
+  scale_x_datetime(date_labels = "%H:%M") # 设定坐标轴时间刻度标签的显示格式
+```
+
+&lt;img src="L08_String_Factor_Datetime_files/figure-html/unnamed-chunk-75-1.png" width="55%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[`lubridate::as_datetime() | as_date()`]]
+
+--
+
+.pull-left.code100[
+
+```r
+# S4 method for 
+# signature 'POSIXt' and 'Date'
+as_datetime(today())
+```
+
+```
+#&gt; [1] "2022-11-17 UTC"
+```
+
+```r
+as_date(now())
+```
+
+```
+#&gt; [1] "2022-11-17"
+```
+]
+
+--
+
+.pull-right.code90[
+
+```r
+# S4 method for 
+# signature 'numeric'
+# 默认参数origin = lubridate::origin
+#         tz = "UTC"
+as_datetime(60 * 60 * 10)
+```
+
+```
+#&gt; [1] "1970-01-01 10:00:00 UTC"
+```
+
+```r
+# 默认参数origin = lubridate::origin
+as_date(365 * 10 + 2)      
+```
+
+```
+#&gt; [1] "1980-01-01"
+```
+
+```r
+# S4 method for 
+# signature 'character'
+as_datetime("2019/10/14 10:00", 
+    format = "%Y/%m/%d %H:%M")
+```
+
+```
+#&gt; [1] "2019-10-14 10:00:00 UTC"
+```
+]
+
+
+---
+layout: true
+
+### &gt;&gt; 3.2 处理时间成分
+
+---
+
+.full-width[.content-box-blue.bold.font120[`lubridate::year() | month() ...`：提取|更改时间成分]]
+
+--
+
+.pull-left.code80[
+
+```r
+datetime &lt;- ymd_hm("2022/11/10 10:00")
+
+# 提取时间成分
+# -------------------------------
+month(datetime, label = TRUE)
+```
+
+```
+#&gt; [1] Nov
+#&gt; Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; Oct &lt; Nov &lt; Dec
+```
+
+```r
+mday(datetime)
+```
+
+```
+#&gt; [1] 10
+```
+
+```r
+yday(datetime)
+```
+
+```
+#&gt; [1] 314
+```
+
+```r
+wday(datetime, label = TRUE)
+```
+
+```
+#&gt; [1] Thu
+#&gt; Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat
+```
+]
+
+--
+
+.pull-right.code85[
+
+```r
+# 更改时间成分
+# -------------------------------
+# 就地修改datetime
+year(datetime) &lt;- 2020
+datetime
+```
+
+```
+#&gt; [1] "2020-11-10 10:00:00 UTC"
+```
+
+```r
+wday(datetime) &lt;- wday(datetime) + 1
+datetime
+```
+
+```
+#&gt; [1] "2020-11-11 10:00:00 UTC"
+```
+
+```r
+# 同时更改多个成分并生成新的日期-时间
+# 原来的datetime保持不变
+update(datetime, year = 2020, 
+       month = 2, hour = 2)
+```
+
+```
+#&gt; [1] "2020-02-11 02:00:00 UTC"
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[`lubridate::year() | month() ...`：提取|更改时间成分]]
+
+
+```r
+flights_dt %&gt;% 
+* mutate(wday = wday(dep_dttm, label = TRUE)) %&gt;%
+  ggplot(aes(x = wday)) +
+    geom_bar()
+```
+
+&lt;img src="L08_String_Factor_Datetime_files/figure-html/unnamed-chunk-80-1.png" width="52%" style="display: block; margin: auto;" /&gt;
+
+---
+
+.full-width[.content-box-blue.bold.font120[`lubridate::floor_date() ...`：时间成分取整]]
+
+--
+
+
+```r
+# floor_date(x, unit = "second", week_start = getOption("lubridate.week.start", 7))
+# unit: second, minute, hour, day, week, month, year, 
+#       bimonth, quarter, season, halfyear; 3 months, etc.
+flights_dt %&gt;% 
+* count(week = floor_date(dep_dttm, unit = "week")) %&gt;%
+  ggplot(aes(week, n)) + geom_line() + 
+  scale_x_datetime(date_labels = "%YW%U")  # ?strptime
+```
+
+&lt;img src="L08_String_Factor_Datetime_files/figure-html/unnamed-chunk-81-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+
+---
+layout: true
+
+### &gt;&gt; 3.3 时间间隔（time spans）
+
+---
+
+`lubridate`包提供三种记录/处理时间间隔的方式：
+*   _`duration`_：用秒精确记录/处理，`dseconds() | dhours() ...`
+*   _`period`_：用人们熟悉的方式记录/处理，`seconds() | hours() ...`
+*   _`interval`_：记录起点-终点之间的时间间隔，`%--%`
+
+--
+
+.pull-left.code80[
+
+```r
+# Durations
+# ---------------------------------------
+dyears(1)
+```
+
+```
+#&gt; [1] "31557600s (~1 years)"
+```
+
+```r
+# Periods
+# ---------------------------------------
+years(1)
+```
+
+```
+#&gt; [1] "1y 0m 0d 0H 0M 0S"
+```
+
+```r
+# Intervals
+# ---------------------------------------
+today() %--% (today() + years(1))
+```
+
+```
+#&gt; [1] 2022-11-17 UTC--2023-11-17 UTC
+```
+]
+
+--
+
+.pull-right.code80[
+
+```r
+# A leap year
+ymd("2016-01-01") + dyears(1)  # ?!
+```
+
+```
+#&gt; [1] "2016-12-31 06:00:00 UTC"
+```
+
+```r
+ymd("2016-01-01") + years(1)
+```
+
+```
+#&gt; [1] "2017-01-01"
+```
+
+```r
+# Arithmetic operations
+y1 &lt;- ymd("2016-01-01")
+y2 &lt;- y1 + years(1)
+(y1 %--% y2) / ddays(1)
+```
+
+```
+#&gt; [1] 366
+```
+
+```r
+(y1 %--% y2) %/% days(1)
+```
+
+```
+#&gt; [1] 366
+```
+]
+
+
+---
+
+.full-width[.content-box-blue.bold.font120[不同数据类型之间允许的运算]]
+
+&lt;img src="imgs/datetimes-arithmetic.png" width="65%" style="display: block; margin: auto;" /&gt;
+
+--
+
+.code90[
+
+```r
+# 示例
+flights_dt &lt;- flights_dt %&gt;% 
+  mutate(
+    overnight = arr_dttm &lt; dep_dttm,
+    arr_dttm = arr_dttm + days(overnight * 1),
+  )
+# Now all flights obey the laws of physics
+flights_dt %&gt;% filter(overnight, arr_dttm &lt; dep_dttm) 
+```
+
+```
+#&gt; # A tibble: 0 × 7
+#&gt; # … with 7 variables: origin &lt;chr&gt;, dest &lt;chr&gt;, dep_time &lt;int&gt;, arr_time &lt;int&gt;,
+#&gt; #   dep_dttm &lt;dttm&gt;, arr_dttm &lt;dttm&gt;, overnight &lt;lgl&gt;
+```
+]
+
+---
+layout: false
+class: inverse, center, middle
+
+# 课后作业
+
+---
+class: middle
+
+### 课后作业
+
+.Large[
+
+1. 根据本讲讲义的打印稿，在 📑 _Rmd_ 中键入并完成代码的运行
+
+1. **复习** 📖 [_R for Data Science_](https://r4ds.had.co.nz/) 一书关于 [字符串](https://r4ds.had.co.nz/strings.html)、[因子](https://r4ds.had.co.nz/factors.html) 和 [日期-时间](https://r4ds.had.co.nz/dates-and-times.html) 等三种重要数据类型以及相应处理函数的内容（为中文翻译版的第10章、第11章和第12章）
+
+1. 下载（打印）📰 [.bold[{{`stringr`的cheatsheet}}]](https://posit.co/wp-content/uploads/2022/10/strings.pdf)、[.bold[{{`forcats`的cheatsheet}}]](https://posit.co/wp-content/uploads/2022/10/factors.pdf) 和 [.bold[{{`lubridate`的cheatsheet}}]](https://posit.co/wp-content/uploads/2022/10/lubridate.pdf) 并阅读之
+
+1. 完成第八讲的课后练习 👩‍💻
+  
+&gt; .code100[
+
+```r
+remotes::install_github("qfwr2022/qfwr")
+library(qfwr)
+qfwr_ex("L08")
+```
+]
+]
+
+---
+class: center, middle, hide_logo
+background-image: url(imgs/xaringan.png)
+background-size: 12%
+background-position: 50% 40%
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;hr color='#f00' size='2px' width='80%'&gt;
+&lt;br&gt;
+.Large.red[_**本网页版讲义的制作由 R 包 [{{`xaringan`}}](https://github.com/yihui/xaringan) 赋能！**_]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="../libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

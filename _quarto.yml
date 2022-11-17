@@ -77,9 +77,10 @@ website:
           href: weeks/week-06.qmd
         - text: "第7周 dplyr数据处理 II"
           href: weeks/week-07.qmd
-        - text: "第8周 数据导入与齐整"
+        - text: "第8周 🏃校运会🏅 停课"
+        - text: "第9周 数据导入与齐整"
           href: weeks/week-08.qmd
-        - text: "第9周 迭代"
+        - text: "第10周 迭代"
           href: weeks/week-09.qmd
         - text: "......"
   page-navigation: true

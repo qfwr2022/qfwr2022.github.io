@@ -29,7 +29,7 @@ library(qfwr)  # 加载 qfwr 包，然后按提示行事 ……
 ```
 </blockquote>
 
-[5. 抽出时间来**自学** 📖 [_R for Data Science_](https://r4ds.had.co.nz/) 一书关于 [字符串](https://r4ds.had.co.nz/strings.html)、[因子](https://r4ds.had.co.nz/factors.html) 和 [日期-时间](https://r4ds.had.co.nz/dates-and-times.html) 等三种重要数据类型以及重要数据处理函数的内容（为中文翻译版的第10章、第11章和第12章）。我也会在课程平台上挂出对应的 [{{课件}}](https://qfwr2022.netlify.app/weeks/week-x.html) 供同学们参考。]{style="font-size:1.2rem"}
+[5. 抽出时间来**自学** 📖 [_R for Data Science_](https://r4ds.had.co.nz/) 一书关于 [字符串](https://r4ds.had.co.nz/strings.html)、[因子](https://r4ds.had.co.nz/factors.html) 和 [日期-时间](https://r4ds.had.co.nz/dates-and-times.html) 等三种重要数据类型以及相应处理函数的内容（为中文翻译版的第10章、第11章和第12章）。我也会在课程平台上挂出对应的 [{{课件}}](http://localhost:7721/slides/lec-08/L08_String_Factor_Datetime.html) 供同学们参考。]{style="font-size:1.2rem"}
 
 <!-- [**注：第4项作业的提交截止日期为11月23日24:00**]{style="font-size:1rem; color:red"} -->
 
