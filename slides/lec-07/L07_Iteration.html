@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>第7讲 迭代</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=" 曾永艺" />
+    <meta name="date" content="2022-11-18" />
+    <script src="../libs/header-attrs/header-attrs.js"></script>
+    <link href="../libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="../libs/tile-view/tile-view.js"></script>
+    <link href="../libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <link href="../libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="../libs/panelset/panelset.js"></script>
+    <script src="../libs/freezeframe/freezeframe.min.js"></script>
+    <script src="../libs/xaringanExtra-freezeframe/freezeframe-init.js"></script>
+    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":false,"warnings":true}</script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"a525bb21b5c843e8b037e2f24ab8d2a7","expires":7}</script>
+    <script src="../libs/himalaya/himalaya.js"></script>
+    <script src="../libs/js-cookie/js.cookie.js"></script>
+    <link href="../libs/editable/editable.css" rel="stylesheet" />
+    <script src="../libs/editable/editable.js"></script>
+    <link href="../libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <link href="../libs/animate.css/animate.xaringan.css" rel="stylesheet" />
+    <script src="../libs/clipboard/clipboard.min.js"></script>
+    <link href="../libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="../libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-copy\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"<i class=\"fa fa-times-circle\" style=\"color: #F94144\"><\/i>"})</script>
+    <link href="../libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="../libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../libs/zen-styles-v2.3.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# 量化金融与金融编程
+]
+.subtitle[
+## L07 迭代
+]
+.author[
+### <br>曾永艺
+]
+.institute[
+### 厦门大学管理学院
+]
+.date[
+### <br>2022-11-18
+]
+
+---
+
+class: middle, hide_logo
+background-image: url(imgs/logo-purrr.png)
+background-size: 25%
+background-position: 15% 50%
+
+
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 50px;
+height: 50px;
+z-index: 0;
+background-image: url(imgs/logo-sm.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:0.5em;right:0.5em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+.pull-right.font200[
+
+1. 控制流结构
+
+2. 函数式编程
+
+3. `purrr` 包 
+
+4. `purrr` 包 与 列表列
+
+5. `purrr` -&gt; `furrr`
+
+]
+
+---
+layout: false
+class: inverse, center, middle
+
+# 1. 控制流结构
+
+.font150[( _control-flow constructs in R_ )]
+
+---
+class: middle
+
+.font150.bold[
+
+&gt; 日出日落，月圆月缺，年尾年头，这是“.red[循环]”；  
+&gt; 
+&gt; 上学还是就业，单身还是结婚，丁克还是生娃，这是“.red[分支]”；  
+&gt; 
+&gt; 不管是循环还是分支，都嵌入在生老病死的时间轴上，这是“.red[顺序]”； 
+&gt; 
+&gt; 所谓尽人事听天命，想来就是心平气和地接受顺序结构，小心翼翼地制定循环结构，在关键时刻控制好分支结构，就这样度过一生罢。 
+&gt; &lt;br&gt;&lt;br&gt;
+&gt;                       .right[—— 大鹏志，转引自《学R》]
+
+]
+
+---
+layout: true
+
+### &gt;&gt; 1.1 `for` 循环结构
+
+---
+
+.full-width[.content-box-blue.bold.font120[`for` 循环属于命令式编程（_imperative programming_）中的重复执行范式]]
+--
+
+.pull-left.code90[
+
+```r
+library(tidyverse)
+set.seed(1234)
+df &lt;- tibble(
+  a = rnorm(10),
+  b = rnorm(10),
+  c = rnorm(10)
+)
+```
+]
+
+.pull-right.code90[
+
+```r
+# 计算各列的均值
+mean(df$a)
+mean(df$b)
+mean(df$c)
+```
+
+```
+#&gt; [1] -0.383
+#&gt; [1] -0.118
+#&gt; [1] -0.388
+```
+]
+
+--
+
+.code90[
+
+```r
+# for循环的三个组成部分
+output &lt;- vector("double", ncol(df))  # 1. output    输出
+for(i in seq_along(df)) {             # 2. sequence  循环序列
+  output[[i]] &lt;- mean(df[[i]])        # 3. body      循环体
+}
+output
+```
+
+```
+#&gt; [1] -0.383 -0.118 -0.388
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[`for` 循环的三种模式]]
+
+--
+
+- `for(x in xs)`：逐个元素循环，当你只关注副作用（如作图、存盘）时，这是最有用的模式
+  
+--
+
+- `for(nm in names(xs))`：逐个名字循环，在循环体中用 `xs[[nm]]` 得到命名向量 `xs` 元素的值。你还可以让输出的名字和输入的名字对应起来：
+  
+&gt; .code80[
+
+```r
+output &lt;- vector("list", length(xs))
+*names(output) &lt;- names(xs)
+for(nm in names(xs)) {
+  output[[nm]] &lt;- .f(xs[[nm]], ...)
+}
+```
+]
+
+--
+
+- `for(i in seq_along(xs))`：逐个数值索引循环，这是最通用的模式。下面语句会给出元素的名字和取值：
+  
+&gt; .code80[
+
+```r
+for(i in seq_along(xs)) {
+  name &lt;- names(xs)[[i]]
+  value &lt;- xs[[i]]
+  # ...
+}
+```
+]
+
+
+---
+
+.full-width[.content-box-blue.bold.font120[特殊情况：_“就地”_修改]]
+
+--
+
+.code100[
+
+
+```r
+rescale01 &lt;- function(x) {
+  rng &lt;- range(x, na.rm = TRUE)
+  (x - rng[1]) / (rng[2] - rng[1])
+}
+```
+
+
+```r
+# output（输出）已备
+# 在body（循环体）中直接调用`[[&lt;-`完成“就地”修改 x           #]#]
+for(i in seq_along(df)) {
+* df[[i]] &lt;- rescale01(df[[i]])  # 不要使用[]
+}
+df
+```
+
+```
+#&gt; # A tibble: 10 × 3
+#&gt;       a      b     c
+#&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 0.332 0.153  0.782
+#&gt; 2 0.765 0      0.473
+#&gt; 3 1     0.0651 0.498
+#&gt; # … with 7 more rows
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[特殊情况：事前无法确定_输出_的长度]]
+
+--
+
+.pull-left.code90[
+
+
+```r
+# **低效的做法**
+set.seed(1234)
+means &lt;- c(0, 1, 2)
+*out &lt;- double()  # 空的实数向量
+for(i in seq_along(means)) {
+  n &lt;- sample(100, 1)
+  print(glue::glue("L#{i}: n={n}"))
+* out &lt;- c(out,
+*          rnorm(n, means[[i]]))
+}
+```
+
+```
+#&gt; L#1: n=28
+#&gt; L#2: n=79
+#&gt; L#3: n=2
+```
+
+```r
+str(out, vec.len = 2.5)
+```
+
+```
+#&gt;  num [1:109] 0.312 0.314 0.359 ...
+```
+]
+
+--
+
+.pull-right.code90[
+
+```r
+# **更好的做法**
+# 使用更复杂的数据结构，完成循环后再处理
+set.seed(1234)
+means &lt;- c(0, 1, 2)
+*out &lt;- vector("list", length(means))
+for(i in seq_along(means)) {
+  n &lt;- sample(100, 1)
+  print(glue::glue("L#{i}: n={n}"))
+* out[[i]] &lt;- rnorm(n, means[[i]])
+}
+*out &lt;- unlist(out)
+# purrr::flatten_dbl(out)
+str(out, vec.len = 2.5)
+```
+
+```
+#&gt; L#1: n=28
+#&gt; L#2: n=79
+#&gt; L#3: n=2
+#&gt;  num [1:109] 0.312 0.314 0.359 ...
+```
+
+]
+
+---
+layout: false
+
+### &gt;&gt; .gray[1.1 `for` 循环结构 +] 1.2 `if` 分支结构
+
+.full-width[.content-box-blue.bold.font120[特殊情况：事前无法确定_循环_的次数 -&gt; `while()` / `repeat` + `break`]]
+
+--
+
+.code90[
+
+```r
+flip &lt;- function() sample(c("T", "H"), 1)
+```
+]
+
+.pull-left.code90[
+
+
+```r
+set.seed(111)
+nheads &lt;- 0
+flips &lt;- character()
+*while(nheads &lt; 3) {
+  H_T &lt;- flip()
+* if(H_T == "H") {
+    nheads &lt;- nheads + 1
+* } else {
+    nheads &lt;- 0  # 重新计数
+  }
+  flips &lt;- c(flips, H_T)
+}
+flips
+```
+
+```
+#&gt;  [1] "H" "T" "H" "T" "T" "T" "T"
+#&gt;  [8] "T" "T" "H" "H" "H"
+```
+]
+
+--
+
+.pull-right.code90[
+
+```r
+set.seed(111)
+nheads &lt;- 0
+flips &lt;- character()
+*repeat {
+  H_T &lt;- flip()
+  if(H_T == "H") {
+    nheads &lt;- nheads + 1
+  } else {
+    nheads &lt;- 0  # 重新计数
+  }
+  flips &lt;- c(flips, H_T)
+* if(nheads &gt;= 3) break
+}
+flips
+```
+
+```
+#&gt;  [1] "H" "T" "H" "T" "T" "T" "T"
+#&gt;  [8] "T" "T" "H" "H" "H"
+```
+]
+
+---
+layout: false
+class: inverse, center, middle
+
+# 2. 函数式编程
+
+.font150[( _functional programming_ )]
+
+---
+layout: false
+
+### &gt;&gt; 2.1 R 语言与函数式编程
+
+.full-width[.content-box-blue.bold.font120[R 语言的核心其实是一种函数式编程（_functional programming_）语言，可通过提供向量化函数和函数式编程工具，避免直接调用 `for` 循环，减少代码重复并提高代码的可读性]]
+
+--
+
+.pull-left.code80[
+
+```r
+# 定义函数，计算数据框每列的均值
+col_mean &lt;- function(df) {
+  out &lt;- vector("double", length(df))
+  for(i in seq_along(df)) {
+    out[i] &lt;- mean(df[[i]])
+  }
+  out
+}
+# 调用函数
+col_mean(df)
+```
+
+```
+#&gt; [1] 0.572 0.258 0.524
+```
+
+.font110.bold[🤔 该如何一般化 `col_`.red[`mean`]`()`？]
+
+.font110.bold[🤩 定义 `col_median()`、`col_sd()` ...？]
+
+.font110.bold[🙅 NOPE! 更好的做法是 -&gt; ]
+]
+
+--
+
+.pull-right.code85[
+
+```r
+# ... 使用函数式编程
+# 函数作为参数 -&gt; 泛函
+*col_summary &lt;- function(df, .fun) {
+  out &lt;- vector("double", length(df))
+  for(i in seq_along(df)) {
+*   out[i] &lt;- .fun(df[[i]])
+  }
+  out
+}
+```
+
+
+```r
+col_summary(df, mean)
+```
+
+```
+#&gt; [1] 0.572 0.258 0.524
+```
+
+```r
+col_summary(df, sd)
+```
+
+```
+#&gt; [1] 0.290 0.313 0.329
+```
+]
+
+---
+layout: false
+
+### &gt;&gt; 2.2 `apply` 族函数 &amp; `Reduce()` 等高阶函数
+
+.font95[
+- `apply(X, MARGIN, FUN, ...)`    
+  `sweep(x, MARGIN, STATS, FUN = "-", check.margin = TRUE, ...)`
+  
+- `lapply(X, FUN, ...)`    
+  `sapply(X, FUN, ..., simplify = TRUE, USE.NAMES = TRUE)`    
+  `vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)`    
+  `rapply(object, f, classes = "ANY", deflt = NULL, how = c("unlist", "replace", "list"), ...)`   
+  `replicate(n, expr, simplify = "array")`    
+  `mapply(FUN, ..., MoreArgs = NULL, SIMPLIFY = TRUE, USE.NAMES = TRUE)`    
+  `eapply(env, FUN, ..., all.names = FALSE, USE.NAMES = TRUE)` 
+  
+- `tapply(X, INDEX, FUN = NULL, ..., default = NA, simplify = TRUE)`    
+  `by(data, INDICES, FUN, ..., simplify = TRUE)`    
+  `aggregate(x, by, FUN, ..., simplify = TRUE, drop = TRUE)` ...
+  
+- `Reduce(f, x, init, right = FALSE, accumulate = FALSE)`    
+  `Filter(f, x)`    
+  `Find(f, x, right = FALSE, nomatch = NULL)`    
+  `Map(f, ...)`    
+  `Position(f, x, right = FALSE, nomatch = NA_integer_)`
+]
+
+---
+layout: false
+class: inverse, center, middle
+
+# 3. `purrr` 包 &lt;sup&gt;.font60[v0.3.5]&lt;/sup&gt;
+
+.font150[( _Functional Programming Tools_ )]
+
+---
+layout: true
+
+### &gt;&gt; 3.1 `purrr` 包的 `map` 族函数
+
+---
+
+.full-width[.content-box-blue.bold.font120[`map` 族函数：_"Learn it once, use it everywhere!" - Jenny Bryan_]]
+
+&lt;img src="imgs/map_family.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+--
+
+.font100[
+- **参数统一**：`map()`、`map_*()`、`modify()` 和 `walk()` 函数的第1个参数 `.x` 为输入向量（包括原子向量和列表），第2个参数 `.f` 为函数，第3个参数 `...` 为传递给 `.f` 的额外参数。
+]
+
+--
+
+.font100[
+- **返回结果一目了然**：`map()`、`map_*()`、`modify()` 和 `walk()` 的返回结果均为与输入向量等长的向量，`map()` 返回列表，`map_*()` 返回向量的类由函数名中的后缀决定，`modify()` 返回与输入向量同类的输出，而 `walk()` 则不可见地返回输入向量。
+]
+
+--
+
+.font100[
+- **一通百通**：输入扩展至2个向量（如 `map2(.x, .y, .f, ...)`）和多个向量构成的列表 `.l`（如 `pmap(.l, .f, ...)`），还可同时应用于向量元素和索引（如 `imap(.x, .f, ...)`）。
+]
+
+---
+
+.pull-left[
+
+&lt;img src="imgs/map-arg.png" width="75%" /&gt;
+
+
+```r
+map(df, mean)         # 返回列表
+```
+
+```
+#&gt; $a
+#&gt; [1] 0.572
+#&gt; 
+#&gt; $b
+#&gt; [1] 0.258
+#&gt; 
+#&gt; $c
+#&gt; [1] 0.524
+```
+
+
+```r
+map_dbl(df, mean)       # 返回实数向量
+# df %&gt;% map_dbl(mean)  # 支持管道操作
+```
+
+```
+#&gt;     a     b     c 
+#&gt; 0.572 0.258 0.524
+```
+
+]
+
+--
+
+.pull-right[
+
+.full-width[.content-box-blue.bold.font120[和 `for` 循环比]]
+
+.font100[
+
+- 用函数式编程函数来完成循环，更加简洁
+
+- 关注完成运算的函数（如 `mean`），而非准备性步骤（如定义输出 `output`）
+
+- 适合用 `%&gt;%` 将不同函数链接起来解决问题
+
+- -&gt; 代码更加易读、易写、易用
+
+]
+
+&lt;br&gt;
+
+.full-width[.content-box-blue.bold.font120[和自行编写的 `col_summary()` 比]]
+
+.font100[
+
+- 后台用 C 编写，效率更高
+
+- 参数 `.f` 支持函数、公式、字符|整数向量
+
+- 结果保留元素的名称
+
+]
+
+.font150.center[👍 ❤️ ✌️]
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[`map` 族函数的参数 `.f` 支持快捷写法]]
+
+--
+
+.pull-left.code90[
+
+```r
+# 匿名函数
+models &lt;- mtcars %&gt;% 
+  split(.$cyl) %&gt;%  # 得到3个命名列表
+* map(function(df)
+*       lm(mpg ~ wt, data = df))
+# map(\(df) lm(mpg ~ wt, data = df))
+
+# 将匿名函数改写为单侧公式
+models &lt;- mtcars %&gt;% 
+  split(.$cyl) %&gt;% 
+* map(~ lm(mpg ~ wt, data = .x))
+
+str(models, max.level = 1)
+```
+
+```
+#&gt; List of 3
+#&gt;  $ 4:List of 12
+#&gt;   ..- attr(*, "class")= chr "lm"
+#&gt;  $ 6:List of 12
+#&gt;   ..- attr(*, "class")= chr "lm"
+#&gt;  $ 8:List of 12
+#&gt;   ..- attr(*, "class")= chr "lm"
+```
+]
+
+--
+
+.pull-right.code100[
+
+```r
+# 单侧公式
+models %&gt;% 
+  map(summary) %&gt;% 
+* map_dbl(~ .x$r.squared)
+```
+
+```
+#&gt;     4     6     8 
+#&gt; 0.509 0.465 0.423
+```
+
+
+```r
+# 直接使用 字符向量 提取元素
+# 结果同上，从略
+models %&gt;% 
+  map(summary) %&gt;% 
+* map_dbl("r.squared")
+
+# 若你知道元素的具体位置，也可以直接用
+# 整数提取元素，但不推荐
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[多个输入：.red[`map2(.x, .y, .f, ...)`]、`pmap()` 和 `imap()`]]
+
+--
+
+.pull-left.code90[
+
+
+```r
+# 1个输入用map()
+mu &lt;- list(5, 10, -3)
+mu %&gt;% map(rnorm, n = 5)
+```
+
+
+```r
+# 2个输入呢？
+mu &lt;- list(5, 10, -3)
+*sigma &lt;- list(1, 5, 10)
+```
+
+
+```r
+# 坚持用map()！
+set.seed(1234)
+seq_along(mu) %&gt;% 
+  map(~ rnorm(5, mu[[.]], 
+              sigma[[.]])) %&gt;% 
+  str()
+```
+
+```
+#&gt; List of 3
+#&gt;  $ : num [1:5] 3.79 5.28 6.08 2.65 5.43
+#&gt;  $ : num [1:5] 12.53 7.13 7.27 7.18 5.55
+#&gt;  $ : num [1:5] -7.77 -12.98 -10.76 -2.36 6.59
+```
+
+]
+
+--
+
+.pull-right.code90[
+
+
+```r
+# 还是改用map2()吧，:)
+set.seed(1234)
+map2(mu, sigma, rnorm, n = 5) %&gt;% 
+  str() # 结果相同
+```
+
+```
+#&gt; List of 3
+#&gt;  $ : num [1:5] 3.79 5.28 6.08 2.65 5.43
+#&gt;  $ : num [1:5] 12.53 7.13 7.27 7.18 5.55
+#&gt;  $ : num [1:5] -7.77 -12.98 -10.76 -2.36 6.59
+```
+
+&lt;img src="imgs/map2-arg.png" width="100%" /&gt;
+
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[多个输入：`map2(.x, .y, .f, ...)`、.red[`pmap(.l, .f, ...)`] 和 `imap()`]]
+
+--
+
+.pull-left.code110[
+
+```r
+# 我还想让抽样样本数n也有所不同！
+n &lt;- list(1, 2, 3)
+```
+
+
+```r
+# 默认为位置匹配
+args1 &lt;- list(n, mu, sigma)
+args1 %&gt;%
+  pmap(rnorm) %&gt;% str()
+```
+
+```
+#&gt; List of 3
+#&gt;  $ : num 4.03
+#&gt;  $ : num [1:2] 4.46 3.74
+#&gt;  $ : num [1:3] -8.24 -7.97 -21.06
+```
+
+]
+
+--
+
+.pull-right.code100[
+
+
+```r
+# 使用命名参数列表，匹配.f函数的参数名
+# 也可用数据框作为.l参数的取值
+args2 &lt;- list(mean = mu, 
+              sd = sigma, 
+              n = n)
+args2 %&gt;% 
+  pmap(rnorm) %&gt;% str()
+```
+
+&lt;img src="imgs/pmap-3.png" width="95%" /&gt;
+
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[多个输入：`map2()`、`pmap()` 和 .red[`imap(.x, .f, ...)`]]]
+
+.pull-left.font120[
+`imap()`为 _indexed map_ 函数
+
+- 当输入向量 `.x` 的元素有名称时，它是 `map2(.x, names(.x), ...)` 的简便写法
+
+- 当输入向量 `.x` 的元素没有名称时，它 `map2(.x, seq_along(.x), ...)` 的简便写法
+
+- 在你需要同时基于 `.x` 的取值和名称/索引进行计算时，`imap(.x, .f, ...)` 很有用
+]
+
+--
+
+.pull-right.code85[
+
+
+```r
+# 元素没有名称，.y 为元素位置
+imap_chr(sample(LETTERS[1:4]), 
+         ~ paste0(.y, " -&gt; ", .x))
+```
+
+```
+#&gt; [1] "1 -&gt; B" "2 -&gt; D" "3 -&gt; C" "4 -&gt; A"
+```
+
+```r
+# 元素有名称，.y 为元素名
+lst &lt;- map(1:4, ~ sample(1000, 10))
+names(lst) &lt;- paste0("#", 1:4)
+imap_chr(
+  lst, 
+  ~ glue::glue(
+    "样本{.y} 的最大值为 {max(.x)}")
+)
+```
+
+```
+#&gt;                      #1 
+#&gt; "样本#1 的最大值为 962" 
+#&gt;                      #2 
+#&gt; "样本#2 的最大值为 976" 
+#&gt;                      #3 
+#&gt; "样本#3 的最大值为 942" 
+#&gt;                      #4 
+#&gt; "样本#4 的最大值为 877"
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[不同输出：.red[`modify(.x, .f, ...)`] 和 `walk(.x, .f, ...)`]]
+
+--
+
+.pull-left.code100[
+
+.full-width[.content-box-blue.bold[`modify()`、`modify2()` 和 `imodify()` 总是返回与输入向量 `.x` 的类 `class` 相同的向量]]
+
+
+```r
+df &lt;- data.frame(
+  x = 1:3,
+  y = 6:4
+)
+
+modify(df, ~ .x * 2)
+```
+
+```
+#&gt;   x  y
+#&gt; 1 2 12
+#&gt; 2 4 10
+#&gt; 3 6  8
+```
+
+]
+
+.pull-right.code100[
+
+.full-width[.content-box-blue.bold[但尽管 `modify()`、`modify2()` 和 `imodify()` 函数名中含有 `modify`，但它们并不会“原地修改”输入向量 `.x`，而只是返回修改后的版本——如果你想永久保留修改，就你必须手动将返回结果赋值给变量]]
+
+
+```r
+df
+```
+
+```
+#&gt;   x y
+#&gt; 1 1 6
+#&gt; 2 2 5
+#&gt; 3 3 4
+```
+
+```r
+df &lt;- modify(df, ~ .x * 2)
+```
+
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[不同输出：`modify(.x, .f, ...)` 和 .red[`walk(.x, .f, ...)`]]]
+
+--
+
+.pull-left.code85[
+
+.full-width[.content-box-blue.bold[`walk()`、`walk2()`、`iwalk()` 和 `pwalk()`：调用函数不是为了函数的返回值，而是函数的“副作用”（如数据存盘）；这些函数都会不可见地返回第 1 个输入项]]
+
+
+```r
+# ggsave(filename, plot=last_plot(), 
+#   device = NULL, path = NULL, ...)
+
+tmp &lt;- tempdir()
+gs &lt;- mtcars %&gt;% 
+  split(.$cyl) %&gt;% 
+  map(~ ggplot(., aes(wt, mpg)) + 
+        geom_point())
+fs &lt;- str_c("cyl-", names(gs), ".pdf")
+
+walk2(fs, gs, ggsave, path = tmp)
+list.files(tmp, pattern = "^cyl-")
+```
+
+```
+#&gt; [1] "cyl-4.pdf" "cyl-6.pdf" "cyl-8.pdf"
+```
+
+]
+
+--
+
+.pull-right.code80[
+
+
+```r
+# 参数位置匹配并使用 ... 来传递参数
+# 更推荐的做法是：
+walk2(
+  fs, gs, 
+  \(fs, gs) ggsave(fs, gs, path = tmp)
+)
+```
+
+&lt;img src="imgs/walk2.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+.full-width[.content-box-blue.bold.font110[`map_dfr(.x, .f, ..., .id = NULL)` 和 `map_dfc(.x, .f, ...)`]]
+
+.font110[
+- 应用 `dplyr` 包的 `bind_rows()` 或 `bind_cols()` 对 `map(.x, .f, ...)` 输出的向量进行行/列的合并，返回数据框（感兴趣的同学可看下这两个函数的源代码）。
+]
+
+--
+
+.full-width[.content-box-blue.bold.font110[`lmap(.x, .f, ...)`、`lmap_if(.x, .p, .f, ..., .else = NULL)` 和 `lmap_at(.x, .at, .f, ...)`]]
+
+.font110[
+- 类似于 `map*()` 函数，但只适用于输入并返回 `list` 或 `data.frame` 的函数 `.f`，也就是说 `.f` 应用于 `.x` 的**列表元素**而非元素（即 `.x[i]`，而非 `.x[[i]]`）。
+]
+
+--
+
+.full-width[.content-box-blue.bold.font110[`map_if(.x, .p, .f, ..., .else = NULL)`、`map_at(.x, .at, .f, ...)` 和 `map_depth(.x, .depth, .f, ..., .ragged = FALSE)`]]
+
+.font110[
+- `map_if()` 将 `.f`（`.else`）应用于 `.x` 中断言函数 `.p` 取值为 `TRUE`（`FALSE`）的元素；
+- `map_at()` 将 `.f` 应用于 `.x` 中 `.at` 参数（名称或位置向量）所指定的元素；
+- `map_depth()` 将 `.f` 应用于嵌套向量 `.x` 中 `.depth` 参数所指定深度的元素；
+- `modify()` 和 `lmap()` 也有这类**条件应用**的变体函数。
+]
+
+
+---
+layout: true
+
+### &gt;&gt; 3.2 其它 `purrr` 包函数
+
+---
+
+.full-width[.content-box-blue.bold.font110[`reduce(.x, .f, ..., .init, .dir = c("forward", "backward"))` 和 `accumulate(.x, .f, ..., .init, .dir = c("forward", "backward"))`]]
+
+--
+
+.pull-left.code85[
+
+```r
+dfs &lt;- list(
+  age = tibble(name = "Jo", age = 30),
+  sex = tibble(name = c("Jo", "An"), 
+               sex = c("M", "F")),
+  trt = tibble(name = "An", 
+               treatment = "A")
+)
+dfs %&gt;% reduce(full_join)
+```
+
+```
+#&gt; # A tibble: 2 × 4
+#&gt;   name    age sex   treatment
+#&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;    
+#&gt; 1 Jo       30 M     &lt;NA&gt;     
+#&gt; 2 An       NA F     A
+```
+
+
+```r
+1:10 %&gt;% accumulate(`+`)
+```
+
+```
+#&gt;  [1]  1  3  6 10 15 21 28 36 45 55
+```
+]
+
+--
+
+.pull-right.font100[
+
+&lt;img src="imgs/reduce-arg.png" width="95%" /&gt;
+
+- `reduce()` 和 `accumulate()` 支持的是二元函数，即有两个输入项的函数（及运算符）
+- 还有`reduce2()` 和 `accumulate2()`函数
+
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[支持断言函数（_predicate functions_）的泛函]]
+
+--
+
+.pull-left.code85[
+
+```r
+# keep(.x, .p, ...) | discard()
+iris %&gt;% 
+  keep(is.numeric) %&gt;% 
+  str(vec.len = 1)
+```
+
+```
+#&gt; 'data.frame':	150 obs. of  4 variables:
+#&gt;  $ Sepal.Length: num  5.1 4.9 ...
+#&gt;  $ Sepal.Width : num  3.5 3 ...
+#&gt;  $ Petal.Length: num  1.4 1.4 ...
+#&gt;  $ Petal.Width : num  0.2 0.2 ...
+```
+
+```r
+# compact(.x, .p = identity)
+# remove all NULLs
+```
+
+
+```r
+# every(.x, .p, ...) | some()
+list(1:5, letters) %&gt;% 
+  some(is_character)
+```
+
+```
+#&gt; [1] TRUE
+```
+]
+--
+
+.pull-right.code85[
+
+```r
+set.seed(1234)
+
+(x &lt;- sample(9))
+```
+
+```
+#&gt; [1] 6 5 4 1 8 2 7 9 3
+```
+
+```r
+# detect(.x, .f, ..., 
+#   .dir = c("forward", "backward"), 
+#   .right = NULL,.default = NULL)
+# detect_index()
+x %&gt;% detect(~ . &gt; 2)
+```
+
+```
+#&gt; [1] 6
+```
+
+```r
+# head_while(.x, .p, ...)|tail_while()
+x %&gt;% head_while(~ . &gt; 2)
+```
+
+```
+#&gt; [1] 6 5 4
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font110[`safely(.f, otherwise = NULL, quiet = TRUE)`、`quietly()` 和 `possibly()`]]
+
+- 这些函数就是所谓的函数运算符（_function operator_）——以函数作为参数输入，并返回函数。
+- `safely()` 会调整函数的行为（副词），让调整后的函数不再抛出错误，而是返回包含两个元素 `result` 和 `error` 的列表；通过 `otherwise` 参数设定错误时默认值，`possibly()` 总是成功；而 `quietly()` 则会捕捉命令的结果、输出、警告和消息。
+
+--
+
+.pull-left.code70[
+
+
+```r
+x &lt;- list(1, 10, "a")
+y &lt;- x %&gt;% map(safely(log)); str(y)
+```
+
+```
+#&gt; List of 3
+#&gt;  $ :List of 2
+#&gt;   ..$ result: num 0
+#&gt;   ..$ error : NULL
+#&gt;  $ :List of 2
+#&gt;   ..$ result: num 2.3
+#&gt;   ..$ error : NULL
+#&gt;  $ :List of 2
+#&gt;   ..$ result: NULL
+#&gt;   ..$ error :List of 2
+#&gt;   .. ..$ message: chr "non-numeric argument to mathematical function"
+#&gt;   .. ..$ call   : language .Primitive("log")(x, base)
+#&gt;   .. ..- attr(*, "class")= chr [1:3] "simpleError" "error" "condition"
+```
+
+]
+
+--
+
+.pull-right.code70[
+
+```r
+y &lt;- transpose(y); str(y, give.attr = FALSE)
+```
+
+```
+#&gt; List of 2
+#&gt;  $ result:List of 3
+#&gt;   ..$ : num 0
+#&gt;   ..$ : num 2.3
+#&gt;   ..$ : NULL
+#&gt;  $ error :List of 3
+#&gt;   ..$ : NULL
+#&gt;   ..$ : NULL
+#&gt;   ..$ :List of 2
+#&gt;   .. ..$ message: chr "non-numeric argument to mathematical function"
+#&gt;   .. ..$ call   : language .Primitive("log")(x, base)
+```
+
+```r
+is_ok &lt;- y$error %&gt;% map_lgl(is_null)
+y$result[is_ok] %&gt;% flatten_dbl()
+```
+
+```
+#&gt; [1] 0.0 2.3
+```
+]
+
+---
+
+.full-width[.content-box-blue.bold.font120[`pluck(.x, ..., .default = NULL)` 和 `chuck(.x, ...)`：用名称或位置列表来选择 `.x` 中的一个元素或其属性（+ `attr_getter()`）]]
+
+--
+
+.full-width[.content-box-blue.bold.font120[`flatten(.x)`、`flatten_*(.x)` 和 `transpose(.l, .names = NULL)`：改变列表的形状]]
+
+--
+
+.full-width[.content-box-blue.bold.font120[`append(x, values, after = length(x))`、`prepend(x, values, before = NULL)` 和 `splice(...)`：将新元素 `values` 和列表 `x` 合并]]
+
+--
+
+.full-width[.content-box-blue.bold.font120[`list_modify(.x, ...)` 和 `list_merge(.x, ...)`：根据 `...` 的取值修改/合并 `.x`]]
+
+--
+
+.full-width[.content-box-blue.bold.font120[`set_names(x, nm = x, ...)`：以更灵活的方式设置列表 `x` 的元素名]]
+
+---
+
+.full-width[.content-box-blue.bold.font120[`as_vector(.x, .type = NULL)`、`simplify(.x, .type = NULL)` 和 `simplify_all(.x, .type = NULL)`：将列表 `.x` 转化为向量]]
+
+--
+
+.full-width[.content-box-blue.bold.font120[`array_branch(array, margin = NULL)` 和 `array_branch(array, margin = NULL)`：将数组转化为列表]]
+
+--
+
+.full-width[.content-box-blue.bold.font120[`has_element(.x, .y)`：列表 `.x` 是否包含元素 `.y`]]
+
+--
+
+.full-width[.content-box-blue.bold.font120[`vec_depth(x)`：计算向量 `x` 的深度]]
+
+--
+
+.full-width[.content-box-blue.bold.font120[`cross(.l, .filter = NULL)` 和 `cross*()`：生成列表元素的组合]]
+
+--
+
+.full-width[.content-box-blue.bold.font120[`auto_browse()`、`insistently()`、`slowly()`、`compose()`、`partial()`、`lift*()`、`rerun()`、`negate()`：_函数运算符_，修改函数的行为]]
+
+---
+layout: false
+class: inverse, center, middle
+
+# 4. `purrr` 包 与 列表列
+
+.font150[( `purrr` _and list columns_ )]
+
+---
+
+&lt;img src="imgs/list_column_workflow.png" width="100%" /&gt;
+
+--
+
+.bold.font120[
+
+- 将结果存入 .font110[列表列] 中，可直接提取结果并加以分析（而无需重新计算结果）
+
+- 你已经知道如何操作数据表，你可以将你掌握的知识/流程/工具直接应用于由结果构成的表格
+
+]
+
+---
+
+### &gt;&gt; 4.1 步骤1：生成列表列（list column）
+
+--
+
+.pull-left.code95[
+
+
+```r
+gapminder::gapminder
+```
+
+```
+#&gt; # A tibble: 1,704 × 6
+#&gt;   country     conti…¹  year lifeExp
+#&gt;   &lt;fct&gt;       &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;
+#&gt; 1 Afghanistan Asia     1952    28.8
+#&gt; 2 Afghanistan Asia     1957    30.3
+#&gt; 3 Afghanistan Asia     1962    32.0
+#&gt; 4 Afghanistan Asia     1967    34.0
+#&gt; 5 Afghanistan Asia     1972    36.1
+#&gt; 6 Afghanistan Asia     1977    38.4
+#&gt; # … with 1,698 more rows, 2 more
+#&gt; #   variables: pop &lt;int&gt;,
+#&gt; #   gdpPercap &lt;dbl&gt;, and
+#&gt; #   abbreviated variable name
+#&gt; #   ¹​continent
+```
+
+]
+
+--
+
+.pull-right.code90[
+
+&lt;img src="imgs/magic.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+```r
+by_cnty &lt;- gapminder::gapminder %&gt;% 
+* tidyr::nest(
+*   data = -c(country, continent))
+by_cnty
+```
+
+```
+*#&gt; # A tibble: 142 × 3
+#&gt;   country     continent data             
+*#&gt;   &lt;fct&gt;       &lt;fct&gt;     &lt;list&gt;           
+#&gt; 1 Afghanistan Asia      &lt;tibble [12 × 4]&gt;
+#&gt; 2 Albania     Europe    &lt;tibble [12 × 4]&gt;
+#&gt; 3 Algeria     Africa    &lt;tibble [12 × 4]&gt;
+#&gt; # … with 139 more rows
+```
+
+]
+
+---
+
+### &gt;&gt; 4.2 步骤2：处理列表列
+
+--
+
+.pull-left.code90[
+
+
+```r
+# 将线性回归模型lm应用于data列的每个元素，
+# 回归结果（列表）存为新的列表列model
+by_cnty &lt;- by_cnty %&gt;% 
+* mutate(
+*   model = map(
+      data, 
+      ~ lm(lifeExp ~ year, 
+           data = .x)
+    )
+  )
+by_cnty
+```
+
+```
+#&gt; # A tibble: 142 × 4
+#&gt;   country     continent data              model 
+#&gt;   &lt;fct&gt;       &lt;fct&gt;     &lt;list&gt;            &lt;list&gt;
+#&gt; 1 Afghanistan Asia      &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
+#&gt; 2 Albania     Europe    &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
+#&gt; 3 Algeria     Africa    &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
+#&gt; 4 Angola      Africa    &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
+#&gt; 5 Argentina   Americas  &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
+#&gt; 6 Australia   Oceania   &lt;tibble [12 × 4]&gt; &lt;lm&gt;  
+#&gt; # … with 136 more rows
+```
+
+]
+
+--
+
+.pull-right.code100[
+
+
+```r
+# 提取model列表列的第1个元素
+by_cnty %&gt;% pluck("model", 1)
+# by_cnty$model[[1]]
+```
+
+```
+#&gt; 
+#&gt; Call:
+#&gt; lm(formula = lifeExp ~ year, data = .x)
+#&gt; 
+#&gt; Coefficients:
+#&gt; (Intercept)         year  
+#&gt;    -507.534        0.275
+```
+
+]
+
+---
+
+### &gt;&gt; 4.3 步骤3：简化列表列
+
+--
+
+.pull-left.code95[
+
+
+```r
+# 还是用mutate + map_*提取信息
+by_cnty %&gt;% 
+  mutate(
+    coef_year = map_dbl(
+      model, ~ coef(.x)[["year"]]
+    )
+  ) %&gt;% 
+  select(-data, -model)
+```
+
+```
+#&gt; # A tibble: 142 × 3
+#&gt;   country     continent coef_year
+#&gt;   &lt;fct&gt;       &lt;fct&gt;         &lt;dbl&gt;
+#&gt; 1 Afghanistan Asia          0.275
+#&gt; 2 Albania     Europe        0.335
+#&gt; 3 Algeria     Africa        0.569
+#&gt; 4 Angola      Africa        0.209
+#&gt; 5 Argentina   Americas      0.232
+#&gt; 6 Australia   Oceania       0.228
+#&gt; # … with 136 more rows
+```
+
+]
+
+--
+
+.pull-right.code90[
+
+
+```r
+# 使用broom包，更强大、也更方便
+# glance() | tidy() | augment()
+by_cnty %&gt;%
+* mutate(
+    res = map(model, 
+*             broom::glance)) %&gt;%
+* tidyr::unnest(res) %&gt;%
+  select(-c(data, model))
+```
+
+```
+#&gt; # A tibble: 142 × 14
+#&gt;   country  conti…¹ r.squ…² adj.r…³ sigma stati…⁴  p.value    df logLik   AIC   BIC devia…⁵
+#&gt;   &lt;fct&gt;    &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 Afghani… Asia      0.948   0.942 1.22    181.  9.84e- 8     1 -18.3  42.7  44.1   15.0  
+#&gt; 2 Albania  Europe    0.911   0.902 1.98    102.  1.46e- 6     1 -24.1  54.3  55.8   39.3  
+#&gt; 3 Algeria  Africa    0.985   0.984 1.32    662.  1.81e-10     1 -19.3  44.6  46.0   17.5  
+#&gt; 4 Angola   Africa    0.888   0.877 1.41     79.1 4.59e- 6     1 -20.0  46.1  47.5   19.8  
+#&gt; 5 Argenti… Americ…   0.996   0.995 0.292  2246.  4.22e-13     1  -1.17  8.35  9.80   0.854
+#&gt; 6 Austral… Oceania   0.980   0.978 0.621   481.  8.67e-10     1 -10.2  26.4  27.9    3.85 
+#&gt; # … with 136 more rows, 2 more variables: df.residual &lt;int&gt;, nobs &lt;int&gt;, and abbreviated
+#&gt; #   variable names ¹​continent, ²​r.squared, ³​adj.r.squared, ⁴​statistic, ⁵​deviance
+```
+
+]
+
+---
+
+### &gt;&gt; 4.4 [进一步的（探索性）分析]
+
+--
+
+.code100[
+
+```r
+by_cnty %&gt;% 
+  mutate(res = map(model, broom::glance)) %&gt;% 
+  unnest(res) %&gt;% 
+* ggplot(aes(continent, r.squared, colour = continent)) +
+*   geom_jitter(width = 0.3) +
+*   theme(legend.position = "none")
+```
+
+&lt;img src="L07_Iteration_files/figure-html/unnamed-chunk-66-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+layout: false
+class: inverse, center, middle
+background-image: url(imgs/sxc.png), url(imgs/purrr-furrr.png)
+background-size: 100%, 40%
+background-position: 0% 100%, 50% 45%
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+# &amp;nbsp;&amp;nbsp;&amp;nbsp; .font50[( `purrr` -&gt; `furrr` &lt;sup&gt;.font60[v0.3.1]&lt;/sup&gt; )]
+
+---
+
+### &gt;&gt; `furrr`: _Apply Mapping Functions in Parallel using Futures_
+
+.pull-left.code85[
+
+
+```r
+library(tictoc) # for timing R scripts
+
+by_cnty &lt;- gapminder::gapminder %&gt;% 
+  tidyr::nest(
+    data = -c(country, continent))
+
+slow_lm &lt;- function(...) {
+  Sys.sleep(0.1)
+  lm(...)
+}
+
+tic()
+by_cnty %&gt;% 
+  mutate(
+    model = map(
+      data, 
+      ~ slow_lm(lifeExp ~ year, 
+                data = .x))
+  ) -&gt; gc1
+toc()
+```
+
+```
+#&gt; 15.55 sec elapsed
+```
+]
+
+--
+
+.pull-right.code90[
+
+```r
+*library(furrr)
+
+*plan(multisession, workers = 4)
+
+tic()
+by_cnty %&gt;% 
+  mutate(
+*   model = future_map(
+      data, 
+      ~ slow_lm(lifeExp ~ year, 
+                data = .x)
+    )
+  ) -&gt; gc2
+toc()
+```
+
+```
+#&gt; 8.69 sec elapsed
+```
+
+```r
+identical(gc1, gc2)
+```
+
+```
+#&gt; [1] FALSE
+```
+]
+
+---
+layout: false
+class: inverse, center, middle
+
+# 课后作业
+
+---
+class: middle
+
+### 课后作业
+
+.font120[
+
+1\. 根据第七讲课程讲义的打印稿，在 📑 _Rmd_中键入并完成代码的运行
+
+2\. **复习** 📖 [_R for Data Science_](https://r4ds.had.co.nz/) 一书的第21章和第25章的内容（为中文翻译版的第16章和第19章，其中第19章被大量删减），并（结队）**完成（自选）课后练习**。
+
+3\. 下载（打印） 📰 [**{{`purrr` 包的cheatsheet}}**](https://posit.co/wp-content/uploads/2022/10/purrr.pdf) 并阅读之
+
+4\. **完成第七讲的课后练习** 👩‍💻
+
+&gt; .code90[
+
+```r
+remotes::install_github("qfwr2022/qfwr")
+library(qfwr)
+qfwr_ex("L07")
+```
+]
+
+5\. 抽出时间来**自学** 📖 [_R for Data Science_](https://r4ds.had.co.nz/) 一书关于 [字符串](https://r4ds.had.co.nz/strings.html)、[因子](https://r4ds.had.co.nz/factors.html) 和 [日期-时间](https://r4ds.had.co.nz/dates-and-times.html) 等三种重要数据类型以及重要数据处理函数的内容（为中文翻译版的第10章、第11章和第12章）。我也会在课程平台上挂出对应的 [{{课件}}](https://qfwr2022.netlify.app/weeks/week-x.html) 供同学们参考。
+
+]
+
+---
+class: center middle
+background-image: url(imgs/xaringan.png)
+background-size: 12%
+background-position: 50% 40%
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;hr color='#f00' size='2px' width='80%'&gt;
+&lt;br&gt;
+.Large.red[_**本网页版讲义的制作由 R 包 [{{`xaringan`}}](https://github.com/yihui/xaringan) 赋能！**_]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="../libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
