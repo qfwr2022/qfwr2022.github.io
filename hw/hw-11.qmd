@@ -1,0 +1,46 @@
+---
+title: "第11周课后作业"
+author: 曾永艺
+date: 2022-11-25
+# editor: visual
+---
+
+<hr>
+
+[1. 根据第九讲课程讲义的打印稿，在 📑 _Rmd_ 中键入并完成代码的运行。]{style="font-size:1.2rem"}
+
+[2. 浏览（阅读）tidyquant 包配套的七份 📰 vignettes]{style="font-size:1.2rem"}
+
+[3. 进一步了解 📦 [{{slider 包}}](https://slider.r-lib.org/)，想想如何通过参数设定实现以下的移动窗口]{style="font-size:1.2rem"}
+
+:::{.panel-tabset}
+## 图示
+![](imgs/windows_animate.gif){style="display:block; margin:auto; width:80%"}
+
+## 模拟数据与代码补全
+```r
+# 模拟数据
+set.seed(123456)
+tbl <- tibble(
+  Count = runif(16, min=100, max=320) %>% 
+    as.integer(), 
+  Year = 1997:2012
+)
+# sliding
+tbl %>% 
+  mutate(mean = slide_dbl(<...>))
+# tiling
+tbl %>% 
+  mutate(mean = slide_dbl(<...>))
+# stretching
+tbl %>% 
+  ...
+```
+:::
+
+[4. 将包含上述 1 和 3 项任务代码的 Rmd 文档（命名 `qfwr-L09_hw.Rmd`），于2022年11月30日24:00前提交至 [{{坚果云链接}}](https://workspace.jianguoyun.com/inbox/collect/ff1fbd50a6714370934676049b005b71/submitv2)]{style="font-size:1.2rem"}
+
+<!-- [**注：第4项作业的提交截止日期为11月23日24:00**]{style="font-size:1rem; color:red"} -->
+
+<hr>
+

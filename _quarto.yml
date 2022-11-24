@@ -82,6 +82,8 @@ website:
           href: weeks/week-08.qmd
         - text: "第10周 迭代"
           href: weeks/week-09.qmd
+        - text: "第11周 tidyquant & Friends"
+          href: weeks/week-11.qmd
         - text: "......"
   page-navigation: true
   page-footer:
@@ -92,11 +94,11 @@ website:
     right: |
       用❤️发电，
       用[![](https://quarto.org/quarto.png){fig-alt="Quarto" height=1.2em}](https://quarto.org/)搭建
-  comments:
-    giscus:
-      repo: qfwr2022/qfwr2022.github.io
-      loading: lazy
-      language: zh-CN
+  # comments:
+  #   giscus:
+  #     repo: qfwr2022/qfwr2022.github.io
+  #     loading: lazy
+  #     language: zh-CN
   
 format:
   html:

@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>第9讲 tidyquant & Friends</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=" 曾永艺" />
+    <meta name="date" content="2022-11-25" />
+    <script src="../libs/header-attrs/header-attrs.js"></script>
+    <link href="../libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="../libs/tile-view/tile-view.js"></script>
+    <link href="../libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <link href="../libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="../libs/panelset/panelset.js"></script>
+    <link href="../libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script src="../libs/clipboard/clipboard.min.js"></script>
+    <link href="../libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="../libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-copy\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"<i class=\"fa fa-times-circle\" style=\"color: #F94144\"><\/i>"})</script>
+    <link href="../libs/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="../libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <script src="../libs/kePrint/kePrint.js"></script>
+    <link href="../libs/lightable/lightable.css" rel="stylesheet" />
+    <script src="../libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="../libs/jquery/jquery.min.js"></script>
+    <link href="../libs/dygraphs/dygraph.css" rel="stylesheet" />
+    <script src="../libs/dygraphs/dygraph-combined.js"></script>
+    <script src="../libs/dygraphs/shapes.js"></script>
+    <script src="../libs/moment/moment.js"></script>
+    <script src="../libs/moment-timezone/moment-timezone-with-data.js"></script>
+    <script src="../libs/moment-fquarter/moment-fquarter.min.js"></script>
+    <script src="../libs/dygraphs-binding/dygraphs.js"></script>
+    <link rel="stylesheet" href="../libs/zen-styles-v2.3.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# 量化金融与金融编程
+]
+.subtitle[
+## <br>L09 tidyquant &amp; Friends
+]
+.author[
+### <br>曾永艺
+]
+.institute[
+### 厦门大学管理学院
+]
+.date[
+### <br>2022-11-25
+]
+
+---
+
+
+
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 50px;
+height: 50px;
+z-index: 0;
+background-image: url(imgs/logo-sm.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:0.5em;right:0.5em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+&lt;br&gt;
+
+&lt;img src="imgs/tidyverse-xts-01.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+--
+
+.pull-left.Large.bold[
+
+- 强大且通用的数据处理工具
+
+- 分组运算
+
+- 支持异质数据
+
+- 代码可读性 &gt; 运行性能
+
+]
+
+--
+
+.pull-right.Large.bold[
+
+- 自然支持时间索引
+
+- 专用且快速的基于时间的&lt;br&gt;数据处理
+
+- 同质数据（矩阵）
+
+- 众多金融分析工具
+
+]
+
+---
+
+&lt;br&gt;
+
+&lt;img src="imgs/tidyverse-xts-02.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+.pull-left.Large.bold[
+
+- 强大且通用的数据处理工具
+
+- 分组运算
+
+- 支持异质数据
+
+- 代码可读性 &gt; 运行性能
+
+]
+
+.pull-right.Large.bold[
+
+- 自然支持时间索引
+
+- 专用且快速的基于时间的&lt;br&gt;数据处理
+
+- 同质数据（矩阵）
+
+- 众多金融分析工具
+
+]
+
+---
+class: inverse, center, middle
+background-image: url(imgs/logo-tidyquant.png), url(imgs/bg.png)
+background-size: 10%, 100%
+background-position: 20% 40%, 0% 100%
+
+# 1. `tidyquant` 包 &lt;sup&gt;.font60[v1.0.6]&lt;/sup&gt;
+
+.font150[_Tidy Quantitative Financial Analysis_]
+
+---
+layout: true
+
+### &gt;&gt; `tidyquant` 包
+
+---
+
+.code100[
+
+```r
+library(tidyverse)
+*library(tidyquant)     # install.packages("tidyquant")
+# tidyquant包会自动载入lubridate -&gt; timechange,  
+#     PerformanceAnalytics -&gt; zoo / xts, quantmod -&gt; TTR 等包
+```
+]
+
+--
+
+.pull-left[
+.full-width[.content-box-blue.bold.font130[核心函数 &amp;nbsp;&amp;nbsp;&amp;nbsp; 👉]]
+]
+
+.pull-right[
+&lt;img src="imgs/tidyquant-01.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+layout: true
+
+### &gt;&gt; `tidyquant`：导入数据
+
+---
+
+.code90[
+
+```r
+tiingo_api_key("RIINGO_TOKEN")  # 需到 https://www.tiingo.com/ 注册账号获取令牌
+set.seed(123456)
+(SP500_sample &lt;- 
+* tq_index("SP500") %&gt;%
+  slice_sample(n = 10) %&gt;% pull("symbol") %&gt;% 
+* tq_get(
+    get  = "tiingo", # ~~get = "stock.prices"~~
+    from = "2018-12-31",
+    to   = "2021-12-31",
+    complete_cases = TRUE   # default
+  ))   # tq_*() returns data in tibble!
+```
+
+```
+#&gt; # A tibble: 7,580 × 14
+#&gt;   symbol date                 open  high   low close volume adjus…¹ adjHigh adjLow adjOpen
+#&gt;   &lt;chr&gt;  &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 INTC   2018-12-31 00:00:00  47.1  47.5  46.6  46.9 2.05e7    41.9    42.4   41.6    42.1
+#&gt; 2 INTC   2019-01-02 00:00:00  46.0  47.5  45.8  47.1 1.88e7    42.0    42.4   40.9    41.0
+#&gt; 3 INTC   2019-01-03 00:00:00  46.2  46.3  44.4  44.5 3.23e7    39.7    41.3   39.6    41.2
+#&gt; # … with 7,577 more rows, 3 more variables: adjVolume &lt;int&gt;, divCash &lt;dbl&gt;,
+#&gt; #   splitFactor &lt;dbl&gt;, and abbreviated variable name ¹​adjusted
+```
+]
+
+---
+
+.code90[
+
+```r
+# tq_index() returns the stock symbol, company name, weight, sector, etc.
+# of every stock in an index.
+tq_index_options()
+```
+
+```
+#&gt; [1] "DOW"       "DOWGLOBAL" "SP400"     "SP500"     "SP600"
+```
+
+```r
+# tq_exchange() returns the stock symbol, company, last sale price, 
+# market capitalization, sector and industry of every stock in an exchange.
+tq_exchange_options()
+```
+
+```
+#&gt; [1] "AMEX"   "NASDAQ" "NYSE"
+```
+
+```r
+# tq_get() is a consolidated function that gets data from various web sources.
+tq_get_options()
+```
+
+```
+#&gt;  [1] "stock.prices"       "stock.prices.japan" "dividends"          "splits"            
+#&gt;  [5] "economic.data"      "quandl"             "quandl.datatable"   "tiingo"            
+#&gt;  [9] "tiingo.iex"         "tiingo.crypto"      "alphavantager"      "alphavantage"      
+#&gt; [13] "rblpapi"
+```
+]
+
+---
+
+layout: true
+
+### &gt;&gt; `tidyquant`：数据转化
+
+---
+
+.code90[
+
+```r
+(SP500_ret &lt;- SP500_sample %&gt;% 
+  group_by(symbol) %&gt;% 
+* tq_transmute(
+    select     = adjusted,      # the columns passed to the mutate_fun
+*   mutate_fun = periodReturn,  # mutation function
+    col_rename = "dr",          # a character vector to rename columns
+    # ... parameters passed to the mutate_fun
+    period     = "daily", 
+    type       = "log", 
+    leading    = FALSE
+  ))
+```
+
+```
+#&gt; # A tibble: 7,580 × 3
+#&gt; # Groups:   symbol [10]
+#&gt;   symbol date                      dr
+#&gt;   &lt;chr&gt;  &lt;dttm&gt;                 &lt;dbl&gt;
+#&gt; 1 INTC   2018-12-31 00:00:00 NA      
+#&gt; 2 INTC   2019-01-02 00:00:00  0.00319
+#&gt; 3 INTC   2019-01-03 00:00:00 -0.0566 
+#&gt; # … with 7,577 more rows
+```
+]
+
+---
+
+.code75[
+
+```r
+tq_mutate_fun_options()[c("xts", "zoo", "quantmod")]  # 27 + 14 + 25
+```
+
+```
+#&gt; $xts
+#&gt;  [1] "apply.daily"     "apply.monthly"   "apply.quarterly" "apply.weekly"   
+#&gt;  [5] "apply.yearly"    "diff.xts"        "lag.xts"         "period.apply"   
+#&gt;  [9] "period.max"      "period.min"      "period.prod"     "period.sum"     
+#&gt; [13] "periodicity"     "to.daily"        "to.hourly"       "to.minutes"     
+#&gt; [17] "to.minutes10"    "to.minutes15"    "to.minutes3"     "to.minutes30"   
+#&gt; [21] "to.minutes5"     "to.monthly"      "to.period"       "to.quarterly"   
+#&gt; [25] "to.weekly"       "to.yearly"       "to_period"      
+#&gt; 
+#&gt; $zoo
+#&gt;  [1] "rollapply"          "rollapplyr"         "rollmax"            "rollmax.default"   
+#&gt;  [5] "rollmaxr"           "rollmean"           "rollmean.default"   "rollmeanr"         
+#&gt;  [9] "rollmedian"         "rollmedian.default" "rollmedianr"        "rollsum"           
+#&gt; [13] "rollsum.default"    "rollsumr"          
+#&gt; 
+#&gt; $quantmod
+#&gt;  [1] "allReturns"      "annualReturn"    "ClCl"            "dailyReturn"    
+#&gt;  [5] "Delt"            "HiCl"            "Lag"             "LoCl"           
+#&gt;  [9] "LoHi"            "monthlyReturn"   "Next"            "OpCl"           
+#&gt; [13] "OpHi"            "OpLo"            "OpOp"            "periodReturn"   
+#&gt; [17] "quarterlyReturn" "seriesAccel"     "seriesDecel"     "seriesDecr"     
+#&gt; [21] "seriesHi"        "seriesIncr"      "seriesLo"        "weeklyReturn"   
+#&gt; [25] "yearlyReturn"
+```
+]
+
+---
+
+.code75[
+
+```r
+tq_mutate_fun_options()[c("TTR", "PerformanceAnalytics")]  # 63 + 7
+```
+
+```
+#&gt; $TTR
+#&gt;  [1] "adjRatios"          "ADX"                "ALMA"               "aroon"             
+#&gt;  [5] "ATR"                "BBands"             "CCI"                "chaikinAD"         
+#&gt;  [9] "chaikinVolatility"  "CLV"                "CMF"                "CMO"               
+#&gt; [13] "CTI"                "DEMA"               "DonchianChannel"    "DPO"               
+#&gt; [17] "DVI"                "EMA"                "EMV"                "EVWMA"             
+#&gt; [21] "GMMA"               "growth"             "HMA"                "keltnerChannels"   
+#&gt; [25] "KST"                "lags"               "MACD"               "MFI"               
+#&gt; [29] "momentum"           "OBV"                "PBands"             "ROC"               
+#&gt; [33] "rollSFM"            "RSI"                "runCor"             "runCov"            
+#&gt; [37] "runMAD"             "runMax"             "runMean"            "runMedian"         
+#&gt; [41] "runMin"             "runPercentRank"     "runSD"              "runSum"            
+#&gt; [45] "runVar"             "SAR"                "SMA"                "SMI"               
+#&gt; [49] "SNR"                "stoch"              "TDI"                "TRIX"              
+#&gt; [53] "ultimateOscillator" "VHF"                "VMA"                "volatility"        
+#&gt; [57] "VWAP"               "VWMA"               "wilderSum"          "williamsAD"        
+#&gt; [61] "WMA"                "WPR"                "ZigZag"             "ZLEMA"             
+#&gt; 
+#&gt; $PerformanceAnalytics
+#&gt; [1] "Return.annualized"        "Return.annualized.excess" "Return.clean"            
+#&gt; [4] "Return.cumulative"        "Return.excess"            "Return.Geltner"          
+#&gt; [7] "zerofill"
+```
+]
+
+---
+layout: true
+
+### &gt;&gt; `tidyquant`：数据分析
+
+---
+
+.pull-left.code90[
+
+```r
+# use mutate() or summarise()
+SP500_ret %&gt;% 
+  filter(!is.na(dr)) %&gt;% 
+  summarise(
+    mean_ret = mean(dr),
+    sd_ret   = sd(dr),
+    n_ret    = n()
+  ) %&gt;% print(n = 10)
+```
+
+```
+#&gt; # A tibble: 10 × 4
+#&gt;    symbol  mean_ret sd_ret n_ret
+#&gt;    &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;
+#&gt;  1 AFL    0.000424  0.0229   757
+#&gt;  2 AME    0.00105   0.0195   757
+#&gt;  3 ATO    0.000254  0.0175   757
+#&gt;  4 ED     0.000296  0.0169   757
+#&gt;  5 ICE    0.000837  0.0164   757
+#&gt;  6 INTC   0.000221  0.0248   757
+#&gt;  7 MTD    0.00145   0.0193   757
+#&gt;  8 SPG    0.000151  0.0362   757
+#&gt;  9 VZ     0.0000665 0.0118   757
+#&gt; 10 WELL   0.000436  0.0299   757
+```
+
+]
+
+--
+
+.pull-right.code90[
+
+```r
+# use tq_performance()
+SP500_ret %&gt;%
+* tq_performance(
+    Ra = dr,  # Rb = NULL,
+*   performance_fun =
+*     table.AnnualizedReturns,
+    geometric = FALSE  # ...
+  )
+```
+
+```
+#&gt; # A tibble: 10 × 4
+#&gt; # Groups:   symbol [10]
+#&gt;   symbol Annualiz…¹ Annua…² Annua…³
+#&gt;   &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 INTC       0.0557  0.141    0.394
+#&gt; 2 MTD        0.366   1.20     0.306
+#&gt; 3 VZ         0.0168  0.0896   0.187
+#&gt; 4 ATO        0.0639  0.230    0.277
+#&gt; # … with 6 more rows, and
+#&gt; #   abbreviated variable names
+#&gt; #   ¹​AnnualizedReturn,
+#&gt; #   ²​`AnnualizedSharpe(Rf=0%)`,
+#&gt; #   ³​AnnualizedStdDev
+```
+]
+
+---
+
+.code75[
+
+```r
+tq_performance_fun_options()[1:4]  # 19 + 13 + 7 + 9
+```
+
+```
+#&gt; $table.funs
+#&gt;  [1] "table.AnnualizedReturns" "table.Arbitrary"         "table.Autocorrelation"  
+#&gt;  [4] "table.CAPM"              "table.CaptureRatios"     "table.Correlation"      
+#&gt;  [7] "table.Distributions"     "table.DownsideRisk"      "table.DownsideRiskRatio"
+#&gt; [10] "table.DrawdownsRatio"    "table.HigherMoments"     "table.InformationRatio" 
+#&gt; [13] "table.RollingPeriods"    "table.SFM"               "table.SpecificRisk"     
+#&gt; [16] "table.Stats"             "table.TrailingPeriods"   "table.UpDownRatios"     
+#&gt; [19] "table.Variability"      
+#&gt; 
+#&gt; $CAPM.funs
+#&gt;  [1] "CAPM.alpha"       "CAPM.beta"        "CAPM.beta.bear"   "CAPM.beta.bull"  
+#&gt;  [5] "CAPM.CML"         "CAPM.CML.slope"   "CAPM.dynamic"     "CAPM.epsilon"    
+#&gt;  [9] "CAPM.jensenAlpha" "CAPM.RiskPremium" "CAPM.SML.slope"   "TimingRatio"     
+#&gt; [13] "MarketTiming"    
+#&gt; 
+#&gt; $SFM.funs
+#&gt; [1] "SFM.alpha"       "SFM.beta"        "SFM.CML"         "SFM.CML.slope"  
+#&gt; [5] "SFM.dynamic"     "SFM.epsilon"     "SFM.jensenAlpha"
+#&gt; 
+#&gt; $descriptive.funs
+#&gt; [1] "mean"           "sd"             "min"            "max"            "cor"           
+#&gt; [6] "mean.geometric" "mean.stderr"    "mean.LCL"       "mean.UCL"
+```
+]
+
+---
+
+.code80[
+
+```r
+tq_performance_fun_options()[5:9]  # 4 + 5 + 14 + 6 + 6
+```
+
+```
+#&gt; $annualized.funs
+#&gt; [1] "Return.annualized"        "Return.annualized.excess" "sd.annualized"           
+#&gt; [4] "SharpeRatio.annualized"  
+#&gt; 
+#&gt; $VaR.funs
+#&gt; [1] "VaR"  "ES"   "ETL"  "CDD"  "CVaR"
+#&gt; 
+#&gt; $moment.funs
+#&gt;  [1] "var"              "cov"              "skewness"         "kurtosis"        
+#&gt;  [5] "CoVariance"       "CoSkewness"       "CoSkewnessMatrix" "CoKurtosis"      
+#&gt;  [9] "CoKurtosisMatrix" "M3.MM"            "M4.MM"            "BetaCoVariance"  
+#&gt; [13] "BetaCoSkewness"   "BetaCoKurtosis"  
+#&gt; 
+#&gt; $drawdown.funs
+#&gt; [1] "AverageDrawdown"   "AverageLength"     "AverageRecovery"   "DrawdownDeviation"
+#&gt; [5] "DrawdownPeak"      "maxDrawdown"      
+#&gt; 
+#&gt; $Bacon.risk.funs
+#&gt; [1] "MeanAbsoluteDeviation" "Frequency"             "SharpeRatio"          
+#&gt; [4] "MSquared"              "MSquaredExcess"        "HurstIndex"
+```
+]
+
+---
+
+.code75[
+
+```r
+tq_performance_fun_options()[10:14]  # 12 + 4 + 7 + 20 + 3
+```
+
+```
+#&gt; $Bacon.regression.funs
+#&gt;  [1] "CAPM.alpha"       "CAPM.beta"        "CAPM.epsilon"     "CAPM.jensenAlpha"
+#&gt;  [5] "SystematicRisk"   "SpecificRisk"     "TotalRisk"        "TreynorRatio"    
+#&gt;  [9] "AppraisalRatio"   "FamaBeta"         "Selectivity"      "NetSelectivity"  
+#&gt; 
+#&gt; $Bacon.relative.risk.funs
+#&gt; [1] "ActivePremium"    "ActiveReturn"     "TrackingError"    "InformationRatio"
+#&gt; 
+#&gt; $Bacon.drawdown.funs
+#&gt; [1] "PainIndex"     "PainRatio"     "CalmarRatio"   "SterlingRatio" "BurkeRatio"   
+#&gt; [6] "MartinRatio"   "UlcerIndex"   
+#&gt; 
+#&gt; $Bacon.downside.risk.funs
+#&gt;  [1] "DownsideDeviation"     "DownsidePotential"     "DownsideFrequency"    
+#&gt;  [4] "SemiDeviation"         "SemiVariance"          "UpsideRisk"           
+#&gt;  [7] "UpsidePotentialRatio"  "UpsideFrequency"       "BernardoLedoitRatio"  
+#&gt; [10] "DRatio"                "Omega"                 "OmegaSharpeRatio"     
+#&gt; [13] "OmegaExcessReturn"     "SortinoRatio"          "M2Sortino"            
+#&gt; [16] "Kappa"                 "VolatilitySkewness"    "AdjustedSharpeRatio"  
+#&gt; [19] "SkewnessKurtosisRatio" "ProspectRatio"        
+#&gt; 
+#&gt; $misc.funs
+#&gt; [1] "KellyRatio"   "Modigliani"   "UpDownRatios"
+```
+]
+
+---
+layout: false
+
+### &gt;&gt; `tidyquant`：vignettes &amp; .red[[{{business science blog}}](http://www.business-science.io/blog/index.html)]
+
+
+```r
+browseVignettes(package = 'tidyquant')
+
+# tidyquant::TQ00-introduction-to-tidyquant
+#   Introduction to tidyquant
+
+# tidyquant::TQ01-core-functions-in-tidyquant
+#   Core Functions in tidyquant
+
+# tidyquant::TQ02-quant-integrations-in-tidyquant
+#   R Quantitative Analysis Package Integrations in tidyquant
+
+# tidyquant::TQ03-scaling-and-modeling-with-tidyquant
+#   Scaling Your Analysis with tidyquant
+
+# tidyquant::TQ04-charting-with-tidyquant
+#   Charting with tidyquant
+
+# tidyquant::TQ05-performance-analysis-with-tidyquant
+#   Performance Analysis with tidyquant
+
+*# tidyquant::TQ06-excel-in-r
+*#   Excel in R - tidyquant 1.0.0
+```
+
+---
+
+### &gt;&gt; `tidyquant`：[{{r for excel user}}](https://www.business-science.io/finance/2020/02/26/r-for-excel-users.html)
+
+.pull-left[
+
+```r
+FANG %&gt;% 
+  pivot_table(
+    .row     = symbol, 
+    .columns = ~ year(date),
+    .values  = ~ PCT_CHANGE_FIRSTLAST(
+                   adjusted)
+  )
+```
+
+```
+#&gt; # A tibble: 4 × 5
+#&gt;   symbol `2013`  `2014` `2015` `2016`
+#&gt;   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+#&gt; 1 AMZN    0.550 -0.220   1.19  0.177 
+#&gt; 2 FB      0.952  0.426   0.334 0.126 
+#&gt; 3 GOOG    0.550 -0.0532  0.446 0.0404
+#&gt; 4 NFLX    3.00  -0.0585  1.29  0.126
+```
+
+&lt;br&gt;
+
+.bold.font110[_emmmm_，`tidyquant::pivot_table()` 接口真香！🌹 😍]
+
+]
+
+--
+
+.pull-right[
+
+.bold.font110[当然，你也可以选择“呆在净土界”（stay in `tidyverse`），通过各式函数的管道组合来实现同样的结果！😎 👍]
+
+
+```r
+FANG %&gt;% 
+  group_by(symbol, yr = year(date)) %&gt;% 
+  summarise(ret = last(adjusted) / 
+                  first(adjusted) - 1,
+            .groups = "drop") %&gt;% 
+  pivot_wider(id_cols     = symbol, 
+              names_from  = yr, 
+              values_from = ret)
+```
+
+```
+#&gt; # A tibble: 4 × 5
+#&gt;   symbol `2013`  `2014` `2015` `2016`
+#&gt;   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+#&gt; 1 AMZN    0.550 -0.220   1.19  0.177 
+#&gt; 2 FB      0.952  0.426   0.334 0.126 
+#&gt; 3 GOOG    0.550 -0.0532  0.446 0.0404
+#&gt; 4 NFLX    3.00  -0.0585  1.29  0.126
+```
+]
+
+---
+layout: false
+class: inverse, center, middle
+background-image: url(imgs/logo-tsibble.png), url(imgs/bg.png)
+background-size: 10%, 100%
+background-position: 22% 32%, 0% 100%
+
+# 2. `tsibble` 包 &lt;sup&gt;.font60[v1.1.3]&lt;/sup&gt;
+
+.font150[_Tidy Temporal Data Frames and Tools_]
+
+.font120[&lt;br&gt;_Data Infrastructure for_ [{{`tidyverts`}}](https://github.com/tidyverts)]
+
+---
+
+### &gt;&gt; `tsibble` 包
+
+.code90[
+
+```r
+library(tsibble)   # install.packages("tsibble")
+```
+]
+
+--
+
+.full-width[.content-box-blue.bold.font120[在 `tbl_ts` 数据结构中]]
+
+1. **`key`** is a set of variables that define observational units over time.
+
+2. **`index`** is a variable with inherent ordering from past to present.
+
+3. Each observation should be uniquely identified by **`key`** and **`index`**.
+
+4. Each observational unit should be measured at a common interval, if regularly spaced.
+
+&lt;br&gt;
+&lt;img src="imgs/tsibble-semantics.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+### &gt;&gt; `tsibble`：`as_tsibble()` 强制转化为`tbl_ts`
+
+.code90[
+
+```r
+# 将数据集FANG转化为tbl_ts
+data(FANG)  # 在tidyquant包中
+class(FANG) # FANG is a tibble
+```
+
+```
+#&gt; [1] "tbl_df"     "tbl"        "data.frame"
+```
+]
+
+--
+
+.code90[
+
+```r
+*FANG &lt;- as_tsibble(FANG, key = symbol, index = date)
+# (x, key = NULL, index, regular = TRUE, validate = TRUE, .drop = TRUE, ...)
+class(FANG) # now FANG is a tsibble
+```
+
+```
+#&gt; [1] "tbl_ts"     "tbl_df"     "tbl"        "data.frame"
+```
+]
+
+--
+
+.code90[
+
+```r
+FANG
+```
+
+```
+*#&gt; # A tsibble: 4,032 x 8 [1D]
+*#&gt; # Key:       symbol [4]
+#&gt;   symbol date        open  high   low close  volume adjusted
+#&gt;   &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 AMZN   2013-01-02  256.  258.  253.  257. 3271000     257.
+#&gt; 2 AMZN   2013-01-03  257.  261.  256.  258. 2750900     258.
+#&gt; 3 AMZN   2013-01-04  258.  260.  257.  259. 1874200     259.
+#&gt; # … with 4,029 more rows
+```
+]
+
+---
+
+### &gt;&gt; `tsibble`：`filter_index()` 选取时间子集
+
+.code90[
+
+```r
+(FANG_2016 &lt;- FANG %&gt;% filter_index("2016"))
+```
+
+```
+#&gt; # A tsibble: 1,008 x 8 [1D]
+#&gt; # Key:       symbol [4]
+#&gt;   symbol date        open  high   low close  volume adjusted
+#&gt;   &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 AMZN   2016-01-04  656.  658.  628.  637. 9314500     637.
+#&gt; 2 AMZN   2016-01-05  647.  647.  628.  634. 5822600     634.
+#&gt; 3 AMZN   2016-01-06  622   640.  620.  633. 5329200     633.
+#&gt; # … with 1,005 more rows
+```
+
+```r
+FANG_2016 %&gt;% filter_index(~ "2016-01-05", "2016-12-29" ~ .)
+```
+
+```
+#&gt; # A tsibble: 16 x 8 [1D]
+#&gt; # Key:       symbol [4]
+#&gt;   symbol date        open  high   low close  volume adjusted
+#&gt;   &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+#&gt; 1 AMZN   2016-01-04  656.  658.  628.  637. 9314500     637.
+#&gt; 2 AMZN   2016-01-05  647.  647.  628.  634. 5822600     634.
+#&gt; 3 AMZN   2016-12-29  772.  773.  761.  765. 3153500     765.
+#&gt; # … with 13 more rows
+```
+]
+
+---
+
+### &gt;&gt; `tsibble`：`index_by()` + `summarise()` 修改时间粒度
+
+.pull-left.code80[
+
+```r
+FANG_2016 %&gt;% index_by()
+```
+
+```
+#&gt; # A tsibble: 1,008 x 8 [1D]
+#&gt; # Key:       symbol [4]
+*#&gt; # Groups:    @ date [252]
+#&gt;   symbol date        open  high   low
+#&gt;   &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 AMZN   2016-01-04  656.  658.  628.
+#&gt; 2 AMZN   2016-01-05  647.  647.  628.
+#&gt; 3 AMZN   2016-01-06  622   640.  620.
+#&gt; # … with 1,005 more rows, and 3 more
+#&gt; #   variables: close &lt;dbl&gt;,
+#&gt; #   volume &lt;dbl&gt;, adjusted &lt;dbl&gt;
+```
+
+
+```r
+FANG_2016 %&gt;% 
+* group_by_key() %&gt;%
+  index_by()
+```
+
+```
+#&gt; # A tsibble: 1,008 x 8 [1D]
+#&gt; # Key:       symbol [4]
+*#&gt; # Groups:    symbol @ date [1,008]
+#&gt;   symbol date        open  high   low
+#&gt;   &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 AMZN   2016-01-04  656.  658.  628.
+#&gt; 2 AMZN   2016-01-05  647.  647.  628.
+#&gt; 3 AMZN   2016-01-06  622   640.  620.
+#&gt; # … with 1,005 more rows, and 3 more
+#&gt; #   variables: close &lt;dbl&gt;,
+#&gt; #   volume &lt;dbl&gt;, adjusted &lt;dbl&gt;
+```
+]
+
+--
+
+.pull-right.code90[
+
+```r
+FANG_2016 %&gt;% 
+  group_by_key() %&gt;%
+  index_by(
+    bimonth = 
+*     ~ floor_date(., "2 months")
+  ) %&gt;% 
+  summarise(
+    HIGH = max(high),
+    LOW = min(low)
+  )
+```
+
+```
+#&gt; # A tsibble: 24 x 4 [1D]
+#&gt; # Key:       symbol [4]
+#&gt;   symbol bimonth     HIGH   LOW
+#&gt;   &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 AMZN   2016-01-01  658. 474  
+#&gt; 2 AMZN   2016-03-01  670. 539. 
+#&gt; 3 AMZN   2016-05-01  732. 656  
+#&gt; 4 AMZN   2016-07-01  775. 717. 
+#&gt; 5 AMZN   2016-09-01  847. 756  
+#&gt; 6 AMZN   2016-11-01  801. 710. 
+#&gt; 7 FB     2016-01-01  118.  89.4
+#&gt; # … with 17 more rows
+```
+]
+
+---
+
+### &gt;&gt; `tsibble`：`*_gaps()` 检查、处理时间缺口
+
+.code100[
+
+```r
+FANG_2016 %&gt;% count_gaps()
+```
+
+```
+#&gt; # A tibble: 208 × 4
+#&gt;    symbol .from      .to           .n
+#&gt;    &lt;chr&gt;  &lt;date&gt;     &lt;date&gt;     &lt;int&gt;
+#&gt;  1 AMZN   2016-01-09 2016-01-10     2
+#&gt;  2 AMZN   2016-01-16 2016-01-18     3
+#&gt;  3 AMZN   2016-01-23 2016-01-24     2
+#&gt;  4 AMZN   2016-01-30 2016-01-31     2
+#&gt;  5 AMZN   2016-02-06 2016-02-07     2
+#&gt;  6 AMZN   2016-02-13 2016-02-15     3
+#&gt;  7 AMZN   2016-02-20 2016-02-21     2
+#&gt;  8 AMZN   2016-02-27 2016-02-28     2
+#&gt;  9 AMZN   2016-03-05 2016-03-06     2
+#&gt; 10 AMZN   2016-03-12 2016-03-13     2
+#&gt; # … with 198 more rows
+```
+
+```r
+# has_gaps() | scan_gaps() | fill_gaps()
+```
+]
+
+---
+layout: false
+class: inverse, center, middle
+
+# 3. `slider` 包 &lt;sup&gt;.font60[v0.3.0]&lt;/sup&gt;
+
+.font150[_Sliding Window Functions_]
+
+---
+layout: true
+
+### &gt;&gt; `slider` 包
+
+---
+
+.full-width[.content-box-blue.bold.font120[`purrr`-like Type-stable .red[Window Functions] Over Any R Data Type]]
+
+--
+
+&lt;img src="imgs/windows.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+.full-width[.content-box-blue.bold.font120[.red[`purrr`-like Type Stable] Window Functions Over Any R Data Type]]
+
+.font110[
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Function &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; list &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; *_lgl &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; *_int &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; *_dbl &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; *_chr &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; *_dfc &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; *_dfr &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; *_vec &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt; slide() &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt; slide_index() &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt; slide_period() &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt; slide2() &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt; slide_index2() &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt; slide_period2() &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt; pslide() &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt; pslide_index() &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt; pslide_period() &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;text-align: center;"&gt; [p]hop*()    &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;text-align: center;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;text-align: center;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;text-align: center;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;text-align: center;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;text-align: center;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;text-align: center;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;text-align: center;"&gt; - &lt;/td&gt;
+   &lt;td style="text-align:left;min-width: 3em; font-family: monospace;font-weight: bold;color: red !important;text-align: center;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+---
+layout: true
+
+### &gt;&gt; `slide(.x, .f, ..., .before = 0L, .after = 0L, .step = 1L, .complete = FALSE)`
+
+---
+
+.code90[
+
+```r
+*library(slider)
+FANG_2016 %&gt;% 
+  group_by_key() %&gt;%  # 等于group_by(symbol)
+  mutate(
+*   ma5  = slide_dbl(adjusted, mean, .before = 4, .complete = TRUE),
+*   ma20 = slide_dbl(adjusted, ~ mean(.x), .before = 19, .complete = TRUE)
+  )
+```
+
+```
+#&gt; # A tsibble: 1,008 x 10 [1D]
+#&gt; # Key:       symbol [4]
+#&gt; # Groups:    symbol [4]
+#&gt;    symbol date        open  high   low close  volume adjusted   ma5  ma20
+#&gt;    &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt;  1 AMZN   2016-01-04  656.  658.  628.  637. 9314500     637.   NA     NA
+#&gt;  2 AMZN   2016-01-05  647.  647.  628.  634. 5822600     634.   NA     NA
+#&gt;  3 AMZN   2016-01-06  622   640.  620.  633. 5329200     633.   NA     NA
+#&gt;  4 AMZN   2016-01-07  622.  630   605.  608. 7074900     608.   NA     NA
+#&gt;  5 AMZN   2016-01-08  620.  624.  606   607. 5512900     607.  624.    NA
+#&gt;  6 AMZN   2016-01-11  612.  620.  599.  618. 4891600     618.  620.    NA
+#&gt;  7 AMZN   2016-01-12  625.  626.  612.  618. 4724100     618.  617.    NA
+#&gt;  8 AMZN   2016-01-13  621.  621.  579.  582. 7655200     582.  606.    NA
+#&gt;  9 AMZN   2016-01-14  580.  602.  570.  593  7238000     593   603.    NA
+#&gt; 10 AMZN   2016-01-15  572.  585.  565.  570. 7754500     570.  596.    NA
+#&gt; # … with 998 more rows
+```
+]
+
+---
+
+.code90[
+
+```r
+FANG_2016 %&gt;% group_by_key() %&gt;% 
+* mutate(ma20 = slide_dbl(adjusted, mean, .before = 19, .complete = TRUE)) %&gt;%
+  ggplot(aes(x = date)) +
+    geom_line(aes(y = adjusted)) +
+    geom_line(aes(y = ma20), color = "red", size = 1) +
+    labs(x = "", y = "Adjusted Closing Price") + 
+    facet_wrap(vars(symbol), ncol = 2, scales = "free") + theme_tq()
+```
+
+&lt;img src="L09_tidyquant_files/figure-html/unnamed-chunk-33-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+layout: false
+
+### &gt;&gt; `slide_index(.x, ` .bold.red[`.i,`] ` .f, ..., .before = 0L, .after = 0L, ` ~~`.step = 1L, `~~ `.complete = FALSE)` 🆚 `slide()`
+
+.code90[
+
+```r
+FANG_2016 %&gt;% group_by_key() %&gt;% 
+  mutate(
+    ma5  = slide_dbl(adjusted, mean, .before = 4, .complete = TRUE),
+    ma5d = slide_index_dbl(adjusted, date, mean, .before = 4,
+                           .complete = TRUE)   # .before = days(4)
+  )
+```
+
+```
+#&gt; # A tsibble: 1,008 x 10 [1D]
+#&gt; # Key:       symbol [4]
+#&gt; # Groups:    symbol [4]
+#&gt;    symbol date        open  high   low close  volume adjusted   ma5  ma5d
+#&gt;    &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+#&gt;  1 AMZN   2016-01-04  656.  658.  628.  637. 9314500     637.   NA    NA 
+#&gt;  2 AMZN   2016-01-05  647.  647.  628.  634. 5822600     634.   NA    NA 
+#&gt;  3 AMZN   2016-01-06  622   640.  620.  633. 5329200     633.   NA    NA 
+#&gt;  4 AMZN   2016-01-07  622.  630   605.  608. 7074900     608.   NA    NA 
+#&gt;  5 AMZN   2016-01-08  620.  624.  606   607. 5512900     607.  624.  624.
+*#&gt;  6 AMZN   2016-01-11  612.  620.  599.  618. 4891600     618.  620.  611.
+*#&gt;  7 AMZN   2016-01-12  625.  626.  612.  618. 4724100     618.  617.  614.
+*#&gt;  8 AMZN   2016-01-13  621.  621.  579.  582. 7655200     582.  606.  606.
+*#&gt;  9 AMZN   2016-01-14  580.  602.  570.  593  7238000     593   603.  603.
+#&gt; 10 AMZN   2016-01-15  572.  585.  565.  570. 7754500     570.  596.  596.
+#&gt; # … with 998 more rows
+```
+]
+
+---
+
+### &gt;&gt; `slide_period(.x, .i, ` .red[`.period, `] `.f, ..., .every = 1L, .origin=NULL, .before=0L, .after=0L, .complete=FALSE)`
+
+.pull-left.code90[
+
+```r
+i &lt;- c(as.Date("2019-08-30") + 0:2, 
+       as.Date("2019-11-30") + 0:2)
+i
+```
+
+```
+#&gt; [1] "2019-08-30" "2019-08-31" "2019-09-01" "2019-11-30" "2019-12-01" "2019-12-02"
+```
+
+```r
+slide_period(i, i, "month", ~ .x, 
+             .before = 1)
+```
+
+```
+#&gt; [[1]]
+#&gt; [1] "2019-08-30" "2019-08-31"
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] "2019-08-30" "2019-08-31" "2019-09-01"
+#&gt; 
+#&gt; [[3]]
+#&gt; [1] "2019-11-30"
+#&gt; 
+#&gt; [[4]]
+#&gt; [1] "2019-11-30" "2019-12-01" "2019-12-02"
+```
+]
+
+--
+
+.pull-right.code90[
+
+```r
+sales &lt;- 1:6
+sales_df &lt;- tibble(i = i, s = sales)
+
+*bm_summary &lt;- function(data) {
+* summarise(data, idx = max(i),
+*           sales = sum(s))
+*} 
+slide_period_dfr(
+  .x = sales_df, .i = sales_df$i,
+  .period = "month", .before = 1,
+* .f = bm_summary
+)
+```
+
+```
+#&gt; # A tibble: 4 × 2
+#&gt;   idx        sales
+#&gt;   &lt;date&gt;     &lt;int&gt;
+#&gt; 1 2019-08-31     3
+#&gt; 2 2019-09-01     6
+#&gt; 3 2019-11-30     4
+#&gt; 4 2019-12-02    15
+```
+]
+
+---
+
+### &gt;&gt; `hop(.x, ` .red[`.starts, .stops, `] `.f, ...)`
+
+.pull-left.code90[
+
+```r
+jan_1st_2016 &lt;- floor_date(
+  min(FANG_2016$date), "1 month"
+)
+jan_1st_2017 &lt;- ceiling_date(
+  max(FANG_2016$date), "1 month"
+)
+dates &lt;- seq(jan_1st_2016, 
+             jan_1st_2017, 
+             "1 month")
+(results &lt;- tibble(
+  starts = dates[1:10],
+  stops = dates[4:13] - 1
+))
+```
+
+```
+#&gt; # A tibble: 10 × 2
+#&gt;   starts     stops     
+#&gt;   &lt;date&gt;     &lt;date&gt;    
+#&gt; 1 2016-01-01 2016-03-31
+#&gt; 2 2016-02-01 2016-04-30
+#&gt; 3 2016-03-01 2016-05-31
+#&gt; # … with 7 more rows
+```
+]
+
+--
+
+.pull-right.code90[
+
+```r
+AMZN &lt;- FANG_2016 %&gt;% 
+  filter(symbol == "AMZN")
+results %&gt;%
+  mutate(
+*   total_volume = hop_index_vec(
+      .x = AMZN$volume, 
+      .i = AMZN$date,
+      .starts = starts,
+      .stops = stops,
+      .f = sum,
+      .ptype = double()
+    )
+  )
+```
+
+```
+#&gt; # A tibble: 10 × 3
+#&gt;   starts     stops      total_volume
+#&gt;   &lt;date&gt;     &lt;date&gt;            &lt;dbl&gt;
+#&gt; 1 2016-01-01 2016-03-31    348325200
+#&gt; 2 2016-02-01 2016-04-30    296594000
+#&gt; 3 2016-03-01 2016-05-31    263042800
+#&gt; # … with 7 more rows
+```
+]
+
+---
+layout: false
+class: inverse, center, middle
+
+# 4. 案例：上证50成分股
+
+.font150[_Case: SSE 50_]
+
+---
+layout: true
+
+### &gt;&gt; 4.1 导入数据
+
+---
+
+.code90[
+
+```r
+# # 从_中证指数有限公司_官网得到“上证50”成分股列表并下载至本地
+# SSE50_path &lt;- paste0(
+#   "https://csi-web-dev.oss-cn-shanghai-finance-1-pub.aliyuncs.com/",
+#   "static/html/csindex/public/uploads/file/autofile/cons/000016cons.xls")
+# download.file(SSE50_path, "data/SSE50cons.xls", mode = "wb")
+# 
+# # 用readxl包的read_excel()读入
+(SSE50_cons &lt;- readxl::read_excel(
+    "data/SSE50cons.xls",  # 这是我2022年11月新下载的成分股列表
+    range = "E2:F51", 
+    col_names = c("stk_cd", "stk_nm")
+  ) %&gt;% 
+  mutate(stk_cd = str_c(stk_cd, ".SH")))
+```
+
+```
+#&gt; # A tibble: 50 × 2
+#&gt;   stk_cd    stk_nm  
+#&gt;   &lt;chr&gt;     &lt;chr&gt;   
+#&gt; 1 600010.SH 包钢股份
+#&gt; 2 600690.SH 海尔智家
+#&gt; 3 600837.SH 海通证券
+#&gt; # … with 47 more rows
+```
+]
+
+---
+
+.code90[
+
+```r
+# 利用WindR包提供的接口从Wind批量下载日行情数据，若同学没有Wind账号，可跳过此步
+# 安装WindR包：Wind|我的|自动修复插件|修复R插件...
+library(WindR)
+w.start(showmenu = FALSE)
+```
+
+```
+#&gt; [1] "Welcome to use WIND Quant API for R (WindR)!"
+#&gt; [1] "You can use w.menu to help yourself to create commands(WSD,WSS,WST,WSI,WSQ,...)!"
+#&gt; [1] ""
+#&gt; [1] "COPYRIGHT (C) 2013-2020 WIND INFORMATION CO., LTD. ALL RIGHTS RESERVED."
+#&gt; [1] "IN NO CIRCUMSTANCE SHALL WIND BE RESPONSIBLE FOR ANY DAMAGES OR LOSSES CAUSED BY USING WIND QUANT API FOR R."
+```
+
+```
+#&gt; $ErrorCode
+#&gt; [1] 0
+#&gt; 
+#&gt; $ErrorMsg
+#&gt; [1] "OK!"
+```
+
+```r
+bgn &lt;- "20190630"; end &lt;- "20220630"
+SSE50_close &lt;- SSE50_cons %&gt;% 
+* mutate(price = map(stk_cd, w.wsd, "close", bgn, end, 'Priceadj=F'))
+
+w.stop()
+```
+
+```
+#&gt; [1] 0
+```
+]
+
+---
+
+.code100[
+
+```r
+# SSE50_close &lt;- read_rds("data/SSE50_close.rds")
+SSE50_close
+```
+
+```
+#&gt; # A tibble: 50 × 3
+#&gt;   stk_cd    stk_nm   price           
+#&gt;   &lt;chr&gt;     &lt;chr&gt;    &lt;list&gt;          
+#&gt; 1 600010.SH 包钢股份 &lt;named list [3]&gt;
+#&gt; 2 600690.SH 海尔智家 &lt;named list [3]&gt;
+#&gt; 3 600837.SH 海通证券 &lt;named list [3]&gt;
+#&gt; # … with 47 more rows
+```
+
+```r
+# 将w.wsd()返回列表中的“Data”元素逐一提取出来并解除嵌套
+(SSE50 &lt;- SSE50_close %&gt;% 
+  mutate(price = map(price, "Data")) %&gt;% 
+  unnest(cols = price) %&gt;% 
+  rename(date = DATETIME, close = CLOSE))
+```
+
+```
+#&gt; # A tibble: 36,450 × 4
+#&gt;   stk_cd    stk_nm   date       close
+#&gt;   &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;     &lt;dbl&gt;
+#&gt; 1 600010.SH 包钢股份 2019-07-01  1.69
+#&gt; 2 600010.SH 包钢股份 2019-07-02  1.67
+#&gt; 3 600010.SH 包钢股份 2019-07-03  1.65
+#&gt; # … with 36,447 more rows
+```
+]
+
+---
+layout: true
+
+### &gt;&gt; 4.2 数据转换
+
+---
+
+.code100[
+
+```r
+# 根据日收盘价变量close计算日收益率
+SSE50_ret &lt;- SSE50 %&gt;% 
+  group_by(stk_cd, stk_nm) %&gt;% 
+  arrange(date, .by_group = TRUE) %&gt;%  # 在此非必须，谨慎起见可加上
+  tq_transmute(
+    select     = close, 
+    mutate_fun = periodReturn, 
+    period     = "daily", 
+    col_rename = "Ra"
+  )
+SSE50_ret
+```
+
+```
+#&gt; # A tibble: 35,129 × 4
+#&gt; # Groups:   stk_cd, stk_nm [50]
+#&gt;   stk_cd    stk_nm   date            Ra
+#&gt;   &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;       &lt;dbl&gt;
+#&gt; 1 600010.SH 包钢股份 2019-07-01  0     
+#&gt; 2 600010.SH 包钢股份 2019-07-02 -0.0117
+#&gt; 3 600010.SH 包钢股份 2019-07-03 -0.0118
+#&gt; # … with 35,126 more rows
+```
+]
+
+---
+layout: true
+
+### &gt;&gt; 4.3 数据分析
+
+---
+
+.code100[
+
+```r
+# 构建并计算等权重组合（作为基准组合）的收益率
+wts &lt;- rep(0.02, times = 50)
+baseline_ret &lt;- SSE50_ret %&gt;%
+* tq_portfolio(  # -&gt; PerformanceAnalytics::Returns.portfolio()
+    assets_col   = stk_cd, 
+    returns_col  = Ra, 
+    weights      = wts,  # 默认等权重，可不设定
+    col_rename   = "Rb",
+    rebalance_on = "months"  # ...
+  )
+baseline_ret
+```
+
+```
+#&gt; # A tibble: 729 × 2
+#&gt;   date              Rb
+#&gt;   &lt;date&gt;         &lt;dbl&gt;
+#&gt; 1 2019-07-01  0       
+#&gt; 2 2019-07-02  0.000629
+#&gt; 3 2019-07-03 -0.0103  
+#&gt; # … with 726 more rows
+```
+]
+
+---
+
+.code90[
+
+```r
+# 合并收益率数据
+SSE50_baseline &lt;- left_join(SSE50_ret, baseline_ret, by = "date")
+# 基于CAPM的绩效评价结果
+SSE50_capm &lt;- SSE50_baseline %&gt;% 
+  tq_performance(
+    Ra = Ra, 
+    Rb = Rb, 
+    performance_fun = table.CAPM
+  ) %&gt;% 
+  arrange(desc(AnnualizedAlpha))
+SSE50_capm
+```
+
+```
+#&gt; # A tibble: 50 × 14
+#&gt; # Groups:   stk_cd, stk_nm [50]
+#&gt;   stk_cd    stk_nm   Active…¹  Alpha Annua…²  Beta `Beta-` `Beta+` Corre…³ Corre…⁴ Infor…⁵
+#&gt;   &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 600905.SH 三峡能源    0.641 0.0025   0.853 0.746    1.10 -0.0618   0.268       0    1.25
+#&gt; 2 600809.SH 山西汾酒    0.650 0.0019   0.596 1.18     1.39  0.770    0.487       0    1.54
+#&gt; 3 603799.SH 华友钴业    0.570 0.0016   0.496 1.58     1.46  1.37     0.503       0    1.03
+#&gt; # … with 47 more rows, 3 more variables: `R-squared` &lt;dbl&gt;, TrackingError &lt;dbl&gt;,
+#&gt; #   TreynorRatio &lt;dbl&gt;, and abbreviated variable names ¹​ActivePremium, ²​AnnualizedAlpha,
+#&gt; #   ³​Correlation, ⁴​`Correlationp-value`, ⁵​InformationRatio
+```
+]
+
+---
+
+.code90[
+
+```r
+# 年化Alpha最大的股票
+tgt_stk &lt;- SSE50_capm$stk_cd[[1]]
+# 计算动态相关系数
+tgt_cor &lt;- SSE50_baseline %&gt;% 
+  filter(stk_cd %in% tgt_stk) %&gt;% 
+  as_tsibble(index = date) %&gt;%  # 有助于保证排序正确，且无重复样本
+  mutate(
+    cor = slide2_dbl(
+      Ra, Rb, 
+      ~ cor(.x, .y, use = "pairwise.complete.obs"),
+      .before = 40,
+      .complete = TRUE
+    )
+  )
+tgt_cor %&gt;% tail()
+```
+
+```
+#&gt; # A tsibble: 6 x 6 [1D]
+#&gt; # Groups:    stk_cd, stk_nm [1]
+#&gt;   stk_cd    stk_nm   date             Ra      Rb   cor
+#&gt;   &lt;chr&gt;     &lt;chr&gt;    &lt;date&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+#&gt; 1 600905.SH 三峡能源 2022-06-23  0.00637 0.0190  0.681
+#&gt; 2 600905.SH 三峡能源 2022-06-24 -0.00791 0.00952 0.675
+#&gt; 3 600905.SH 三峡能源 2022-06-27 -0.0207  0.0157  0.572
+#&gt; # … with 3 more rows
+```
+]
+
+---
+
+&lt;style type="text/css"&gt;
+/*https://stackoverflow.com/questions/53687947/centering-a-dygraph-plot-in-r-markdown*/
+.html-widget {
+    margin: auto;
+}
+&lt;/style&gt;
+
+.code90[
+
+```r
+# 用 dygraphs 包作交互图（其它如 plotly、highcharter、rbokeh 等）
+library(dygraphs)
+tgt_cor %&gt;%  
+  as_tibble() %&gt;%  # 转成tibble
+* timetk::tk_xts(select = cor, date_var = date) %&gt;%  # 转成dygraphs支持更好的xts
+  dygraph(main = glue::glue("Correlation between {tgt_stk} and Baseline")) %&gt;%
+  dyAxis("y", label = "Correlation") %&gt;%
+  dyRangeSelector(height = 25)
+```
+
+<div id="htmlwidget-4902c27f6c5dee96c2f6" style="width:75%;height:300px;" class="dygraphs html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4902c27f6c5dee96c2f6">{"x":{"attrs":{"axes":{"x":{"pixelsPerLabel":60},"y":[]},"title":"Correlation between 600905.SH and Baseline","labels":["day","cor"],"legend":"auto","retainDateWindow":false,"ylabel":"Correlation","showRangeSelector":true,"rangeSelectorHeight":25,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel"},"scale":"daily","annotations":[],"shadings":[],"events":[],"format":"date","data":[["2021-06-10T00:00:00.000Z","2021-06-11T00:00:00.000Z","2021-06-15T00:00:00.000Z","2021-06-16T00:00:00.000Z","2021-06-17T00:00:00.000Z","2021-06-18T00:00:00.000Z","2021-06-21T00:00:00.000Z","2021-06-22T00:00:00.000Z","2021-06-23T00:00:00.000Z","2021-06-24T00:00:00.000Z","2021-06-25T00:00:00.000Z","2021-06-28T00:00:00.000Z","2021-06-29T00:00:00.000Z","2021-06-30T00:00:00.000Z","2021-07-01T00:00:00.000Z","2021-07-02T00:00:00.000Z","2021-07-05T00:00:00.000Z","2021-07-06T00:00:00.000Z","2021-07-07T00:00:00.000Z","2021-07-08T00:00:00.000Z","2021-07-09T00:00:00.000Z","2021-07-12T00:00:00.000Z","2021-07-13T00:00:00.000Z","2021-07-14T00:00:00.000Z","2021-07-15T00:00:00.000Z","2021-07-16T00:00:00.000Z","2021-07-19T00:00:00.000Z","2021-07-20T00:00:00.000Z","2021-07-21T00:00:00.000Z","2021-07-22T00:00:00.000Z","2021-07-23T00:00:00.000Z","2021-07-26T00:00:00.000Z","2021-07-27T00:00:00.000Z","2021-07-28T00:00:00.000Z","2021-07-29T00:00:00.000Z","2021-07-30T00:00:00.000Z","2021-08-02T00:00:00.000Z","2021-08-03T00:00:00.000Z","2021-08-04T00:00:00.000Z","2021-08-05T00:00:00.000Z","2021-08-06T00:00:00.000Z","2021-08-09T00:00:00.000Z","2021-08-10T00:00:00.000Z","2021-08-11T00:00:00.000Z","2021-08-12T00:00:00.000Z","2021-08-13T00:00:00.000Z","2021-08-16T00:00:00.000Z","2021-08-17T00:00:00.000Z","2021-08-18T00:00:00.000Z","2021-08-19T00:00:00.000Z","2021-08-20T00:00:00.000Z","2021-08-23T00:00:00.000Z","2021-08-24T00:00:00.000Z","2021-08-25T00:00:00.000Z","2021-08-26T00:00:00.000Z","2021-08-27T00:00:00.000Z","2021-08-30T00:00:00.000Z","2021-08-31T00:00:00.000Z","2021-09-01T00:00:00.000Z","2021-09-02T00:00:00.000Z","2021-09-03T00:00:00.000Z","2021-09-06T00:00:00.000Z","2021-09-07T00:00:00.000Z","2021-09-08T00:00:00.000Z","2021-09-09T00:00:00.000Z","2021-09-10T00:00:00.000Z","2021-09-13T00:00:00.000Z","2021-09-14T00:00:00.000Z","2021-09-15T00:00:00.000Z","2021-09-16T00:00:00.000Z","2021-09-17T00:00:00.000Z","2021-09-22T00:00:00.000Z","2021-09-23T00:00:00.000Z","2021-09-24T00:00:00.000Z","2021-09-27T00:00:00.000Z","2021-09-28T00:00:00.000Z","2021-09-29T00:00:00.000Z","2021-09-30T00:00:00.000Z","2021-10-08T00:00:00.000Z","2021-10-11T00:00:00.000Z","2021-10-12T00:00:00.000Z","2021-10-13T00:00:00.000Z","2021-10-14T00:00:00.000Z","2021-10-15T00:00:00.000Z","2021-10-18T00:00:00.000Z","2021-10-19T00:00:00.000Z","2021-10-20T00:00:00.000Z","2021-10-21T00:00:00.000Z","2021-10-22T00:00:00.000Z","2021-10-25T00:00:00.000Z","2021-10-26T00:00:00.000Z","2021-10-27T00:00:00.000Z","2021-10-28T00:00:00.000Z","2021-10-29T00:00:00.000Z","2021-11-01T00:00:00.000Z","2021-11-02T00:00:00.000Z","2021-11-03T00:00:00.000Z","2021-11-04T00:00:00.000Z","2021-11-05T00:00:00.000Z","2021-11-08T00:00:00.000Z","2021-11-09T00:00:00.000Z","2021-11-10T00:00:00.000Z","2021-11-11T00:00:00.000Z","2021-11-12T00:00:00.000Z","2021-11-15T00:00:00.000Z","2021-11-16T00:00:00.000Z","2021-11-17T00:00:00.000Z","2021-11-18T00:00:00.000Z","2021-11-19T00:00:00.000Z","2021-11-22T00:00:00.000Z","2021-11-23T00:00:00.000Z","2021-11-24T00:00:00.000Z","2021-11-25T00:00:00.000Z","2021-11-26T00:00:00.000Z","2021-11-29T00:00:00.000Z","2021-11-30T00:00:00.000Z","2021-12-01T00:00:00.000Z","2021-12-02T00:00:00.000Z","2021-12-03T00:00:00.000Z","2021-12-06T00:00:00.000Z","2021-12-07T00:00:00.000Z","2021-12-08T00:00:00.000Z","2021-12-09T00:00:00.000Z","2021-12-10T00:00:00.000Z","2021-12-13T00:00:00.000Z","2021-12-14T00:00:00.000Z","2021-12-15T00:00:00.000Z","2021-12-16T00:00:00.000Z","2021-12-17T00:00:00.000Z","2021-12-20T00:00:00.000Z","2021-12-21T00:00:00.000Z","2021-12-22T00:00:00.000Z","2021-12-23T00:00:00.000Z","2021-12-24T00:00:00.000Z","2021-12-27T00:00:00.000Z","2021-12-28T00:00:00.000Z","2021-12-29T00:00:00.000Z","2021-12-30T00:00:00.000Z","2021-12-31T00:00:00.000Z","2022-01-04T00:00:00.000Z","2022-01-05T00:00:00.000Z","2022-01-06T00:00:00.000Z","2022-01-07T00:00:00.000Z","2022-01-10T00:00:00.000Z","2022-01-11T00:00:00.000Z","2022-01-12T00:00:00.000Z","2022-01-13T00:00:00.000Z","2022-01-14T00:00:00.000Z","2022-01-17T00:00:00.000Z","2022-01-18T00:00:00.000Z","2022-01-19T00:00:00.000Z","2022-01-20T00:00:00.000Z","2022-01-21T00:00:00.000Z","2022-01-24T00:00:00.000Z","2022-01-25T00:00:00.000Z","2022-01-26T00:00:00.000Z","2022-01-27T00:00:00.000Z","2022-01-28T00:00:00.000Z","2022-02-07T00:00:00.000Z","2022-02-08T00:00:00.000Z","2022-02-09T00:00:00.000Z","2022-02-10T00:00:00.000Z","2022-02-11T00:00:00.000Z","2022-02-14T00:00:00.000Z","2022-02-15T00:00:00.000Z","2022-02-16T00:00:00.000Z","2022-02-17T00:00:00.000Z","2022-02-18T00:00:00.000Z","2022-02-21T00:00:00.000Z","2022-02-22T00:00:00.000Z","2022-02-23T00:00:00.000Z","2022-02-24T00:00:00.000Z","2022-02-25T00:00:00.000Z","2022-02-28T00:00:00.000Z","2022-03-01T00:00:00.000Z","2022-03-02T00:00:00.000Z","2022-03-03T00:00:00.000Z","2022-03-04T00:00:00.000Z","2022-03-07T00:00:00.000Z","2022-03-08T00:00:00.000Z","2022-03-09T00:00:00.000Z","2022-03-10T00:00:00.000Z","2022-03-11T00:00:00.000Z","2022-03-14T00:00:00.000Z","2022-03-15T00:00:00.000Z","2022-03-16T00:00:00.000Z","2022-03-17T00:00:00.000Z","2022-03-18T00:00:00.000Z","2022-03-21T00:00:00.000Z","2022-03-22T00:00:00.000Z","2022-03-23T00:00:00.000Z","2022-03-24T00:00:00.000Z","2022-03-25T00:00:00.000Z","2022-03-28T00:00:00.000Z","2022-03-29T00:00:00.000Z","2022-03-30T00:00:00.000Z","2022-03-31T00:00:00.000Z","2022-04-01T00:00:00.000Z","2022-04-06T00:00:00.000Z","2022-04-07T00:00:00.000Z","2022-04-08T00:00:00.000Z","2022-04-11T00:00:00.000Z","2022-04-12T00:00:00.000Z","2022-04-13T00:00:00.000Z","2022-04-14T00:00:00.000Z","2022-04-15T00:00:00.000Z","2022-04-18T00:00:00.000Z","2022-04-19T00:00:00.000Z","2022-04-20T00:00:00.000Z","2022-04-21T00:00:00.000Z","2022-04-22T00:00:00.000Z","2022-04-25T00:00:00.000Z","2022-04-26T00:00:00.000Z","2022-04-27T00:00:00.000Z","2022-04-28T00:00:00.000Z","2022-04-29T00:00:00.000Z","2022-05-05T00:00:00.000Z","2022-05-06T00:00:00.000Z","2022-05-09T00:00:00.000Z","2022-05-10T00:00:00.000Z","2022-05-11T00:00:00.000Z","2022-05-12T00:00:00.000Z","2022-05-13T00:00:00.000Z","2022-05-16T00:00:00.000Z","2022-05-17T00:00:00.000Z","2022-05-18T00:00:00.000Z","2022-05-19T00:00:00.000Z","2022-05-20T00:00:00.000Z","2022-05-23T00:00:00.000Z","2022-05-24T00:00:00.000Z","2022-05-25T00:00:00.000Z","2022-05-26T00:00:00.000Z","2022-05-27T00:00:00.000Z","2022-05-30T00:00:00.000Z","2022-05-31T00:00:00.000Z","2022-06-01T00:00:00.000Z","2022-06-02T00:00:00.000Z","2022-06-06T00:00:00.000Z","2022-06-07T00:00:00.000Z","2022-06-08T00:00:00.000Z","2022-06-09T00:00:00.000Z","2022-06-10T00:00:00.000Z","2022-06-13T00:00:00.000Z","2022-06-14T00:00:00.000Z","2022-06-15T00:00:00.000Z","2022-06-16T00:00:00.000Z","2022-06-17T00:00:00.000Z","2022-06-20T00:00:00.000Z","2022-06-21T00:00:00.000Z","2022-06-22T00:00:00.000Z","2022-06-23T00:00:00.000Z","2022-06-24T00:00:00.000Z","2022-06-27T00:00:00.000Z","2022-06-28T00:00:00.000Z","2022-06-29T00:00:00.000Z","2022-06-30T00:00:00.000Z"],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.0228654941947849,0.0174916180222353,0.0266901904890264,0.0634622624194248,0.116385730261546,0.105886374966466,0.0888194853220018,0.124752246209102,0.0585059575588183,0.0221012335045384,0.0180098361320899,0.0694407675297554,0.0572494491313756,0.0802720483770198,0.128931393589154,0.134901347535588,0.0622219115995506,0.0679700873591533,0.0787642784734726,0.0722999961935635,0.0692351170897358,0.042138499628917,0.0849983407067633,0.0748158118977475,0.052565154934164,0.0770310818255227,0.081759296374283,0.120936998645262,0.0936033574917702,0.12809668385938,0.167817379120478,0.145496324835417,0.100089193960609,0.171605342787728,0.161585029162161,0.18822493797481,0.232807747731261,0.277288090327785,0.239315904388068,0.226331953190596,0.233467670431412,0.212065426817998,0.218493225746657,0.230994364013365,0.215325663685554,0.202088677567661,0.18847860833493,0.18461361585714,0.150661370462946,0.179893758859477,0.179881141775617,0.124918130840968,0.126578476290529,0.132040200769799,0.0991290862958579,0.0962124258607707,0.103062084797751,0.111755772979807,0.144109723680037,0.144153349575878,0.141364708079262,0.171379312223316,0.165016624418073,0.146505162010905,0.153157876152799,0.154346668700633,0.175426887118819,0.162302874907564,0.115384020480133,0.134603918999922,0.109995905046462,0.0343594880247969,0.024404291900999,0.05205630118571,0.0626527534935857,0.0515163652655755,-0.00960898881654545,-0.125194706063709,-0.118030138878437,-0.0729820267406752,-0.0723977182731998,-0.0618345686126842,0.0119321596162974,0.030638578299259,0.0502048561667143,0.0824303257629403,0.103965880941409,0.11730223596822,0.099682657063652,0.145849567832752,0.133863303619249,0.144619835756863,0.242830366757136,0.218595755503223,0.223435541893527,0.276710564771383,0.27942656902788,0.275368978244303,0.27000451197983,0.241598615092145,0.280071230148463,0.285719709820126,0.281787569948867,0.3573409945902,0.371088370080177,0.361751743384188,0.349208792216491,0.356418043638985,0.391194272735401,0.440460485623745,0.453720137493354,0.463804160797432,0.476197090256795,0.477181185357781,0.537721113440026,0.545626557481143,0.503195879741202,0.445741357107065,0.458972775957852,0.444121050661671,0.447449315460635,0.457912126197444,0.438649584286612,0.429265847929856,0.428103062579216,0.412725665242049,0.420529384284875,0.418291122756024,0.416634172139723,0.459666206836193,0.455114391973832,0.464559628013643,0.474816630397771,0.478965497275251,0.535913191153283,0.542877135408181,0.589092659138376,0.564955600739586,0.577188146324996,0.59762281267201,0.592434387541234,0.616393401244885,0.604196006504472,0.647544056570288,0.746063422684037,0.760207959097292,0.762290390447199,0.773037941648851,0.770895644501213,0.766417490850835,0.760887188335534,0.762231060438753,0.763243491436035,0.762214061915663,0.773111008792848,0.756007153397624,0.755007958527486,0.779053369390837,0.80571810293061,0.814458879290971,0.815444221982126,0.823678944024646,0.812018585596141,0.806319923053187,0.776753416846611,0.775157772999076,0.75605939662089,0.75013851286401,0.75250302906936,0.760708874417282,0.757502358165197,0.759216022628616,0.753017623420995,0.770759886508872,0.770148469186087,0.788775094709126,0.789314067488133,0.791543070158219,0.793242017989286,0.787628128486074,0.784154126717085,0.788976375102937,0.784992435490682,0.781447093120805,0.757317131422672,0.695349279294042,0.651187716292803,0.642572549068354,0.636149054993497,0.655165615333093,0.656527298811718,0.657283680167373,0.651551759264565,0.641097000051957,0.64763904529275,0.648772409070642,0.651180908842614,0.653773906274468,0.655363518310387,0.670465339015264,0.665272457694557,0.673700145547912,0.653199059462394,0.66864943711538,0.664066434425679,0.704856593788579,0.696389306786447,0.70571116839406,0.70991777481113,0.708354409388381,0.680554394044684,0.675319449438885,0.572108911541577,0.522843180488945,0.515663795352382,0.495253845173831]]},"evals":["attrs.interactionModel"],"jsHooks":[]}</script>
+]
+
+---
+layout: false
+class: inverse, center, middle
+
+# 课后作业
+
+---
+
+.bold.font120[
+
+1\. 根据本讲课程讲义的打印稿，在 📑 _Rmd_中键入并完成代码的运行
+
+2\. 浏览（阅读）`tidyquant` 包配套的七份 📰 vignettes 
+
+&lt;!-- 3\. 观看视频 🎥 .red.bold[[{{Melt the clock: Tidy time series analysis}}](https://resources.rstudio.com/rstudio-conf-2019/melt-the-clock-tidy-time-series-analysis)] --&gt;
+
+3\. 进一步了解 📦 .red.bold[[{{`slider` 包}}](https://slider.r-lib.org/)]，想想如何通过参数设定实现以下的移动窗口
+
+.pull-left[
+&lt;img src="imgs/windows_animate.gif" width="88%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right.code60[
+```r
+# 模拟数据
+set.seed(123456)
+tbl &lt;- tibble(
+  Count = runif(16, min=100, max=320) %&gt;% 
+    as.integer(), 
+  Year = 1997:2012
+)
+
+# sliding
+tbl %&gt;% 
+  mutate(mean = slide_dbl(&lt;...&gt;))
+# tiling
+tbl %&gt;% 
+  mutate(mean = slide_dbl(&lt;...&gt;))
+# stretching
+tbl %&gt;% 
+  ...
+```
+]
+
+4\. 将包含上述 1 和 3 项任务代码的 Rmd 文档（命名 `qfwr-L09_hw.Rmd`），于2022年11月30日24:00前提交至 [{{坚果云链接}}](https://workspace.jianguoyun.com/inbox/collect/ff1fbd50a6714370934676049b005b71/submitv2)
+
+]
+
+---
+class: center, middle, hide_logo
+background-image: url(imgs/xaringan.png)
+background-size: 12%
+background-position: 50% 40%
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;hr color='#f00' size='2px' width='80%'&gt;
+&lt;br&gt;
+.Large.red[_**本网页版讲义的制作由 R 包 [{{`xaringan`}}](https://github.com/yihui/xaringan) 赋能！**_]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="../libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
