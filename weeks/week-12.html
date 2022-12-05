@@ -8,7 +8,7 @@
 
 <meta name="author" content="曾永艺">
 
-<title>Quantitative Finance with R - 第 9 周</title>
+<title>Quantitative Finance with R - 第 12 周</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../weeks/week-09.html" rel="next">
-<link href="../weeks/week-07.html" rel="prev">
+<link href="../slides/lec-11/L1_Tabulation.html" rel="next">
+<link href="../weeks/week-11.html" rel="prev">
 <link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -128,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">第 9 周</h1>
+      <h1 class="quarto-secondary-nav-title">第 12 周</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -186,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-08.html" class="sidebar-item-text sidebar-link active">第9周 数据导入与齐整</a>
+  <a href="../weeks/week-08.html" class="sidebar-item-text sidebar-link">第9周 数据导入与齐整</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -206,7 +206,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-12.html" class="sidebar-item-text sidebar-link">第12周 shiny &amp; *dashboard</a>
+  <a href="../weeks/week-12.html" class="sidebar-item-text sidebar-link active">第12周 shiny &amp; *dashboard</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -231,20 +231,17 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#随堂练习" id="toc-随堂练习" class="nav-link" data-scroll-target="#随堂练习">3. 随堂练习</a></li>
   <li><a href="#课后作业" id="toc-课后作业" class="nav-link" data-scroll-target="#课后作业">4. 课后作业</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/qfwr2022/qfwr2022.github.io/edit/main/weeks/week-08.qmd" class="toc-action">编辑该页面</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/qfwr2022/qfwr2022.github.io/edit/main/weeks/week-12.qmd" class="toc-action">编辑该页面</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">第 9 周</h1>
-<p class="subtitle lead">数据导入与齐整</p>
+<h1 class="title d-none d-lg-block">第 12 周</h1>
+<p class="subtitle lead">shiny &amp; *dashboard</p>
   <div class="quarto-categories">
-    <div class="quarto-category">预习</div>
-    <div class="quarto-category">随堂练习</div>
     <div class="quarto-category">讲义</div>
-    <div class="quarto-category">作业</div>
   </div>
   </div>
 
@@ -262,7 +259,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">发布日期</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2022年11月11日</p>
+      <p class="date">2022年12月2日</p>
     </div>
   </div>
   
@@ -273,59 +270,39 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<p>“问渠那得清如许？为有源头活水来。” 在上一讲中我们主要讲述 dplyr 包基于数据操作语法（<em>A Grammar of Data Manipulation</em>）的核心函数，并利用 nycflights13 包提供的数据集作为示例。数据操作语法想要达到其预期目标依赖于其所操作的 tibble 对象为“齐整的数据”（tidy data），而在数据科学实践中我们往往会从不同来源读取 / 导入形形色色的数据集，这就需要我们掌握 tidyverse 中与数据导入和数据齐整有关的 R 包及其核心函数。</p>
-<p>本讲主要涵盖以下几方面的内容：</p>
-<p>1. 数据导入</p>
+<p>根据本学期教学方案中关于小组研究项目的设计，作为项目研究最终成果，各小组不仅要提交 RMarkdown 或 Quarto 格式的静态报告 / 展示幻灯片（本学期<a href="../weeks/week-03.html">第3讲</a>的教学内容），可能还要根据各自研究项目的特点提交基于 <a href="https://shiny.rstudio.com/"><code>shiny</code></a> 包和 <a href="http://www.htmlwidgets.org/"><code>htmlwidgets</code></a> 衍生包制作的动态或交互文档（如网页 App 和仪表盘工具）。本讲将介绍与此有关的知识（包括 <code>shiny</code> 包和用来制作仪表盘工具的3个R包），主要内容如下：</p>
+<ol type="1">
+<li>shiny 包（<em>Web Application Framework for R</em>）
 <ul>
-<li>读入矩形文本数据：<code>readr</code> 包</li>
-<li>读入其它类型的数据</li>
-</ul>
-<p>2. 数据齐整</p>
+<li>shiny Workflow</li>
+<li>shiny Basics</li>
+<li>示例</li>
+</ul></li>
+<li>shinydashboard 包 -&gt; bs4Dash 包（<em>Create Dashboards with Shiny</em>）
 <ul>
-<li>齐整数据</li>
-<li><code>tidyr</code> 包</li>
-<li><code>pivot_longer()</code> 和 <code>pivot_wider()</code></li>
-<li><code>separate()</code> 和 <code>unite()</code></li>
-<li>复杂案例</li>
-<li><code>unnest_*()</code> 和 <code>hoist()</code></li>
-</ul>
+<li>shinydashboard Structure</li>
+<li><code>dashboardHeader()</code></li>
+<li><code>dashboardSidebar()</code></li>
+<li><code>dashboardBody()</code></li>
+<li>示例</li>
+</ul></li>
+<li>flexdashboard 包（<em>R Markdown Format for Flexible Dashboards</em>）
+<ul>
+<li>flexdashboard Template</li>
+<li>flexdashboard Layouts</li>
+<li>flexdashboard Components</li>
+<li>示例</li>
+</ul></li>
+</ol>
 <br>
 <hr>
 <section id="课前准备" class="level2">
 <h2 class="anchored" data-anchor-id="课前准备">1. 课前准备</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>📖 阅读 <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> 一书第10章、第11章和第12章，这些章节依次介绍 tibble、readr 包和 tidyr 包。</p>
-<div class="callout-tip callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>此书的中文翻译版 <a href="https://www.ituring.com.cn/book/2113">《R数据科学》</a> 发行有官方pdf电子版，对应章节为“第7章 使用tibble实现简单数据框”和“第8章 使用readr进行数据导入”（很遗憾，原书关于 tidyr 包的第12章在翻译版中并未出现，🙃）。若觉得英文阅读有点吃力的同学，可找来参阅。</p>
-</div>
-</div>
-</div>
-<div class="callout-warning callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>由于上课内容较多，而上课时间有限，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间来过一遍上述预习章节的内容。</p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:40%;">
-<div style="text-align:right">
-<p><img src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" class="cover" width="80%"></p>
-</div>
-</div>
-</div>
+<p>由于本讲的内容在 📖 <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> 一书中基本未涉及，在此不布置课前准备任务。</p>
 </section>
 <section id="课堂讲义" class="level2">
 <h2 class="anchored" data-anchor-id="课堂讲义">2. 课堂讲义</h2>
-<p>🖥️ <a href="../slides/lec-06/L06_Import_Tidy.html">第6讲 数据导入与齐整</a></p>
+<p>🖥️<a href="../slides/lec-10/L10_shiny_dashboard.html">第10讲 shiny &amp; *dashboard</a></p>
 <div class="callout-note callout callout-style-simple">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -339,11 +316,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="随堂练习" class="level2">
 <h2 class="anchored" data-anchor-id="随堂练习">3. 随堂练习</h2>
-<p>⌨️ <a href="../slides/lec-06/L06_Import_Tidy.html#55">见课堂讲义</a></p>
+<p>⌨️ [未安排随堂练习时间] <!-- (/slides/lec-09/L09_Iteration) --></p>
 </section>
 <section id="课后作业" class="level2">
 <h2 class="anchored" data-anchor-id="课后作业">4. 课后作业</h2>
-<p>✍️ <a href="../hw/hw-08.html">课后作业</a></p>
+<p>✍️ <a href="../hw/hw-12.html">只列出进一步精进学习的参考资源清单，并未布置需要提交的课后作业</a></p>
 <p><br></p>
 <!-- ::: {style="font-size:0.875em; text-align:right"} -->
 <!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
@@ -619,13 +596,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../weeks/week-07.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">第7周 dplyr数据处理 II</span>
+      <a href="../weeks/week-11.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">第11周 tidyquant &amp; Friends</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../weeks/week-09.html" class="pagination-link">
-        <span class="nav-page-text">第10周 迭代</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../slides/lec-11/L1_Tabulation.html" class="pagination-link">
+        <span class="nav-page-text">📚 制表</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
