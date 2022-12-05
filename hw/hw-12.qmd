@@ -1,0 +1,39 @@
+---
+title: "第12周课后作业"
+author: 曾永艺
+date: 2022-12-02
+# editor: visual
+---
+
+<hr>
+
+[相信同学们现在对 `shiny`、`shinydashboard` / `bs4Dash` 和 `flexdashboard` 等R包有了初步的认识，以下列出相关的学习参考资料，同学们可进一步学习精进下 🏆]{style="font-size:1.2rem"}
+
+[1. [{{🌐 shiny 官网}}](https://shiny.rstudio.com/tutorial/) 上有大量的学习资料！]{style="font-size:1.2rem"}
+  
+  - [👍👍👍 循序渐进的 [{{📰 7 份教程}}](https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/)]{style="font-size:1rem"}
+  
+  - [👍👍👍 [{{示例库}}](https://shiny.rstudio.com/gallery/)]{style="font-size:1rem"}
+
+[2. [{{📰 shiny的cheatsheet}}](https://posit.co/wp-content/uploads/2022/10/shiny.pdf)]{style="font-size:1.2rem"}
+
+[3. [{{📖 Mastering Shiny}}](https://mastering-shiny.org/)]{style="font-size:1.2rem"}
+
+[4. [{{😎 awesome-shiny-extensions}}](https://github.com/nanxstats/awesome-shiny-extensions)]{style="font-size:1.2rem"}
+
+[5. [{{📖 Mastering Shiny}}](https://mastering-shiny.org/)]{style="font-size:1.2rem"}
+
+[6. [{{🌐 shinydashboard 主页}}](https://pkgs.rstudio.com/shinydashboard/)]{style="font-size:1.2rem"}
+
+[7. [{{🌐 bs4Dash 主页}}](https://bs4dash.rinterface.com/)]{style="font-size:1.2rem"}
+
+[8. [{{🌐 flexdashboard 主页}}](https://pkgs.rstudio.com/flexdashboard/)]{style="font-size:1.2rem"}
+
+[9. [{{🌐 bslib 主页}}](https://rstudio.github.io/bslib/)]{style="font-size:1.2rem"}
+
+[10. [{{🌐 thematic 主页}}](https://rstudio.github.io/thematic/)]{style="font-size:1.2rem"}
+
+<!-- [**注：第4项作业的提交截止日期为11月23日24:00**]{style="font-size:1rem; color:red"} -->
+
+<hr>
+

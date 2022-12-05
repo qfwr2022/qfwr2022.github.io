@@ -82,8 +82,14 @@ website:
           href: weeks/week-08.qmd
         - text: "第10周 迭代"
           href: weeks/week-09.qmd
+        - text: "📚 字符串、因子与时间"
+          href: slides/lec-08/L08_String_Factor_Datetime.html
         - text: "第11周 tidyquant & Friends"
           href: weeks/week-11.qmd
+        - text: "第12周 shiny & *dashboard"
+          href: weeks/week-12.qmd
+        - text: "📚 制表"
+          href: slides/lec-11/L1_Tabulation.html
         - text: "......"
   page-navigation: true
   page-footer:

@@ -28,8 +28,9 @@ tbl-colwidths: [4,9,18,4,4,4,4,10]
 | [9](/weeks/week-08.qmd)  | 2022-11-11  | 数据导入与齐整 | [📖](/weeks/week-08.qmd#课前准备) | [🖥️](/slides/lec-06/L06_Import_Tidy.html "第6讲 数据导入与齐整") | [⌨️](/weeks/week-08.qmd#随堂练习) | [✍️](/hw/hw-08.qmd "课后作业") |  [👨‍🏫 布置](project/team-project.html) |
 | [10](/weeks/week-09.qmd)  | 2022-11-18  | 迭代 | [📖](/weeks/week-09.qmd#课前准备) | [🖥️](/slides/lec-07/L07_Iteration.html "第7讲 迭代") |    | [✍️](/hw/hw-10.qmd "课后作业")  |    |
 | — | 自学  | 字符串、因子与日期-时间 |    | [🖥️](/slides/lec-08/L08_String_Factor_Datetime.html "第8讲 字符串、因子与日期-时间")  |    |    |    |
-| [11](/weeks/week-11.qmd)  | 2022-11-25  | tidyquant & Friends |    | [🖥️](/slides/lec-09/L09_tidyquant.html "第9讲 tidyquant & Friends") |    |[✍️](/hw/hw-11.qmd "课后作业") |    |
-| [12](/weeks/week-12.qmd)  | 2022-12-02  | shiny & 制表 |    |    |    |    | 👨‍🏫 [报告进展](/project/team-project.html#报告展示) |
+| [11](/weeks/week-11.qmd)  | 2022-11-25  | tidyquant & Friends |    | [🖥️](/slides/lec-09/L09_tidyquant.html "第9讲 tidyquant & Friends") |    | [✍️](/hw/hw-11.qmd "课后作业") |    |
+| [12](/weeks/week-12.qmd)  | 2022-12-02  | shiny & *dashboard |    | [🖥️](/slides/lec-10/L10_shiny_dashboard.html "第10讲 shiny & *dashboard") |    |[✍️](/hw/hw-12.qmd "课后作业")   | 👨‍🏫 [报告进展](/project/team-project.html#研究进展汇报) |
+| — | 自学  | 制表 |    | [🖥️](/slides/lec-11/L11_Tabulation.html "第11讲 制表")  |    |    |    |
 | [13](/weeks/week-13.qmd)  | 2022-12-09  | 投资组合优化 |    |    |    |    |    |
 | [14](/weeks/week-14.qmd)  | 2022-12-16  | tidymodels |    |    |    |    | 🏆 提交成果 |
 | [15](/weeks/week-15.qmd)  | 2022-12-23  | 课程回顾与随堂小测 |    |    |    |    |    |
