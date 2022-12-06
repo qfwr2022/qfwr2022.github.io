@@ -2,7 +2,7 @@
 title: "每周列表"
 listing:
   id: weeks-listings
-  contents: weeks
+  contents: [weeks, selfs]
   # fields: [title, subtitle, author, date, image, reading-time]
   date-format: iso
   sort: "date desc"

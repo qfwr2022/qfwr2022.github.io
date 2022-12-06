@@ -1,0 +1,60 @@
+---
+title: "自学#1"
+subtitle: "字符串、因子与日期-时间"
+author: 曾永艺
+date: 2022-11-19
+categories: [讲义]
+image: /slides/lec-08/imgs/s-f-l.png
+# editor: visual
+---
+
+<hr>
+
+至此，我们已基本完成对 [R4DS](https://r4ds.had.co.nz/) 一书[数据科学工作流](https://r4ds.had.co.nz/explore-intro.html)及相关 R 包的讲述。在[数据处理](/slides/lec-05/L05_Transformation.html)方面，由于课时有限，我们未能细讲对字符型变量、因子型变量和日期-时间型变量的处理——而这是同学们在日常数据分析流程中绕不开的处理工作。据此，我特意准备了本讲的讲义并布置同学们自学相关内容。
+
+主要内容如下：
+
+1. 字符串（-> stringr 包）
+   - 字符串基础
+   - 模式匹配
+   - 工具函数
+
+2. 因子（-> forcats 包）
+   - 因子向量
+   - 修改因子水平
+   - 调整因子次序
+
+3. 日期-时间（-> lubridate 包）
+   - 创建日期-时间
+   - 处理时间成分
+   - 时间间隔
+
+<br><hr>
+
+## 1. 课前准备
+
+自学章节，不布置课前准备任务。
+
+## 2. 自学要求
+
+为达成预期的学习成效，同学们务必自觉完成以下学习任务：
+
+- 浏览学习本讲讲义 🖥️[第8讲 字符串、因子与日期-时间](/slides/lec-08/L08_String_Factor_Datetime.html)
+
+- 阅读 📖 [*R for Data Science*](https://r4ds.had.co.nz/) 一书第14章（_Strings_）、第15章（_Factors_）和第16章（_Dates and times_）三章的内容（分别对应翻译版教材的第10章、第11章和第12章）
+
+- （结队）**完成（自选）课后练习**
+
+:::{.callout-note appearance="simple"}
+- [**课后动手编程实操是掌握一门编程语言的必由之路，r4ds一书配套练习都很不错，尽管并未要求同学们提交课后编程实操作业，但希望同学们都能自觉完成，也正好检验下自己对相关概念的理解以及对 stringr 包、forcats 包和 lubridate 包核心函数的掌握情况**]{style="color:red"}
+- **课后习题参考答案链接** 📖 [_R for Data Science: Exercise Solutions_](https://jrnold.github.io/r4ds-exercise-solutions/)
+- 若在课后编程实操中遇到什么问题或难解之处，也可在课程QQ群上贴出并讨论
+:::
+
+
+
+<br>
+
+<!-- ::: {style="font-size:0.875em; text-align:right"} -->
+<!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
+<!-- ::: -->
