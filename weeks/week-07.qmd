@@ -4,7 +4,7 @@ subtitle: "dplyr数据处理 II"
 author: 曾永艺
 date: 2022-10-28
 categories: [预习, 随堂练习, 讲义, 作业]
-image: /slides/lec-05/imgs/relational-nycflights.png
+image: /slides/lec-05/imgs/dplyr-join.png
 # editor: visual
 ---
 

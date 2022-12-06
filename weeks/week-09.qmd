@@ -4,7 +4,7 @@ subtitle: "迭代"
 author: 曾永艺
 date: 2022-11-18
 categories: [预习, 讲义, 作业]
-image: /slides/lec-07/imgs/list_column_workflow.png
+image: /slides/lec-07/imgs/purrr_furrr.png
 # editor: visual
 ---
 

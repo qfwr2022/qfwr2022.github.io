@@ -4,7 +4,7 @@ subtitle: "ggplot2数据可视化"
 author: 曾永艺
 date: 2022-09-23
 categories: [预习, 讲义, 随堂练习, 作业]
-image: /slides/lec-02/L02_Visualization_files/figure-html/datasaurus-1.png
+image: /slides/lec-02/imgs/ggplot-etc.png
 # editor: visual
 ---
 

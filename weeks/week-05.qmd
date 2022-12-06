@@ -4,7 +4,7 @@ subtitle: "向量与函数 II"
 author: 曾永艺
 date: 2022-10-14
 categories: [预习, 讲义, 随堂练习, 作业]
-image: /slides/lec-04/imgs/r4ds-exercise-solutions-cover.png
+image: /slides/lec-04/imgs/vector-R.png
 # editor: visual
 ---
 

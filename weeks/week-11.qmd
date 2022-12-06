@@ -4,7 +4,7 @@ subtitle: "tidyquant & Friends"
 author: 曾永艺
 date: 2022-11-25
 categories: [讲义, 作业]
-image: /slides/lec-09/imgs/tidyverse-xts-02.png
+image: /slides/lec-09/imgs/tidyverse-xts.png
 # editor: visual
 ---
 
