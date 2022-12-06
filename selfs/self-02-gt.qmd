@@ -1,0 +1,53 @@
+---
+title: "自学#2"
+subtitle: "制表"
+author: 曾永艺
+date: 2022-12-05
+categories: [讲义]
+image: /slides/lec-11/imgs/tabulation-2.png
+# editor: visual
+---
+
+<hr>
+
+本课程的 [第2讲](/slides/lec-02/L02_Visualization.html) 介绍了数据可视化（主要基于 ggplot2包），但我们在呈现、展示或沟通数据分析结果（见课程的 [第3讲 rmarkdown与Quarto](/slides/lec-03/L03_Quarto.html) 和 [第10讲 shiny & *dashboard](/slides/lec-10/L10_shiny_dashborad.html)）时往往还需要制作数据表格（呈现数据、汇总统计和统计分析结果等）——在学术性的实证研究中更是如此。制表也是数据分析的核心技能之一，但由于授课时间有限，只能安排同学们自行学习。
+
+我为同学们精选了5个制表R包（各有侧重和优缺点）并制作讲义，涵盖内容如下：
+
+1. R 制表难题
+
+2. gt 包
+   - 制表语法（_The Grammar of Tabulation_）
+   - 创建 gt 表格对象
+   - 增加 / 修改 / 移除 表格组件
+   - 操作表格的 行 / 列
+   - 数据替换、数据格式化、数据变图
+
+3. modelsummary 包
+   - datasummary() & datasummary_*()
+   - modelsummary() & modelplot()
+
+4. kableExtra 包 _and beyond_ ...
+
+<br><hr>
+
+## 1. 课前准备
+
+自学章节，不布置课前准备任务。
+
+## 2. 自学要求
+
+为达成预期的学习成效，同学们务必自觉完成以下学习任务：
+
+1. 浏览学习本讲讲义 🖥️[第11讲 制表](/slides/lec-11/L11_Tabulation.html)，结合官方说明文档与帮助文档，熟悉 gt包 的制表语法与流程，并掌握 modelsummary包 制作数据汇总表和统计分析表的核心函数。
+
+2. 安排时间完成对 [kableExtra包](http://haozhu233.github.io/kableExtra/)、[flextable包](https://ardata-fr.github.io/flextable-book/) 和 [gtsummary包](https://www.danieldsjoberg.com/gtsummary/)等3个制表工具R包的探索性学习（在讲义上也已给出相应R包的主页地址）。
+
+
+
+
+<br>
+
+<!-- ::: {style="font-size:0.875em; text-align:right"} -->
+<!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
+<!-- ::: -->
