@@ -109,7 +109,7 @@
     "href": "schedule.html",
     "title": "课程安排",
     "section": "",
-    "text": "注释\n\n\n\n本页包含本课程周次安排、教学主题、课前准备、讲义、课后作业、小组项目等方面的 概要信息以及相应的链接。 目前课程网站仍处于草创阶段，但随着本学期教学进度的推进，本表格将逐步增补、调整并完善。\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n周次\n日期\n主题\n准备\n讲义\n练习\n作业\n小组项目\n\n\n\n\n1\n2022-09-16\n课程简介\n📖\n🖥️\n\n✍️\n\n\n\n2\n2022-09-23\nggplot2 数据可视化\n📖\n🖥️\n⌨️\n✍️\n\n\n\n3\n2022-09-30\nrmarkdown 与 Quarto\n📖\n🖥️\n⌨️\n✍️\n\n\n\n4\n2022-10-07\n向量与函数 I\n📖\n🖥️\n\n✍️\n\n\n\n5\n2022-10-14\n向量与函数 II\n\n🖥️\n⌨️\n✍️\n\n\n\n6\n2022-10-21\ndplyr数据处理 I\n📖\n🖥️\n⌨️\n✍️\n\n\n\n7\n2022-10-28\ndplyr数据处理 II\n📖\n🖥️\n⌨️\n✍️\n\n\n\n8\n2022-11-04\n🏃校运会🏅 停课\n\n\n\n\n\n\n\n9\n2022-11-11\n数据导入与齐整\n📖\n🖥️\n⌨️\n✍️\n👨‍🏫 布置\n\n\n10\n2022-11-18\n迭代\n📖\n🖥️\n\n✍️\n\n\n\n—\n自学\n字符串、因子与日期-时间\n\n🖥️\n\n\n\n\n\n11\n2022-11-25\ntidyquant & Friends\n\n🖥️\n\n✍️\n\n\n\n12\n2022-12-02\nshiny & *dashboard\n\n🖥️\n\n✍️\n👨‍🏫 报告进展\n\n\n—\n自学\n制表\n\n🖥️\n\n\n\n\n\n13\n2022-12-09\n投资组合优化\n\n\n\n\n\n\n\n14\n2022-12-16\ntidymodels\n\n\n\n\n🏆 提交成果\n\n\n15\n2022-12-23\n课程回顾与随堂小测\n\n\n\n\n\n\n\n16\n2022-12-30\n小组研究项目展示\n\n\n\n\n👨‍🏫 展示分享"
+    "text": "注释\n\n\n\n本页包含本课程周次安排、教学主题、课前准备、讲义、课后作业、小组项目等方面的 概要信息以及相应的链接。 目前课程网站仍处于草创阶段，但随着本学期教学进度的推进，本表格将逐步增补、调整并完善。\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n周次\n日期\n主题\n准备\n讲义\n练习\n作业\n小组项目\n\n\n\n\n1\n2022-09-16\n课程简介\n📖\n🖥️\n\n✍️\n\n\n\n2\n2022-09-23\nggplot2 数据可视化\n📖\n🖥️\n⌨️\n✍️\n\n\n\n3\n2022-09-30\nrmarkdown 与 Quarto\n📖\n🖥️\n⌨️\n✍️\n\n\n\n4\n2022-10-07\n向量与函数 I\n📖\n🖥️\n\n✍️\n\n\n\n5\n2022-10-14\n向量与函数 II\n\n🖥️\n⌨️\n✍️\n\n\n\n6\n2022-10-21\ndplyr数据处理 I\n📖\n🖥️\n⌨️\n✍️\n\n\n\n7\n2022-10-28\ndplyr数据处理 II\n📖\n🖥️\n⌨️\n✍️\n\n\n\n8\n2022-11-04\n🏃校运会🏅 停课\n\n\n\n\n\n\n\n9\n2022-11-11\n数据导入与齐整\n📖\n🖥️\n⌨️\n✍️\n👨‍🏫 布置\n\n\n10\n2022-11-18\n迭代\n📖\n🖥️\n\n✍️\n\n\n\n—\n自学#1\n字符串、因子与日期-时间\n\n🖥️\n\n\n\n\n\n11\n2022-11-25\ntidyquant & Friends\n\n🖥️\n\n✍️\n\n\n\n12\n2022-12-02\nshiny & *dashboard\n\n🖥️\n\n✍️\n👨‍🏫 报告进展\n\n\n—\n自学#2\n制表\n\n🖥️\n\n\n\n\n\n13\n2022-12-09\n投资组合优化\n\n\n\n\n\n\n\n14\n2022-12-16\ntidymodels\n\n\n\n\n🏆 提交成果\n\n\n15\n2022-12-23\n课程回顾与随堂小测\n\n\n\n\n\n\n\n16\n2022-12-30\n小组研究项目展示\n\n\n\n\n👨‍🏫 展示分享"
   },
   {
     "objectID": "project/team-project.html",
@@ -515,7 +515,49 @@
     "href": "weeks.html",
     "title": "每周列表",
     "section": "",
-    "text": "以下是每周授课相关资料 / 资源（包括课前准备/预习、讲义、练习、课后作业等）的信息列表， 同学们既可以随意浏览或者用主题进行筛选，也可以直接根据目标周数点击打开对应的网页一探究竟。\n\n\n\n   \n     \n     \n       排序方式\n       缺省\n         \n          日期 - 日期升序\n        \n         \n          日期 - 日期降序\n        \n         \n          标题\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\n第 12 周\n\n\nshiny & *dashboard\n\n\n\n\n讲义\n\n\n\n\n\n\n\n\n\n\n\n2022-12-02\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 11 周\n\n\ntidyquant & Friends\n\n\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-11-25\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 10 周\n\n\n迭代\n\n\n\n\n预习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-11-18\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 9 周\n\n\n数据导入与齐整\n\n\n\n\n预习\n\n\n随堂练习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-11-11\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 7 周\n\n\ndplyr数据处理 II\n\n\n\n\n预习\n\n\n随堂练习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-28\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 6 周\n\n\ndplyr数据处理 I\n\n\n\n\n预习\n\n\n随堂练习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-21\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 5 周\n\n\n向量与函数 II\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-14\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 4 周\n\n\n向量与函数\n\n\n\n\n预习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-07\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 3 周\n\n\nrmarkdown与Quarto\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-30\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 2 周\n\n\nggplot2数据可视化\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-23\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 1 周\n\n\n课程简介\n\n\n\n\n准备\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-16\n\n\n曾永艺\n\n\n\n\n\n\n无匹配项"
+    "text": "以下是每周授课相关资料 / 资源（包括课前准备/预习、讲义、练习、课后作业等）的信息列表， 同学们既可以随意浏览或者用主题进行筛选，也可以直接根据目标周数点击打开对应的网页一探究竟。\n\n\n\n   \n     \n     \n       排序方式\n       缺省\n         \n          日期 - 日期升序\n        \n         \n          日期 - 日期降序\n        \n         \n          标题\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\n自学#2\n\n\n制表\n\n\n\n\n讲义\n\n\n\n\n\n\n\n\n\n\n\n2022-12-05\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 12 周\n\n\nshiny & *dashboard\n\n\n\n\n讲义\n\n\n\n\n\n\n\n\n\n\n\n2022-12-02\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 11 周\n\n\ntidyquant & Friends\n\n\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-11-25\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n自学#1\n\n\n字符串、因子与日期-时间\n\n\n\n\n讲义\n\n\n\n\n\n\n\n\n\n\n\n2022-11-19\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 10 周\n\n\n迭代\n\n\n\n\n预习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-11-18\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 9 周\n\n\n数据导入与齐整\n\n\n\n\n预习\n\n\n随堂练习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-11-11\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 7 周\n\n\ndplyr数据处理 II\n\n\n\n\n预习\n\n\n随堂练习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-28\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 6 周\n\n\ndplyr数据处理 I\n\n\n\n\n预习\n\n\n随堂练习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-21\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 5 周\n\n\n向量与函数 II\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-14\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 4 周\n\n\n向量与函数\n\n\n\n\n预习\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-10-07\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 3 周\n\n\nrmarkdown与Quarto\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-30\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 2 周\n\n\nggplot2数据可视化\n\n\n\n\n预习\n\n\n讲义\n\n\n随堂练习\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-23\n\n\n曾永艺\n\n\n\n\n\n\n  \n\n\n\n\n第 1 周\n\n\n课程简介\n\n\n\n\n准备\n\n\n讲义\n\n\n作业\n\n\n\n\n\n\n\n\n\n\n\n2022-09-16\n\n\n曾永艺\n\n\n\n\n\n\n无匹配项"
+  },
+  {
+    "objectID": "selfs/self-02-gt.html",
+    "href": "selfs/self-02-gt.html",
+    "title": "自学#2",
+    "section": "",
+    "text": "本课程的 第2讲 介绍了数据可视化（主要基于 ggplot2包），但我们在呈现、展示或沟通数据分析结果（见课程的 第3讲 rmarkdown与Quarto 和 第10讲 shiny & *dashboard）时往往还需要制作数据表格（呈现数据、汇总统计和统计分析结果等）——在学术性的实证研究中更是如此。制表也是数据分析的核心技能之一，但由于授课时间有限，只能安排同学们自行学习。\n我为同学们精选了5个制表R包（各有侧重和优缺点）并制作讲义，涵盖内容如下："
+  },
+  {
+    "objectID": "selfs/self-02-gt.html#课前准备",
+    "href": "selfs/self-02-gt.html#课前准备",
+    "title": "自学#2",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n自学章节，不布置课前准备任务。"
+  },
+  {
+    "objectID": "selfs/self-02-gt.html#自学要求",
+    "href": "selfs/self-02-gt.html#自学要求",
+    "title": "自学#2",
+    "section": "2. 自学要求",
+    "text": "2. 自学要求\n为达成预期的学习成效，同学们务必自觉完成以下学习任务：\n\n浏览学习本讲讲义 🖥️第11讲 制表，结合官方说明文档与帮助文档，熟悉 gt包 的制表语法与流程，并掌握 modelsummary包 制作数据汇总表和统计分析表的核心函数。\n安排时间完成对 kableExtra包、flextable包 和 gtsummary包等3个制表工具R包的探索性学习（在讲义上也已给出相应R包的主页地址）。"
+  },
+  {
+    "objectID": "selfs/self-01-sfl.html",
+    "href": "selfs/self-01-sfl.html",
+    "title": "自学#1",
+    "section": "",
+    "text": "至此，我们已基本完成对 R4DS 一书数据科学工作流及相关 R 包的讲述。在数据处理方面，由于课时有限，我们未能细讲对字符型变量、因子型变量和日期-时间型变量的处理——而这是同学们在日常数据分析流程中绕不开的处理工作。据此，我特意准备了本讲的讲义并布置同学们自学相关内容。\n主要内容如下："
+  },
+  {
+    "objectID": "selfs/self-01-sfl.html#课前准备",
+    "href": "selfs/self-01-sfl.html#课前准备",
+    "title": "自学#1",
+    "section": "1. 课前准备",
+    "text": "1. 课前准备\n自学章节，不布置课前准备任务。"
+  },
+  {
+    "objectID": "selfs/self-01-sfl.html#自学要求",
+    "href": "selfs/self-01-sfl.html#自学要求",
+    "title": "自学#1",
+    "section": "2. 自学要求",
+    "text": "2. 自学要求\n为达成预期的学习成效，同学们务必自觉完成以下学习任务：\n\n浏览学习本讲讲义 🖥️第8讲 字符串、因子与日期-时间\n阅读 📖 R for Data Science 一书第14章（Strings）、第15章（Factors）和第16章（Dates and times）三章的内容（分别对应翻译版教材的第10章、第11章和第12章）\n（结队）完成（自选）课后练习\n\n\n\n\n\n\n\n\n课后动手编程实操是掌握一门编程语言的必由之路，r4ds一书配套练习都很不错，尽管并未要求同学们提交课后编程实操作业，但希望同学们都能自觉完成，也正好检验下自己对相关概念的理解以及对 stringr 包、forcats 包和 lubridate 包核心函数的掌握情况\n课后习题参考答案链接 📖 R for Data Science: Exercise Solutions\n若在课后编程实操中遇到什么问题或难解之处，也可在课程QQ群上贴出并讨论"
   },
   {
     "objectID": "hw/hw-08.html",
