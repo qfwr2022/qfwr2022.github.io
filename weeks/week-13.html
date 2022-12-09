@@ -8,7 +8,7 @@
 
 <meta name="author" content="曾永艺">
 
-<title>Quantitative Finance with R - 第 6 周</title>
+<title>Quantitative Finance with R - 第 13 周</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../weeks/week-07.html" rel="next">
-<link href="../weeks/week-05.html" rel="prev">
+<link href="../selfs/self-02-gt.html" rel="prev">
 <link href="../favicon.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -128,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">第 6 周</h1>
+      <h1 class="quarto-secondary-nav-title">第 13 周</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -173,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-06.html" class="sidebar-item-text sidebar-link active">第6周 dplyr数据处理 I</a>
+  <a href="../weeks/week-06.html" class="sidebar-item-text sidebar-link">第6周 dplyr数据处理 I</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -216,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../weeks/week-13.html" class="sidebar-item-text sidebar-link">第13周 投资组合优化</a>
+  <a href="../weeks/week-13.html" class="sidebar-item-text sidebar-link active">第13周 投资组合优化</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -236,18 +235,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#随堂练习" id="toc-随堂练习" class="nav-link" data-scroll-target="#随堂练习">3. 随堂练习</a></li>
   <li><a href="#课后作业" id="toc-课后作业" class="nav-link" data-scroll-target="#课后作业">4. 课后作业</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/qfwr2022/qfwr2022.github.io/edit/main/weeks/week-06.qmd" class="toc-action">编辑该页面</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/qfwr2022/qfwr2022.github.io/edit/main/weeks/week-13.qmd" class="toc-action">编辑该页面</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">第 6 周</h1>
-<p class="subtitle lead">dplyr数据处理 I</p>
+<h1 class="title d-none d-lg-block">第 13 周</h1>
+<p class="subtitle lead">投资组合优化</p>
   <div class="quarto-categories">
-    <div class="quarto-category">预习</div>
-    <div class="quarto-category">随堂练习</div>
     <div class="quarto-category">讲义</div>
     <div class="quarto-category">作业</div>
   </div>
@@ -267,7 +264,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">发布日期</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2022年10月21日</p>
+      <p class="date">2022年12月9日</p>
     </div>
   </div>
   
@@ -278,53 +275,33 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <hr>
-<p>在上一讲中我们用两次课的时间学习 R 语言编程方面的核心知识：<strong>向量</strong>与<strong>函数</strong>，为接下来探索“净土宇宙 🌌”奠定了知识基础。“净土宇宙 🌌”的核心数据结构并非原子型向量或普通列表对象，而是 <code>tibble</code>（由行（样本）和列（变量）构成的表格型数据），dplyr 包基于<strong>数据操作语法</strong>（<em>A Grammar of Data Manipulation</em>）构建出一组用来操作 <code>tibble</code> 对象的核心函数——它们就是我们在接下来两次课中需要学习、理解并掌握的知识。</p>
-<p>本讲主要涵盖以下几方面的内容（加粗字体为本次课的讲授内容）：</p>
+<p>投资组合构建及其优化是现代投资学理论的基础，并普遍应用于投资实践中。本讲课程将主要围绕 PortfolioAnalytics 包展开，讲解其框架与流程，并通过一个跨国投资组合构建的简单算例让同学们对投资组合的构建与优化过程有个直观的认识。内容包括：</p>
 <ol type="1">
-<li><strong>样本处理</strong></li>
-<li><strong>变量处理</strong></li>
-<li><strong>汇总</strong></li>
-<li><strong>分组和行式处理</strong></li>
-<li>用 <code>%&gt;%</code> 连接多个操作</li>
-<li>合并多个数据集</li>
-<li>操作数据库和 <code>data.table</code></li>
+<li><p>投资组合优化的基本概念</p></li>
+<li><p>PortfolioAnalytics 包</p>
+<ul>
+<li>优点</li>
+<li>框架</li>
+<li>流程</li>
+</ul></li>
+<li><p>案例</p>
+<ul>
+<li>导入并处理全球指数数据集</li>
+<li>探索性数据分析</li>
+<li>等权重基准投资组合</li>
+<li>投资组合优化（基础版）</li>
+<li>投资组合优化（改进版）</li>
+</ul></li>
 </ol>
+<br>
 <hr>
 <section id="课前准备" class="level2">
 <h2 class="anchored" data-anchor-id="课前准备">1. 课前准备</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>📖 阅读 <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> 一书<strong>第5章</strong>、第13章和第18章，这些章节依次介绍如何利用 dplyr 包中的核心函数对单表数据和关系型数据表进行处理以及管道操作符 <code>%&gt;%</code> 的相关知识。</p>
-<div class="callout-tip callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>此书的中文翻译版 <a href="https://www.ituring.com.cn/book/2113">《R数据科学》</a> 发行有官方pdf电子版，对应章节为“第3章 使用dplyr进行数据转换”、“第9章 使用dplyr处理关系数据”和“第13章 使用magrittr进行管道操作”。若觉得英文阅读有点吃力的同学，可找来参阅。</p>
-</div>
-</div>
-</div>
-<div class="callout-warning callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>由于上课内容较多，而上课时间有限，上课节奏预计较快，有些内容甚至会一带而过，请同学们务必腾出时间来过一遍上述预习章节的内容。</p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:40%;">
-<div style="text-align:right">
-<p><img src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" class="cover" width="80%"></p>
-</div>
-</div>
-</div>
+<p>由于本讲的主体内容在 📖 <a href="https://r4ds.had.co.nz/"><em>R for Data Science</em></a> 一书中并未涉及，在此不布置课前准备任务。</p>
 </section>
 <section id="课堂讲义" class="level2">
 <h2 class="anchored" data-anchor-id="课堂讲义">2. 课堂讲义</h2>
-<p>🖥️ <a href="../slides/lec-05/L05_Transformation.html">第5讲 dplyr数据处理</a></p>
+<p>🖥️<a href="../slides/lec-12/L12_Portfolio.html">第12讲 投资组合优化</a></p>
 <div class="callout-note callout callout-style-simple">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -338,11 +315,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="随堂练习" class="level2">
 <h2 class="anchored" data-anchor-id="随堂练习">3. 随堂练习</h2>
-<p>⌨️ <a href="../slides/lec-05/L05_Transformation.html#10">见课堂讲义——并非动手编程练习，思维体操而已</a></p>
+<p>⌨️ [未安排随堂练习时间] <!-- (/slides/lec-09/L09_Iteration) --></p>
 </section>
 <section id="课后作业" class="level2">
 <h2 class="anchored" data-anchor-id="课后作业">4. 课后作业</h2>
-<p>✍️ <a href="../hw/hw-06.html">课后作业</a></p>
+<p>✍️ <a href="../hw/hw-13.html">具体说明</a></p>
 <p><br></p>
 <!-- ::: {style="font-size:0.875em; text-align:right"} -->
 <!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
@@ -618,14 +595,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../weeks/week-05.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">第5周 向量与函数 II</span>
+      <a href="../selfs/self-02-gt.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">📚 制表</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../weeks/week-07.html" class="pagination-link">
-        <span class="nav-page-text">第7周 dplyr数据处理 II</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
