@@ -1,0 +1,29 @@
+---
+title: "第13周课后作业"
+author: 曾永艺
+date: 2022-12-09
+# editor: visual
+---
+
+<hr>
+
+[1. 理解投资组合优化的原理以及 PortfolioAnalytics 包的实现]{style="font-size:1.2rem"}
+
+> ```
+> vignette("portfolio_vignette", package = "PortfolioAnalytics")
+> # 31 demos in total
+> demo(package = "PortfolioAnalytics")
+> ``` 
+
+[2. 个人编程作业：复现 / **改进**本讲“3. 案例”的代码]{style="font-size:1.2rem"}
+
+- [综合利用本课程所讲 / 所学知识完成数据导入、清洁 -> 探索性分析 -> 构建投资组合 -> 分析投资组合绩效；]{style="font-size:1.1rem"}
+
+- [使用 📑 Rmd 或 qmd 文档记录你的研究过程（含R代码），并对结果进行简要分析；]{style="font-size:1.1rem"}
+
+- [将 数据、Rmd文档/qmd文档、`knitr`后生成的html文档 等打包为“L12\_投资组合\_[学号].zip”，于12月25日24:00前提交至[{{坚果云收件箱 📬}}](https://send2me.cn/t6dwGFZ-/Tqi83uQyAxrY4g==)。]{style="font-size:1.1rem"}
+
+<!-- [**注：第4项作业的提交截止日期为11月23日24:00**]{style="font-size:1rem; color:red"} -->
+
+<hr>
+

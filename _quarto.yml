@@ -90,6 +90,8 @@ website:
           href: weeks/week-12.qmd
         - text: "📚 制表"
           href: selfs/self-02-gt.qmd
+        - text: "第13周 投资组合优化"
+          href: weeks/week-13.qmd
         - text: "......"
   page-navigation: true
   page-footer:

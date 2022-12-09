@@ -1,0 +1,56 @@
+---
+title: "第 13 周"
+subtitle: "投资组合优化"
+author: 曾永艺
+date: 2022-12-09
+categories: [讲义, 作业]
+image: /slides/lec-12/imgs/Mark2PA.png
+# editor: visual
+---
+
+<hr>
+
+投资组合构建及其优化是现代投资学理论的基础，并普遍应用于投资实践中。本讲课程将主要围绕 PortfolioAnalytics 包展开，讲解其框架与流程，并通过一个跨国投资组合构建的简单算例让同学们对投资组合的构建与优化过程有个直观的认识。内容包括：
+
+1. 投资组合优化的基本概念
+
+2. PortfolioAnalytics 包
+    - 优点
+    - 框架
+    - 流程
+
+3. 案例
+    - 导入并处理全球指数数据集
+    - 探索性数据分析
+    - 等权重基准投资组合
+    - 投资组合优化（基础版）
+    - 投资组合优化（改进版）
+
+<br><hr>
+
+## 1. 课前准备
+
+由于本讲的主体内容在 📖 [*R for Data Science*](https://r4ds.had.co.nz/) 一书中并未涉及，在此不布置课前准备任务。
+
+## 2. 课堂讲义
+
+🖥️[第12讲 投资组合优化](/slides/lec-12/L12_Portfolio.html)
+
+:::{.callout-note appearance="simple"}
+课堂**讲义 PDF 版**和**腾讯会议云录制链接**将分别于课前和课后发布在 QQ 课程群内，请有需要的同学自行下载或观看。
+:::
+
+## 3. 随堂练习
+
+⌨️ [未安排随堂练习时间]
+<!-- (/slides/lec-09/L09_Iteration) -->
+
+## 4. 课后作业
+
+✍️ [具体说明](/hw/hw-13.qmd)
+
+<br>
+
+<!-- ::: {style="font-size:0.875em; text-align:right"} -->
+<!-- 回到 [课程安排](../schedule.qmd) ⏎ -->
+<!-- ::: -->
