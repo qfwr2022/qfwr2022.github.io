@@ -92,6 +92,8 @@ website:
           href: selfs/self-02-gt.qmd
         - text: "第13周 投资组合优化"
           href: weeks/week-13.qmd
+        - text: "第14周 tidymodels机器学习"
+          href: weeks/week-14.qmd
         - text: "......"
   page-navigation: true
   page-footer:

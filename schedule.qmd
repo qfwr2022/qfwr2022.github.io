@@ -32,7 +32,7 @@ tbl-colwidths: [4,9,18,4,4,4,4,10]
 | [12](/weeks/week-12.qmd)  | 2022-12-02  | shiny & *dashboard |    | [🖥️](/slides/lec-10/L10_shiny_dashboard.html "第10讲 shiny & *dashboard") |    | [✍️](/hw/hw-12.qmd "课后作业")   | 👨‍🏫 [报告进展](/project/team-project.html#研究进展汇报) |
 | — | [自学#2](/selfs/self-02-gt.qmd)  | 制表 |    | [🖥️](/slides/lec-11/L11_Tabulation.html "第11讲 制表")  |    |    |    |
 | [13](/weeks/week-13.qmd)  | 2022-12-09  | 投资组合优化 |    | [🖥️](/slides/lec-12/L12_Portfolio.html "第12讲 投资组合优化")  |    | [✍️](/hw/hw-13.qmd "课后作业") |    |
-| [14](/weeks/week-14.qmd)  | 2022-12-16  | tidymodels |    |    |    |    | [🏆 提交成果](/project/team-project.html#最终研究成果提交说明) |
+| [14](/weeks/week-14.qmd)  | 2022-12-16  | tidymodels机器学习 |    | [🖥️](/slides/lec-13/L13_tidymodels.html "第13讲 tidymodels机器学习")  |    | [✍️](/hw/hw-14.qmd "课后作业")  | [🏆 提交成果](/project/team-project.html#最终研究成果提交说明) |
 | ~~15~~^[*]{style="color:red"}^  | ~~2022-12-23~~  | ~~课程回顾与随堂小测~~ |    |    |    |    |    |
 | ~~16~~^[*]{style="color:red"}^  | ~~2022-12-30~~  | ~~小组研究项目展示~~ |    |    |    |    | ~~👨‍🏫 展示分享~~ |
 | [15](/weeks/week-15.qmd)  | 2022-12-23  | 小组研究项目展示 |    |    |    |    | [👨‍🏫 展示分享](/project/team-project.html#展示与分享) |

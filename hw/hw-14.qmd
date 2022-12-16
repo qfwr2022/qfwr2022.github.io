@@ -1,0 +1,25 @@
+---
+title: "第14周课后作业"
+author: 曾永艺
+date: 2022-12-16
+# editor: visual
+---
+
+<hr>
+
+[1. 在 📑 Rmd 中键入并运行第13讲的代码]{style="font-size:1.2rem"}[**（自觉完成，无需提交）**]{style="font-size:1.2rem; color:red"}
+
+[2. 登录 [{{tidymodels}}](https://www.tidymodels.org/) 的主页 🏠，浏览并学习相关资料]{style="font-size:1.2rem"}
+
+[3. 3 本由 tidymodels 核心团队撰写的书 📖，供感兴趣的同学学习参考：]{style="font-size:1.2rem"}
+
+- [[Tidy Modeling with R](https://www.tmwr.org/)]{style="font-size:1.1rem"}
+
+- [[Feature Engineering and Selection](https://bookdown.org/max/FES/)]{style="font-size:1.1rem"}
+
+- [[Supervised Machine Learning for Text Analysis in R](https://smltar.com/)]{style="font-size:1.1rem"}
+
+<!-- [**注：第4项作业的提交截止日期为11月23日24:00**]{style="font-size:1rem; color:red"} -->
+
+<hr>
+
